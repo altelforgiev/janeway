@@ -41,7 +41,7 @@ sys.path.append(os.path.join(BASE_DIR, "plugins"))
 SECRET_KEY = "uxprsdhk^gzd-r=_287byolxn)$k6tsd8_cepl^s^tms2w1qrv"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 COMMAND = sys.argv[1:]
 IN_TEST_RUNNER = COMMAND[:1] == ["test"]
 ALLOWED_HOSTS = ["*"]
@@ -109,6 +109,7 @@ INSTALLED_APPS += plugin_installed_apps.load_homepage_element_apps(BASE_DIR)
 
 MIDDLEWARE = (
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware", # <--- ПЕРЕНЕСИТЕ СЮДА
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -120,7 +121,6 @@ MIDDLEWARE = (
     "core.middleware.MaintenanceModeMiddleware",
     "cron.middleware.CronMiddleware",
     "core.middleware.CounterCookieMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
     "core.middleware.PressMiddleware",
     "core.middleware.GlobalRequestMiddleware",
     "django.middleware.gzip.GZipMiddleware",
@@ -248,24 +248,22 @@ def gettext(s):
     return s
 
 
-LANGUAGES = (
-    ("en", gettext("English")),
-    ("en-us", gettext("English (US)")),
-    ("fr", gettext("French")),
-    ("de", gettext("German")),
-    ("nl", gettext("Dutch")),
-    ("cy", gettext("Welsh")),
-    ("es", gettext("Spanish")),
-)
+# Настройка поддерживаемых языков
+LANGUAGES = [
+    ('en', 'English'),
+    ('ru', 'Русский'),
+    ('kk', 'Қазақша'),
+]
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = "en"
 MODELTRANSLATION_PREPOPULATE_LANGUAGE = "en"
+MODELTRANSLATION_LANGUAGES = ('en', 'ru', 'kk') # Обязательно добавьте эту строку!
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 USE_I18N = True
-USE_L10N = False
+USE_L10N = True
 USE_TZ = True
 
 
@@ -609,6 +607,7 @@ CORE_THEMES = [
     "OLH",
     "material",
     "clean",
+    "BTE",
 ]
 
 # Repository theme setting determines which themes currently
@@ -618,7 +617,7 @@ REPOSITORY_THEMES = [
     "material",
 ]
 
-INSTALLATION_BASE_THEME = "OLH"
+INSTALLATION_BASE_THEME = "BTE"
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 

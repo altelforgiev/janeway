@@ -142,6 +142,7 @@ src/utils/management/commands/test_command.py
 !/src/themes/clean/
 !/src/themes/material/
 !/src/themes/OLH/
+!/src/themes/BTE/
 
 # Static files
 /src/static/*

@@ -1,0 +1,36 @@
+{% load roles i18n hooks next_url %}
+<nav>
+    <div class="top-bar" id="main-menu">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text" style="font-weight: bold; font-size: 1.2rem; color: #c8102e;">
+                    {{ request.journal.name }}
+                </li>
+                {% if request.journal.nav_home %}
+                    <li><a href="{% url 'website_index' %}">{% trans 'Home' %}</a></li>
+                {% endif %}
+                {% if request.journal.nav_news %}
+                    <li><a href="{% url 'core_news_list' %}">{{ journal_settings.news.news_title }}</a></li>
+                {% endif %}
+                {% for item in navigation_items %}
+                    <li><a href="{{ item.url }}">{{ item.link_name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="top-bar-right">
+            <ul class="menu">
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_staff %}
+                        <li><a href="/admin/">{% trans 'Admin Dashboard' %}</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'core_edit_profile' %}">{% trans 'Profile' %}</a></li>
+                    <li><a href="{% url 'core_logout' %}">{% trans 'Logout' %}</a></li>
+                {% else %}
+                    <li><a href="{% url 'core_login' %}">{% trans "Log in" %}</a></li>
+                    <li><a href="{% url 'core_register' %}">{% trans "Register" %}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

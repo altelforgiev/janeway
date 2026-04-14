@@ -1,0 +1,48 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+
+{% block body %}
+<div class="row">
+    <!-- Основной контент: Список статей -->
+    <div class="large-8 columns">
+        <h2 style="border-bottom: 2px solid #c8102e; display: inline-block; margin-bottom: 2rem;">{% trans "Latest Articles" %}</h2>
+
+        {% for element in homepage_elements %}
+            {% if element.name == "article_list_item" or element.name == "issue_block" %}
+                <div class="homepage-element-wrapper">
+                    {% include element.template_path %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% if not homepage_elements %}
+            <p>{% trans "No articles published yet." %}</p>
+        {% endif %}
+    </div>
+
+    <!-- Сайдбар как на JTMAE -->
+    <div class="large-4 columns">
+        <div class="sidebar-box">
+            <h4>{% trans "Journal Tools" %}</h4>
+            <ul class="vertical menu">
+                <li><a href="{% url 'journal_submissions' %}" class="button alert expanded">{% trans "Submit Article" %}</a></li>
+                <li><a href="{% url 'search' %}" class="button secondary expanded">{% trans "Search" %}</a></li>
+            </ul>
+        </div>
+
+        {% for element in homepage_elements %}
+            {% if element.name == "news" or element.name == "about" %}
+                <div class="sidebar-box">
+                    <h4>{{ element.name|capfirst }}</h4>
+                    {% include element.template_path %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <div class="sidebar-box">
+            <h4>{% trans "Information" %}</h4>
+            {% include "elements/right_hand_menu.html" %}
+        </div>
+    </div>
+</div>
+{% endblock body %}

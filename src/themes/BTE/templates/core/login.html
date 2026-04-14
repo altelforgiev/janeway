@@ -1,0 +1,119 @@
+{% extends "core/base.html" %}
+
+{% load i18n %}
+{% load orcid %}
+
+{% block title %}{% trans "Login" %}{% endblock title %}
+
+{% block css %}
+{{ block.super }}
+<style>
+    .login-container {
+        margin: 60px auto;
+        max-width: 450px;
+    }
+    .login-card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-top: 5px solid #003d71; /* Синяя полоса сверху */
+        padding: 30px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .login-card h3 {
+        color: #003d71;
+        font-weight: bold;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    .login-card label {
+        font-weight: 600;
+        color: #555;
+        margin-bottom: 5px;
+        display: block;
+    }
+    .login-card input[type="text"],
+    .login-card input[type="password"],
+    .login-card input[type="email"] {
+        border-radius: 2px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .btn-login {
+        background-color: #c8102e !important; /* Iowa State Red */
+        color: white !important;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 12px;
+        border: none;
+        width: 100%;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .btn-login:hover {
+        background-color: #a00c24 !important;
+    }
+    .login-footer-links {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    .login-footer-links a {
+        color: #003d71;
+    }
+    .orcid-button {
+        background-color: #A6CE39 !important;
+        color: white !important;
+        margin-bottom: 20px !important;
+    }
+</style>
+{% endblock css %}
+
+{% block body %}
+
+<div class="row">
+    <div class="columns login-container">
+        <div class="login-card">
+            <h3>{% trans "Log in" %}</h3>
+
+            <form method="POST">
+                {% include "common/elements/static-error-messages.html" with form=form %}
+                {% csrf_token %}
+
+                {% if settings.ENABLE_ORCID %}
+                    <a href="{{ settings.ORCID_URL }}?client_id={{ settings.ORCID_CLIENT_ID }}&response_type=code&scope=/authenticate&redirect_uri={% orcid_redirect_uri 'login' %}"
+                       class="button expanded orcid-button">
+                       <i class="fa fa-orcid"></i> {% trans "Log in with ORCiD" %}
+                    </a>
+                    <div class="text-center" style="margin-bottom: 20px; color: #888;">— {% trans "or use your account" %} —</div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="id_user_name">{% trans "Username or Email" %}</label>
+                    {{ form.user_name }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_user_pass">{% trans "Password" %}</label>
+                    {{ form.user_pass }}
+                </div>
+
+                {% if form.captcha %}
+                <div class="form-group">
+                    {{ form.captcha }}
+                </div>
+                {% endif %}
+
+                <button type="submit" class="btn-login">{% trans "Log in" %}</button>
+            </form>
+
+            <div class="login-footer-links">
+                <p><a href="{% url 'core_get_reset_token' %}">{% trans "Forgotten your password?" %}</a></p>
+                <hr>
+                <p>{% trans "Don't have an account?" %} <a href="{% url 'core_register' %}"><strong>{% trans "Register here" %}</strong></a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

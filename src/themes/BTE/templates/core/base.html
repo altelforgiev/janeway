@@ -1,0 +1,187 @@
+{% load static %}
+{% load press_url from press_url %}
+{% load svg from press_url %}
+{% load svg_or_image from press_url %}
+{% load i18n %}
+{% load roles %}
+{% load hooks %}
+{% load next_url %}
+
+<!-- BTE_THEME_LOADED_SUCCESSFULLY -->
+<!doctype html>
+<html class="no-js" lang="{{ request.current_language }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>{% block title %}{{ request.journal.name }}{% endblock title %}</title>
+    {% block head %}{% endblock head %}
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="{% url 'website_sitemap' %}">
+    <link href="{% static "OLH/css/app.css" %}" rel="stylesheet">
+    <link href="{% static "common/css/index.css" %}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
+    {% if request.journal %}
+        <link href="{% static "OLH/css/default_override.css" %}" rel="stylesheet">
+        <link href="{% static "OLH/css/journal" %}{{ request.journal.id }}_override.css" rel="stylesheet">
+    {% elif request.press %}
+        <link href="{% static "OLH/css/press_override.css" %}" rel="stylesheet">
+    {% endif %}
+
+    <script src="https://use.typekit.net/lff8ikn.js"></script>
+    <script>try {
+        Typekit.load({async: true});
+    } catch (e) {
+    }</script>
+
+    {% block css %}
+    <style>
+    /* Общий фон и шрифты */
+    body {
+        background-color: #ffffff;
+        font-family: "Nimbus Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #333;
+    }
+
+    /* Верхняя панель (Iowa State Blue) */
+    .main-header {
+        background-color: #003d71;
+        border-bottom: 4px solid #c8102e; /* Красная линия под хедером */
+    }
+    .top-bar {
+        background-color: #003d71;
+        color: #ffffff;
+    }
+    .top-bar ul { background-color: #003d71; }
+    .top-bar a { color: #ffffff !important; font-weight: 600; }
+    .top-bar a:hover { color: #e5e5e5 !important; }
+
+    /* Навигация (вторая линия) */
+    .top-nav {
+        background-color: #f1f1f1;
+        border-bottom: 1px solid #ddd;
+    }
+    .top-nav a { color: #444 !important; text-transform: uppercase; font-size: 0.9rem; }
+
+    /* Карточки статей как на JTMAE */
+    .article-card {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 1rem;
+    }
+    .article-card h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.25rem;
+        font-family: "serif"; /* Засечки для заголовков */
+    }
+    .article-card h2 a {
+        color: #003d71;
+        text-decoration: none;
+    }
+    .article-card h2 a:hover {
+        text-decoration: underline;
+    }
+    .article-authors {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 0.5rem;
+    }
+    .article-abstract {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #444;
+    }
+    .article-actions {
+        margin-top: 1rem;
+    }
+    .btn-pdf {
+        background-color: #c8102e;
+        color: #fff !important;
+        padding: 4px 12px;
+        border-radius: 2px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    /* Сайдбар */
+    .sidebar-box {
+        background: #f9f9f9;
+        padding: 1rem;
+        border: 1px solid #eee;
+        margin-bottom: 1.5rem;
+    }
+    .sidebar-box h4 {
+        border-bottom: 2px solid #003d71;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        color: #003d71;
+        font-size: 1.1rem;
+    }
+</style>
+{% endblock %}
+
+    {% hook 'base_head_css' %}
+    {% include "common/elements/favicons.html" %}
+</head>
+<body>
+{% include "common/elements/skip_to_main_content.html" %}
+<div class="wrapper">
+    <header class="main-header">
+        <div class="main top-bar">
+            <div class="top-bar-left">
+                {% if request.journal %}
+                    <a title="{% trans 'Home' %}" href="{{ request.journal.site_url }}">
+                        {% if request.journal.header_image %}
+                            {% svg_or_image request.journal.header_image css_class='header-image top-bar-image' %}
+                        {% else %}
+                             <span style="font-size: 1.5rem; color: white;">{{ request.journal.name }}</span>
+                        {% endif %}
+                    </a>
+                {% endif %}
+            </div>
+
+            <div class="top-bar-right">
+                <ul class="dropdown menu" data-dropdown-menu>
+                    {% if request.user.is_authenticated %}
+                        <li><a href="#">{{ request.user.full_name }}</a></li>
+                    {% else %}
+                        <li><a href="{% url 'core_login' %}">{% trans "Log in" %}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    {% block navbar %}
+    <nav class="top-nav">
+        <div class="row">
+            <div class="large-12 columns">
+                {% include "core/nav.html" %}
+            </div>
+        </div>
+    </nav>
+    {% endblock navbar %}
+
+    <main id="main-content" style="padding-top: 2rem;">
+        {% block body %}{% endblock body %}
+    </main>
+</div>
+
+<footer class="main-footer" style="background: #003d71; color: white; padding: 3rem 0; margin-top: 4rem;">
+    <div class="row">
+        <div class="large-4 columns">
+             <h5>{{ request.journal.name }}</h5>
+        </div>
+        <div class="large-8 columns">
+            {% include "elements/journal_footer.html" %}
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/js/foundation.min.js"></script>
+{% block js %}{% endblock %}
+</body>
+</html>
