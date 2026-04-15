@@ -30,6 +30,9 @@ from utils.const import get_allowed_html_tags, get_allowed_css_styles
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 PROJECT_DIR = os.path.dirname(BASE_DIR)
 sys.path.append(os.path.join(BASE_DIR, "plugins"))
 

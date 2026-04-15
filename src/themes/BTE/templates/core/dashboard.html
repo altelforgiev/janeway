@@ -1,0 +1,103 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Dashboard" %}{% endblock title %}
+
+{% block css %}
+{{ block.super }}
+<style>
+    .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #c8102e;
+    }
+    .stat-label {
+        font-size: 0.9rem;
+        color: #666;
+        text-transform: uppercase;
+    }
+    .dashboard-list {
+        list-style: none;
+        margin: 0;
+    }
+    .dashboard-list li {
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .dashboard-list li:last-child {
+        border-bottom: none;
+    }
+</style>
+{% endblock css %}
+
+{% block body %}
+<section id="content">
+<div class="row columns">
+    <div class="large-8">
+        <h1>{% trans "Dashboard" %}</h1>
+        <p class="lead">{{ request.user.full_name }}</p>
+        <hr aria-hidden="true" />
+
+        <div class="dashboard-section">
+            <h4>{% trans "Your Submissions" %}</h4>
+            {% if active_submissions %}
+                <ul class="dashboard-list">
+                {% for article in active_submissions %}
+                    <li>
+                        <strong><a href="{% url 'core_dashboard_article' article.pk %}">{{ article.title|safe }}</a></strong>
+                        <br>
+                        <span class="label secondary">{{ article.get_stage_display }}</span>
+                        <small class="float-right text-muted">{{ article.date_submitted|date }}</small>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>{% trans "You have no active submissions." %}</p>
+                <a href="{% url 'submission_start' %}" class="button alert small">{% trans "Start New Submission" %}</a>
+            {% endif %}
+        </div>
+        <hr aria-hidden="true" />
+
+        {% if is_editor %}
+        <div class="dashboard-section">
+            <h4>{% trans "Editor Tasks" %}</h4>
+            <div class="row text-center">
+                <div class="large-4 columns">
+                    <div class="stat-number">{{ unassigned_articles_count }}</div>
+                    <div class="stat-label">{% trans "Unassigned" %}</div>
+                </div>
+                <div class="large-4 columns">
+                    <div class="stat-number">{{ assigned_articles_count }}</div>
+                    <div class="stat-label">{% trans "In Review" %}</div>
+                </div>
+                <div class="large-4 columns">
+                    <div class="stat-number">{{ prepub_articles_count }}</div>
+                    <div class="stat-label">{% trans "Ready to Publish" %}</div>
+                </div>
+            </div>
+            <br>
+            <a href="{% url 'kanban' %}" class="button secondary small expanded">{% trans "Go to Editorial Workflow" %}</a>
+        </div>
+        <hr aria-hidden="true" />
+        {% endif %}
+
+        <div class="dashboard-section">
+            <h4>{% trans "Quick Actions" %}</h4>
+            <div class="button-group">
+                <a href="{% url 'submission_start' %}" class="button alert">{% trans "Submit an Article" %}</a>
+                <a href="{% url 'core_edit_profile' %}" class="button secondary">{% trans "Edit Profile" %}</a>
+            </div>
+        </div>
+        <hr aria-hidden="true" />
+
+        <div class="dashboard-section">
+            <h4>{% trans "Account Info" %}</h4>
+            <p><strong>{% trans "Role" %}:</strong>
+                {% if is_editor %}{% trans "Editor" %}{% elif is_author %}{% trans "Author" %}{% else %}{% trans "User" %}{% endif %}
+            </p>
+            <p><strong>{% trans "Email" %}:</strong> {{ request.user.email }}</p>
+        </div>
+    </div>
+</div>
+</section>
+{% endblock body %}

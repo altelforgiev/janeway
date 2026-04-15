@@ -1,0 +1,100 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load hooks %}
+{% load foundation %}
+
+{% block title %}{% trans "Start Submission" %}{% endblock title %}
+
+{% block css %}
+{{ block.super }}
+<link href="{% static 'BTE/css/timeline.css' %}" rel="stylesheet">
+<style>
+    /* Сюда можно добавить стили, уникальные только для процесса подачи */
+</style>
+{% endblock css %}
+
+{% block body %}
+<div class="row">
+    <div class="large-12 columns">
+        {% include "admin/submission/timeline.html" %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-10 large-centered columns">
+        <div class="bte-card bte-card--red">
+            <h2>{% trans "Submission Agreements" %}</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <!-- Замена встроенного include на надежную локальную верстку -->
+                {% if messages or form.non_field_errors %}
+                <div class="error-callout">
+                    {% for message in messages %}
+                        <div><i class="fa fa-info-circle"></i> {{ message }}</div>
+                    {% endfor %}
+                    {% if form.non_field_errors %}
+                        <strong>{% trans 'Problems processing the form:' %}</strong>
+                        <ul>
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                {% if request.journal.submissionconfiguration.publication_fees or request.journal.submissionconfiguration.submission_check or request.journal.submissionconfiguration.copyright_notice %}
+                    <p class="lead">{% trans 'All authors must agree to the below statements in order to proceed.' %}</p>
+                {% endif %}
+
+                {% if request.journal.submissionconfiguration.publication_fees %}
+                    <h4>{% trans "Publication Fees" %}</h4>
+                    <div class="content-box">
+                        {{ journal_settings.general.publication_fees|safe }}
+                        {% hook 'publication_fees' %}
+                        <div style="margin-top: 15px;">
+                            {{ form.publication_fees }} <label for="id_publication_fees"><strong>{% trans "I agree to the publication fees statement." %}</strong></label>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if request.journal.submissionconfiguration.submission_check %}
+                    <h4>{% trans "Submission Checklist" %}</h4>
+                    <div class="content-box">
+                        {{ journal_settings.general.submission_checklist|safe }}
+                        <div style="margin-top: 15px;">
+                            {{ form.submission_requirements }} <label for="id_submission_requirements"><strong>{% trans "I confirm that this article adheres to the requirements." %}</strong></label>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if request.journal.submissionconfiguration.copyright_notice %}
+                    <h4>{% trans "Copyright Notice" %}</h4>
+                    <div class="content-box">
+                        {{ journal_settings.general.copyright_notice|safe }}
+                        <div style="margin-top: 15px;">
+                            {{ form.copyright_notice }} <label for="id_copyright_notice"><strong>{{ form.copyright_notice.label|safe }}</strong></label>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if request.journal.submissionconfiguration.competing_interests %}
+                    <h4>{% trans "Competing Interests" %}</h4>
+                    <div class="content-box">
+                        {{ form.competing_interests|foundation }}
+                    </div>
+                {% endif %}
+
+                <div class="text-right" style="margin-top: 40px;">
+                    <button class="btn-submit" type="submit" name="start_submission">
+                        <i class="fa fa-check"></i> {% trans "Start Submission" %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

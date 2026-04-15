@@ -10,9 +10,10 @@
 {% block body %}
 
     <section id="content">
-        <div class="row column">
-            <div class="large-12 columns">
+        <div class="row columns">
+            <div class="large-8">
                 <h1>{% trans "About" %} {{ request.repository.name }}</h1>
+                <hr aria-hidden="true" />
                 {{ request.repository.about|safe }}
             </div>
         </div>

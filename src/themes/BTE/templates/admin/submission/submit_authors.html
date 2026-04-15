@@ -1,0 +1,103 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load foundation %}
+
+{% block title %}{% trans "Author Information" %}{% endblock title %}
+
+{% block css %}
+{{ block.super }}
+<link href="{% static 'BTE/css/timeline.css' %}" rel="stylesheet">
+<style>
+    .submission-card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-top: 5px solid #c8102e;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .submission-card h3 { color: #003d71; font-weight: bold; margin-bottom: 20px; }
+    .submission-card h5 { font-weight: 600; margin-bottom: 15px; }
+    .callout { background: #f9f9f9; padding: 20px; border: 1px solid #eee; margin-bottom: 20px; }
+    .btn-bte { background-color: #003d71 !important; color: white !important; font-weight: bold; }
+    .btn-bte:hover { background-color: #002a4d !important; }
+    .btn-finish { background-color: #c8102e !important; color: white !important; font-weight: bold; padding: 12px 30px; }
+</style>
+{% endblock css %}
+
+{% block body %}
+<div class="row">
+    <div class="large-12 columns">
+        <!-- Возвращаем прогресс-бар -->
+        {% include "admin/submission/timeline.html" %}
+
+        <div class="submission-card">
+            <div style="font-size: 0.9rem; color: #888; text-transform: uppercase;">{% trans "Step 3 of 5" %}</div>
+            <h3>{% trans "Author Information" %}</h3>
+
+            {% include "elements/current_authors.html" %}
+        </div>
+
+        <div class="row">
+            <!-- Поиск и добавление себя -->
+            <div class="large-5 columns">
+                <div class="submission-card" style="border-top-color: #003d71;">
+                    <h5>{% trans "Quick Add" %}</h5>
+
+                    {% if request.user not in article.author_accounts %}
+                    <form method="POST" style="margin-bottom: 20px;">
+                        {% csrf_token %}
+                        <input type="hidden" name="author_search_text" value="{{ request.user.email }}">
+                        <button class="button secondary expanded" name="search_authors">
+                            <i class="fa fa-plus-circle"></i> {% trans "Add Self as Author" %}
+                        </button>
+                    </form>
+                    {% endif %}
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <label><strong>{% trans "Search by Email or ORCID" %}</strong></label>
+                        <input name="author_search_text" placeholder="e.g. 0000-0001-2345-6789" type="search">
+                        <button type="submit" class="button btn-bte expanded" name="search_authors">
+                            <i class="fa fa-search"></i> {% trans "Search and Add" %}
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Ручное добавление -->
+            <div class="large-7 columns">
+                <div class="submission-card" style="border-top-color: #003d71;">
+                    <h5>{% trans "Add Author Manually" %}</h5>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="large-4 columns">{{ new_author_form.first_name|foundation }}</div>
+                            <div class="large-4 columns">{{ new_author_form.middle_name|foundation }}</div>
+                            <div class="large-4 columns">{{ new_author_form.last_name|foundation }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="large-6 columns">{{ new_author_form.frozen_email|foundation }}</div>
+                            <div class="large-6 columns">{{ new_author_form.display_email|foundation }}</div>
+                        </div>
+                        <button name="add_author" class="button btn-bte">
+                            <i class="fa fa-user-plus"></i> {% trans "Add Manual Author" %}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Переход к следующему шагу -->
+        <div class="text-right" style="margin-top: 20px; margin-bottom: 60px;">
+            <form method="POST">
+                {% csrf_token %}
+                <button class="btn-finish" type="submit" name="save_continue">
+                    {% trans "Save and Continue" %} →
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

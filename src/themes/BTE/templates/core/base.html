@@ -30,97 +30,200 @@
     {% endif %}
 
     <script src="https://use.typekit.net/lff8ikn.js"></script>
-    <script>try {
-        Typekit.load({async: true});
-    } catch (e) {
-    }</script>
+    <script>try { Typekit.load({async: true}); } catch (e) {}</script>
 
     {% block css %}
     <style>
-    /* Общий фон и шрифты */
-    body {
-        background-color: #ffffff;
-        font-family: "Nimbus Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        color: #333;
-    }
+        /* =========================================
+           ГЛОБАЛЬНЫЕ СТИЛИ ТЕМЫ BTE 
+           (на основе дизайна Submissions)
+           ========================================= */
 
-    /* Верхняя панель (Iowa State Blue) */
-    .main-header {
-        background-color: #003d71;
-        border-bottom: 4px solid #c8102e; /* Красная линия под хедером */
-    }
-    .top-bar {
-        background-color: #003d71;
-        color: #ffffff;
-    }
-    .top-bar ul { background-color: #003d71; }
-    .top-bar a { color: #ffffff !important; font-weight: 600; }
-    .top-bar a:hover { color: #e5e5e5 !important; }
+        :root {
+            --bte-blue: #003d71;
+            --bte-red: #c8102e;
+            --primary-dark-color: #062657;
+            --primary-light-color: #2199e8;
+            --topbar-background-color: #FFFFFF;
+            --link-color: #2199e8;
+            --step-1: clamp(0.7813rem, 0.7747rem + 0.0326vi, 0.8rem);
+            --step-2: clamp(0.9375rem, 0.9158rem + 0.1087vi, 1rem);
+            --step-3: clamp(1.125rem, 1.0815rem + 0.2174vi, 1.25rem);
+            --step-4: clamp(1.35rem, 1.2761rem + 0.3696vi, 1.5625rem);
+            --step-5: clamp(1.62rem, 1.5041rem + 0.5793vi, 1.9531rem);
+            --step-6: clamp(1.944rem, 1.771rem + 0.8651vi, 2.4414rem);
+            --step-7: clamp(2.3328rem, 2.0827rem + 1.2504vi, 3.0518rem);
+            --step-8: clamp(2.7994rem, 2.4462rem + 1.7658vi, 3.8147rem);
+            --step-9: clamp(3.3592rem, 2.8691rem + 2.4507vi, 4.7684rem);
+            --bte-gold: #ffcc00;
+            --bte-light-grey: #f1f1f1;
+            --link-color-hover: #1585cf;
+            --text-main: #333333;
+            --border-light: #eeeeee;
+            --focus-ring-size: 4px;
+        }
 
-    /* Навигация (вторая линия) */
-    .top-nav {
-        background-color: #f1f1f1;
-        border-bottom: 1px solid #ddd;
-    }
-    .top-nav a { color: #444 !important; text-transform: uppercase; font-size: 0.9rem; }
+        /* 1. Общий фон и шрифт текста */
+        body {
+            background-color: #ffffff;
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+        }
 
-    /* Карточки статей как на JTMAE */
-    .article-card {
-        padding: 1.5rem 0;
-        border-bottom: 1px solid #eee;
-        margin-bottom: 1rem;
-    }
-    .article-card h2 {
-        font-size: 1.25rem;
-        margin-bottom: 0.25rem;
-        font-family: "serif"; /* Засечки для заголовков */
-    }
-    .article-card h2 a {
-        color: #003d71;
-        text-decoration: none;
-    }
-    .article-card h2 a:hover {
-        text-decoration: underline;
-    }
-    .article-authors {
-        font-style: italic;
-        color: #666;
-        margin-bottom: 0.5rem;
-    }
-    .article-abstract {
-        font-size: 0.95rem;
-        line-height: 1.5;
-        color: #444;
-    }
-    .article-actions {
-        margin-top: 1rem;
-    }
-    .btn-pdf {
-        background-color: #c8102e;
-        color: #fff !important;
-        padding: 4px 12px;
-        border-radius: 2px;
-        font-size: 0.8rem;
-        font-weight: bold;
-        display: inline-block;
-    }
+        /* Минималистичная Шапка и Меню */
+        .main-header { 
+            background-color: #ffffff; 
+            border-bottom: 2px solid var(--bte-red); 
+        }
+        .top-bar, .top-bar ul, .top-bar li { background-color: #ffffff !important; }
+        .top-bar a { 
+            color: var(--text-main) !important; 
+            font-weight: normal !important; 
+            text-decoration: none !important;
+        }
+        .top-bar .menu a:hover { color: var(--link-color-hover) !important; background-color: #f9f9f9; text-decoration: none !important; }
+        
+        .top-bar .menu-text { 
+            font-family: "Merriweather", serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1;
+            padding: 0.7rem 1rem;
+            vertical-align: middle;
+            display: table-cell;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #c8102e !important;
+        }
 
-    /* Сайдбар */
-    .sidebar-box {
-        background: #f9f9f9;
-        padding: 1rem;
-        border: 1px solid #eee;
-        margin-bottom: 1.5rem;
-    }
-    .sidebar-box h4 {
-        border-bottom: 2px solid #003d71;
-        padding-bottom: 5px;
-        margin-bottom: 15px;
-        color: #003d71;
-        font-size: 1.1rem;
-    }
-</style>
-{% endblock %}
+        /* Минималистичная вторичная навигация */
+        .top-nav { background-color: #ffffff; border-bottom: 1px solid var(--border-light); position: relative; }
+        .top-nav a { color: #666 !important; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
+        .top-nav a:hover { color: var(--bte-red) !important; }
+
+        /* 2. Типографика: Заголовки и текст */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Proxima Nova", Montserrat, Helvetica, Roboto, Arial, sans-serif;
+            color: #222222;
+            font-weight: 300;
+            line-height: 1.4;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #main-content h1, #content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        #main-content h2, #content h2 { font-size: 1.5rem; color: var(--text-main); border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem; }
+
+        p { margin-bottom: 1.5rem; font-size: 1.05rem; color: #444444; }
+
+        /* 3. Ссылки */
+        a {
+            font-family: "Merriweather", serif;
+            font-weight: 300;
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a:hover {
+            color: var(--link-color-hover);
+            text-decoration: none;
+        }
+
+        /* 4. Разделительные линии и контейнеры */
+        hr {
+             border: 0 !important;
+             border-top: 2px solid var(--bte-red) !important;
+             margin: 2.5rem 0;
+             opacity: 0.4 !important;
+        }
+
+        /* Стили для сайдбара (минимализм Iowa State) */
+        .sidebar-box {
+            margin-bottom: 2.5rem;
+            padding: 0;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+         /* Жесткое удаление цветных фонов из любых контейнеров в сайдбаре (About, News и т.д.) */
+         .sidebar-box .callout,
+         .sidebar-box .card,
+         .sidebar-box .box,
+         .sidebar-box [class*="primary"],
+         .sidebar-box [class*="secondary"],
+         .sidebar-box [class*="info"] {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            color: var(--text-main) !important;
+        }
+
+        /* Гарантируем видимость текста и ссылок внутри очищенных блоков сайдбара */
+        .sidebar-box [class*="primary"] *,
+        .sidebar-box [class*="secondary"] *,
+        .sidebar-box [class*="info"] *,
+        .sidebar-box .callout * {
+            color: var(--text-main) !important;
+        }
+
+        .sidebar-box h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--bte-blue);
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--bte-red);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-box        .homepage-element-wrapper, .article-list-item, .box {
+             border-color: rgba(200, 16, 46, 0.3) !important;
+         }
+
+        #main-content, #content {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            padding-bottom: 4rem;
+        }
+
+        /* 5. Кнопки */
+        .button, .btn, .btn-submit, .btn-pdf, .btn-finish {
+            display: inline-block;
+            padding: 0.85em 1.5em;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Цвета кнопок */
+        .button, .btn-bte, .btn-submit { background-color: var(--bte-blue) !important; color: #ffffff !important; }
+        .btn-pdf, .btn-finish, .button.alert { background-color: var(--bte-red) !important; color: #ffffff !important; }
+
+        .button:hover, .btn:hover, .btn-submit:hover {
+            opacity: 0.9;
+            color: #ffffff !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* 6. Иконки-статусы */
+        .fa-check { color: #28a745 !important; }
+        .fa-times { color: #dc3545 !important; }
+
+        /* Футер */
+        footer.main-footer { background: #fdfdfd; color: #666; border-top: 1px solid var(--border-light); padding: 3rem 0; margin-top: 4rem; }
+    </style>
+    {% endblock %}
 
     {% hook 'base_head_css' %}
     {% include "common/elements/favicons.html" %}
@@ -136,7 +239,7 @@
                         {% if request.journal.header_image %}
                             {% svg_or_image request.journal.header_image css_class='header-image top-bar-image' %}
                         {% else %}
-                             <span style="font-size: 1.5rem; color: white;">{{ request.journal.name }}</span>
+                             <span class="menu-text">{{ request.journal.name }}</span>
                         {% endif %}
                     </a>
                 {% endif %}
@@ -145,9 +248,11 @@
             <div class="top-bar-right">
                 <ul class="dropdown menu" data-dropdown-menu>
                     {% if request.user.is_authenticated %}
-                        <li><a href="#">{{ request.user.full_name }}</a></li>
+                        <li><a href="{% url 'core_dashboard' %}">{{ request.user.full_name }}</a></li>
+                        <li><a href="{% url 'core_logout' %}">{% trans "Logout" %}</a></li>
                     {% else %}
                         <li><a href="{% url 'core_login' %}">{% trans "Log in" %}</a></li>
+                        <li><a href="{% url 'core_register' %}">{% trans "Register" %}</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -164,15 +269,16 @@
     </nav>
     {% endblock navbar %}
 
-    <main id="main-content" style="padding-top: 2rem;">
+    <main id="main-content" style="padding-top: 2rem; min-height: 60vh;">
         {% block body %}{% endblock body %}
     </main>
 </div>
 
-<footer class="main-footer" style="background: #003d71; color: white; padding: 3rem 0; margin-top: 4rem;">
+<footer class="main-footer">
     <div class="row">
         <div class="large-4 columns">
              <h5>{{ request.journal.name }}</h5>
+             <p style="font-size: 0.8rem; opacity: 0.7;">Powered by Janeway</p>
         </div>
         <div class="large-8 columns">
             {% include "elements/journal_footer.html" %}
@@ -182,6 +288,11 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/js/foundation.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(document).foundation();
+    });
+</script>
 {% block js %}{% endblock %}
 </body>
 </html>
