@@ -30,9 +30,6 @@ from utils.const import get_allowed_html_tags, get_allowed_css_styles
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
-]
 PROJECT_DIR = os.path.dirname(BASE_DIR)
 sys.path.append(os.path.join(BASE_DIR, "plugins"))
 
@@ -47,7 +44,8 @@ SECRET_KEY = "uxprsdhk^gzd-r=_287byolxn)$k6tsd8_cepl^s^tms2w1qrv"
 DEBUG = True
 COMMAND = sys.argv[1:]
 IN_TEST_RUNNER = COMMAND[:1] == ["test"]
-ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = os.environ.get("JANEWAY_ALLOWED_HOSTS", "localhost").split(",")
 
 FILE_UPLOAD_PERMISSIONS = 0o644
 
@@ -78,6 +76,8 @@ INSTALLED_APPS = [
     "metrics",
     "comms",
     "press",
+
+
     "production",
     "proofing",
     "review",
@@ -243,7 +243,8 @@ else:
 LANGUAGE_CODE = "en"
 TIME_ZONE = "UTC"
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, "core", "locales")
+    os.path.join(BASE_DIR, "core", "locales"),
+    os.path.join(BASE_DIR, "locale"),
 ] + plugin_installed_apps.load_plugin_locales(BASE_DIR)
 
 
