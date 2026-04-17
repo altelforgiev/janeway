@@ -4,14 +4,14 @@
 {% block body %}
 <section id="content">
 <div class="row columns">
-    <!-- Основной контент: Список статей -->
+    <!-- Основной контент -->
     <div class="large-8 columns">
         <h1>{% trans "Latest Articles" %}</h1>
         <hr aria-hidden="true" />
 
         {% for element in homepage_elements %}
-            {% if element.name|lower == "article_list_item" or element.name|lower == "issue_block" %}
-                <div class="homepage-element-wrapper">
+            {% if element.name|lower != "news" and element.name|lower != "about" %}
+                <div class="homepage-element-wrapper homepage-element-{{ element.name|slugify }}">
                     {% include element.template_path %}
                 </div>
             {% endif %}
@@ -22,19 +22,11 @@
         {% endif %}
     </div>
 
-    <!-- Сайдбар как на JTMAE -->
+    <!-- Сайдбар -->
     <div class="large-4 columns">
-        <div class="sidebar-box">
-            <h4><i class="fa fa-wrench"></i> {% trans "Journal Tools" %}</h4>
-            <ul class="vertical menu">
-                <li><a href="{% url 'journal_submissions' %}" class="button alert expanded">{% trans "Submit Article" %}</a></li>
-                <li><a href="{% url 'search' %}" class="button secondary expanded">{% trans "Search" %}</a></li>
-            </ul>
-        </div>
-
          {% for element in homepage_elements %}
              {% if element.name|lower == "news" or element.name|lower == "about" %}
-                 <div class="sidebar-box">
+                 <div class="sidebar-box homepage-element-{{ element.name|slugify }}">
                      <h4>
                          {% if element.name|lower == "news" %}
                              <i class="fa fa-newspaper-o"></i>

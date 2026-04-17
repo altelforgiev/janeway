@@ -4,43 +4,30 @@
 {% load i18n %}
 {% load dates %}
 
-<section aria-labelledby="latest-news-title">
-    <div class="row">
-        <div class="large-12 columns">
-            <div class="row column text-center">
-                <h2 class="title" id="latest-news-title">{% trans 'Latest' %} {{ journal_settings.news.news_title }} {% trans "Posts" %}</h2>
-            </div>
-            <div class="row">
-            {% for item in news_items %}
-                {% if display_images %}
-                    {% if item.large_image_file or request.journal and request.journal.default_large_image or request.press.default_carousel_image %}
-                        <div class="large-5 columns">
-                            <a href="{% url 'core_news_item' item.pk %}"><img
-                                    class="news-image"
-                                    src="{{ item.best_image_url }}"
-                                    alt="{{ item.best_large_image_alt_text }}"/></a>
-                        </div>
-                    {% endif %}
-                {% endif %}
-                {% if display_images %}
-                    <div class="large-7 columns">
-                {% endif %}
-                <h3 id="news-{{ item.pk }}">{{ item.title|safe }}</h3>
-                <p class="byline">{{ item.byline }} {% trans "on" %} {{ item.posted|date_human }}</p>
-                <p>{{ item.body|striptags|truncatesmart:400 }}</p>
-                <a class="button" href="{% url 'core_news_item' item.pk %}"
-                    aria-describedby="news-{{ item.pk }}"
-                    >
-                    {% trans "Read More" %}
-                </a>
-                {% if display_images %}
-                    </div>
-                {% endif %}
-                <hr aria-hidden="true" />
-            {% empty %}
-                <h3>{% trans "This journal currently has no news items to display" %}.</h3>
-            {% endfor %}
-            </div>
+<div class="news-list">
+    {% for item in news_items %}
+        <div class="news-item" style="margin-bottom: 2rem;">
+            {% if display_images and item.best_image_url %}
+                <div class="news-image-wrapper" style="margin-bottom: 1rem;">
+                    <a href="{% url 'core_news_item' item.pk %}">
+                        <img src="{{ item.best_image_url }}" alt="{{ item.best_large_image_alt_text }}" style="width: 100%; border-radius: 4px;"/>
+                    </a>
+                </div>
+            {% endif %}
+
+            <h5 style="margin-top: 0; font-weight: bold;">
+                <a href="{% url 'core_news_item' item.pk %}" style="color: inherit;">{{ item.title|safe }}</a>
+            </h5>
+            <p class="byline" style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 0.5rem;">
+                {{ item.posted|date_human }}
+            </p>
+            <p style="font-size: 0.95rem; line-height: 1.5;">{{ item.body|striptags|truncatesmart:150 }}</p>
+            <a href="{% url 'core_news_item' item.pk %}" style="font-weight: bold; font-size: 0.9rem;">
+                {% trans "Read More" %} →
+            </a>
         </div>
-    </div>
-</section>
+        {% if not forloop.last %}<hr style="margin: 1.5rem 0; border-top: 1px solid #eee !important; opacity: 1 !important;">{% endif %}
+    {% empty %}
+        <p>{% trans "No news items to display" %}.</p>
+    {% endfor %}
+</div>
