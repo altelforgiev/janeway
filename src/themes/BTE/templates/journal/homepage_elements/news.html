@@ -1,0 +1,33 @@
+{% load svg from press_url %}
+{% load truncate %}
+{% load escaping %}
+{% load i18n %}
+{% load dates %}
+
+<div class="news-list">
+    {% for item in news_items %}
+        <div class="news-item" style="margin-bottom: 2rem;">
+            {% if display_images and item.best_image_url %}
+                <div class="news-image-wrapper" style="margin-bottom: 1rem;">
+                    <a href="{% url 'core_news_item' item.pk %}">
+                        <img src="{{ item.best_image_url }}" alt="{{ item.best_large_image_alt_text }}" style="width: 100%; border-radius: 4px;"/>
+                    </a>
+                </div>
+            {% endif %}
+
+            <h5 style="margin-top: 0; font-weight: bold;">
+                <a href="{% url 'core_news_item' item.pk %}" style="color: inherit;">{{ item.title|safe }}</a>
+            </h5>
+            <p class="byline" style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 0.5rem;">
+                {{ item.posted|date_human }}
+            </p>
+            <p style="font-size: 0.95rem; line-height: 1.5;">{{ item.body|striptags|truncatesmart:150 }}</p>
+            <a href="{% url 'core_news_item' item.pk %}" style="font-weight: bold; font-size: 0.9rem;">
+                {% trans "Read More" %} →
+            </a>
+        </div>
+        {% if not forloop.last %}<hr style="margin: 1.5rem 0; border-top: 1px solid #eee !important; opacity: 1 !important;">{% endif %}
+    {% empty %}
+        <p>{% trans "No news items to display" %}.</p>
+    {% endfor %}
+</div>

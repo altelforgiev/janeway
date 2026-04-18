@@ -1,0 +1,45 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+
+{% block body %}
+<section id="content">
+<div class="row columns">
+    <!-- Основной контент -->
+    <div class="large-8 columns">
+        <h1>{% trans "Latest Articles" %}</h1>
+        <hr aria-hidden="true" />
+
+        {% for element in homepage_elements %}
+            {% if element.name|lower != "news" and element.name|lower != "about" %}
+                <div class="homepage-element-wrapper homepage-element-{{ element.name|slugify }}">
+                    {% include element.template_path %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% if not homepage_elements %}
+            <p>{% trans "No articles published yet." %}</p>
+        {% endif %}
+    </div>
+
+    <!-- Сайдбар -->
+    <div class="large-4 columns">
+         {% for element in homepage_elements %}
+             {% if element.name|lower == "news" or element.name|lower == "about" %}
+                 <div class="sidebar-box homepage-element-{{ element.name|slugify }}">
+                     <h4>
+                         {% if element.name|lower == "news" %}
+                             <i class="fa fa-newspaper-o"></i>
+                         {% else %}
+                             <i class="fa fa-info-circle"></i>
+                         {% endif %}
+                         {{ element.name|capfirst }}
+                     </h4>
+                     {% include element.template_path %}
+                 </div>
+             {% endif %}
+        {% endfor %}
+    </div>
+</div>
+</section>
+{% endblock body %}
