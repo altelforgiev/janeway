@@ -38,7 +38,7 @@ sys.path.append(os.path.join(BASE_DIR, "plugins"))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # You should change this key before you go live!
-SECRET_KEY = "uxprsdhk^gzd-r=_287byolxn)$k6tsd8_cepl^s^tms2w1qrv"
+SECRET_KEY = "SECRET_KEY"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
