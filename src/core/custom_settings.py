@@ -56,6 +56,8 @@ MIDDLEWARE = (
     "simple_history.middleware.HistoryRequestMiddleware",
 )
 
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # --- Theme Customization ---
 if "BTE" not in CORE_THEMES:
@@ -74,6 +76,3 @@ if os.environ.get("DB_VENDOR") == "postgres":
         "HOST": os.environ.get("DB_HOST", "janeway-postgres"),
         "PORT": os.environ.get("DB_PORT", "5432"),
     })
-
-USE_X_FORWARDED_HOST = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
