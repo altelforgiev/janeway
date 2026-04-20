@@ -11,7 +11,7 @@ DEBUG = os.environ.get("DEBUG", "False") == "True"
 # --- Security & Debug ---
 # Лучше использовать os.environ.get для DEBUG, чтобы на боевом сервере случайно не включить его
 DEBUG = os.environ.get("DEBUG", "False") == "True"
-ALLOWED_HOSTS = os.environ.get("JANEWAY_ALLOWED_HOSTS", "localhost").split(",")
+#ALLOWED_HOSTS = os.environ.get("JANEWAY_ALLOWED_HOSTS", "localhost").split(",")
 
 
 # --- Internationalization (Ваши настройки для 3-х языков) ---
