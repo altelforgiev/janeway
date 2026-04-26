@@ -6,8 +6,7 @@
 <div class="row columns">
     <!-- Основной контент -->
     <div class="large-8 columns">
-        <h1>{% trans "Latest Articles" %}</h1>
-        <hr aria-hidden="true" />
+        <h1 class="sr-only">{{ request.journal.name }} {% trans 'Home Page' %} </h1>
 
         {% for element in homepage_elements %}
             {% if element.name|lower != "news" and element.name|lower != "about" %}

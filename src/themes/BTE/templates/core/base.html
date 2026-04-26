@@ -21,13 +21,8 @@
     <link href="{% static "OLH/css/app.css" %}" rel="stylesheet">
     <link href="{% static "common/css/index.css" %}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
-
-    {% if request.journal %}
-        <link href="{% static "OLH/css/default_override.css" %}" rel="stylesheet">
-        <link href="{% static "OLH/css/journal" %}{{ request.journal.id }}_override.css" rel="stylesheet">
-    {% elif request.press %}
-        <link href="{% static "OLH/css/press_override.css" %}" rel="stylesheet">
-    {% endif %}
+    <!-- Google Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <script src="https://use.typekit.net/lff8ikn.js"></script>
     <script>try { Typekit.load({async: true}); } catch (e) {}</script>
@@ -80,7 +75,7 @@
 
         /* 1. Общий фон и шрифт текста (из OLH) */
         body {
-            background-color: #ffffff;
+            background-color: #fdfdfd; /* Слегка сероватый фон для контраста с блоками */
             -webkit-text-size-adjust: 100%;
             font-family: "Merriweather", serif;
             font-weight: 300;
@@ -95,20 +90,52 @@
         /* Минималистичная Шапка и Меню */
         .main-header { 
             background-color: #ffffff; 
-            border-bottom: 2px solid var(--bte-red); 
+            border-bottom: 3px solid var(--bte-red);
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Тень для объема */
+            z-index: 100; /* Гарантируем, что шапка выше основного контента */
         }
-        .top-bar, .top-bar ul, .top-bar li { background-color: #ffffff !important; }
+
+        /* PARTICLES JS */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden; /* Переносим обрезку частиц сюда, чтобы не резать выпадающее меню */
+
+            /* Плавное растворение частиц к нижнему краю, чтобы избежать жесткой обрезки (hard clip) */
+            -webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+        }
+
+        /* Выносим контент шапки поверх частиц */
+        .main-header .main, .main-header .top-nav {
+            position: relative;
+            z-index: 10;
+        }
+
+        .top-bar, .top-bar > ul, .top-bar > ul > li {
+            background-color: transparent !important;
+        }
+
+        .top-bar .is-dropdown-submenu, .top-bar .is-dropdown-submenu li {
+            background-color: #ffffff !important;
+        }
 
         .top-bar a {
             color: #0a0a0a !important;
             font-weight: normal !important; 
             text-decoration: none !important;
             line-height: 1.2;
-            transition: color 0.2s ease;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
         }
         .top-bar a:hover, .top-bar .menu a:hover {
             color: var(--bte-red) !important;
-            background-color: #f9f9f9;
+            background-color: rgba(249, 249, 249, 0.8);
             text-decoration: none !important;
         }
         
@@ -121,17 +148,40 @@
             color: var(--bte-red) !important;
         }
 
+        /* Адаптивный цвет текста поверх изображений */
+        .adaptive-text {
+            color: #ffffff !important;
+            mix-blend-mode: difference;
+        }
+
         /* Навигация */
-        .top-nav { background-color: #ffffff; border-bottom: 1px solid var(--border-light); position: relative; }
+        .top-nav {
+            background-color: transparent !important;
+            /* Make sure no borders display from default foundation */
+            border: none !important;
+        }
+
+        /* Remove the top border specifically to prevent any white lines */
+        .top-nav,
+        .top-bar,
+        .main-header .top-nav,
+        .main-header #main-menu {
+            border-bottom: none !important;
+            border-top: none !important;
+        }
+
         .top-nav a {
-            color: #666 !important;
+            color: #555 !important;
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 0.05em;
             line-height: 1.2 !important;
-            transition: color 0.2s ease;
+            transition: color 0.2s ease, transform 0.2s ease;
         }
-        .top-nav a:hover { color: var(--bte-red) !important; }
+        .top-nav a:hover {
+            color: var(--bte-red) !important;
+            transform: translateY(-1px);
+        }
 
         /* 2. Типографика: Заголовки */
         h1, h2, h3, h4, h5, h6 {
@@ -171,14 +221,31 @@
              opacity: 0.4 !important;
         }
 
-        /* ОБНОВЛЕННЫЙ СТИЛЬ САЙДБАРА */
+        /* ОБНОВЛЕННЫЙ СТИЛЬ БЛОКОВ И САЙДБАРА */
+        .homepage-element-wrapper {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-bottom: 2.5rem;
+            border: 1px solid #f5f5f5;
+            transition: box-shadow 0.3s ease;
+        }
+        .homepage-element-wrapper:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+
         .sidebar-box {
             margin-bottom: 2.5rem;
             padding: 1.5rem;
             background: #ffffff;
             border: 1px solid #f0f0f0;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: box-shadow 0.3s ease;
+        }
+        .sidebar-box:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
         }
 
         .sidebar-box h4 {
@@ -207,6 +274,7 @@
         .sidebar-box ul.menu.vertical > li > a:hover {
             color: var(--bte-red) !important;
             background: transparent;
+            padding-left: 5px; /* Эффект смещения при наведении */
         }
 
         /* 5. Кнопки */
@@ -214,35 +282,62 @@
             display: inline-block;
             padding: 0.85em 1.5em;
             font-weight: 600;
-            border-radius: 4px;
-            transition: background-color 0.2s ease, opacity 0.2s ease;
+            border-radius: 6px;
+            transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.1s ease;
             line-height: 1.2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .button, .btn-bte, .btn-submit { background-color: var(--bte-blue) !important; color: #ffffff !important; }
-        .btn-pdf, .btn-finish, .button.alert { background-color: var(--bte-red) !important; color: #ffffff !important; }
+        .button, .btn-bte, .btn-submit { background-color: var(--bte-blue) !important; color: #ffffff !important; border: none; }
+        .btn-pdf, .btn-finish, .button.alert { background-color: var(--bte-red) !important; color: #ffffff !important; border: none; }
 
         .button:hover, .btn:hover, .btn-submit:hover {
             background-color: var(--bte-red) !important;
             color: #ffffff !important;
             opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
         /* Футер */
         footer.main-footer {
-            background: #fdfdfd;
+            background: #fcfcfc;
             color: #666;
             border-top: 1px solid var(--border-light);
             padding: 3rem 0;
             margin-top: 4rem;
             line-height: 1.4;
         }
+        footer.main-footer a { color: var(--link-color); }
         footer.main-footer a:hover { color: var(--bte-red) !important; }
+        footer.main-footer h1, footer.main-footer h2, footer.main-footer h3 { color: #222222; }
 
-        /* Языковое меню */
+        /* Языковое меню и выпадающие списки */
+        /* CSS ANIMATION FOR DROPDOWN MENUS */
+        .is-dropdown-submenu {
+            z-index: 100 !important; /* Выносим поверх всего контента */
+            margin-top: 1px; /* Small offset */
+
+            /* Add sliding animation */
+            display: block !important; /* Override foundation's display: none */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+            pointer-events: none; /* Prevent clicks when invisible */
+        }
+
+        .is-dropdown-submenu.js-dropdown-active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
         .language-menu .is-dropdown-submenu {
             min-width: 60px;
             border: 1px solid var(--border-light);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 4px;
         }
         .language-menu button {
             width: 100%;
@@ -259,6 +354,174 @@
             background-color: #f9f9f9;
             color: var(--bte-red) !important;
         }
+
+        /* --- Dark Theme Styles --- */
+        body.dark-theme {
+            background-color: #121212;
+            color: #f5f5f5; /* Осветленный цвет текста для лучшей читаемости */
+            font-weight: 400; /* Немного увеличим насыщенность шрифта */
+            letter-spacing: 0.01em; /* Неболь увеличение интервала, чтобы шрифт не казался тесным */
+        }
+        body.dark-theme p, body.dark-theme li, body.dark-theme dd, body.dark-theme dt, body.dark-theme td, body.dark-theme th {
+            color: #f5f5f5;
+        }
+        body.dark-theme .help-text {
+            color: #b0b0b0 !important; /* Более светлый серый для читаемости (важно !important чтобы перебить foundation) */
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        body.dark-theme .main-header {
+            background-color: #1e1e1e;
+            border-bottom: 3px solid #FF6B6B; /* Changed to requested color for dark theme */
+        }
+        body.dark-theme .top-bar .is-dropdown-submenu,
+        body.dark-theme .top-bar .is-dropdown-submenu li {
+            background-color: #1e1e1e !important;
+            border-color: #333; /* Darker border for dropdowns */
+        }
+        body.dark-theme .top-bar a,
+        body.dark-theme .top-nav a {
+            color: #f5f5f5 !important;
+        }
+        body.dark-theme .top-bar a:hover,
+        body.dark-theme .top-bar .menu a:hover,
+        body.dark-theme .top-nav a:hover {
+            color: #FF6B6B !important; /* Changed hover color */
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        body.dark-theme h1, body.dark-theme h2, body.dark-theme h3,
+        body.dark-theme h4, body.dark-theme h5, body.dark-theme h6 {
+            color: #ffffff;
+            font-weight: 400;
+            letter-spacing: 0.02em; /* Чуть больше воздуха в заголовках */
+        }
+
+        /* Изменение цвета hr для темной темы */
+        body.dark-theme hr,
+        body.dark-theme #main-content hr,
+        body.dark-theme .submission-content-block hr {
+            border-top: 1px solid #444 !important; /* Тонкая и приглушенная линия */
+            opacity: 0.5 !important;
+            margin: 2rem 0;
+        }
+
+        body.dark-theme .homepage-element-wrapper,
+        body.dark-theme .sidebar-box {
+            background: #1e1e1e;
+            border-color: #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        body.dark-theme .sidebar-box p, body.dark-theme .sidebar-box li {
+            color: #e0e0e0;
+        }
+        body.dark-theme .sidebar-box ul.menu.vertical > li > a {
+            color: #e0e0e0 !important;
+            border-bottom-color: #333;
+        }
+        /* Fix hover for sidebar links in dark theme */
+        body.dark-theme .sidebar-box ul.menu.vertical > li > a:hover {
+            color: #FF6B6B !important;
+        }
+        body.dark-theme footer.main-footer {
+            background: #1a1a1a;
+            color: #cccccc; /* Футер тоже делаем читаемым */
+            border-top-color: #333;
+        }
+        body.dark-theme footer.main-footer h1, body.dark-theme footer.main-footer h2, body.dark-theme footer.main-footer h3 {
+            color: #f5f5f5;
+        }
+        /* Fix hover for footer links in dark theme */
+        body.dark-theme footer.main-footer a:hover {
+             color: #FF6B6B !important;
+        }
+        body.dark-theme .language-menu .is-dropdown-submenu {
+            background-color: #1e1e1e;
+            border-color: #333;
+        }
+        body.dark-theme .language-menu button {
+            color: #f5f5f5;
+        }
+        body.dark-theme .language-menu button:hover {
+            background-color: #333;
+            color: #FF6B6B !important;
+        }
+
+        /* Set specific color for .menu-text.adaptive-text in dark mode */
+        body.dark-theme .menu-text.adaptive-text {
+            color: #FF6B6B !important;
+        }
+
+        /* Fix the theme icon button */
+        #theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: #0a0a0a;
+            display: flex;
+            align-items: center;
+        }
+        #theme-icon {
+            font-size: 1.1rem; /* Размер иконки переключения темы (соответствует размеру fa-globe) */
+            transition: color 0.2s ease;
+        }
+        body.dark-theme #theme-toggle {
+            color: #f5f5f5;
+        }
+
+        #theme-toggle:hover,
+        #theme-toggle:hover #theme-icon {
+            color: var(--bte-red) !important;
+        }
+
+        /* Fix the hover effect for the dark theme button specifically */
+        body.dark-theme #theme-toggle:hover,
+        body.dark-theme #theme-toggle:hover #theme-icon,
+        body.dark-theme .top-bar-right ul.menu > li > button:hover,
+        body.dark-theme .top-bar-right ul.menu > li > button:hover #theme-icon {
+            color: #FF6B6B !important;
+        }
+
+        /* Fix button hover states in dark theme */
+        body.dark-theme .button:hover,
+        body.dark-theme .btn:hover,
+        body.dark-theme .btn-submit:hover {
+            background-color: #FF6B6B !important;
+        }
+
+        /* Fix link hover in dark theme */
+        body.dark-theme a:hover {
+            color: #FF6B6B !important;
+        }
+
+        /* Fix particles visibility in dark theme */
+        body.dark-theme #particles-js {
+            z-index: 0;
+            background-color: transparent;
+        }
+        /* Make sure particles wrapper doesn't hide particles */
+        body.dark-theme .main-header {
+            background-color: #1e1e1e;
+        }
+
+        /* Remove the top/bottom borders from main nav */
+        .top-nav,
+        .main-header .top-nav,
+        .main-header .top-bar,
+        .main-header .top-bar ul,
+        .main-header .top-bar ul li {
+            border-top: none !important;
+            border-bottom: none !important;
+        }
+
+        body.dark-theme .top-nav,
+        body.dark-theme .main-header .top-nav,
+        body.dark-theme .main-header .top-bar,
+        body.dark-theme .main-header .top-bar ul,
+        body.dark-theme .main-header .top-bar ul li {
+            border-top: none !important;
+            border-bottom: none !important;
+        }
     </style>
     {% endblock %}
 
@@ -266,25 +529,35 @@
     {% include "common/elements/favicons.html" %}
 </head>
 <body>
+<!-- Immediately apply theme class to body to prevent flashing -->
+<script>
+    if (localStorage.getItem('theme') === 'dark-theme') {
+        document.body.classList.add('dark-theme');
+    }
+</script>
+
 {% include "common/elements/skip_to_main_content.html" %}
 <div class="wrapper">
     <header class="main-header">
+        <!-- Блок для частиц -->
+        <div id="particles-js"></div>
+
         <div class="main top-bar">
-            <div class="top-bar-left header-image-bar border-right">
+            <div class="top-bar-left header-image-bar">
                 {% if request.journal %}
                     <a title="{% trans 'Home' %}" href="{{ request.journal.site_url }}">
                         {% if request.journal.header_image %}
                             {% get_alt_text file_path=request.journal.header_image default=request.journal.name as header_alt_text %}
                             {% svg_or_image request.journal.header_image css_class='header-image top-bar-image' alt_text=header_alt_text %}
                         {% else %}
-                                <img src="{% static "common/img/sample/janeway.png" %}">
+                                <img src="{% static "common/img/sample/janeway.png" %}" alt="Janeway Logo">
                         {% endif %}
                         <span class="sr-only">{% trans 'Home' %}</span>
                     </a>
                 {% endif %}
             {% if request.journal  and journal_settings.styling.display_journal_title %}
-            <div class="hide-for-medium-only{% if journal_settings.general.switch_language %} border-right{% endif %}" id="journal-title">
-                <p class="menu-text">{{ request.journal.name }}</p>
+            <div class="hide-for-medium-only" id="journal-title">
+                <p class="menu-text adaptive-text">{{ request.journal.name }}</p>
             </div>
             {% endif %}
 
@@ -302,9 +575,29 @@
                 </div>
             </div>
 
+            {% if request.journal %}
+            <div class="top-bar-right hide-for-medium-only" id="search-menu">
+                <ul class="menu global-search">
+                    <li>
+                        <form method="POST" action="{% url 'search' %}">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <label for="article_search" class="sr-only">{% trans 'Search' %}</label>
+                                <span class="input-group-label"><i aria-hidden="true" class="fa fa-search"></i></span>
+                                <input id="article_search" class="input-group-field" type="search" name="article_search" placeholder="{% trans 'Search' %}" style="margin-bottom: 0;">
+                                <div class="input-group-button">
+                                    <input type="submit" class="button" value="{% trans 'Go' %}">
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            {% endif %}
+
             {% if journal_settings.general.switch_language %}
-                <div class="top-bar-left hide-for-small-only">
-                <ul class="dropdown menu language-menu" data-dropdown-menu>
+                <div class="top-bar-right hide-for-small-only">
+                <ul class="dropdown menu language-menu" data-dropdown-menu data-hover-pane="true">
                     {% get_current_language as LANGUAGE_CODE %}
                     {% get_available_languages as LANGUAGES %}
                     {% get_language_info_list for LANGUAGES as languages %}
@@ -329,8 +622,14 @@
                 </div>
             {% endif %}
 
-            <div class="top-bar-right border-left hide-for-small-only">
+            <div class="top-bar-right hide-for-small-only">
                 <ul class="dropdown menu" data-dropdown-menu>
+                    <!-- Theme Toggle -->
+                    <li>
+                        <button id="theme-toggle" aria-label="Toggle Theme">
+                            <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+                        </button>
+                    </li>
                     {% if request.user.is_authenticated %}
                         <li class="is-dropdown-submenu-parent">
                             <a href="#" data-options="is_hover:true; hover_timeout:5000">{{ request.user.full_name }}</a>
@@ -344,25 +643,6 @@
                     {% endif %}
                 </ul>
             </div>
-
-            {% if request.journal %}
-            <div class="top-bar-right hide-for-medium-only" id="search-menu">
-                <ul class="menu global-search">
-                    <li>
-                        <form method="POST" action="{% url 'search' %}">
-                            {% csrf_token %}
-                            <div class="input-group">
-                                <span class="input-group-label"><i aria-hidden="true" class="fa fa-search"></i></span>
-                                <input class="input-group-field" type="search" name="article_search" placeholder="{% trans 'Search' %}" style="margin-bottom: 0;">
-                                <div class="input-group-button">
-                                    <input type="submit" class="button" value="{% trans 'Go' %}">
-                                </div>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-            {% endif %}
         </div>
 
         {% block navbar %}
@@ -389,9 +669,139 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/js/foundation.min.js"></script>
+
+<!-- Скрипт Particles.js -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $(document).foundation();
+
+        /* Theme Toggle JS */
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+
+        // Configuration for light theme particles
+        const lightParticlesConfig = {
+          "particles": {
+            "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#003d71" }, // Фирменный синий
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.4, "random": false },
+            "size": { "value": 3, "random": true },
+            "line_linked": {
+              "enable": true,
+              "distance": 150,
+              "color": "#c8102e", // Фирменный красный
+              "opacity": 0.3,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 2,
+              "direction": "none",
+              "random": false,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": { "enable": true, "mode": "grab" },
+              "onclick": { "enable": true, "mode": "push" },
+              "resize": true
+            },
+            "modes": {
+              "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+              "push": { "particles_nb": 3 }
+            }
+          },
+          "retina_detect": true
+        };
+
+        // Configuration for dark theme particles
+        const darkParticlesConfig = {
+          "particles": {
+            "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#ffffff" }, // Белые частицы
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5, "random": false },
+            "size": { "value": 3, "random": true },
+            "line_linked": {
+              "enable": true,
+              "distance": 150,
+              "color": "#cccccc", // Светло-серые линии
+              "opacity": 0.4,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 2,
+              "direction": "none",
+              "random": false,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": { "enable": true, "mode": "grab" },
+              "onclick": { "enable": true, "mode": "push" },
+              "resize": true
+            },
+            "modes": {
+              "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+              "push": { "particles_nb": 3 }
+            }
+          },
+          "retina_detect": true
+        };
+
+        let pJSDom = null; // Store reference to particles instance
+
+        function initParticles() {
+            if (typeof window.particlesJS !== 'undefined') {
+                // Properly destroy particles.js instance so it can recreate the canvas
+                if (window.pJSDom && window.pJSDom.length > 0) {
+                    window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                    window.pJSDom = [];
+                }
+
+                if (document.body.classList.contains('dark-theme')) {
+                    window.particlesJS('particles-js', darkParticlesConfig);
+                } else {
+                    window.particlesJS('particles-js', lightParticlesConfig);
+                }
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark-theme' && themeIcon) {
+            themeIcon.textContent = 'light_mode';
+        }
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', function() {
+                body.classList.toggle('dark-theme');
+                if (body.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark-theme');
+                    themeIcon.textContent = 'light_mode';
+                } else {
+                    localStorage.setItem('theme', 'light-theme');
+                    themeIcon.textContent = 'dark_mode';
+                }
+
+                // Re-initialize particles with the new theme colors
+                initParticles();
+            });
+        }
+
+        /* Initialize Particles.js on page load */
+        initParticles();
     });
 </script>
 {% block js %}{% endblock %}
