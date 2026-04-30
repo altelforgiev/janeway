@@ -112,7 +112,12 @@
         }
 
         /* Выносим контент шапки поверх частиц */
-        .main-header .main, .main-header .top-nav {
+        .main-header .main {
+            position: relative;
+            z-index: 20; /* Выше чем top-nav, чтобы выпадающие меню не перекрывались навигацией */
+        }
+
+        .main-header .top-nav {
             position: relative;
             z-index: 10;
         }
@@ -312,25 +317,12 @@
         footer.main-footer h1, footer.main-footer h2, footer.main-footer h3 { color: #222222; }
 
         /* Языковое меню и выпадающие списки */
-        /* CSS ANIMATION FOR DROPDOWN MENUS */
         .is-dropdown-submenu {
             z-index: 100 !important; /* Выносим поверх всего контента */
-            margin-top: 1px; /* Small offset */
-
-            /* Add sliding animation */
-            display: block !important; /* Override foundation's display: none */
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-            pointer-events: none; /* Prevent clicks when invisible */
         }
 
-        .is-dropdown-submenu.js-dropdown-active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-            pointer-events: auto;
+        .top-bar-right .is-dropdown-submenu {
+            margin-top: 0; /* Убираем отступ только для языка и профиля, чтобы мышь не соскальзывала */
         }
 
         .language-menu .is-dropdown-submenu {
