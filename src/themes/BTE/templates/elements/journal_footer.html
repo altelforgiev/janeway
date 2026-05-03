@@ -1,4 +1,5 @@
-{% load i18n next_url %}
+{% load i18n next_url static %}
+{% load svg_or_image from press_url %}
 
 <div class="large-12 columns">
     <div class="footer-flex-container">
@@ -27,7 +28,6 @@
                         <li>
                             <a href="{{ item.link }}" {% if item.is_external %}target="_blank"{% endif %}>
                                 {{ item.link_name }}
-                                {% if item.is_external %}{% include "elements/icons/link_external.html" %}{% endif %}
                             </a>
                         </li>
                     {% endif %}
@@ -64,12 +64,29 @@
     </div>
 </div>
 
-<div class="large-12 columns text-center" style="margin-top: 2rem;">
-    <p style="font-size: 0.85rem; color: #888; margin-bottom: 0.5rem;">Powered by</p>
-    <a href="https://janeway.systems/" target="_blank" rel="noopener noreferrer">
-        <img class="max-lg:w-40 lg:w-40" style="width: 10rem; max-width: 100%;" src="/media/press_carousel/b523ad38-8e5d-44d9-9393-99288f0db97d.svg" alt="Janeway logo">
-    </a>
+<div class="large-12 columns footer-bottom-container" style="margin-top: 2rem; display: flex; justify-content: center; align-items: center; gap: 2rem;">
+    <div class="press-logo-container">
+        {% if request.journal.press_image_override %}
+            {% get_alt_text file_path=request.journal.press_image_override default=request.press.name as press_alt %}
+            <a href="{% if journal_settings.general.publisher_url %}{{ journal_settings.general.publisher_url }}{% elif request.press.site_url %}{{ request.press.site_url }}{% else %}/{% endif %}">
+                {% svg_or_image request.journal.press_image_override "img-fluid" alt_text=press_alt %}
+            </a>
+        {% elif request.press_cover %}
+            {% load svg from press_url %}
+            <a href="{% if journal_settings.general.publisher_url %}{{ journal_settings.general.publisher_url }}{% elif request.press.site_url %}{{ request.press.site_url }}{% else %}/{% endif %}">
+                {% svg request.press_cover %}
+            </a>
+        {% endif %}
+    </div>
+
+    <div class="janeway-logo-container text-center">
+        <p style="font-size: 0.85rem; color: #888; margin-bottom: 0.5rem;">Powered by</p>
+        <a href="https://janeway.systems/" target="_blank" rel="noopener noreferrer">
+            <img class="max-lg:w-40 lg:w-40" style="width: 10rem; max-width: 100%;" src="{% static 'common/img/sample/janeway.png' %}" alt="Janeway logo">
+        </a>
+    </div>
 </div>
+
 
 {% if request.journal.press.journal_footer_text %}
     <div id="presswide_footer_text" class="large-12 columns text-left" style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.8;">

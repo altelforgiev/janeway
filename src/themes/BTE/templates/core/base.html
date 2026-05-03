@@ -347,6 +347,53 @@
             color: var(--bte-red) !important;
         }
 
+        /* Account menu matching text width */
+        .account-menu-item .is-dropdown-submenu {
+            min-width: auto;
+            white-space: nowrap;
+        }
+
+        /* Fix the theme icon button and new search icon */
+        .search-toggle-btn,
+        .theme-toggle-btn {
+            background: none !important;
+            border: none !important;
+            cursor: pointer;
+            padding: 0.5rem 0.8rem !important;
+            color: #0a0a0a !important;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .language-menu-item > a {
+            padding: 0.5rem 0.8rem !important;
+            color: #0a0a0a !important;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .search-toggle-btn .fa,
+        .language-menu-item .fa {
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+
+        .theme-icon {
+            font-size: 1.1rem; /* Размер иконки переключения темы */
+            transition: color 0.2s ease;
+        }
+
+        .search-toggle-btn:hover,
+        .search-toggle-btn:hover .fa,
+        .theme-toggle-btn:hover,
+        .theme-toggle-btn:hover .theme-icon,
+        .language-menu-item > a:hover,
+        .language-menu-item > a:hover .fa {
+            color: var(--bte-red) !important;
+        }
+
         /* --- Dark Theme Styles --- */
         body.dark-theme {
             background-color: #121212;
@@ -366,20 +413,46 @@
             background-color: #1e1e1e;
             border-bottom: 3px solid #FF6B6B; /* Changed to requested color for dark theme */
         }
+
         body.dark-theme .top-bar .is-dropdown-submenu,
-        body.dark-theme .top-bar .is-dropdown-submenu li {
+        body.dark-theme .top-bar .is-dropdown-submenu li,
+        body.dark-theme .is-drilldown,
+        body.dark-theme .is-drilldown ul,
+        body.dark-theme .is-drilldown li,
+        body.dark-theme .is-drilldown-submenu,
+        body.dark-theme .is-drilldown-submenu li,
+        body.dark-theme .is-drilldown-submenu-parent,
+        body.dark-theme .top-nav .menu,
+        body.dark-theme .top-nav .menu ul,
+        body.dark-theme .top-nav .menu li,
+        body.dark-theme #main-menu,
+        body.dark-theme #main-menu ul,
+        body.dark-theme #main-menu li {
             background-color: #1e1e1e !important;
-            border-color: #333; /* Darker border for dropdowns */
+            border-color: #333 !important; /* Darker border for dropdowns */
+        }
+
+        body.dark-theme .js-drilldown-back > a {
+            background-color: #1e1e1e !important;
+            color: #f5f5f5 !important;
+        }
+        body.dark-theme .js-drilldown-back > a::before {
+            border-right-color: #f5f5f5 !important;
+        }
+        body.dark-theme .is-drilldown-submenu-parent > a::after {
+            border-left-color: #f5f5f5 !important;
         }
         body.dark-theme .top-bar a,
-        body.dark-theme .top-nav a {
+        body.dark-theme .top-nav a,
+        body.dark-theme #main-menu a {
             color: #f5f5f5 !important;
         }
         body.dark-theme .top-bar a:hover,
         body.dark-theme .top-bar .menu a:hover,
-        body.dark-theme .top-nav a:hover {
+        body.dark-theme .top-nav a:hover,
+        body.dark-theme #main-menu a:hover {
             color: #FF6B6B !important; /* Changed hover color */
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1) !important;
         }
         body.dark-theme h1, body.dark-theme h2, body.dark-theme h3,
         body.dark-theme h4, body.dark-theme h5, body.dark-theme h6 {
@@ -426,9 +499,10 @@
         body.dark-theme footer.main-footer a:hover {
              color: #FF6B6B !important;
         }
-        body.dark-theme .language-menu .is-dropdown-submenu {
-            background-color: #1e1e1e;
-            border-color: #333;
+        body.dark-theme .language-menu .is-dropdown-submenu,
+        body.dark-theme .dropdown-pane {
+            background-color: #1e1e1e !important;
+            border-color: #333 !important;
         }
         body.dark-theme .language-menu button {
             color: #f5f5f5;
@@ -443,34 +517,20 @@
             color: #FF6B6B !important;
         }
 
-        /* Fix the theme icon button */
-        #theme-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            color: #0a0a0a;
-            display: flex;
-            align-items: center;
-        }
-        #theme-icon {
-            font-size: 1.1rem; /* Размер иконки переключения темы (соответствует размеру fa-globe) */
-            transition: color 0.2s ease;
-        }
-        body.dark-theme #theme-toggle {
-            color: #f5f5f5;
+        body.dark-theme .theme-toggle-btn,
+        body.dark-theme .search-toggle-btn,
+        body.dark-theme .language-menu-item > a {
+            color: #f5f5f5 !important;
         }
 
-        #theme-toggle:hover,
-        #theme-toggle:hover #theme-icon {
-            color: var(--bte-red) !important;
-        }
-
-        /* Fix the hover effect for the dark theme button specifically */
-        body.dark-theme #theme-toggle:hover,
-        body.dark-theme #theme-toggle:hover #theme-icon,
+        body.dark-theme .theme-toggle-btn:hover,
+        body.dark-theme .theme-toggle-btn:hover .theme-icon,
+        body.dark-theme .search-toggle-btn:hover,
+        body.dark-theme .search-toggle-btn:hover .fa,
+        body.dark-theme .language-menu-item > a:hover,
+        body.dark-theme .language-menu-item > a:hover .fa,
         body.dark-theme .top-bar-right ul.menu > li > button:hover,
-        body.dark-theme .top-bar-right ul.menu > li > button:hover #theme-icon {
+        body.dark-theme .top-bar-right ul.menu > li > button:hover .theme-icon {
             color: #FF6B6B !important;
         }
 
@@ -564,16 +624,22 @@
                             <i aria-hidden="true" class="fa fa-search"></i>
                         </button>
                     </div>
+                    <div class="hide-for-medium">
+                        <button type="button" class="btn btn-link theme-toggle-btn" aria-label="Toggle Theme" style="padding-top: 0.3rem;">
+                            <span class="material-symbols-outlined theme-icon" style="font-size: 1.25rem;">dark_mode</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
             {% if request.journal %}
-            <div class="top-bar-right hide-for-medium-only" id="search-menu">
+            <!-- Mobile Search Menu -->
+            <div id="search-menu" class="show-for-small-only" style="display: none; padding: 1rem; background: #fff;">
                 <ul class="menu global-search">
                     <li>
                         <form method="POST" action="{% url 'search' %}">
                             {% csrf_token %}
-                            <div class="input-group">
+                            <div class="input-group" style="margin-bottom: 0;">
                                 <label for="article_search" class="sr-only">{% trans 'Search' %}</label>
                                 <span class="input-group-label"><i aria-hidden="true" class="fa fa-search"></i></span>
                                 <input id="article_search" class="input-group-field" type="search" name="article_search" placeholder="{% trans 'Search' %}" style="margin-bottom: 0;">
@@ -587,53 +653,78 @@
             </div>
             {% endif %}
 
-            {% if journal_settings.general.switch_language %}
-                <div class="top-bar-right hide-for-small-only">
-                <ul class="dropdown menu language-menu" data-dropdown-menu data-hover-pane="true">
-                    {% get_current_language as LANGUAGE_CODE %}
-                    {% get_available_languages as LANGUAGES %}
-                    {% get_language_info_list for LANGUAGES as languages %}
-                    <li>
-                        <a href="#"><i class="fa fa-globe"></i></a>
-                        <ul class="menu vertical">
-                            {% for language in languages %}
-                                {% if language.code in request.available_languages %}
-                                <li>
-                                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                                        <input name="next" type="hidden" value="{{ request.PATH }}"/>
-                                        <button name="language" value="{{ language.code }}">
-                                            {{ language.code|upper }}
-                                        </button>
-                                    </form>
-                                </li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </li>
-                </ul>
-                </div>
-            {% endif %}
-
             <div class="top-bar-right hide-for-small-only">
-                <ul class="dropdown menu" data-dropdown-menu>
-                    <!-- Theme Toggle -->
+                <ul class="dropdown menu" data-dropdown-menu data-hover-pane="true">
+
+                    <!-- Search Toggle for Desktop -->
+                    {% if request.journal %}
                     <li>
-                        <button id="theme-toggle" aria-label="Toggle Theme">
-                            <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+                        <button type="button" class="search-toggle-btn" data-toggle="desktop-search-dropdown" aria-label="{% trans 'Toggle search' %}">
+                            <i aria-hidden="true" class="fa fa-search"></i>
                         </button>
                     </li>
+                    {% endif %}
+
+                    {% if journal_settings.general.switch_language %}
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        <li class="language-menu-item language-menu">
+                            <a href="#"><i class="fa fa-globe"></i></a>
+                            <ul class="menu vertical">
+                                {% for language in languages %}
+                                    {% if language.code in request.available_languages %}
+                                    <li>
+                                        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                                            <input name="next" type="hidden" value="{{ request.PATH }}"/>
+                                            <button name="language" value="{{ language.code }}">
+                                                {{ language.code|upper }}
+                                            </button>
+                                        </form>
+                                    </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endif %}
+
                     {% if request.user.is_authenticated %}
-                        <li class="is-dropdown-submenu-parent">
+                        <li class="is-dropdown-submenu-parent account-menu-item">
                             <a href="#" data-options="is_hover:true; hover_timeout:5000">{{ request.user.full_name }}</a>
                             {% include "elements/right_hand_menu.html" %}
                         </li>
                     {% else %}
-                      <li>
-                        <a href="{% url 'core_login' %}">{% trans "Log in" %}</a> |
+                      <li class="account-menu-item">
+                        <a href="{% url 'core_login' %}">{% trans "Log in" %}</a>
+                      </li>
+                      <li class="account-menu-item">
                         <a href="{% url 'core_register' %}">{% trans "Register" %}</a>
                       </li>
                     {% endif %}
+
+                    <!-- Theme Toggle -->
+                    <li>
+                        <button type="button" class="theme-toggle-btn" aria-label="Toggle Theme">
+                            <span class="material-symbols-outlined theme-icon">dark_mode</span>
+                        </button>
+                    </li>
                 </ul>
+
+                <!-- Desktop Search Dropdown Pane -->
+                {% if request.journal %}
+                <div class="dropdown-pane bottom" id="desktop-search-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true" style="width: 300px; padding: 1rem; border: 1px solid var(--border-light); border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 105;">
+                    <form method="POST" action="{% url 'search' %}">
+                        {% csrf_token %}
+                        <div class="input-group" style="margin-bottom: 0;">
+                            <label for="desktop_article_search" class="sr-only">{% trans 'Search' %}</label>
+                            <input id="desktop_article_search" class="input-group-field" type="search" name="article_search" placeholder="{% trans 'Search' %}" style="margin-bottom: 0;">
+                            <div class="input-group-button">
+                                <input type="submit" class="button" value="{% trans 'Go' %}" style="margin-bottom: 0;">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                {% endif %}
             </div>
         </div>
 
@@ -655,7 +746,11 @@
 
 <footer class="main-footer">
     <div class="row">
-        {% include "elements/journal_footer.html" %}
+        {% if request.journal %}
+            {% include "elements/journal_footer.html" %}
+        {% else %}
+            {% include "press/elements/press_footer.html" %}
+        {% endif %}
     </div>
 </footer>
 
@@ -670,8 +765,8 @@
         $(document).foundation();
 
         /* Theme Toggle JS */
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
+        const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
+        const themeIcons = document.querySelectorAll('.theme-icon');
         const body = document.body;
 
         // Configuration for light theme particles
@@ -772,25 +867,27 @@
             }
         }
 
-        if (localStorage.getItem('theme') === 'dark-theme' && themeIcon) {
-            themeIcon.textContent = 'light_mode';
+        if (localStorage.getItem('theme') === 'dark-theme') {
+            themeIcons.forEach(icon => icon.textContent = 'light_mode');
         }
 
-        if (themeToggleBtn) {
-            themeToggleBtn.addEventListener('click', function() {
+        themeToggleBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
                 body.classList.toggle('dark-theme');
-                if (body.classList.contains('dark-theme')) {
+                const isDark = body.classList.contains('dark-theme');
+
+                if (isDark) {
                     localStorage.setItem('theme', 'dark-theme');
-                    themeIcon.textContent = 'light_mode';
+                    themeIcons.forEach(icon => icon.textContent = 'light_mode');
                 } else {
                     localStorage.setItem('theme', 'light-theme');
-                    themeIcon.textContent = 'dark_mode';
+                    themeIcons.forEach(icon => icon.textContent = 'dark_mode');
                 }
 
                 // Re-initialize particles with the new theme colors
                 initParticles();
             });
-        }
+        });
 
         /* Initialize Particles.js on page load */
         initParticles();
