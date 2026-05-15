@@ -36,13 +36,13 @@
                                             <div class="journal-description-box">
                                             <h2>
                                                  {% if current_journal.is_remote %}
-                                                    <a class="adaptive-text" href="{{ current_journal.remote_view_url }}" target="_blank">
+                                                    <a class="text-with-shadow" href="{{ current_journal.remote_view_url }}" target="_blank">
                                                         {{ current_journal.name }}
                                                         {% include "elements/icons/link_external.html" %} 
                                                     </a>
                                                 {% else %}
                                                     <a href="{% journal_base_url current_journal %}"
-                                                        class="journal-name adaptive-text"
+                                                        class="journal-name text-with-shadow"
                                                         >
                                                         {{ current_journal.name }}
                                                     </a>

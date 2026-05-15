@@ -18,7 +18,7 @@
             {% endif %}
             <div class="info-bar">
                 <h3 id="{{ issue.id }}-box-title">
-                    <span aria-label='{{ issue.display_title_a11y }}'>{{ issue.display_title }}</span>
+                    <span class="text-with-shadow" aria-label='{{ issue.display_title_a11y }}'>{{ issue.display_title }}</span>
                 </h3>
                 <p id="{{ issue.id }}-box-details">{{ issue.get_sorted_articles.count }} {% trans "items" %}
                 </p>

@@ -15,7 +15,7 @@
                         </a>
                         <img src="{% if current_journal.default_cover_image %}{{ current_journal.default_cover_image.url }}{% endif %}" aria-hidden="true" alt="">
                         <div class="content" aria-hidden="true">
-                            <h3 id="{{ current_journal.id }}-remote-title" class="adaptive-text">
+                            <h3 id="{{ current_journal.id }}-remote-title" class="text-with-shadow">
                                 {{ current_journal.name }}
                                 {% include "elements/icons/link_external.html" %} 
                             </h3>
@@ -30,7 +30,7 @@
                         <img src="{% if current_journal.default_cover_image %}{{ current_journal.default_cover_image.url }}{% endif %}" alt="{% if current_journal.name != " " and current_journal.name != "" %}{{ current_journal.name }}{% else %}{% trans 'Unnamed Journal' %}{% endif %}"
                             aria-hidden="true">
                         <div class="content" aria-hidden="true">
-                            <h3 id="{{ current_journal.id }}-journal-box-title" class="adaptive-text" aria-hidden="true">
+                            <h3 id="{{ current_journal.id }}-journal-box-title" class="text-with-shadow" aria-hidden="true">
                                     {% if current_journal.name != " " and current_journal.name != "" %}
                                     {{ current_journal.name }}{% else %}{% trans "Unnamed Journal" %}
                                     {% endif %}

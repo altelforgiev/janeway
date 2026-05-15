@@ -92,3 +92,9 @@ EMAIL_USE_SSL = os.environ.get("EMAIL_USE_SSL", "False") == "True"
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER)
 # Email для ошибок сервера
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
+# --- Static Files ---
+# Добавляем директорию со статикой для темы BTE
+STATICFILES_DIRS += (
+    os.path.join(BASE_DIR, "themes", "BTE", "static"),
+)

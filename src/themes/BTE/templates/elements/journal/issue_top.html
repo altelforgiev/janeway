@@ -8,9 +8,9 @@
         <div class="overlay"></div>
         <figcaption class="olh-banner-heading">
           {% if level == "deep" %}
-            <h2 aria-label='{{ issue.display_title_a11y }}'>{{ issue.display_title }}</h2>
+            <h2 class="text-with-shadow" aria-label='{{ issue.display_title_a11y }}'>{{ issue.display_title }}</h2>
           {% else %}
-            <h1 aria-label='{{ issue.display_title_a11y }}'>{{ issue.display_title }}</h1>
+            <h1 class="text-with-shadow" aria-label='{{ issue.display_title_a11y }}'>{{ issue.display_title }}</h1>
           {% endif %}
         </figcaption>
       </div>

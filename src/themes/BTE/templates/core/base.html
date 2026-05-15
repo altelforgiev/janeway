@@ -27,7 +27,6 @@
     <script src="https://use.typekit.net/lff8ikn.js"></script>
     <script>try { Typekit.load({async: true}); } catch (e) {}</script>
 
-    {% block css %}
     <style>
         /* =========================================
            ГЛОБАЛЬНЫЕ СТИЛИ ТЕМЫ BTE 
@@ -153,10 +152,14 @@
             color: var(--bte-red) !important;
         }
 
-        /* Адаптивный цвет текста поверх изображений */
-        .adaptive-text {
-            color: #ffffff !important;
-            mix-blend-mode: difference;
+        /* Тень для текста поверх изображений */
+        .text-with-shadow {
+            color: #ffffff !important; /* Делаем текст белым */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5),
+                         -1px -1px 2px rgba(0, 0, 0, 0.5),
+                         1px -1px 2px rgba(0, 0, 0, 0.5),
+                         -1px 1px 2px rgba(0, 0, 0, 0.5),
+                         0px 2px 4px rgba(0, 0, 0, 0.4) !important; /* Более мягкая, размытая тень */
         }
 
         /* Навигация */
@@ -411,7 +414,10 @@
         }
         body.dark-theme .main-header {
             background-color: #1e1e1e;
-            border-bottom: 3px solid #FF6B6B; /* Changed to requested color for dark theme */
+        }
+
+        body.dark-theme .top-bar .menu-text {
+            color: #ffffff !important; /* Белый цвет названия журнала в темной теме */
         }
 
         body.dark-theme .top-bar .is-dropdown-submenu,
@@ -451,7 +457,7 @@
         body.dark-theme .top-bar .menu a:hover,
         body.dark-theme .top-nav a:hover,
         body.dark-theme #main-menu a:hover {
-            color: #FF6B6B !important; /* Changed hover color */
+            color: var(--bte-red) !important; /* Changed hover color */
             background-color: rgba(255, 255, 255, 0.1) !important;
         }
         body.dark-theme h1, body.dark-theme h2, body.dark-theme h3,
@@ -459,15 +465,6 @@
             color: #ffffff;
             font-weight: 400;
             letter-spacing: 0.02em; /* Чуть больше воздуха в заголовках */
-        }
-
-        /* Изменение цвета hr для темной темы */
-        body.dark-theme hr,
-        body.dark-theme #main-content hr,
-        body.dark-theme .submission-content-block hr {
-            border-top: 1px solid #444 !important; /* Тонкая и приглушенная линия */
-            opacity: 0.5 !important;
-            margin: 2rem 0;
         }
 
         body.dark-theme .homepage-element-wrapper,
@@ -485,7 +482,7 @@
         }
         /* Fix hover for sidebar links in dark theme */
         body.dark-theme .sidebar-box ul.menu.vertical > li > a:hover {
-            color: #FF6B6B !important;
+            color: var(--bte-red) !important;
         }
         body.dark-theme footer.main-footer {
             background: #1a1a1a;
@@ -497,7 +494,7 @@
         }
         /* Fix hover for footer links in dark theme */
         body.dark-theme footer.main-footer a:hover {
-             color: #FF6B6B !important;
+             color: var(--bte-red) !important;
         }
         body.dark-theme .language-menu .is-dropdown-submenu,
         body.dark-theme .dropdown-pane {
@@ -509,12 +506,7 @@
         }
         body.dark-theme .language-menu button:hover {
             background-color: #333;
-            color: #FF6B6B !important;
-        }
-
-        /* Set specific color for .menu-text.adaptive-text in dark mode */
-        body.dark-theme .menu-text.adaptive-text {
-            color: #FF6B6B !important;
+            color: var(--bte-red) !important;
         }
 
         body.dark-theme .theme-toggle-btn,
@@ -531,19 +523,19 @@
         body.dark-theme .language-menu-item > a:hover .fa,
         body.dark-theme .top-bar-right ul.menu > li > button:hover,
         body.dark-theme .top-bar-right ul.menu > li > button:hover .theme-icon {
-            color: #FF6B6B !important;
+            color: var(--bte-red) !important;
         }
 
         /* Fix button hover states in dark theme */
         body.dark-theme .button:hover,
         body.dark-theme .btn:hover,
         body.dark-theme .btn-submit:hover {
-            background-color: #FF6B6B !important;
+            background-color: var(--bte-red) !important;
         }
 
         /* Fix link hover in dark theme */
         body.dark-theme a:hover {
-            color: #FF6B6B !important;
+            color: var(--bte-red) !important;
         }
 
         /* Fix particles visibility in dark theme */
@@ -575,7 +567,7 @@
             border-bottom: none !important;
         }
     </style>
-    {% endblock %}
+    {% block css %}{% endblock %}
 
     {% hook 'base_head_css' %}
     {% include "common/elements/favicons.html" %}
@@ -609,7 +601,7 @@
                 {% endif %}
             {% if request.journal  and journal_settings.styling.display_journal_title %}
             <div class="hide-for-medium-only" id="journal-title">
-                <p class="menu-text adaptive-text">{{ request.journal.name }}</p>
+                <p class="menu-text">{{ request.journal.name }}</p>
             </div>
             {% endif %}
 
@@ -668,11 +660,11 @@
                     {% if journal_settings.general.switch_language %}
                         {% get_current_language as LANGUAGE_CODE %}
                         {% get_available_languages as LANGUAGES %}
-                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% get_language_info_list for LANGUAGES as LANGUAGES %}
                         <li class="language-menu-item language-menu">
                             <a href="#"><i class="fa fa-globe"></i></a>
                             <ul class="menu vertical">
-                                {% for language in languages %}
+                                {% for language in LANGUAGES %}
                                     {% if language.code in request.available_languages %}
                                     <li>
                                         <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
@@ -820,7 +812,7 @@
             "line_linked": {
               "enable": true,
               "distance": 150,
-              "color": "#cccccc", // Светло-серые линии
+              "color": "#c8102e", // Фирменный красный (оставлен без изменений)
               "opacity": 0.4,
               "width": 1
             },

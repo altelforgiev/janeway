@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="large-8 columns">
                     <small class="uppercase">{{ article.section.name }}</small>
-                    <h1 class="adaptive-text">{{ article.title|safe }}</h1>
+                    <h1 class="text-with-shadow">{{ article.title|safe }}</h1>
                     <small class="uppercase">
                       {% blocktrans count counter=article.frozen_authors.count %}
                         Author
@@ -44,7 +44,7 @@
                 <div class="overlay"></div>
                 <div class="olh-banner-heading">
                   <p class="uppercase">{{ article.section.name }}</p>
-                  <h1 class="adaptive-text">{{ article.title|safe }}</h1>
+                  <h1 class="text-with-shadow">{{ article.title|safe }}</h1>
                   <p class="uppercase">
                     {% blocktrans count counter=article.frozen_authors.count %}
                       Author
@@ -144,7 +144,7 @@
                         <div id="article" class="large-10 columns">
                 {% if journal_settings.article.disable_article_large_image %}
                     <small>{{ article.section.name }}</small>
-                    <h1 class="adaptive-text">{{ article.title|safe }}</h1>
+                    <h1 class="text-with-shadow">{{ article.title|safe }}</h1>
                     <div class="section show-for-small-only">
                       <small>
                         {% blocktrans count counter=article.frozen_authors.count %}
@@ -546,6 +546,7 @@
     <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
     {% hook 'article_js_block' %}
+    {% comment %}
     <script src="{% static 'common/js/table-expansion.js' %}"></script>
     <script>
         initTableExpansion({
@@ -553,8 +554,11 @@
             linkTemplate: '<button type="button" data-open="table-{id}" aria-describedby="{id}-label">{% trans "View Larger Table" %}</button>',
         });
     </script>
+    {% endcomment %}
     <script src="{% static "common/lightbox/js/lightbox.js" %}"></script>
     <script src="{% static "common/js/clipboard.js" %}"></script>
     <script src="{% static "common/js/reversable-links.js" %}"></script>
     <script src="{% static "common/js/text_readability.js" %}"></script>
+    <script src="{% static 'js/article_toc.js' %}"></script>
+    <script src="{% static 'js/article_tables.js' %}"></script>
 {% endblock js %}
