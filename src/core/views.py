@@ -3485,7 +3485,7 @@ def record_geo_view(request):
 
                 temp_file = stats_file + ".tmp"
                 with open(temp_file, 'w', encoding='utf-8') as f:
-                json.dump(stats, f)
+                    json.dump(stats, f)
                 shutil.move(temp_file, stats_file)
                 
         except Exception:
