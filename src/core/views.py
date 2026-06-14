@@ -3387,27 +3387,45 @@ def get_client_ip(request):
 def map_analytics_api(request):
     """API ТОЛЬКО для отдачи данных на карту (без фиксации IP)"""
     stats_file = os.path.join(settings.BASE_DIR, 'metrics', 'map_stats.json')
-    country_stats = {}
+    stats = {"countries": {}, "cities": {}}
 
     if os.path.exists(stats_file):
         try:
             with open(stats_file, 'r', encoding='utf-8') as f:
-                country_stats = json.load(f)
+                loaded_stats = json.load(f)
+                if "countries" not in loaded_stats:
+                    stats["countries"] = loaded_stats
+                else:
+                    stats = loaded_stats
         except Exception:
             pass
 
-    response_data = {}
-    for code, data in country_stats.items():
-        if isinstance(data, dict):
-            response_data[code] = data.get("count", 0)
-        else:
-            response_data[code] = data
+    response_data = {
+        "countries": {},
+        "markers": []
+    }
+    for code, data in stats["countries"].items():
+        response_data["countries"][code] = data.get("count", 0) if isinstance(data, dict) else data
+
+    for name, data in stats.get("cities", {}).items():
+        response_data["markers"].append({
+            "name": name,
+            "coords": data.get("coords"),
+            "views": data.get("count", 0)
+        })
 
     # Тестовые данные для локальной проверки
     ip = get_client_ip(request)
     is_local = not ip or ip.startswith('127.') or ip.startswith('172.') or ip.startswith('192.168.') or ip == '::1'
-    if is_local and not response_data:
-        response_data = {"KZ": 15, "US": 8, "GB": 5, "DE": 3, "TR": 2}
+    if is_local and not response_data["countries"]:
+        response_data["countries"] = {"KZ": 15, "US": 8, "GB": 5, "DE": 3, "TR": 2}
+        response_data["markers"] = [
+            {"name": "Almaty, KZ", "coords": [43.2220, 76.8512], "views": 10},
+            {"name": "Astana, KZ", "coords": [51.1694, 71.4491], "views": 5},
+            {"name": "New York, US", "coords": [40.7128, -74.0060], "views": 8},
+            {"name": "London, GB", "coords": [51.5074, -0.1278], "views": 5},
+            {"name": "Berlin, DE", "coords": [52.5200, 13.4050], "views": 3}
+        ]
 
     return JsonResponse(response_data)
 
@@ -3415,12 +3433,16 @@ def map_analytics_api(request):
 def record_geo_view(request):
     """API для скрытой фиксации реального просмотра (вызывается из article.html)"""
     stats_file = os.path.join(settings.BASE_DIR, 'metrics', 'map_stats.json')
-    country_stats = {}
+    stats = {"countries": {}, "cities": {}}
 
     if os.path.exists(stats_file):
         try:
             with open(stats_file, 'r', encoding='utf-8') as f:
-                country_stats = json.load(f)
+                loaded_stats = json.load(f)
+                if "countries" not in loaded_stats:
+                    stats["countries"] = loaded_stats
+                else:
+                    stats = loaded_stats
         except Exception:
             pass
 
@@ -3431,24 +3453,39 @@ def record_geo_view(request):
         try:
             from django.contrib.gis.geoip2 import GeoIP2
             g = GeoIP2()
-            country_code = g.country_code(ip)
             
+            # Пытаемся получить город (нужна база GeoLite2-City.mmdb)
+            try:
+                city_data = g.city(ip)
+                country_code = city_data.get('country_code')
+                city_name = city_data.get('city')
+                lat = city_data.get('latitude')
+                lon = city_data.get('longitude')
+            except Exception:
+                # Fallback, если базы городов нет
+                country_code = g.country_code(ip)
+                city_name, lat, lon = None, None, None
+
             if country_code:
-                if country_code in country_stats and isinstance(country_stats[country_code], int):
-                    country_stats[country_code] = {
-                        "count": country_stats[country_code],
-                        "ips": []
-                    }
-                elif country_code not in country_stats:
-                    country_stats[country_code] = {"count": 0, "ips": []}
+                if country_code not in stats["countries"]:
+                    stats["countries"][country_code] = {"count": 0, "ips": []}
                     
-                if ip not in country_stats[country_code]["ips"]:
-                    country_stats[country_code]["count"] += 1
-                    country_stats[country_code]["ips"].append(ip)
+                if ip not in stats["countries"][country_code]["ips"]:
+                    stats["countries"][country_code]["count"] += 1
+                    stats["countries"][country_code]["ips"].append(ip)
+            
+            if city_name and lat and lon:
+                city_key = f"{city_name}, {country_code}"
+                if city_key not in stats["cities"]:
+                    stats["cities"][city_key] = {"count": 0, "coords": [lat, lon], "ips": []}
+                    
+                if ip not in stats["cities"][city_key]["ips"]:
+                    stats["cities"][city_key]["count"] += 1
+                    stats["cities"][city_key]["ips"].append(ip)
 
                 temp_file = stats_file + ".tmp"
                 with open(temp_file, 'w', encoding='utf-8') as f:
-                    json.dump(country_stats, f)
+                json.dump(stats, f)
                 shutil.move(temp_file, stats_file)
                 
         except Exception:
