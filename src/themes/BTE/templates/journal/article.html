@@ -561,4 +561,11 @@
     <script src="{% static "common/js/text_readability.js" %}"></script>
     <script src="{% static 'js/article_toc.js' %}"></script>
     <script src="{% static 'js/article_tables.js' %}"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Незаметно отправляем сигнал о просмотре статьи для географической карты
+            fetch('/api/record-view/').catch(() => {});
+        });
+    </script>
 {% endblock js %}

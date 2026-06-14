@@ -3385,12 +3385,10 @@ def get_client_ip(request):
     return request.META.get('REMOTE_ADDR', '').strip()
 
 def map_analytics_api(request):
-    """API для сбора и отдачи данных о странах на карту (в реальном времени)"""
-    # Файл, куда будут складываться данные (будет лежать рядом с базой geoip)
+    """API ТОЛЬКО для отдачи данных на карту (без фиксации IP)"""
     stats_file = os.path.join(settings.BASE_DIR, 'metrics', 'map_stats.json')
     country_stats = {}
 
-    # 1. Читаем накопленную статистику из файла
     if os.path.exists(stats_file):
         try:
             with open(stats_file, 'r', encoding='utf-8') as f:
@@ -3398,11 +3396,37 @@ def map_analytics_api(request):
         except Exception:
             pass
 
-    # 2. Получаем IP посетителя
+    response_data = {}
+    for code, data in country_stats.items():
+        if isinstance(data, dict):
+            response_data[code] = data.get("count", 0)
+        else:
+            response_data[code] = data
+
+    # Тестовые данные для локальной проверки
+    ip = get_client_ip(request)
+    is_local = not ip or ip.startswith('127.') or ip.startswith('172.') or ip.startswith('192.168.') or ip == '::1'
+    if is_local and not response_data:
+        response_data = {"KZ": 15, "US": 8, "GB": 5, "DE": 3, "TR": 2}
+
+    return JsonResponse(response_data)
+
+
+def record_geo_view(request):
+    """API для скрытой фиксации реального просмотра (вызывается из article.html)"""
+    stats_file = os.path.join(settings.BASE_DIR, 'metrics', 'map_stats.json')
+    country_stats = {}
+
+    if os.path.exists(stats_file):
+        try:
+            with open(stats_file, 'r', encoding='utf-8') as f:
+                country_stats = json.load(f)
+        except Exception:
+            pass
+
     ip = get_client_ip(request)
     is_local = not ip or ip.startswith('127.') or ip.startswith('172.') or ip.startswith('192.168.') or ip == '::1'
 
-    # Если зашел реальный читатель (не с localhost)
     if not is_local:
         try:
             from django.contrib.gis.geoip2 import GeoIP2
@@ -3410,7 +3434,6 @@ def map_analytics_api(request):
             country_code = g.country_code(ip)
             
             if country_code:
-                # Поддерживаем старый формат (если там были просто числа)
                 if country_code in country_stats and isinstance(country_stats[country_code], int):
                     country_stats[country_code] = {
                         "count": country_stats[country_code],
@@ -3419,13 +3442,10 @@ def map_analytics_api(request):
                 elif country_code not in country_stats:
                     country_stats[country_code] = {"count": 0, "ips": []}
                     
-                # Собираем уникальные IP-адреса посетителей и считаем только их
                 if ip not in country_stats[country_code]["ips"]:
-                    # Увеличиваем счетчик только для новых уникальных посетителей
                     country_stats[country_code]["count"] += 1
                     country_stats[country_code]["ips"].append(ip)
 
-                # 3. Атомарно сохраняем обновленную статистику
                 temp_file = stats_file + ".tmp"
                 with open(temp_file, 'w', encoding='utf-8') as f:
                     json.dump(country_stats, f)
@@ -3434,16 +3454,4 @@ def map_analytics_api(request):
         except Exception:
             pass # Игнорируем ошибки определения IP
 
-    # 4. Формируем безопасный ответ для фронтенда (карте нужны только числа, без IP)
-    response_data = {}
-    for code, data in country_stats.items():
-        if isinstance(data, dict):
-            response_data[code] = data.get("count", 0)
-        else:
-            response_data[code] = data  # Резерв для старого формата
-
-    # 5. Тестовые данные для проверки на локальном ПК
-    if is_local and not response_data:
-        response_data = {"KZ": 15, "US": 8, "GB": 5, "DE": 3, "TR": 2}
-
-    return JsonResponse(response_data)
+    return JsonResponse({"status": "recorded"})

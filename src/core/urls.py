@@ -22,6 +22,7 @@ urlpatterns = [
     path("", press_views.index, name="website_index"),
     path("admin/", admin.site.urls),
     path("api/map-data/", core_views.map_analytics_api, name="map_data_api"),
+    path("api/record-view/", core_views.record_geo_view, name="record_geo_view"),
     path("summernote/", include("django_summernote.urls")),
     path("", include("core.include_urls")),
 ]
