@@ -3370,39 +3370,81 @@ def affiliation_delete(request, affiliation_id):
     return render(request, template, context)
 
 
-from django.apps import apps
+import os
+import json
+import tempfile
+import shutil
+from django.conf import settings
 from django.http import JsonResponse
 
+def get_client_ip(request):
+    """Получает реальный IP пользователя даже за Nginx/Docker"""
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        return x_forwarded_for.split(',')[0].strip()
+    return request.META.get('REMOTE_ADDR', '').strip()
+
 def map_analytics_api(request):
-    """API для отдачи данных о странах на карту (для base.html)"""
+    """API для сбора и отдачи данных о странах на карту (в реальном времени)"""
+    # Файл, куда будут складываться данные (будет лежать рядом с базой geoip)
+    stats_file = os.path.join(settings.BASE_DIR, 'metrics', 'map_stats.json')
     country_stats = {}
 
-    try:
-        # Безопасный импорт внутри функции (сайт не упадет, если библиотеки нет)
-        from django.contrib.gis.geoip2 import GeoIP2
-        from geoip2.errors import AddressNotFoundError
-        
-        g = GeoIP2()
-        
-        # Динамически загружаем модель аналитики Janeway
-        AnalyticsModel = apps.get_model('analytics', 'Access') 
-        
-        # Запрашиваем уникальные IP (лимит 5000)
-        ips = AnalyticsModel.objects.values_list('ip_address', flat=True).distinct()[:5000]
-        
-        for ip in ips:
-            if ip:
-                try:
-                    country_code = g.country_code(ip)
-                    if country_code:
-                        country_stats[country_code] = country_stats.get(country_code, 0) + 1
-                except AddressNotFoundError:
-                    continue
-                    
-    except ImportError:
-        print("Внимание: Библиотека geoip2 не установлена в окружении.")
-    except Exception as e:
-        print(f"Ошибка при генерации данных карты: {e}")
+    # 1. Читаем накопленную статистику из файла
+    if os.path.exists(stats_file):
+        try:
+            with open(stats_file, 'r', encoding='utf-8') as f:
+                country_stats = json.load(f)
+        except Exception:
+            pass
 
-    # Если была ошибка или нет данных, вернет пустой словарь {} или собранную статистику
-    return JsonResponse(country_stats)
+    # 2. Получаем IP посетителя
+    ip = get_client_ip(request)
+    is_local = not ip or ip.startswith('127.') or ip.startswith('172.') or ip.startswith('192.168.') or ip == '::1'
+
+    # Если зашел реальный читатель (не с localhost)
+    if not is_local:
+        try:
+            from django.contrib.gis.geoip2 import GeoIP2
+            g = GeoIP2()
+            country_code = g.country_code(ip)
+            
+            if country_code:
+                # Поддерживаем старый формат (если там были просто числа)
+                if country_code in country_stats and isinstance(country_stats[country_code], int):
+                    country_stats[country_code] = {
+                        "count": country_stats[country_code],
+                        "ips": []
+                    }
+                elif country_code not in country_stats:
+                    country_stats[country_code] = {"count": 0, "ips": []}
+                    
+                # Увеличиваем общий счетчик просмотров
+                country_stats[country_code]["count"] += 1
+                
+                # Собираем уникальные IP-адреса посетителей
+                if ip not in country_stats[country_code]["ips"]:
+                    country_stats[country_code]["ips"].append(ip)
+
+                # 3. Атомарно сохраняем обновленную статистику
+                temp_file = stats_file + ".tmp"
+                with open(temp_file, 'w', encoding='utf-8') as f:
+                    json.dump(country_stats, f)
+                shutil.move(temp_file, stats_file)
+                
+        except Exception:
+            pass # Игнорируем ошибки определения IP
+
+    # 4. Формируем безопасный ответ для фронтенда (карте нужны только числа, без IP)
+    response_data = {}
+    for code, data in country_stats.items():
+        if isinstance(data, dict):
+            response_data[code] = data.get("count", 0)
+        else:
+            response_data[code] = data  # Резерв для старого формата
+
+    # 5. Тестовые данные для проверки на локальном ПК
+    if is_local and not response_data:
+        response_data = {"KZ": 15, "US": 8, "GB": 5, "DE": 3, "TR": 2}
+
+    return JsonResponse(response_data)
