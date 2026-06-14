@@ -3419,11 +3419,10 @@ def map_analytics_api(request):
                 elif country_code not in country_stats:
                     country_stats[country_code] = {"count": 0, "ips": []}
                     
-                # Увеличиваем общий счетчик просмотров
-                country_stats[country_code]["count"] += 1
-                
-                # Собираем уникальные IP-адреса посетителей
+                # Собираем уникальные IP-адреса посетителей и считаем только их
                 if ip not in country_stats[country_code]["ips"]:
+                    # Увеличиваем счетчик только для новых уникальных посетителей
+                    country_stats[country_code]["count"] += 1
                     country_stats[country_code]["ips"].append(ip)
 
                 # 3. Атомарно сохраняем обновленную статистику
