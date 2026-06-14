@@ -104,3 +104,6 @@ STATICFILES_DIRS += (
 ENABLE_ORCID = os.environ.get("ENABLE_ORCID", "False") == "True"
 ORCID_CLIENT_ID = os.environ.get("ORCID_CLIENT_ID", "")
 ORCID_CLIENT_SECRET = os.environ.get("ORCID_CLIENT_SECRET", "")
+
+# --- GeoIP2 Database Path ---
+GEOIP_PATH = os.path.join(BASE_DIR, "metrics", "geolocation")
