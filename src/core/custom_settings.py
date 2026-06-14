@@ -55,6 +55,8 @@ MIDDLEWARE = (
     "simple_history.middleware.HistoryRequestMiddleware",
 )
 
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -98,3 +100,7 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 STATICFILES_DIRS += (
     os.path.join(BASE_DIR, "themes", "BTE", "static"),
 )
+
+ENABLE_ORCID = os.environ.get("ENABLE_ORCID", "False") == "True"
+ORCID_CLIENT_ID = os.environ.get("ORCID_CLIENT_ID", "")
+ORCID_CLIENT_SECRET = os.environ.get("ORCID_CLIENT_SECRET", "")

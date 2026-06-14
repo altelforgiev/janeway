@@ -10,7 +10,7 @@ from django.conf import settings
 from django.views.static import serve
 
 from press import views as press_views
-from core import error_views
+from core import error_views, views as core_views
 from utils.logger import get_logger
 from journal.views import view_jats_stub
 
@@ -21,6 +21,7 @@ include("events.registration")
 urlpatterns = [
     path("", press_views.index, name="website_index"),
     path("admin/", admin.site.urls),
+    path("api/map-data/", core_views.map_analytics_api, name="map_data_api"),
     path("summernote/", include("django_summernote.urls")),
     path("", include("core.include_urls")),
 ]

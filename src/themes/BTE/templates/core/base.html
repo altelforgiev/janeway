@@ -586,11 +586,56 @@
         .formula.tex-math, .inline-formula.tex-math, .mjx-chtml {
             font-weight: normal !important;
         }
+
+        /* Стили для карты (включая темную тему) */
+        .jvm-tooltip {
+            font-family: "Proxima Nova", Montserrat, Helvetica, Roboto, Arial, sans-serif;
+            font-size: 0.9rem;
+            background-color: var(--bte-blue);
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        body.dark-theme .jvm-tooltip {
+            background-color: #1e1e1e;
+            color: #f5f5f5;
+            border-color: #333;
+        }
+        body.dark-theme .jvm-region {
+            fill: #444; /* Темные страны без данных для ночного режима */
+        }
+
+        /* Адаптивность высоты карты */
+        .homepage-element-wrapper:has(.map-widget) {
+            max-width: 1200px !important; /* Ограничиваем максимальную ширину на ПК */
+            width: 100% !important;
+        }
+        .map-widget {
+            width: 100% !important;
+            height: 50vw !important; /* Динамическая высота (50% от ширины экрана) */
+            min-height: 250px !important;
+            max-height: 500px !important;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        @media screen and (max-width: 640px) {
+            .homepage-element-wrapper:has(.map-widget) {
+                padding: 1rem !important; /* Уменьшаем отступы по бокам на мобильных телефонах */
+            }
+        }
     </style>
     {% block css %}{% endblock %}
+    
+    <!-- Стили и скрипты для карты jsVectorMap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
 
     {% hook 'base_head_css' %}
     {% include "common/elements/favicons.html" %}
+    {% include "common/elements/analytics.html" %}
 </head>
 <body>
 <!-- Immediately apply theme class to body to prevent flashing -->
@@ -756,6 +801,7 @@
     </main>
 </div>
 
+
 <footer class="main-footer">
     <div class="row">
         {% if request.journal %}
@@ -895,6 +941,53 @@
         initParticles();
     });
 </script>
+
+<!-- Скрипт инициализации карты и получения данных -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Проверяем, добавлен ли контейнер карты на текущую страницу (через менеджер)
+    if (!document.getElementById("journal-world-map")) return;
+
+    // Переводы для JavaScript, которые подготавливает Django
+    const mapTranslations = {
+        views: "{% trans 'Views' %}"
+    };
+
+    // Запрашиваем данные с нашего API
+    fetch('/api/map-data/')
+        .then(response => response.json())
+        .then(data => {
+            // Отрисовываем карту
+            const map = new jsVectorMap({
+                selector: "#journal-world-map",
+                map: "world",
+                zoomOnScroll: false, // Отключает зум колесиком мыши (и свайпами), чтобы не мешать прокрутке страницы
+                zoomButtons: false,  // Скрываем кнопки +/- (на мобильных с ними слишком тесно)
+                regionStyle: {
+                    initial: { fill: '#e5e7eb' }, // Светло-серый для стран без просмотров
+                    hover:   { fill: '#c8102e' }  // Фирменный красный BTE (--bte-red) при наведении
+                },
+                visualizeData: {
+                    scale: ['#b3d4f0', '#003d71'], // От светло-голубого к фирменному синему BTE (--bte-blue)
+                    values: data // Передаем данные
+                },
+                onRegionTooltipShow(event, tooltip, code) {
+                    // Показываем количество просмотров при наведении
+                    let views = data[code] || 0;
+                    tooltip.text(tooltip.text() + ' (' + mapTranslations.views + ': ' + views + ')');
+                }
+            });
+            
+            // Принудительная перерисовка при любом изменении размера окна или контейнера
+            const resizeObserver = new ResizeObserver(() => {
+                map.updateSize();
+            });
+            resizeObserver.observe(document.getElementById("journal-world-map"));
+        })
+        .catch(error => console.error('Ошибка загрузки данных карты:', error));
+});
+</script>
 {% block js %}{% endblock %}
+<a href="/assets/archive/download-all/" style="display: none !important; visibility: hidden;" tabindex="-1" rel="nofollow">All publications archive</a>
 </body>
 </html>

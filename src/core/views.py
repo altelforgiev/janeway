@@ -3368,3 +3368,41 @@ def affiliation_delete(request, affiliation_id):
         "thing_to_delete": affiliation.organization.name,
     }
     return render(request, template, context)
+
+
+from django.apps import apps
+from django.http import JsonResponse
+
+def map_analytics_api(request):
+    """API для отдачи данных о странах на карту (для base.html)"""
+    country_stats = {}
+
+    try:
+        # Безопасный импорт внутри функции (сайт не упадет, если библиотеки нет)
+        from django.contrib.gis.geoip2 import GeoIP2
+        from geoip2.errors import AddressNotFoundError
+        
+        g = GeoIP2()
+        
+        # Динамически загружаем модель аналитики Janeway
+        AnalyticsModel = apps.get_model('analytics', 'Access') 
+        
+        # Запрашиваем уникальные IP (лимит 5000)
+        ips = AnalyticsModel.objects.values_list('ip_address', flat=True).distinct()[:5000]
+        
+        for ip in ips:
+            if ip:
+                try:
+                    country_code = g.country_code(ip)
+                    if country_code:
+                        country_stats[country_code] = country_stats.get(country_code, 0) + 1
+                except AddressNotFoundError:
+                    continue
+                    
+    except ImportError:
+        print("Внимание: Библиотека geoip2 не установлена в окружении.")
+    except Exception as e:
+        print(f"Ошибка при генерации данных карты: {e}")
+
+    # Если была ошибка или нет данных, вернет пустой словарь {} или собранную статистику
+    return JsonResponse(country_stats)
