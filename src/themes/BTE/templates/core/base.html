@@ -262,25 +262,19 @@
             object-fit: contain !important;
             position: relative !important;
             transform: none !important;
-            opacity: 1 !important;
-            filter: none !important;
         }
         #issue_top .olh-banner .overlay {
-            display: none !important;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: transparent !important;
         }
         #issue_top .olh-banner-heading {
             z-index: 2;
             position: relative !important;
-            padding: 1rem 1.5rem;
+            padding: 1.5rem;
             align-self: end;
-            justify-self: start;
-            background-color: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(4px);
-            border-top-right-radius: 6px;
-        }
-        #issue_top .olh-banner-heading h1,
-        #issue_top .olh-banner-heading h2 {
-            margin: 0 !important;
+            justify-self: stretch;
         }
 
         {# ОБНОВЛЕННЫЙ СТИЛЬ БЛОКОВ И САЙДБАРА #}
