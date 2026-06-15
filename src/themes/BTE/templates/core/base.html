@@ -281,6 +281,26 @@
             line-height: 1.2 !important; /* Уменьшаем межстрочный интервал для заголовка */
         }
 
+        #issue_top .cover-credit-link {
+            position: absolute;
+            bottom: 1rem;
+            right: 1.5rem;
+            z-index: 3;
+            color: white !important;
+            opacity: 0.6;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+        #issue_top .cover-credit-link:hover {
+            opacity: 1;
+            transform: scale(1.1);
+            color: white !important;
+        }
+        #issue_top .cover-credit-link .material-symbols-outlined {
+            font-size: 1.5rem;
+            vertical-align: middle;
+        }
+
         {# ОБНОВЛЕННЫЙ СТИЛЬ БЛОКОВ И САЙДБАРА #}
         .homepage-element-wrapper {
             background: #ffffff;

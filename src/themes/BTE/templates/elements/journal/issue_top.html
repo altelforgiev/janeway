@@ -12,6 +12,19 @@
             <h1 class="text-with-shadow" aria-label='{{ issue.display_title_a11y }}'>{{ issue.display_title }}</h1>
           {% endif %}
         </figcaption>
+        {% if issue.pk == 1 %}
+        <a href="https://unsplash.com/photos/a-large-white-structure-sitting-in-the-middle-of-a-body-of-water-Lk6k4nDCOD8" target="_blank" rel="noopener noreferrer" class="cover-credit-link" aria-label="Image source on Unsplash">
+            <span class="material-symbols-outlined">info</span>
+        </a>
+        {% elif issue.pk == 2 %}
+        <a href="ЗДЕСЬ_БУДЕТ_ССЫЛКА_ДЛЯ_ВТОРОГО_ВЫПУСКА" target="_blank" rel="noopener noreferrer" class="cover-credit-link" aria-label="Image source on Unsplash">
+            <span class="material-symbols-outlined">info</span>
+        </a>
+        {% elif issue.pk == 3 %}
+        <a href="ЗДЕСЬ_БУДЕТ_ССЫЛКА_ДЛЯ_ТРЕТЬЕГО_ВЫПУСКА" target="_blank" rel="noopener noreferrer" class="cover-credit-link" aria-label="Image source on Unsplash">
+            <span class="material-symbols-outlined">info</span>
+        </a>
+        {% endif %}
       </div>
         {% if issue.issue_description %}<p>{{ issue.issue_description|safe }}</p>{% endif %}
     {% else %}
