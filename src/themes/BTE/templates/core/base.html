@@ -7,7 +7,7 @@
 {% load hooks %}
 {% load next_url %}
 
-<!-- BTE_THEME_LOADED_SUCCESSFULLY -->
+{# BTE_THEME_LOADED_SUCCESSFULLY #}
 <!doctype html>
 <html class="no-js" lang="{{ request.current_language }}">
 <head>
@@ -21,26 +21,26 @@
     <link href="{% static "OLH/css/app.css" %}" rel="stylesheet">
     <link href="{% static "common/css/index.css" %}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
-    <!-- Google Material Symbols -->
+    {# Google Material Symbols #}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <script src="https://use.typekit.net/lff8ikn.js"></script>
     <script>try { Typekit.load({async: true}); } catch (e) {}</script>
 
     <style>
-        /* =========================================
-           ГЛОБАЛЬНЫЕ СТИЛИ ТЕМЫ BTE 
-           (Типографика на основе OLH)
-           ========================================= */
+        {# ========================================= #}
+        {# ГЛОБАЛЬНЫЕ СТИЛИ ТЕМЫ BTE               #}
+        {# (Типографика на основе OLH)               #}
+        {# ========================================= #}
 
         :root {
-            /* Фирменные цвета BTE */
+            {# Фирменные цвета BTE #}
             --bte-blue: #003d71;
             --bte-red: #c8102e;
             --bte-gold: #ffcc00;
             --bte-light-grey: #f1f1f1;
 
-            /* Переменные из шаблона OLH */
+            {# Переменные из шаблона OLH #}
             --primary-dark-color: #062657;
             --very-dark-primary-color: #06152D;
             --primary-light-color: #2199e8;
@@ -57,7 +57,7 @@
             --focus-dark: #193146;
             --focus-ring-size: 4px;
 
-            /* Размеры текста OLH (Fluid Typography) */
+            {# Размеры текста OLH (Fluid Typography) #}
             --step-1: clamp(0.7813rem, 0.7747rem + 0.0326vi, 0.8rem);
             --step-2: clamp(0.9375rem, 0.9158rem + 0.1087vi, 1rem);
             --step-3: clamp(1.125rem, 1.0815rem + 0.2174vi, 1.25rem);
@@ -72,9 +72,9 @@
             --link-color-hover: var(--bte-red);
         }
 
-        /* 1. Общий фон и шрифт текста (из OLH) */
+        {# 1. Общий фон и шрифт текста (из OLH) #}
         body {
-            background-color: #fdfdfd; /* Слегка сероватый фон для контраста с блоками */
+            background-color: #fdfdfd; {# Слегка сероватый фон для контраста с блоками #}
             -webkit-text-size-adjust: 100%;
             font-family: "Merriweather", serif;
             font-weight: 300;
@@ -86,16 +86,16 @@
             padding: 0;
         }
 
-        /* Минималистичная Шапка и Меню */
+        {# Минималистичная Шапка и Меню #}
         .main-header { 
             background-color: #ffffff; 
             border-bottom: 3px solid var(--bte-red);
             position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Тень для объема */
-            z-index: 100; /* Гарантируем, что шапка выше основного контента */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); {# Тень для объема #}
+            z-index: 100; {# Гарантируем, что шапка выше основного контента #}
         }
 
-        /* PARTICLES JS */
+        {# PARTICLES JS #}
         #particles-js {
             position: absolute;
             width: 100%;
@@ -103,19 +103,19 @@
             top: 0;
             left: 0;
             z-index: 0;
-            overflow: hidden; /* Переносим обрезку частиц сюда, чтобы не резать выпадающее меню */
-            pointer-events: auto; /* Позволяем реагировать на события мыши */
+            overflow: hidden; {# Переносим обрезку частиц сюда, чтобы не резать выпадающее меню #}
+            pointer-events: auto; {# Позволяем реагировать на события мыши #}
 
-            /* Плавное растворение частиц к нижнему краю, чтобы избежать жесткой обрезки (hard clip) */
+            {# Плавное растворение частиц к нижнему краю, чтобы избежать жесткой обрезки (hard clip) #}
             -webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
             mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
         }
 
-        /* Выносим контент шапки поверх частиц */
+        {# Выносим контент шапки поверх частиц #}
         .main-header .main {
             position: relative;
-            z-index: 20; /* Выше чем top-nav, чтобы выпадающие меню не перекрывались навигацией */
-            pointer-events: none; /* Пропускаем клики сквозь контейнер */
+            z-index: 20; {# Выше чем top-nav, чтобы выпадающие меню не перекрывались навигацией #}
+            pointer-events: none; {# Пропускаем клики сквозь контейнер #}
         }
 
         .main-header .top-nav {
@@ -124,7 +124,7 @@
             pointer-events: none;
         }
 
-        /* Включаем клики обратно для интерактивных элементов */
+        {# Включаем клики обратно для интерактивных элементов #}
         .main-header .main a,
         .main-header .main button,
         .main-header .main input,
@@ -167,24 +167,24 @@
             color: var(--bte-red) !important;
         }
 
-        /* Тень для текста поверх изображений */
+        {# Тень для текста поверх изображений #}
         .text-with-shadow {
-            color: #ffffff !important; /* Делаем текст белым */
+            color: #ffffff !important; {# Делаем текст белым #}
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5),
                          -1px -1px 2px rgba(0, 0, 0, 0.5),
                          1px -1px 2px rgba(0, 0, 0, 0.5),
                          -1px 1px 2px rgba(0, 0, 0, 0.5),
-                         0px 2px 4px rgba(0, 0, 0, 0.4) !important; /* Более мягкая, размытая тень */
+                         0px 2px 4px rgba(0, 0, 0, 0.4) !important; {# Более мягкая, размытая тень #}
         }
 
-        /* Навигация */
+        {# Навигация #}
         .top-nav {
             background-color: transparent !important;
-            /* Make sure no borders display from default foundation */
+            {# Make sure no borders display from default foundation #}
             border: none !important;
         }
 
-        /* Remove the top border specifically to prevent any white lines */
+        {# Remove the top border specifically to prevent any white lines #}
         .top-nav,
         .top-bar,
         .main-header .top-nav,
@@ -206,7 +206,7 @@
             transform: translateY(-1px);
         }
 
-        /* 2. Типографика: Заголовки */
+        {# 2. Типографика: Заголовки #}
         h1, h2, h3, h4, h5, h6 {
             font-family: "Proxima Nova", Montserrat, Helvetica, Roboto, Arial, sans-serif;
             color: #222222;
@@ -225,7 +225,7 @@
             line-height: 2;
         }
 
-        /* 3. Ссылки */
+        {# 3. Ссылки #}
         a {
             color: var(--link-color);
             text-decoration: none;
@@ -236,7 +236,7 @@
             text-decoration: none;
         }
 
-        /* 4. Разделительные линии */
+        {# 4. Разделительные линии #}
         hr {
              border: 0 !important;
              border-top: 2px solid var(--bte-red) !important;
@@ -244,7 +244,7 @@
              opacity: 0.4 !important;
         }
 
-        /* ОБНОВЛЕННЫЙ СТИЛЬ БЛОКОВ И САЙДБАРА */
+        {# ОБНОВЛЕННЫЙ СТИЛЬ БЛОКОВ И САЙДБАРА #}
         .homepage-element-wrapper {
             background: #ffffff;
             padding: 2rem;
@@ -297,10 +297,10 @@
         .sidebar-box ul.menu.vertical > li > a:hover {
             color: var(--bte-red) !important;
             background: transparent;
-            padding-left: 5px; /* Эффект смещения при наведении */
+            padding-left: 5px; {# Эффект смещения при наведении #}
         }
 
-        /* 5. Кнопки */
+        {# 5. Кнопки #}
         .button, .btn, .btn-submit, .btn-pdf, .btn-finish {
             display: inline-block;
             padding: 0.85em 1.5em;
@@ -321,7 +321,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
-        /* Футер */
+        {# Футер #}
         footer.main-footer {
             background: #fcfcfc;
             color: #666;
@@ -334,13 +334,13 @@
         footer.main-footer a:hover { color: var(--bte-red) !important; }
         footer.main-footer h1, footer.main-footer h2, footer.main-footer h3 { color: #222222; }
 
-        /* Языковое меню и выпадающие списки */
+        {# Языковое меню и выпадающие списки #}
         .is-dropdown-submenu {
-            z-index: 100 !important; /* Выносим поверх всего контента */
+            z-index: 100 !important; {# Выносим поверх всего контента #}
         }
 
         .top-bar-right .is-dropdown-submenu {
-            margin-top: 0; /* Убираем отступ только для языка и профиля, чтобы мышь не соскальзывала */
+            margin-top: 0; {# Убираем отступ только для языка и профиля, чтобы мышь не соскальзывала #}
         }
 
         .language-menu .is-dropdown-submenu {
@@ -365,13 +365,13 @@
             color: var(--bte-red) !important;
         }
 
-        /* Account menu matching text width */
+        {# Account menu matching text width #}
         .account-menu-item .is-dropdown-submenu {
             min-width: auto;
             white-space: nowrap;
         }
 
-        /* Fix the theme icon button and new search icon */
+        {# Fix the theme icon button and new search icon #}
         .search-toggle-btn,
         .theme-toggle-btn {
             background: none !important;
@@ -399,7 +399,7 @@
         }
 
         .theme-icon {
-            font-size: 1.1rem; /* Размер иконки переключения темы */
+            font-size: 1.1rem; {# Размер иконки переключения темы #}
             transition: color 0.2s ease;
         }
 
@@ -412,18 +412,18 @@
             color: var(--bte-red) !important;
         }
 
-        /* --- Dark Theme Styles --- */
+        {# --- Dark Theme Styles --- #}
         body.dark-theme {
             background-color: #121212;
-            color: #f5f5f5; /* Осветленный цвет текста для лучшей читаемости */
-            font-weight: 400; /* Немного увеличим насыщенность шрифта */
-            letter-spacing: 0.01em; /* Неболь увеличение интервала, чтобы шрифт не казался тесным */
+            color: #f5f5f5; {# Осветленный цвет текста для лучшей читаемости #}
+            font-weight: 400; {# Немного увеличим насыщенность шрифта #}
+            letter-spacing: 0.01em; {# Неболь увеличение интервала, чтобы шрифт не казался тесным #}
         }
         body.dark-theme p, body.dark-theme li, body.dark-theme dd, body.dark-theme dt, body.dark-theme td, body.dark-theme th {
             color: #f5f5f5;
         }
         body.dark-theme .help-text {
-            color: #b0b0b0 !important; /* Более светлый серый для читаемости (важно !important чтобы перебить foundation) */
+            color: #b0b0b0 !important; {# Более светлый серый для читаемости (важно !important чтобы перебить foundation) #}
             font-size: 0.9em;
             line-height: 1.6;
         }
@@ -432,7 +432,7 @@
         }
 
         body.dark-theme .top-bar .menu-text {
-            color: #ffffff !important; /* Белый цвет названия журнала в темной теме */
+            color: #ffffff !important; {# Белый цвет названия журнала в темной теме #}
         }
 
         body.dark-theme .top-bar .is-dropdown-submenu,
@@ -450,7 +450,7 @@
         body.dark-theme #main-menu ul,
         body.dark-theme #main-menu li {
             background-color: #1e1e1e !important;
-            border-color: #333 !important; /* Darker border for dropdowns */
+            border-color: #333 !important; {# Darker border for dropdowns #}
         }
 
         body.dark-theme .js-drilldown-back > a {
@@ -472,14 +472,14 @@
         body.dark-theme .top-bar .menu a:hover,
         body.dark-theme .top-nav a:hover,
         body.dark-theme #main-menu a:hover {
-            color: var(--bte-red) !important; /* Changed hover color */
+            color: var(--bte-red) !important; {# Changed hover color #}
             background-color: rgba(255, 255, 255, 0.1) !important;
         }
         body.dark-theme h1, body.dark-theme h2, body.dark-theme h3,
         body.dark-theme h4, body.dark-theme h5, body.dark-theme h6 {
             color: #ffffff;
             font-weight: 400;
-            letter-spacing: 0.02em; /* Чуть больше воздуха в заголовках */
+            letter-spacing: 0.02em; {# Чуть больше воздуха в заголовках #}
         }
 
         body.dark-theme .homepage-element-wrapper,
@@ -495,19 +495,19 @@
             color: #e0e0e0 !important;
             border-bottom-color: #333;
         }
-        /* Fix hover for sidebar links in dark theme */
+        {# Fix hover for sidebar links in dark theme #}
         body.dark-theme .sidebar-box ul.menu.vertical > li > a:hover {
             color: var(--bte-red) !important;
         }
         body.dark-theme footer.main-footer {
             background: #1a1a1a;
-            color: #cccccc; /* Футер тоже делаем читаемым */
+            color: #cccccc; {# Футер тоже делаем читаемым #}
             border-top-color: #333;
         }
         body.dark-theme footer.main-footer h1, body.dark-theme footer.main-footer h2, body.dark-theme footer.main-footer h3 {
             color: #f5f5f5;
         }
-        /* Fix hover for footer links in dark theme */
+        {# Fix hover for footer links in dark theme #}
         body.dark-theme footer.main-footer a:hover {
              color: var(--bte-red) !important;
         }
@@ -541,29 +541,29 @@
             color: var(--bte-red) !important;
         }
 
-        /* Fix button hover states in dark theme */
+        {# Fix button hover states in dark theme #}
         body.dark-theme .button:hover,
         body.dark-theme .btn:hover,
         body.dark-theme .btn-submit:hover {
             background-color: var(--bte-red) !important;
         }
 
-        /* Fix link hover in dark theme */
+        {# Fix link hover in dark theme #}
         body.dark-theme a:hover {
             color: var(--bte-red) !important;
         }
 
-        /* Fix particles visibility in dark theme */
+        {# Fix particles visibility in dark theme #}
         body.dark-theme #particles-js {
             z-index: 0;
             background-color: transparent;
         }
-        /* Make sure particles wrapper doesn't hide particles */
+        {# Make sure particles wrapper doesn't hide particles #}
         body.dark-theme .main-header {
             background-color: #1e1e1e;
         }
 
-        /* Remove the top/bottom borders from main nav */
+        {# Remove the top/bottom borders from main nav #}
         .top-nav,
         .main-header .top-nav,
         .main-header .top-bar,
@@ -582,17 +582,17 @@
             border-bottom: none !important;
         }
 
-        /* Исправление жирности формул MathJax */
+        {# Исправление жирности формул MathJax #}
         .formula.tex-math, .inline-formula.tex-math, .mjx-chtml {
             font-weight: normal !important;
         }
 
-        /* Стили для карты (включая темную тему) */
+        {# Стили для карты (включая темную тему) #}
         :root {
-            --map-empty-fill: #e5e7eb; /* Цвет стран без просмотров (Светлая тема) */
+            --map-empty-fill: #e5e7eb; {# Цвет стран без просмотров (Светлая тема) #}
         }
         body.dark-theme {
-            --map-empty-fill: #444444; /* Цвет стран без просмотров (Темная тема) */
+            --map-empty-fill: #444444; {# Цвет стран без просмотров (Темная тема) #}
         }
         .jvm-tooltip {
             font-family: "Proxima Nova", Montserrat, Helvetica, Roboto, Arial, sans-serif;
@@ -609,14 +609,14 @@
             border-color: #333;
         }
 
-        /* Адаптивность высоты карты */
+        {# Адаптивность высоты карты #}
         .homepage-element-wrapper:has(.map-widget) {
-            max-width: 1200px !important; /* Ограничиваем максимальную ширину на ПК */
+            max-width: 1200px !important; {# Ограничиваем максимальную ширину на ПК #}
             width: 100% !important;
         }
         .map-widget {
             width: 100% !important;
-            height: 50vw !important; /* Динамическая высота (50% от ширины экрана) */
+            height: 50vw !important; {# Динамическая высота (50% от ширины экрана) #}
             min-height: 250px !important;
             max-height: 500px !important;
             margin: 0 auto;
@@ -625,13 +625,13 @@
         }
         @media screen and (max-width: 640px) {
             .homepage-element-wrapper:has(.map-widget) {
-                padding: 1rem !important; /* Уменьшаем отступы по бокам на мобильных телефонах */
+                padding: 1rem !important; {# Уменьшаем отступы по бокам на мобильных телефонах #}
             }
         }
     </style>
     {% block css %}{% endblock %}
     
-    <!-- Стили и скрипты для карты jsVectorMap -->
+    {# Стили и скрипты для карты jsVectorMap #}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
     <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
@@ -641,7 +641,7 @@
     {% include "common/elements/analytics.html" %}
 </head>
 <body>
-<!-- Immediately apply theme class to body to prevent flashing -->
+{# Immediately apply theme class to body to prevent flashing #}
 <script>
     if (localStorage.getItem('theme') === 'dark-theme') {
         document.body.classList.add('dark-theme');
@@ -651,7 +651,7 @@
 {% include "common/elements/skip_to_main_content.html" %}
 <div class="wrapper">
     <header class="main-header">
-        <!-- Блок для частиц -->
+        {# Блок для частиц #}
         <div id="particles-js"></div>
 
         <div class="main top-bar">
@@ -693,7 +693,7 @@
             </div>
 
             {% if request.journal %}
-            <!-- Mobile Search Menu -->
+            {# Mobile Search Menu #}
             <div id="search-menu" class="show-for-small-only" style="display: none; padding: 1rem; background: #fff;">
                 <ul class="menu global-search">
                     <li>
@@ -716,7 +716,7 @@
             <div class="top-bar-right hide-for-small-only">
                 <ul class="dropdown menu" data-dropdown-menu data-hover-pane="true">
 
-                    <!-- Search Toggle for Desktop -->
+                    {# Search Toggle for Desktop #}
                     {% if request.journal %}
                     <li>
                         <button type="button" class="search-toggle-btn" data-toggle="desktop-search-dropdown" aria-label="{% trans 'Toggle search' %}">
@@ -762,7 +762,7 @@
                       </li>
                     {% endif %}
 
-                    <!-- Theme Toggle -->
+                    {# Theme Toggle #}
                     <li>
                         <button type="button" class="theme-toggle-btn" aria-label="Toggle Theme">
                             <span class="material-symbols-outlined theme-icon">dark_mode</span>
@@ -770,7 +770,7 @@
                     </li>
                 </ul>
 
-                <!-- Desktop Search Dropdown Pane -->
+                {# Desktop Search Dropdown Pane #}
                 {% if request.journal %}
                 <div class="dropdown-pane bottom" id="desktop-search-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true" style="width: 300px; padding: 1rem; border: 1px solid var(--border-light); border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 105;">
                     <form method="POST" action="{% url 'search' %}">
@@ -818,36 +818,36 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/js/foundation.min.js"></script>
 
-<!-- Скрипт tsParticles (современная альтернатива particles.js) -->
+{# Скрипт tsParticles (современная альтернатива particles.js) #}
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
 <script>
     $(document).ready(function() {
         $(document).foundation();
 
-        /* Theme Toggle JS */
+        {# Theme Toggle JS #}
         const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
         const themeIcons = document.querySelectorAll('.theme-icon');
         const body = document.body;
 
-        // Configuration for light theme particles
+        {# Configuration for light theme particles #}
         const lightParticlesConfig = {
           "particles": {
             "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#003d71" }, // Фирменный синий
+            "color": { "value": "#003d71" }, {# Фирменный синий #}
             "shape": { "type": "circle" },
             "opacity": { "value": 0.4, "random": false },
             "size": { "value": 3, "random": true },
             "line_linked": {
               "enable": true,
               "distance": 150,
-              "color": "#c8102e", // Фирменный красный
+              "color": "#c8102e", {# Фирменный красный #}
               "opacity": 0.3,
               "width": 1
             },
             "move": {
               "enable": true,
-              "speed": 0.8, // Уменьшенная скорость
+              "speed": 0.8, {# Уменьшенная скорость #}
               "direction": "none",
               "random": false,
               "straight": false,
@@ -856,10 +856,10 @@
             }
           },
           "interactivity": {
-            "detect_on": "window", // Определение событий мыши по всему окну шапки
+            "detect_on": "window", {# Определение событий мыши по всему окну шапки #}
             "events": {
-              "onhover": { "enable": true, "mode": "grab" }, // Реакция на наведение
-              "onclick": { "enable": true, "mode": "push" }, // Реакция на клик
+              "onhover": { "enable": true, "mode": "grab" }, {# Реакция на наведение #}
+              "onclick": { "enable": true, "mode": "push" }, {# Реакция на клик #}
               "resize": true
             },
             "modes": {
@@ -870,24 +870,24 @@
           "retina_detect": true
         };
 
-        // Configuration for dark theme particles
+        {# Configuration for dark theme particles #}
         const darkParticlesConfig = {
           "particles": {
             "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#ffffff" }, // Белые частицы
+            "color": { "value": "#ffffff" }, {# Белые частицы #}
             "shape": { "type": "circle" },
             "opacity": { "value": 0.5, "random": false },
             "size": { "value": 3, "random": true },
             "line_linked": {
               "enable": true,
               "distance": 150,
-              "color": "#c8102e", // Фирменный красный (оставлен без изменений)
+              "color": "#c8102e", {# Фирменный красный (оставлен без изменений) #}
               "opacity": 0.4,
               "width": 1
             },
             "move": {
               "enable": true,
-              "speed": 0.8, // Уменьшенная скорость
+              "speed": 0.8, {# Уменьшенная скорость #}
               "direction": "none",
               "random": false,
               "straight": false,
@@ -896,10 +896,10 @@
             }
           },
           "interactivity": {
-            "detect_on": "window", // Определение событий мыши по всему окну шапки
+            "detect_on": "window", {# Определение событий мыши по всему окну шапки #}
             "events": {
-              "onhover": { "enable": true, "mode": "grab" }, // Реакция на наведение
-              "onclick": { "enable": true, "mode": "push" }, // Реакция на клик
+              "onhover": { "enable": true, "mode": "grab" }, {# Реакция на наведение #}
+              "onclick": { "enable": true, "mode": "push" }, {# Реакция на клик #}
               "resize": true
             },
             "modes": {
@@ -913,7 +913,7 @@
         async function initParticles() {
             if (typeof tsParticles !== 'undefined') {
                 const config = document.body.classList.contains('dark-theme') ? darkParticlesConfig : lightParticlesConfig;
-                // tsParticles.load автоматически заменяет/уничтожает старый инстанс с таким же ID
+                {# tsParticles.load автоматически заменяет/уничтожает старый инстанс с таким же ID #}
                 await tsParticles.load('particles-js', config);
             }
         }
@@ -935,71 +935,74 @@
                     themeIcons.forEach(icon => icon.textContent = 'dark_mode');
                 }
 
-                // Re-initialize particles with the new theme colors
+                {# Re-initialize particles with the new theme colors #}
                 initParticles();
             });
         });
 
-        /* Initialize Particles.js on page load */
+        {# Initialize Particles.js on page load #}
         initParticles();
     });
 </script>
 
-<!-- Скрипт инициализации карты и получения данных -->
+{# Скрипт инициализации карты и получения данных #}
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // Проверяем, добавлен ли контейнер карты на текущую страницу (через менеджер)
+    {# Незаметно отправляем сигнал о посещении любой страницы сайта для сбора географии #}
+    fetch('/api/record-view/').catch(() => {});
+
+    {# Проверяем, добавлен ли контейнер карты на текущую страницу (через менеджер) #}
     if (!document.getElementById("journal-world-map")) return;
 
-    // Переводы для JavaScript, которые подготавливает Django
+    {# Переводы для JavaScript, которые подготавливает Django #}
     const mapTranslations = {
         views: "{% trans 'Views' %}"
     };
 
-    // Запрашиваем данные с нашего API
+    {# Запрашиваем данные с нашего API #}
     fetch('/api/map-data/')
         .then(response => response.json())
         .then(data => {
-            // Отрисовываем карту
+            {# Отрисовываем карту #}
             const map = new jsVectorMap({
                 selector: "#journal-world-map",
                 map: "world",
-                zoomOnScroll: false, // Отключает зум колесиком мыши (и свайпами), чтобы не мешать прокрутке страницы
-                zoomButtons: false,  // Скрываем кнопки +/- (на мобильных с ними слишком тесно)
+                zoomOnScroll: false, {# Отключает зум колесиком мыши (и свайпами), чтобы не мешать прокрутке страницы #}
+                zoomButtons: false,  {# Скрываем кнопки +/- (на мобильных с ними слишком тесно) #}
                 regionStyle: {
-                    initial: { fill: 'var(--map-empty-fill)' }, // Автоматический цвет (светлый/темный)
-                    hover:   { fill: '#c8102e' }  // Фирменный красный BTE (--bte-red) при наведении
+                    initial: { fill: 'var(--map-empty-fill)' }, {# Автоматический цвет (светлый/темный) #}
+                    hover:   { fill: '#c8102e' }  {# Фирменный красный BTE (--bte-red) при наведении #}
                 },
                 markers: data.markers || [],
                 markerStyle: {
                     initial: {
-                        fill: '#ffcc00', // Фирменный золотой BTE
-                        stroke: '#003d71', // Фирменный синий
+                        fill: '#ffcc00', {# Фирменный золотой BTE #}
+                        stroke: '#003d71', {# Фирменный синий #}
                         strokeWidth: 1.5,
-                        r: 2 // Измените это значение (например, 2 или 2.5), чтобы сделать точки меньше
+                        r: 2 {# Измените это значение (например, 2 или 2.5), чтобы сделать точки меньше #}
                     },
                     hover: {
-                        fill: '#c8102e', // Красный при наведении
+                        fill: '#c8102e', {# Красный при наведении #}
                         stroke: '#ffffff'
                     }
                 },
                 visualizeData: {
-                    scale: ['#b3d4f0', '#003d71'], // От светло-голубого к фирменному синему BTE (--bte-blue)
-                    values: data.countries // Передаем данные только для стран
+                    scale: ['#b3d4f0', '#003d71'], {# От светло-голубого к фирменному синему BTE (--bte-blue) #}
+                    values: data.countries {# Передаем данные только для стран #}
                 },
                 onRegionTooltipShow(event, tooltip, code) {
-                    // Показываем количество просмотров при наведении
+                    {# Показываем количество просмотров при наведении #}
                     let views = data.countries[code] || 0;
                     tooltip.text(tooltip.text() + ' (' + mapTranslations.views + ': ' + views + ')');
                 },
                 onMarkerTooltipShow(event, tooltip, index) {
-                    // Показываем количество просмотров города при наведении
+                    {# Показываем количество просмотров города при наведении #}
                     let marker = data.markers[index];
                     tooltip.text(marker.name + ' (' + mapTranslations.views + ': ' + marker.views + ')');
                 }
             });
             
-            // Принудительная перерисовка при любом изменении размера окна или контейнера
+            {# Принудительная перерисовка при любом изменении размера окна или контейнера #}
             const resizeObserver = new ResizeObserver(() => {
                 map.updateSize();
             });

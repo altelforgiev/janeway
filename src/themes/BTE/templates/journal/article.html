@@ -530,7 +530,7 @@
         </section>
     </section>
 
-    <!-- article citation modals -->
+    {# article citation modals #}
     {% include "elements/journal/citation_modals.html" with article=article %}
     {% include "elements/journal/summary_modal.html" %}
     {% include "elements/public_reviews.html" %}
@@ -561,11 +561,4 @@
     <script src="{% static "common/js/text_readability.js" %}"></script>
     <script src="{% static 'js/article_toc.js' %}"></script>
     <script src="{% static 'js/article_tables.js' %}"></script>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Незаметно отправляем сигнал о просмотре статьи для географической карты
-            fetch('/api/record-view/').catch(() => {});
-        });
-    </script>
 {% endblock js %}
