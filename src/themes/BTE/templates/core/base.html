@@ -476,6 +476,17 @@
             font-weight: 400; {# Немного увеличим насыщенность шрифта #}
             letter-spacing: 0.01em; {# Неболь увеличение интервала, чтобы шрифт не казался тесным #}
         }
+
+        {# ---  Инверсия логотипов для темной темы --- #}
+        body.dark-theme .header-image-bar img,
+        body.dark-theme .header-image-bar svg,
+        body.dark-theme .press-logo-container img,
+        body.dark-theme .press-logo-container svg,
+        body.dark-theme .janeway-logo-container img {
+            filter: brightness(0) invert(1);
+            transition: filter 0.3s ease;
+        }
+
         body.dark-theme p, body.dark-theme li, body.dark-theme dd, body.dark-theme dt, body.dark-theme td, body.dark-theme th {
             color: #f5f5f5;
         }
@@ -621,6 +632,47 @@
         {# Make sure particles wrapper doesn't hide particles #}
         body.dark-theme .main-header {
             background-color: #1e1e1e;
+        }
+
+        {# --- Map Widget Title Colors --- #}
+        #map-heading {
+            color: #003d71 !important;
+        }
+        body.dark-theme #map-heading {
+            color: #ffffff !important;
+        }
+
+       {# --- Dark Theme: Global Table Styles (Foundation Override) --- #}
+        body.dark-theme table,
+        body.dark-theme table thead,
+        body.dark-theme table tbody,
+        body.dark-theme table tfoot,
+        body.dark-theme table tr,
+        body.dark-theme table th,
+        body.dark-theme table td,
+        body.dark-theme .table-responsive {
+            background: transparent !important;
+            background-color: transparent !important;
+            color: #f5f5f5 !important;
+            border-color: #333333 !important;
+        }
+
+        body.dark-theme table tbody tr:nth-child(even),
+        body.dark-theme table tbody tr:nth-child(even) th,
+        body.dark-theme table tbody tr:nth-child(even) td {
+            background: rgba(255, 255, 255, 0.04) !important;
+            background-color: rgba(255, 255, 255, 0.04) !important;
+        }
+
+        body.dark-theme table th strong,
+        body.dark-theme table td strong,
+        body.dark-theme table td span,
+        body.dark-theme table td a {
+            color: #ffffff !important;
+        }
+
+        body.dark-theme table thead tr {
+            border-bottom: 2px solid var(--bte-red) !important;
         }
 
         {# Remove the top/bottom borders from main nav #}
@@ -877,6 +929,10 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/js/foundation.min.js"></script>
+{% if messages %}
+{# Загружаем Toastr.js только если есть сообщения для отображения #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+{% endif %}
 
 {# Скрипт tsParticles (современная альтернатива particles.js) #}
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
@@ -1010,6 +1066,30 @@
 document.addEventListener("DOMContentLoaded", function() {
     {# Незаметно отправляем сигнал о посещении любой страницы сайта для сбора географии #}
     fetch('/api/record-view/').catch(() => {});
+
+    {# Django Messages with Toastr - теперь здесь #}
+    {% if messages %}
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+        {% for message in messages %}
+            toastr.{{ message.tags }}("{{ message|safe }}");
+        {% endfor %}
+    {% endif %}
 
     {# Проверяем, добавлен ли контейнер карты на текущую страницу (через менеджер) #}
     if (!document.getElementById("journal-world-map")) return;
