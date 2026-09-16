@@ -107,3 +107,12 @@ ORCID_CLIENT_SECRET = os.environ.get("ORCID_CLIENT_SECRET", "")
 
 # --- GeoIP2 Database Path ---
 GEOIP_PATH = os.path.join(BASE_DIR, "metrics", "geolocation")
+
+# --- Hosts (редирект www и DEFAULT_HOST) ---
+ALLOWED_HOSTS = [
+    h.strip()
+    for h in os.environ.get("JANEWAY_ALLOWED_HOSTS", "btejournal.kz,www.btejournal.kz").split(",")
+    if h.strip()
+]
+
+DEFAULT_HOST = os.environ.get("JANEWAY_DEFAULT_HOST", "https://btejournal.kz")
