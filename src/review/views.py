@@ -628,7 +628,11 @@ def delete_review_round(request, article_id, round_id):
         pk=article_id,
         journal=request.journal,
     )
-    review_round = get_object_or_404(models.ReviewRound, pk=round_id)
+    review_round = get_object_or_404(
+        models.ReviewRound,
+        pk=round_id,
+        article=article,
+    )
 
     if request.POST:
         if "delete" in request.POST:
@@ -679,6 +683,7 @@ def add_files(request, article_id, round_id):
     review_round = get_object_or_404(
         models.ReviewRound.objects.prefetch_related("review_files"),
         pk=round_id,
+        article=article,
     )
 
     if request.POST:
@@ -702,8 +707,11 @@ def add_files(request, article_id, round_id):
                 )
             )
 
+        article_files = (
+            article.manuscript_files.all() | article.data_figure_files.all()
+        ).distinct()
         for file in request.POST.getlist("file"):
-            file = core_models.File.objects.get(id=file)
+            file = get_object_or_404(article_files, pk=file)
             review_round.review_files.add(file)
             messages.add_message(
                 request, messages.INFO, "File {0} added.".format(file.label)
@@ -737,7 +745,11 @@ def remove_file(request, article_id, round_id, file_id):
         pk=article_id,
         journal=request.journal,
     )
-    review_round = get_object_or_404(models.ReviewRound, pk=round_id)
+    review_round = get_object_or_404(
+        models.ReviewRound,
+        pk=round_id,
+        article=article,
+    )
     file = get_object_or_404(core_models.File, pk=file_id)
 
     if review_round.round_number == article.current_review_round():
@@ -1317,7 +1329,11 @@ def notify_reviewer(request, article_id, review_id):
         pk=article_id,
         journal=request.journal,
     )
-    review = get_object_or_404(models.ReviewAssignment, pk=review_id)
+    review = get_object_or_404(
+        models.ReviewAssignment,
+        pk=review_id,
+        article=article,
+    )
 
     email_context = logic.get_reviewer_notification_context(
         request, article, request.user, review
@@ -1382,7 +1398,11 @@ def view_review(request, article_id, review_id):
         pk=article_id,
         journal=request.journal,
     )
-    review = get_object_or_404(models.ReviewAssignment, pk=review_id)
+    review = get_object_or_404(
+        models.ReviewAssignment,
+        pk=review_id,
+        article=article,
+    )
     visibility_form = forms.ReviewVisibilityForm(
         instance=review,
     )
@@ -1473,8 +1493,16 @@ def edit_review_answer(request, article_id, review_id, answer_id):
         pk=article_id,
         journal=request.journal,
     )
-    review = get_object_or_404(models.ReviewAssignment, pk=review_id)
-    answer = get_object_or_404(models.ReviewAssignmentAnswer, pk=answer_id)
+    review = get_object_or_404(
+        models.ReviewAssignment,
+        pk=review_id,
+        article=article,
+    )
+    answer = get_object_or_404(
+        models.ReviewAssignmentAnswer,
+        pk=answer_id,
+        assignment=review,
+    )
 
     form = forms.GeneratedForm(answer=answer)
 
@@ -1520,7 +1548,11 @@ def edit_review(request, article_id, review_id):
         pk=article_id,
         journal=request.journal,
     )
-    review = get_object_or_404(models.ReviewAssignment, pk=review_id)
+    review = get_object_or_404(
+        models.ReviewAssignment,
+        pk=review_id,
+        article=article,
+    )
 
     if review.date_complete:
         messages.add_message(
@@ -1578,7 +1610,11 @@ def delete_review(request, article_id, review_id):
         pk=article_id,
         journal=request.journal,
     )
-    review = get_object_or_404(models.ReviewAssignment, pk=review_id)
+    review = get_object_or_404(
+        models.ReviewAssignment,
+        pk=review_id,
+        article=article,
+    )
 
     if review.date_complete:
         messages.add_message(
@@ -1638,7 +1674,11 @@ def withdraw_review(request, article_id, review_id):
         pk=article_id,
         journal=request.journal,
     )
-    review = get_object_or_404(models.ReviewAssignment, pk=review_id)
+    review = get_object_or_404(
+        models.ReviewAssignment,
+        pk=review_id,
+        article=article,
+    )
 
     if review.date_complete:
         messages.add_message(
@@ -1721,7 +1761,11 @@ def reset_review(request, article_id, review_id):
         pk=article_id,
         journal=request.journal,
     )
-    review = get_object_or_404(models.ReviewAssignment, pk=review_id)
+    review = get_object_or_404(
+        models.ReviewAssignment,
+        pk=review_id,
+        article=article,
+    )
 
     if request.POST:
         review.is_complete = False
@@ -2080,7 +2124,11 @@ def request_revisions_notification(request, article_id, revision_id):
         pk=article_id,
         journal=request.journal,
     )
-    revision = get_object_or_404(models.RevisionRequest, pk=revision_id)
+    revision = get_object_or_404(
+        models.RevisionRequest,
+        pk=revision_id,
+        article=article,
+    )
     do_revisions_url = request.journal.site_url(
         path=reverse(
             "do_revisions",
@@ -2731,6 +2779,7 @@ def draft_decision_text(request, article_id):
     return JsonResponse({"decision_text": decision_text})
 
 
+@section_editor_draft_decisions
 @editor_is_not_author
 @editor_user_required
 def manage_draft(request, article_id, draft_id):
@@ -2739,7 +2788,11 @@ def manage_draft(request, article_id, draft_id):
         pk=article_id,
         journal=request.journal,
     )
-    draft = get_object_or_404(models.DecisionDraft, pk=draft_id)
+    draft = get_object_or_404(
+        models.DecisionDraft,
+        pk=draft_id,
+        article=article,
+    )
 
     if "decline_draft" in request.POST:
         draft.editor_decision = "declined"
@@ -2774,7 +2827,11 @@ def edit_draft_decision(request, article_id, draft_id):
         pk=article_id,
         journal=request.journal,
     )
-    draft = get_object_or_404(models.DecisionDraft, pk=draft_id)
+    draft = get_object_or_404(
+        models.DecisionDraft,
+        pk=draft_id,
+        article=article,
+    )
     drafts = models.DecisionDraft.objects.filter(article=article)
     editors = request.journal.editors()
     form = forms.DraftDecisionForm(
