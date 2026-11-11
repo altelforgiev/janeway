@@ -3436,7 +3436,7 @@ def record_geo_view(request):
     archive_file = os.path.join(settings.BASE_DIR, 'metrics', 'map_stats_archive.json')
     stats = {"countries": {}, "cities": {}}
 
-    if os.path.exists(stats_file):
+    if os.path.exists(stats_file) :
         try:
             with open(stats_file, 'r', encoding='utf-8') as f:
                 loaded_stats = json.load(f)
