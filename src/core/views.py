@@ -3433,6 +3433,7 @@ def map_analytics_api(request):
 def record_geo_view(request):
     """API для скрытой фиксации реального просмотра (вызывается из article.html)"""
     stats_file = os.path.join(settings.BASE_DIR, 'metrics', 'map_stats.json')
+    archive_file = os.path.join(settings.BASE_DIR, 'metrics', 'map_stats_archive.json')
     stats = {"countries": {}, "cities": {}}
 
     if os.path.exists(stats_file):
@@ -3483,10 +3484,34 @@ def record_geo_view(request):
                     stats["cities"][city_key]["count"] += 1
                     stats["cities"][city_key]["ips"].append(ip)
 
-                temp_file = stats_file + ".tmp"
-                with open(temp_file, 'w', encoding='utf-8') as f:
-                    json.dump(stats, f)
-                shutil.move(temp_file, stats_file)
+            temp_file = stats_file + ".tmp"
+            with open(temp_file, 'w', encoding='utf-8') as f:
+                json.dump(stats, f)
+            shutil.move(temp_file, stats_file)
+
+            # Запись в архивный файл (все записи с timestamp)
+            archive_data = []
+            if os.path.exists(archive_file):
+                try:
+                    with open(archive_file, 'r', encoding='utf-8') as f:
+                        archive_data = json.load(f)
+                except Exception:
+                    pass
+
+            archive_entry = {
+                "timestamp": timezone.now().isoformat(),
+                "ip": ip,
+                "country_code": country_code,
+                "city_name": city_name,
+                "lat": lat,
+                "lon": lon
+            }
+            archive_data.append(archive_entry)
+
+            archive_temp = archive_file + ".tmp"
+            with open(archive_temp, 'w', encoding='utf-8') as f:
+                json.dump(archive_data, f, indent=2)
+            shutil.move(archive_temp, archive_file)
                 
         except Exception:
             pass # Игнорируем ошибки определения IP
