@@ -3388,72 +3388,32 @@ def get_client_ip(request):
         return x_forwarded_for.split(',')[0].strip()
     return request.META.get('REMOTE_ADDR', '').strip()
 
+
 def map_analytics_api(request):
-    """API для отдачи данных о странах и городах на карту D3.js (Equal Earth)"""
-    country_stats = {}
-    city_markers = {}
+    """API для отдачи данных о странах на карту D3.js (Equal Earth)"""
+    stats_file = os.path.join(settings.BASE_DIR, 'metrics', 'map_stats.json')
+    stats = {"countries": {}}
 
-    try:
-        from django.contrib.gis.geoip2 import GeoIP2
-        g = GeoIP2()
-    except Exception as e:
-        logger.error(f"GeoIP2 не настроен или базы не найдены: {e}")
-        # Если база не работает, отдаем тестовые данные для проверки отображения карты
-        return JsonResponse({
-            "countries": {"KZ": 15, "US": 5, "DE": 2, "CN": 8},
-            "markers": [
-                {"name": "Karaganda", "coords": [73.0905, 49.8019], "views": 10},
-                {"name": "Almaty", "coords": [76.9286, 43.2567], "views": 5},
-                {"name": "New York", "coords": [-74.0060, 40.7128], "views": 2}
-            ]
-        })
-
-    ips = []
-    try:
-        # В Janeway логи могут лежать в ArticleAccess или просто Access
+    if os.path.exists(stats_file):
         try:
-            AnalyticsModel = apps.get_model('analytics', 'ArticleAccess')
-        except LookupError:
-            AnalyticsModel = apps.get_model('analytics', 'Access')
+            with open(stats_file, 'r', encoding='utf-8') as f:
+                loaded_stats = json.load(f)
+                if "countries" not in loaded_stats:
+                    stats["countries"] = loaded_stats
+                else:
+                    stats = loaded_stats
+        except Exception:
+            pass
 
-        ips = AnalyticsModel.objects.values_list('ip_address', flat=True).distinct()[:5000]
-    except Exception as e:
-        logger.error(f"Ошибка при поиске модели логов: {e}")
+    response_data = {
+        "countries": {},
+        "markers": []  # Маркеры городов отключены
+    }
 
-    for ip in ips:
-        if ip:
-            # 1. Собираем статистику по странам
-            try:
-                country = g.country_code(ip)
-                if country:
-                    country_stats[country] = country_stats.get(country, 0) + 1
-            except Exception:
-                pass
+    for code, data in stats["countries"].items():
+        response_data["countries"][code] = data.get("count", 0) if isinstance(data, dict) else data
 
-            # 2. Собираем координаты городов для маркеров (точек)
-            try:
-                city_data = g.city(ip)
-                city_name = city_data.get('city')
-                lat = city_data.get('latitude')
-                lon = city_data.get('longitude')
-
-                if city_name and lat and lon:
-                    if city_name in city_markers:
-                        city_markers[city_name]['views'] += 1
-                    else:
-                        # D3.js ожидает координаты строго в формате [Долгота, Широта]
-                        city_markers[city_name] = {
-                            "name": city_name,
-                            "coords": [lon, lat],
-                            "views": 1
-                        }
-            except Exception:
-                pass
-
-    return JsonResponse({
-        "countries": country_stats,
-        "markers": list(city_markers.values())
-    })
+    return JsonResponse(response_data)
 
 
 def record_geo_view(request):

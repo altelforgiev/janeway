@@ -19,6 +19,18 @@
         {% if not homepage_elements %}
             <p>{% trans "No articles published yet." %}</p>
         {% endif %}
+
+        <!-- Виджет карты посещаемости (Equal Earth) -->
+        <div class="homepage-element-wrapper">
+            <div class="map-widget">
+                <h2 id="map-heading" style="font-family: 'Proxima Nova', Montserrat, Helvetica, Roboto, Arial, sans-serif; line-height: 1.4; font-size: 1rem; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid rgba(200, 16, 46, 0.4); padding-bottom: 0.5rem; margin-top: 0; margin-bottom: 1.2rem; letter-spacing: 0.05em; display: flex; align-items: center; text-align: left;">
+                    <span class="material-symbols-outlined" style="margin-right: 10px; font-size: 1.4rem; color: currentcolor;">explore</span>
+                    {% trans 'Geography of our readers' %}
+                </h2>
+                <div id="journal-world-map"></div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Сайдбар -->
@@ -42,3 +54,74 @@
 </div>
 </section>
 {% endblock body %}
+
+{% block js %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const container = document.getElementById("journal-world-map");
+    if (!container || typeof d3 === "undefined") return;
+
+    const mapTranslations = { views: "{% trans 'Views' %}" };
+    const tooltip = d3.select("body").append("div").attr("class", "d3-tooltip");
+
+    const width = 800;
+    const height = 400;
+
+    const svg = d3.select("#journal-world-map")
+        .append("svg")
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("preserveAspectRatio", "xMidYMid meet");
+
+    const projection = d3.geoEqualEarth()
+        .scale(145)
+        .translate([width / 2, height / 2]);
+
+    const path = d3.geoPath().projection(projection);
+
+    svg.append("path")
+        .datum(d3.geoGraticule()())
+        .attr("class", "d3-graticule")
+        .attr("d", path);
+
+    Promise.all([
+        fetch('/api/map-data/').then(r => r.json()),
+        d3.json("https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson")
+    ]).then(([statData, geoData]) => {
+        const countryData = statData.countries || {};
+
+        const maxViews = d3.max(Object.values(countryData)) || 1;
+        const colorScale = d3.scaleLinear()
+            .domain([0, maxViews])
+            .range(['#b3d4f0', '#003d71']);
+
+        svg.selectAll(".d3-country")
+            .data(geoData.features)
+            .enter().append("path")
+            .attr("class", "d3-country")
+            .attr("d", path)
+            .attr("fill", d => {
+                const code = d.properties.ISO_A2 || d.properties["ISO3166-1-Alpha-2"];
+                return countryData[code] ? colorScale(countryData[code]) : 'var(--map-empty-fill)';
+            })
+            .on("mouseover", function(event, d) {
+                const code = d.properties.ISO_A2 || d.properties["ISO3166-1-Alpha-2"];
+                const countryName = d.properties.ADMIN || d.properties.name;
+                const views = countryData[code] || 0;
+
+                tooltip.transition().duration(200).style("opacity", 1);
+                tooltip.html(`<strong>${countryName}</strong><br/>${mapTranslations.views}: ${views}`)
+                    .style("left", (event.pageX + 15) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mousemove", function(event) {
+                tooltip
+                    .style("left", (event.pageX + 15) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function() {
+                tooltip.transition().duration(500).style("opacity", 0);
+            });
+    }).catch(error => console.error('Ошибка загрузки карты Equal Earth:', error));
+});
+</script>
+{% endblock js %}
