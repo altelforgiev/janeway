@@ -32,8 +32,10 @@
         border-radius: 50% !important;
         cursor: grab;
     }
-    .is-mobile-globe:active {
-        cursor: grabbing;
+    .is-mobile-globe {
+        border-radius: 50% !important;
+        cursor: grab;
+        touch-action: none;
     }
     .is-desktop-map {
         border-radius: 8px !important;
@@ -237,16 +239,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
         {# Enable rotation only for mobile globe #}
         if (isMobile) {
+            let renderFrame;
             const drag = d3.drag()
                 .on("drag", function(event) {
                     const rotate = projection.rotate();
                     const k = 90 / projection.scale();
+
                     projection.rotate([
                         rotate[0] + event.dx * k,
                         rotate[1] - event.dy * k
                     ]);
-                    svg.selectAll("path").attr("d", path);
+
                     tooltip.style("opacity", 0);
+
+                    if (renderFrame) cancelAnimationFrame(renderFrame);
+                    renderFrame = requestAnimationFrame(() => {
+                        svg.selectAll("path").attr("d", path);
+                    });
                 });
             svg.call(drag);
         }
