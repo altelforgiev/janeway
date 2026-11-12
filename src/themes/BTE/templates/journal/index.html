@@ -3,11 +3,93 @@
 
 {% block body %}
 <section id="content">
+
+{# Adaptive Map Styles #}
+<style>
+    :root {
+        --map-empty-fill: #e5e7eb;
+        --map-ocean-fill: #e0f2fe;
+        --map-border: #003d71;
+    }
+    body.dark-theme {
+        --map-empty-fill: #444444;
+        --map-ocean-fill: #1e1e1e;
+        --map-border: #333333;
+    }
+
+    #journal-world-map svg {
+        background: var(--map-ocean-fill);
+        border: 1px solid var(--map-border);
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    {# Specific styles for mobile globe and desktop map #}
+    .is-mobile-globe {
+        border-radius: 50% !important;
+        cursor: grab;
+    }
+    .is-mobile-globe:active {
+        cursor: grabbing;
+    }
+    .is-desktop-map {
+        border-radius: 8px !important;
+    }
+    .d3-sphere {
+        fill: var(--map-ocean-fill);
+    }
+
+    .d3-country {
+        stroke: #ffffff;
+        stroke-width: 0.5px;
+        transition: fill 0.2s;
+    }
+    body.dark-theme .d3-country {
+        stroke: #2a2a2a;
+    }
+    .d3-country:hover {
+        fill: #c8102e !important;
+        cursor: pointer;
+    }
+    .d3-graticule {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 0.8px;
+        stroke-opacity: 0.6;
+    }
+    body.dark-theme .d3-graticule {
+        stroke: #333333;
+    }
+    .d3-tooltip {
+        position: absolute;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        background-color: #003d71;
+        color: #ffffff;
+        padding: 6px 12px;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+        z-index: 1000;
+    }
+    body.dark-theme .d3-tooltip {
+        background-color: #1e1e1e;
+        color: #f5f5f5;
+        border: 1px solid #333;
+    }
+</style>
+
 <div class="row columns">
-    <!-- Основной контент -->
+    {# Main Content #}
     <div class="large-8 columns">
         <h1 class="sr-only">{{ request.journal.name }} {% trans 'Home Page' %} </h1>
 
+        {# Render Articles First #}
         {% for element in homepage_elements %}
             {% if element.name|lower != "news" and element.name|lower != "about" %}
                 <div class="homepage-element-wrapper homepage-element-{{ element.name|slugify }}">
@@ -20,20 +102,26 @@
             <p>{% trans "No articles published yet." %}</p>
         {% endif %}
 
-        <!-- Виджет карты посещаемости (Equal Earth) -->
+        {# Render Map at the Bottom #}
         <div class="homepage-element-wrapper">
             <div class="map-widget">
                 <h2 id="map-heading" style="font-family: 'Proxima Nova', Montserrat, Helvetica, Roboto, Arial, sans-serif; line-height: 1.4; font-size: 1rem; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid rgba(200, 16, 46, 0.4); padding-bottom: 0.5rem; margin-top: 0; margin-bottom: 1.2rem; letter-spacing: 0.05em; display: flex; align-items: center; text-align: left;">
                     <span class="material-symbols-outlined" style="margin-right: 10px; font-size: 1.4rem; color: currentcolor;">explore</span>
                     {% trans 'Geography of our readers' %}
                 </h2>
+
+                {# Mobile Swipe Hint #}
+                <p id="mobile-swipe-hint" style="display: none; font-size: 0.8rem; color: #888; margin-bottom: 10px; text-align: center;">
+                    <i class="fa fa-hand-pointer-o"></i> {% trans 'Swipe to rotate the globe' %}
+                </p>
+
                 <div id="journal-world-map"></div>
             </div>
         </div>
 
     </div>
 
-    <!-- Сайдбар -->
+    {# Sidebar #}
     <div class="large-4 columns">
          {% for element in homepage_elements %}
              {% if element.name|lower == "news" or element.name|lower == "about" %}
@@ -56,6 +144,8 @@
 {% endblock body %}
 
 {% block js %}
+{# Hybrid Map Script: Equal Earth for Desktop, Orthographic for Mobile #}
+<script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const container = document.getElementById("journal-world-map");
@@ -64,17 +154,39 @@ document.addEventListener("DOMContentLoaded", function() {
     const mapTranslations = { views: "{% trans 'Views' %}" };
     const tooltip = d3.select("body").append("div").attr("class", "d3-tooltip");
 
-    const width = 800;
-    const height = 400;
+    {# Device check for mobile mode #}
+    const isMobile = window.innerWidth <= 768;
+
+    {# Set appropriate aspect ratios #}
+    const width = isMobile ? 600 : 800;
+    const height = isMobile ? 600 : 400;
 
     const svg = d3.select("#journal-world-map")
         .append("svg")
         .attr("viewBox", `0 0 ${width} ${height}`)
-        .attr("preserveAspectRatio", "xMidYMid meet");
+        .attr("preserveAspectRatio", "xMidYMid meet")
+        .attr("class", isMobile ? "is-mobile-globe" : "is-desktop-map");
 
-    const projection = d3.geoEqualEarth()
-        .scale(145)
-        .translate([width / 2, height / 2]);
+    let projection;
+
+    {# Separate logic for Mobile and Desktop #}
+    if (isMobile) {
+        document.getElementById("mobile-swipe-hint").style.display = "block";
+
+        projection = d3.geoOrthographic()
+            .scale(280)
+            .translate([width / 2, height / 2])
+            .rotate([-70, -30]);
+
+        svg.append("path")
+            .datum({type: "Sphere"})
+            .attr("class", "d3-sphere")
+            .attr("d", d3.geoPath().projection(projection));
+    } else {
+        projection = d3.geoEqualEarth()
+            .scale(145)
+            .translate([width / 2, height / 2]);
+    }
 
     const path = d3.geoPath().projection(projection);
 
@@ -94,6 +206,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .domain([0, maxViews])
             .range(['#b3d4f0', '#003d71']);
 
+        {# Draw countries #}
         svg.selectAll(".d3-country")
             .data(geoData.features)
             .enter().append("path")
@@ -121,7 +234,24 @@ document.addEventListener("DOMContentLoaded", function() {
             .on("mouseout", function() {
                 tooltip.transition().duration(500).style("opacity", 0);
             });
-    }).catch(error => console.error('Ошибка загрузки карты Equal Earth:', error));
+
+        {# Enable rotation only for mobile globe #}
+        if (isMobile) {
+            const drag = d3.drag()
+                .on("drag", function(event) {
+                    const rotate = projection.rotate();
+                    const k = 90 / projection.scale();
+                    projection.rotate([
+                        rotate[0] + event.dx * k,
+                        rotate[1] - event.dy * k
+                    ]);
+                    svg.selectAll("path").attr("d", path);
+                    tooltip.style("opacity", 0);
+                });
+            svg.call(drag);
+        }
+
+    }).catch(error => console.error('Map loading error:', error));
 });
 </script>
 {% endblock js %}
