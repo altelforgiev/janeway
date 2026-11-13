@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .range(['#b3d4f0', '#003d71']);
 
         const maxCityViews = d3.max(citiesData, d => d.count) || 1;
-        const radiusScale = d3.scaleSqrt().domain([1, maxCityViews]).range([6, 25]);
+        const radiusScale = d3.scaleSqrt().domain([1, maxCityViews]).range([3, 12]);
 
         const getCountryCode = d => {
             const p = d.properties;
