@@ -183,17 +183,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const mapGroup = svg.append("g");
 
-    {# Multi-stop radial gradient: bright core point + soft outer glow #}
+    {# Multi-stop radial gradient: subtle core point + delicate outer glow #}
     const defs = svg.append("defs");
     const radialGradient = defs.append("radialGradient")
         .attr("id", "heat-glow")
         .attr("cx", "50%")
         .attr("cy", "50%")
         .attr("r", "50%");
-    radialGradient.append("stop").attr("offset", "0%").attr("stop-color", "rgba(255, 255, 255, 0.95)");
-    radialGradient.append("stop").attr("offset", "18%").attr("stop-color", "rgba(220, 20, 60, 0.9)");
-    radialGradient.append("stop").attr("offset", "50%").attr("stop-color", "rgba(220, 20, 60, 0.4)");
-    radialGradient.append("stop").attr("offset", "100%").attr("stop-color", "rgba(220, 20, 60, 0)");
+    radialGradient.append("stop").attr("offset", "0%").attr("stop-color", "rgba(255, 255, 255, 0.85)");
+    radialGradient.append("stop").attr("offset", "15%").attr("stop-color", "rgba(200, 16, 46, 0.7)");
+    radialGradient.append("stop").attr("offset", "35%").attr("stop-color", "rgba(200, 16, 46, 0.18)");
+    radialGradient.append("stop").attr("offset", "100%").attr("stop-color", "rgba(200, 16, 46, 0)");
 
     let projection;
     let spherePath = null;
@@ -247,10 +247,11 @@ document.addEventListener("DOMContentLoaded", function() {
             .domain([0, maxViews])
             .range(['#b3d4f0', '#003d71']);
 
-        const maxCityViews = d3.max(citiesData, d => d.count) || 1;
+        {# Set minimum ceiling of 50 views so 10 views don't get maximum radius #}
+        const maxCityViews = Math.max(50, d3.max(citiesData, d => d.count) || 1);
         const baseRadiusScale = d3.scaleSqrt()
             .domain([1, maxCityViews])
-            .range([6, 22]);
+            .range([3, 10]);
 
         const getCountryCode = d => {
             const p = d.properties;
