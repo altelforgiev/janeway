@@ -183,8 +183,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const defs = svg.append("defs");
     const radialGradient = defs.append("radialGradient")
         .attr("id", "heat-glow")
-        .attr("gradientUnits", "userSpaceOnUse")
-        .attr("cx", "0").attr("cy", "0").attr("r", "8");
+        .attr("cx", "50%").attr("cy", "50%").attr("r", "50%");
     radialGradient.append("stop").attr("offset", "0%").attr("stop-color", "rgba(220, 20, 60, 0.5)");
     radialGradient.append("stop").attr("offset", "100%").attr("stop-color", "rgba(220, 20, 60, 0)");
 
@@ -266,9 +265,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         {# Function to update spot positions and visibility #}
         const updateSpots = () => {
-            {# Update gradient radius based on zoom scale #}
-            radialGradient.attr("r", 8 * currentZoomScale);
-
             heatSpots
                 .attr("cx", d => {
                     const p = projection(d.coords);
