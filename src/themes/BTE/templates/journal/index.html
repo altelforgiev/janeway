@@ -154,7 +154,7 @@
 {% endblock body %}
 
 {% block js %}
-{# Hybrid Map Script: Equal Earth for Desktop, Smooth 110m Orthographic Globe for Mobile #}
+{# Hybrid Map Script: Equal Earth for Desktop, Smooth 110m Orthographic Globe with Inertia for Mobile #}
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
         if (isMobile) {
-            {# On mobile, show tooltip on tap (click) so drag isn't slowed down by mousemove #}
+            {# Show tooltip on tap #}
             countryPaths.on("click", function(event, d) {
                 const code = getCountryCode(d);
                 const countryName = getCountryName(d);
@@ -256,33 +256,85 @@ document.addEventListener("DOMContentLoaded", function() {
                     .style("top", (event.pageY - 50) + "px");
             });
 
-            {# Smooth 60fps rotation using cached DOM nodes #}
+            {# Smooth 60fps rotation with momentum inertia #}
             let renderFrame = null;
+            let inertiaFrame = null;
+            let vx = 0;
+            let vy = 0;
+            let lastMoveTime = 0;
+            const friction = 0.94;
+
+            const redrawGlobe = () => {
+                graticulePath.attr("d", path);
+                countryPaths.attr("d", path);
+                renderFrame = null;
+            };
+
+            const stopInertia = () => {
+                if (inertiaFrame) {
+                    cancelAnimationFrame(inertiaFrame);
+                    inertiaFrame = null;
+                }
+            };
+
+            const startInertia = () => {
+                const step = () => {
+                    vx *= friction;
+                    vy *= friction;
+
+                    if (Math.abs(vx) < 0.04 && Math.abs(vy) < 0.04) {
+                        inertiaFrame = null;
+                        svg.classed("is-dragging", false);
+                        return;
+                    }
+
+                    const rotate = projection.rotate();
+                    const nextLat = Math.max(-65, Math.min(65, rotate[1] + vy));
+                    projection.rotate([rotate[0] + vx, nextLat]);
+
+                    graticulePath.attr("d", path);
+                    countryPaths.attr("d", path);
+
+                    inertiaFrame = requestAnimationFrame(step);
+                };
+                inertiaFrame = requestAnimationFrame(step);
+            };
+
             const drag = d3.drag()
                 .on("start", function() {
+                    stopInertia();
+                    vx = 0;
+                    vy = 0;
+                    lastMoveTime = performance.now();
                     svg.classed("is-dragging", true);
                     tooltip.style("opacity", 0);
                 })
                 .on("drag", function(event) {
                     const rotate = projection.rotate();
                     const k = 75 / projection.scale();
-                    const nextLat = Math.max(-65, Math.min(65, rotate[1] - event.dy * k));
+                    const dLon = event.dx * k;
+                    const dLat = -event.dy * k;
+                    const nextLat = Math.max(-65, Math.min(65, rotate[1] + dLat));
+
+                    vx = vx * 0.3 + dLon * 0.7;
+                    vy = vy * 0.3 + dLat * 0.7;
+                    lastMoveTime = performance.now();
 
                     projection.rotate([
-                        rotate[0] + event.dx * k,
+                        rotate[0] + dLon,
                         nextLat
                     ]);
 
                     if (!renderFrame) {
-                        renderFrame = requestAnimationFrame(() => {
-                            graticulePath.attr("d", path);
-                            countryPaths.attr("d", path);
-                            renderFrame = null;
-                        });
+                        renderFrame = requestAnimationFrame(redrawGlobe);
                     }
                 })
                 .on("end", function() {
-                    svg.classed("is-dragging", false);
+                    if (performance.now() - lastMoveTime < 100 && (Math.abs(vx) > 0.15 || Math.abs(vy) > 0.15)) {
+                        startInertia();
+                    } else {
+                        svg.classed("is-dragging", false);
+                    }
                 });
 
             svg.call(drag);
