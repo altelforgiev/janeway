@@ -1,4 +1,296 @@
+{% extends "core/base.html" %}
+{% load i18n %}
+
+{% block body %}
+<section id="content">
+
+{# Adaptive Map Styles #}
+<style>
+    :root {
+        --map-empty-fill: #e5e7eb;
+        --map-ocean-fill: #e0f2fe;
+        --map-border: #003d71;
+    }
+    body.dark-theme {
+        --map-empty-fill: #444444;
+        --map-ocean-fill: #1e1e1e;
+        --map-border: #333333;
+    }
+
+    #journal-world-map svg {
+        background: var(--map-ocean-fill);
+        border: 1px solid var(--map-border);
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    {# Specific styles for mobile globe and desktop map #}
+    .is-mobile-globe {
+        border-radius: 50% !important;
+        cursor: grab;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+        will-change: transform;
+    }
+    .is-mobile-globe:active {
+        cursor: grabbing;
+    }
+    .is-desktop-map {
+        border-radius: 8px !important;
+        cursor: grab;
+    }
+    .is-desktop-map:active {
+        cursor: grabbing;
+    }
+    .d3-sphere {
+        fill: var(--map-ocean-fill);
+    }
+
+    .d3-country {
+        stroke: #ffffff;
+        stroke-width: 0.5px;
+    }
+    .is-desktop-map .d3-country {
+        transition: fill 0.2s;
+    }
+    body.dark-theme .d3-country {
+        stroke: #2a2a2a;
+    }
+    .d3-country:hover {
+        fill: #c8102e !important;
+        cursor: pointer;
+    }
+    .is-dragging .d3-country {
+        pointer-events: none;
+    }
+    .d3-graticule {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 0.8px;
+        stroke-opacity: 0.6;
+        pointer-events: none;
+    }
+    body.dark-theme .d3-graticule {
+        stroke: #333333;
+    }
+    .d3-tooltip {
+        position: absolute;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        background-color: #003d71;
+        color: #ffffff;
+        padding: 6px 12px;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+        z-index: 1000;
+    }
+    body.dark-theme .d3-tooltip {
+        background-color: #1e1e1e;
+        color: #f5f5f5;
+        border: 1px solid #333;
+    }
+</style>
+
+<div class="row columns">
+    {# Main Content #}
+    <div class="large-8 columns">
+        <h1 class="sr-only">{{ request.journal.name }} {% trans 'Home Page' %} </h1>
+
+        {# Render Articles First #}
+        {% for element in homepage_elements %}
+            {% if element.name|lower != "news" and element.name|lower != "about" %}
+                <div class="homepage-element-wrapper homepage-element-{{ element.name|slugify }}">
+                    {% include element.template_path %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% if not homepage_elements %}
+            <p>{% trans "No articles published yet." %}</p>
+        {% endif %}
+
+        {# Render Map at the Bottom #}
+        <div class="homepage-element-wrapper">
+            <div class="map-widget">
+                <h2 id="map-heading" style="font-family: 'Proxima Nova', Montserrat, Helvetica, Roboto, Arial, sans-serif; line-height: 1.4; font-size: 1rem; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid rgba(200, 16, 46, 0.4); padding-bottom: 0.5rem; margin-top: 0; margin-bottom: 1.2rem; letter-spacing: 0.05em; display: flex; align-items: center; text-align: left;">
+                    <span class="material-symbols-outlined" style="margin-right: 10px; font-size: 1.4rem; color: currentcolor;">explore</span>
+                    {% trans 'Geography of our readers' %}
+                </h2>
+
+                {# Mobile Swipe Hint #}
+                <p id="mobile-swipe-hint" style="display: none; font-size: 0.8rem; color: #888; margin-bottom: 10px; text-align: center;">
+                    <i class="fa fa-hand-pointer-o"></i> {% trans 'Swipe to rotate the globe' %}
+                </p>
+
+                <div id="journal-world-map"></div>
+            </div>
+        </div>
+
+    </div>
+
+    {# Sidebar #}
+    <div class="large-4 columns">
+         {% for element in homepage_elements %}
+             {% if element.name|lower == "news" or element.name|lower == "about" %}
+                 <div class="sidebar-box homepage-element-{{ element.name|slugify }}">
+                     <h4>
+                         {% if element.name|lower == "news" %}
+                             <i class="fa fa-newspaper-o"></i>
+                         {% else %}
+                             <i class="fa fa-info-circle"></i>
+                         {% endif %}
+                         {{ element.name|capfirst }}
+                     </h4>
+                     {% include element.template_path %}
+                 </div>
+             {% endif %}
+        {% endfor %}
+    </div>
+</div>
+</section>
+{% endblock body %}
+
 {% block js %}
+{# Hybrid Map Script: Equal Earth for Desktop, Smooth 110m Orthographic Globe with Heatmap for Mobile #}
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const container = document.getElementById("journal-world-map");
+    if (!container || typeof d3 === "undefined") return;
+
+    const mapTranslations = { views: "{% trans 'Views' %}" };
+    const tooltip = d3.select("body").append("div").attr("class", "d3-tooltip");
+
+    const isMobile = window.innerWidth <= 768;
+    const width = isMobile ? 600 : 800;
+    const height = isMobile ? 600 : 400;
+    const baseGlobeScale = 280;
+
+    const svg = d3.select("#journal-world-map")
+        .append("svg")
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("preserveAspectRatio", "xMidYMid meet")
+        .attr("class", isMobile ? "is-mobile-globe" : "is-desktop-map");
+
+    let currentZoomScale = 1;
+
+    const mapGroup = svg.append("g");
+
+    {# Multi-stop radial gradient: bright core point + soft outer glow #}
+    const defs = svg.append("defs");
+    const radialGradient = defs.append("radialGradient")
+        .attr("id", "heat-glow")
+        .attr("cx", "50%")
+        .attr("cy", "50%")
+        .attr("r", "50%");
+    radialGradient.append("stop").attr("offset", "0%").attr("stop-color", "rgba(255, 255, 255, 0.95)");
+    radialGradient.append("stop").attr("offset", "18%").attr("stop-color", "rgba(220, 20, 60, 0.9)");
+    radialGradient.append("stop").attr("offset", "50%").attr("stop-color", "rgba(220, 20, 60, 0.4)");
+    radialGradient.append("stop").attr("offset", "100%").attr("stop-color", "rgba(220, 20, 60, 0)");
+
+    let projection;
+    let spherePath = null;
+
+    if (isMobile) {
+        document.getElementById("mobile-swipe-hint").style.display = "block";
+        projection = d3.geoOrthographic()
+            .scale(baseGlobeScale)
+            .translate([width / 2, height / 2])
+            .rotate([-70, -30])
+            .clipAngle(90)
+            .precision(0.3);
+
+        spherePath = mapGroup.append("path")
+            .datum({type: "Sphere"})
+            .attr("class", "d3-sphere")
+            .attr("d", d3.geoPath().projection(projection));
+    } else {
+        projection = d3.geoEqualEarth()
+            .scale(145)
+            .translate([width / 2, height / 2]);
+    }
+
+    const path = d3.geoPath().projection(projection);
+
+    const graticuleGenerator = isMobile ? d3.geoGraticule().step([20, 20]) : d3.geoGraticule();
+    const graticulePath = mapGroup.append("path")
+        .datum(graticuleGenerator())
+        .attr("class", "d3-graticule")
+        .attr("d", path);
+
+    const geoJsonUrl = isMobile
+        ? "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
+        : "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson";
+
+    Promise.all([
+        fetch('/api/map-data/').then(r => r.json()),
+        d3.json(geoJsonUrl)
+    ]).then(([statData, geoData]) => {
+        const countryData = statData.countries || {};
+        const rawCities = statData.cities || statData.markers || [];
+
+        const citiesData = rawCities.map(d => ({
+            name: d.name || "",
+            coords: d.coords,
+            count: d.count !== undefined ? d.count : (d.views || 1)
+        })).filter(d => Array.isArray(d.coords) && d.coords.length === 2);
+
+        const maxViews = d3.max(Object.values(countryData)) || 1;
+        const colorScale = d3.scaleLinear()
+            .domain([0, maxViews])
+            .range(['#b3d4f0', '#003d71']);
+
+        const maxCityViews = d3.max(citiesData, d => d.count) || 1;
+        const baseRadiusScale = d3.scaleSqrt()
+            .domain([1, maxCityViews])
+            .range([6, 22]);
+
+        const getCountryCode = d => {
+            const p = d.properties;
+            if (p.ISO_A2 && p.ISO_A2 !== "-99") return p.ISO_A2;
+            return p.ISO_A2_EH || p["ISO3166-1-Alpha-2"] || p.WB_A2;
+        };
+
+        const getCountryName = d => d.properties.ADMIN || d.properties.NAME || d.properties.name;
+
+        {# Draw countries #}
+        const countryPaths = mapGroup.selectAll(".d3-country")
+            .data(geoData.features)
+            .enter().append("path")
+            .attr("class", "d3-country")
+            .attr("d", path)
+            .attr("fill", d => {
+                const code = getCountryCode(d);
+                return countryData[code] ? colorScale(countryData[code]) : 'var(--map-empty-fill)';
+            });
+
+        {# Draw heat spots for cities #}
+        const heatSpots = mapGroup.selectAll(".heat-spot")
+            .data(citiesData)
+            .enter().append("circle")
+            .attr("class", "heat-spot")
+            .attr("fill", "url(#heat-glow)")
+            .style("pointer-events", "none");
+
+        {# Update spot positions, visibility, and scale-adjusted radius #}
+        const updateSpots = () => {
+            heatSpots
+                .attr("cx", d => {
+                    const p = projection(d.coords);
+                    return p ? p[0] : -1000;
+                })
+                .attr("cy", d => {
+                    const p = projection(d.coords);
+                    return p ? p[1] : -1000;
+                })
+                .attr("r", d => {{% block js %}
 {# Hybrid Map Script: Equal Earth for Desktop, Smooth 110m Orthographic Globe with Heatmap for Mobile #}
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
