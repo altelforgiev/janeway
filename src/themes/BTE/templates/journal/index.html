@@ -174,12 +174,17 @@ document.addEventListener("DOMContentLoaded", function() {
         .attr("preserveAspectRatio", "xMidYMid meet")
         .attr("class", isMobile ? "is-mobile-globe" : "is-desktop-map");
 
+    let currentZoomScale = 1;
+    let currentTranslate = [0, 0];
+
+    const mapGroup = svg.append("g");
+
     {# Create radial gradient for heat spots instead of blur filter #}
     const defs = svg.append("defs");
     const radialGradient = defs.append("radialGradient")
         .attr("id", "heat-glow")
         .attr("cx", "50%").attr("cy", "50%").attr("r", "50%");
-    radialGradient.append("stop").attr("offset", "0%").attr("stop-color", "rgba(220, 20, 60, 0.9)");
+    radialGradient.append("stop").attr("offset", "0%").attr("stop-color", "rgba(220, 20, 60, 0.5)");
     radialGradient.append("stop").attr("offset", "100%").attr("stop-color", "rgba(220, 20, 60, 0)");
 
     let projection;
@@ -193,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .clipAngle(90)
             .precision(0.3);
 
-        svg.append("path")
+        mapGroup.append("path")
             .datum({type: "Sphere"})
             .attr("class", "d3-sphere")
             .attr("d", d3.geoPath().projection(projection));
@@ -206,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const path = d3.geoPath().projection(projection);
 
     const graticuleGenerator = isMobile ? d3.geoGraticule().step([20, 20]) : d3.geoGraticule();
-    const graticulePath = svg.append("path")
+    const graticulePath = mapGroup.append("path")
         .datum(graticuleGenerator())
         .attr("class", "d3-graticule")
         .attr("d", path);
@@ -228,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .range(['#b3d4f0', '#003d71']);
 
         const maxCityViews = d3.max(citiesData, d => d.count) || 1;
-        const radiusScale = d3.scaleSqrt().domain([1, maxCityViews]).range([3, 12]);
+        const baseRadiusScale = d3.scaleSqrt().domain([1, maxCityViews]).range([2, 8]);
 
         const getCountryCode = d => {
             const p = d.properties;
@@ -239,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const getCountryName = d => d.properties.ADMIN || d.properties.NAME || d.properties.name;
 
         {# Draw countries #}
-        const countryPaths = svg.selectAll(".d3-country")
+        const countryPaths = mapGroup.selectAll(".d3-country")
             .data(geoData.features)
             .enter().append("path")
             .attr("class", "d3-country")
@@ -250,11 +255,11 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
         {# Draw heat spots for cities #}
-        const heatSpots = svg.selectAll(".heat-spot")
+        const heatSpots = mapGroup.selectAll(".heat-spot")
             .data(citiesData)
             .enter().append("circle")
             .attr("class", "heat-spot")
-            .attr("r", d => radiusScale(d.count))
+            .attr("r", d => baseRadiusScale(d.count) * currentZoomScale)
             .attr("fill", "url(#heat-glow)")
             .style("pointer-events", "none");
 
@@ -269,6 +274,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     const p = projection(d.coords);
                     return p ? p[1] : -1000;
                 })
+                .attr("r", d => baseRadiusScale(d.count) * currentZoomScale)
                 .style("display", d => {
                     if (!isMobile) return "block";
                     return path({type: "Point", coordinates: d.coords}) ? "block" : "none";
@@ -277,6 +283,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
         {# Initial spot placement #}
         updateSpots();
+
+        {# Apply initial transform to mapGroup #}
+        mapGroup.attr("transform", `translate(${currentTranslate}) scale(${currentZoomScale})`);
+
+        if (!isMobile) {
+            {# Zoom and pan for desktop #}
+            const zoom = d3.zoom()
+                .scaleExtent([1, 8])
+                .on("zoom", function(event) {
+                    currentZoomScale = event.transform.k;
+                    currentTranslate = [event.transform.x, event.transform.y];
+                    mapGroup.attr("transform", event.transform);
+                    updateSpots();
+                });
+
+            svg.call(zoom);
+        }
 
         if (isMobile) {
             countryPaths.on("click", function(event, d) {
