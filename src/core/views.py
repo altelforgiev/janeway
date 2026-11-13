@@ -3390,9 +3390,9 @@ def get_client_ip(request):
 
 
 def map_analytics_api(request):
-    """API для отдачи данных о странах на карту D3.js (Equal Earth)"""
+    """API для отдачи данных о странах и городах на карту D3.js (Equal Earth)"""
     stats_file = os.path.join(settings.BASE_DIR, 'metrics', 'map_stats.json')
-    stats = {"countries": {}}
+    stats = {"countries": {}, "cities": {}}
 
     if os.path.exists(stats_file):
         try:
@@ -3407,11 +3407,19 @@ def map_analytics_api(request):
 
     response_data = {
         "countries": {},
-        "markers": []  # Маркеры городов отключены
+        "cities": []
     }
 
     for code, data in stats["countries"].items():
         response_data["countries"][code] = data.get("count", 0) if isinstance(data, dict) else data
+
+    for city_key, data in stats.get("cities", {}).items():
+        if "coords" in data and data["coords"]:
+            response_data["cities"].append({
+                "name": city_key,
+                "coords": [data["coords"][1], data["coords"][0]],  # D3 использует формат [долгота, широта]
+                "count": data.get("count", 0)
+            })
 
     return JsonResponse(response_data)
 
