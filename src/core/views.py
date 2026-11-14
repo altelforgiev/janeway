@@ -3748,7 +3748,7 @@ def record_geo_view(request):
 
         # 6. Обновление счетчиков публичной карты (без серверных ботов)
         stats_changed = False
-        if not is_bot and not anon_data.get("is_hosting"):
+        if not is_bot and not anon_data.get("is_anonymous"):
             if country_code:
                 if country_code not in stats["countries"]:
                     stats["countries"][country_code] = {"count": 0, "ips": []}
