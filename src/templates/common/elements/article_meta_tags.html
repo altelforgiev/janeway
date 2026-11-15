@@ -16,12 +16,14 @@
 
     <meta name="DC.Format" scheme="IMT" content="xml"/>
     <meta name="DC.Format" scheme="IMT" content="pdf"/>
-    {% if article.page_number %}<meta name="DC.Identifier.pageNumber" content="{{ article.page_number }}"/>{% endif %}
+    {% if article.citation_first_page %}<meta name="DC.Identifier.pageNumber" content="{{ article.citation_first_page }}"/>{% endif %}
     {% if article.identifier.id_type == "doi" %}<meta name="DC.Identifier.DOI" content="{{ article.identifier.identifier }}"/>{% endif %}
 
     <meta name="DC.Identifier.URI" content="{{ article.url }}"/>
     <meta name="DC.Language" scheme="ISO639-1" content="{{ article.language }}"/>
-    <meta name="DC.Rights" content="{{ article.licence.text | striptags }}"/>
+    {% if article.license %}
+    <meta name="DC.Rights" content="{{ article.license.name }}{% if article.license.url %} {{ article.license.url }}{% endif %}"/>
+    {% endif %}
     <meta name="DC.Source" content="{{ journal_settings.general.journal_name }}"/>
     <meta name="DC.Source.ISSN" content="{{ article.journal.issn }}"/>
     {% if article.issue.isbn %}<meta name="DC.Source.ISBN" content="{{ article.issue.isbn }}"/>{% endif %}
@@ -37,14 +39,15 @@
     <meta name="citation_issn" content="{{ article.journal_issn }}"/>
     {% for author in article.frozen_authors.all %}
         <meta name="citation_author" content="{{ author.full_name }}"/>
-        {% if not '@journal.org' in author.author.email %}
+        {% if author.author and author.author.email and not '@journal.org' in author.author.email %}
             <meta name="citation_author_email" content="{{ author.author.email }}"/>{% endif %}
         <meta name="citation_author_institution" content="{{ author.institution }}"/>{% endfor %}
     <meta name="citation_title" content="{{ article.title | striptags }}"/>
     {% if article.date_published %}<meta name="citation_publication_date" content="{{ article.date_published|date:"Y-m-d" }}"/>{% endif %}
     {% if article.issue.volume %}<meta name="citation_volume" content="{{ article.issue.volume }}"/>{% endif %}
     {% if article.issue.issue %}<meta name="citation_issue" content="{{ article.issue.issue }}"/>{% endif %}
-    {% if article.page_number %}<meta name="citation_firstpage" content="{{ article.page_number }}"/>{% endif %}
+    {% if article.citation_first_page %}<meta name="citation_firstpage" content="{{ article.citation_first_page }}"/>{% endif %}
+    {% if article.citation_last_page %}<meta name="citation_lastpage" content="{{ article.citation_last_page }}"/>{% endif %}
     {% if article.identifier.id_type == "doi" %}<meta name="citation_doi" content="{{ article.identifier.identifier }}"/>{% endif %}
     <meta name="citation_abstract_html_url" content="{{ article.url }}"/>
     {% if article.language %}<meta name="citation_language" content="{{ article.language }}"/>{% endif %}

@@ -1402,6 +1402,31 @@ class Article(AbstractLastModifiedModel):
         else:
             return ""
 
+    @staticmethod
+    def _split_page_range(value):
+        if not value:
+            return "", ""
+        text = str(value).strip()
+        for sep in ("–", "—", "-", "−"):
+            if sep in text:
+                left, right = text.split(sep, 1)
+                return left.strip(), right.strip()
+        return text, ""
+
+    @property
+    def citation_first_page(self):
+        if self.first_page:
+            return str(self.first_page)
+        first, _last = self._split_page_range(self.page_numbers)
+        return first
+
+    @property
+    def citation_last_page(self):
+        if self.last_page:
+            return str(self.last_page)
+        _first, last = self._split_page_range(self.page_numbers)
+        return last
+
     @property
     def metrics(self):
         # only do the metric calculation once per template call
