@@ -146,7 +146,7 @@
                          {% else %}
                              <i class="fa fa-info-circle"></i>
                          {% endif %}
-                         {{ element.name|capfirst }}
+                         {% if element.name|lower == "news" %}{% trans "News" %}{% else %}{% trans "About" %}{% endif %}
                      </h4>
                      {% include element.template_path %}
                  </div>
