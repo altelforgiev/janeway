@@ -160,6 +160,57 @@
         font-size: 0.66rem;
         line-height: 1;
     }
+    .map-top-item[data-code] {
+        cursor: pointer;
+        border-radius: 3px;
+        padding: 1px 2px;
+        margin-left: -2px;
+        margin-right: -2px;
+        outline: none;
+        transition: background 0.2s ease;
+    }
+    .map-top-item[data-code]:hover,
+    .map-top-item[data-code]:focus-visible {
+        background: var(--map-btn-bg);
+    }
+    .map-top-item[data-code]:focus-visible {
+        box-shadow: 0 0 0 1px #003d71;
+    }
+    .map-top-item.is-selected {
+        background: rgba(200, 16, 46, 0.14);
+        box-shadow: inset 2px 0 0 #c8102e;
+    }
+    .map-top-item.is-selected .map-top-flag {
+        box-shadow: 0 0 0 1.5px #c8102e;
+    }
+    .map-total-line {
+        font-size: 0.56rem;
+        color: var(--map-hud-muted);
+        margin: -1px 0 4px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 0.8rem;
+    }
+    .map-reset-btn {
+        background: transparent;
+        border: none;
+        margin: 0;
+        padding: 0 3px;
+        font-size: 0.75rem;
+        line-height: 1;
+        color: #c8102e;
+        cursor: pointer;
+        text-shadow: var(--hud-halo);
+    }
+    .map-reset-btn[hidden] {
+        display: none;
+    }
+    .d3-country.is-selected {
+        stroke: #c8102e !important;
+        stroke-width: 1.6px !important;
+        vector-effect: non-scaling-stroke;
+    }
     .map-top-empty {
         color: var(--map-hud-muted);
         font-size: 0.6rem;
@@ -292,7 +343,10 @@
                     <div id="map-hud-overlay" class="map-hud-overlay">
                         <div class="map-top-title">
                             <span>{% trans 'Top-5 Countries' %}</span>
-                            <span id="map-total-readers" title="{% trans 'Readers' %}"></span>
+                        </div>
+                        <div class="map-total-line">
+                            <span id="map-total-readers"></span>
+                            <button type="button" id="map-reset-btn" class="map-reset-btn" hidden title="{% trans 'Reset view' %}" aria-label="{% trans 'Reset view' %}">&times;</button>
                         </div>
                         <ul id="map-top-countries-list" class="map-top-list" aria-live="polite">
                             <li class="map-top-item map-top-empty">&hellip;</li>
@@ -349,7 +403,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     const mapTranslations = {
-        views: "{% filter escapejs %}{% trans 'Views' %}{% endfilter %}",
+        readers: "{% filter escapejs %}{% trans 'Readers' %}{% endfilter %}",
         noData: "{% filter escapejs %}{% trans 'No data for period' %}{% endfilter %}"
     };
     const pageLanguage = "{{ CURRENT_LANGUAGE|default:'en'|escapejs }}";
@@ -370,6 +424,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let currentZoomScale = 1;
     let currentCountryData = {};
+    let selectedCode = null;
+    let mapFocusCountry = null;   {# set once the map is drawn #}
+    let mapResetView = null;
     const countryNameByCode = {};
 
     {# Localized country names (ru/kk/en) via Intl, falling back to GeoJSON English names #}
@@ -455,7 +512,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const totalReaders = entries.reduce((sum, [, count]) => sum + count, 0);
         if (totalEl) {
-            totalEl.textContent = totalReaders > 0 ? `${totalReaders}` : "";
+            totalEl.textContent = totalReaders > 0 ? `${mapTranslations.readers}: ${totalReaders}` : "";
         }
 
         const top5 = entries.slice(0, 5);
@@ -474,7 +531,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 ? `<img class="map-top-flag" src="${flagBaseUrl}${safeCode}.svg" alt="" width="18" height="14" loading="lazy" decoding="async">`
                 : `<span class="map-top-flag-code">${escapeHtml(code)}</span>`;
             return `
-                <li class="map-top-item" title="${label}: ${Number(count)} (${share}%)" aria-label="${label}: ${Number(count)}">
+                <li class="map-top-item${code === selectedCode ? " is-selected" : ""}" data-code="${escapeHtml(code)}" role="button" tabindex="0"
+                    aria-pressed="${code === selectedCode}" title="${label}: ${Number(count)} (${share}%)" aria-label="${label}: ${Number(count)}">
                     ${flag}
                     <div class="map-top-bar-bg"><div class="map-top-bar-fill" style="width: ${pct}%;"></div></div>
                     <span class="map-top-count">${Number(count)}</span>
@@ -491,6 +549,34 @@ document.addEventListener("DOMContentLoaded", function() {
             }, { once: true });
         });
     };
+
+    const toggleCountry = code => {
+        if (!code) return;
+        if (code === selectedCode) {
+            if (mapResetView) mapResetView();
+        } else if (mapFocusCountry) {
+            mapFocusCountry(code);
+        }
+    };
+    const topListEl = document.getElementById("map-top-countries-list");
+    if (topListEl) {
+        topListEl.addEventListener("click", e => {
+            const li = e.target.closest("li[data-code]");
+            if (li) toggleCountry(li.dataset.code);
+        });
+        topListEl.addEventListener("keydown", e => {
+            const li = e.target.closest("li[data-code]");
+            if (li && (e.key === "Enter" || e.key === " " || e.key === "Spacebar")) {
+                e.preventDefault();
+                toggleCountry(li.dataset.code);
+            }
+        });
+    }
+    const resetBtn = document.getElementById("map-reset-btn");
+    if (resetBtn) resetBtn.addEventListener("click", () => { if (mapResetView) mapResetView(); });
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape" && selectedCode && mapResetView) mapResetView();
+    });
 
     const fetchPeriod = period => fetch(`/api/map-data/?period=${encodeURIComponent(period)}`)
         .then(r => {
@@ -583,6 +669,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 );
 
             updateSpots();
+            if (selectedCode && !currentCountryData[selectedCode] && mapResetView) {
+                mapResetView();   {# selected country has no readers in this period #}
+            }
             renderTopCountriesHUD(currentCountryData);
         };
 
@@ -612,6 +701,39 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
+        {# Country focus helpers: largest polygon avoids overseas territories skewing bounds #}
+        const featureByCode = {};
+        geoData.features.forEach(f => {
+            const code = getCountryCode(f);
+            if (code && !featureByCode[code]) featureByCode[code] = f;
+        });
+        const mainlandOf = f => {
+            const g = f.geometry;
+            if (!g || g.type !== "MultiPolygon") return f;
+            let best = null, bestArea = -1;
+            g.coordinates.forEach(coords => {
+                const poly = {type: "Feature", properties: {}, geometry: {type: "Polygon", coordinates: coords}};
+                const a = d3.geoArea(poly);
+                if (a > bestArea) { bestArea = a; best = poly; }
+            });
+            return best || f;
+        };
+        const markSelection = code => {
+            selectedCode = code;
+            countryPaths.classed("is-selected", d => !!code && getCountryCode(d) === code);
+            if (code) {
+                countryPaths.filter(d => getCountryCode(d) === code).raise();
+                mapGroup.selectAll(".heat-spot").raise();   {# keep city glows above the outline #}
+            }
+            const resetBtnEl = document.getElementById("map-reset-btn");
+            if (resetBtnEl) resetBtnEl.hidden = !code;
+            document.querySelectorAll("#map-top-countries-list li[data-code]").forEach(li => {
+                const on = li.dataset.code === code;
+                li.classList.toggle("is-selected", on);
+                li.setAttribute("aria-pressed", on ? "true" : "false");
+            });
+        };
+
         if (!isMobile) {
             {# Desktop zoom and pan #}
             const zoom = d3.zoom()
@@ -627,6 +749,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
             svg.call(zoom);
 
+            const MAX_FOCUS_ZOOM = 6;
+            mapFocusCountry = code => {
+                const f = featureByCode[code];
+                if (!f) return;
+                const [[x0, y0], [x1, y1]] = path.bounds(mainlandOf(f));
+                const dx = Math.max(x1 - x0, 1), dy = Math.max(y1 - y0, 1);
+                const k = Math.max(1, Math.min(MAX_FOCUS_ZOOM, 0.75 / Math.max(dx / width, dy / height)));
+                const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+                markSelection(code);
+                svg.transition().duration(750).call(
+                    zoom.transform,
+                    d3.zoomIdentity.translate(width / 2 - k * cx, height / 2 - k * cy).scale(k)
+                );
+            };
+            mapResetView = () => {
+                markSelection(null);
+                svg.transition().duration(650).call(zoom.transform, d3.zoomIdentity);
+            };
+            {# Click on ocean (not a country) resets; d3.zoom suppresses clicks after a pan #}
+            svg.on("click.reset", event => {
+                if (selectedCode && !(event.target.classList && event.target.classList.contains("d3-country"))) mapResetView();
+            });
+
             countryPaths
                 .on("mouseover", function(event, d) {
                     const code = getCountryCode(d);
@@ -634,7 +779,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     const views = currentCountryData[code] || 0;
 
                     tooltip.transition().duration(200).style("opacity", 1);
-                    tooltip.html(`<strong>${countryName}</strong><br/>${mapTranslations.views}: ${views}`)
+                    tooltip.html(`<strong>${countryName}</strong><br/>${mapTranslations.readers}: ${views}`)
                         .style("left", (event.pageX + 15) + "px")
                         .style("top", (event.pageY - 28) + "px");
                 })
@@ -654,7 +799,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const views = currentCountryData[code] || 0;
 
                 tooltip.transition().duration(150).style("opacity", 1);
-                tooltip.html(`<strong>${countryName}</strong><br/>${mapTranslations.views}: ${views}`)
+                tooltip.html(`<strong>${countryName}</strong><br/>${mapTranslations.readers}: ${views}`)
                     .style("left", Math.min(window.innerWidth - 160, Math.max(10, event.pageX - 60)) + "px")
                     .style("top", (event.pageY - 50) + "px");
             });
@@ -755,6 +900,36 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
 
             svg.call(drag).call(mobileZoom);
+
+            const defaultRotate = projection.rotate();
+            const rotateTo = target => {
+                stopInertia();
+                const from = projection.rotate();
+                {# Take the short way round the antimeridian #}
+                let lon = target[0];
+                while (lon - from[0] > 180) lon -= 360;
+                while (lon - from[0] < -180) lon += 360;
+                const interp = d3.interpolate([from[0], from[1]], [lon, target[1]]);
+                svg.transition().duration(900).tween("rotate", () => t => {
+                    projection.rotate(interp(t));
+                    redrawGlobe();
+                });
+            };
+            mapFocusCountry = code => {
+                const f = featureByCode[code];
+                if (!f) return;
+                const [lon, lat] = d3.geoCentroid(mainlandOf(f));
+                markSelection(code);
+                rotateTo([-lon, Math.max(-65, Math.min(65, -lat))]);
+            };
+            mapResetView = () => {
+                markSelection(null);
+                tooltip.style("opacity", 0);
+                rotateTo(defaultRotate);
+            };
+            svg.on("click.reset", event => {
+                if (selectedCode && !(event.target.classList && event.target.classList.contains("d3-country"))) mapResetView();
+            });
         }
 
     }).catch(error => console.error('Map loading error:', error));

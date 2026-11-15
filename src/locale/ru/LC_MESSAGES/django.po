@@ -9806,3 +9806,7 @@ msgstr "Фильтр по периоду"
 #: themes/BTE/templates/journal/index.html
 msgid "Readers"
 msgstr "Читатели"
+
+#: themes/BTE/templates/journal/index.html
+msgid "Reset view"
+msgstr "Сбросить вид"
