@@ -15,6 +15,8 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.forms import UserCreationForm
 from django.core.validators import validate_email, ValidationError
 
+from core.templatetags.setting_i18n import translate_setting_text
+
 from tinymce.widgets import TinyMCE
 
 from core import email, models, validators
@@ -416,7 +418,9 @@ class GeneratedPluginSettingForm(forms.Form):
                 )
 
             self.fields[field["name"]].initial = object.processed_value
-            self.fields[field["name"]].help_text = object.setting.description
+            self.fields[field["name"]].help_text = translate_setting_text(
+                object.setting.description
+            )
 
     def save(self, journal, plugin, commit=True):
         for setting_name, setting_value in self.cleaned_data.items():
@@ -477,9 +481,13 @@ class GeneratedSettingForm(forms.Form):
             if object.setting.is_translatable:
                 self.translatable_field_names.append(object.setting.name)
 
-            self.fields[field["name"]].label = object.setting.pretty_name
+            self.fields[field["name"]].label = translate_setting_text(
+                object.setting.pretty_name
+            )
             self.fields[field["name"]].initial = object.processed_value
-            self.fields[field["name"]].help_text = object.setting.description
+            self.fields[field["name"]].help_text = translate_setting_text(
+                object.setting.description
+            )
 
     def save(self, journal, group, commit=True):
         for setting_name, setting_value in self.cleaned_data.items():

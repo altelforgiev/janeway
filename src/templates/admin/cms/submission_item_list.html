@@ -1,6 +1,7 @@
 {% extends "admin/core/base.html" %}
 {% load static %}
 {% load foundation %}
+{% load setting_i18n %}
 {% load bool_fa %}
 
 {% get_current_language as LANGUAGE_CODE %}
@@ -42,7 +43,7 @@
                         <td>{{ item.title|capfirst }}</td>
                         <td>
                             {% if item.existing_setting %}
-                                Linked to <a target="_blank" href="{% url 'core_edit_setting' item.existing_setting.group.name item.existing_setting.name %}">{{ item.existing_setting.pretty_name }}</a>
+                                Linked to <a target="_blank" href="{% url 'core_edit_setting' item.existing_setting.group.name item.existing_setting.name %}">{{ item.existing_setting.pretty_name|setting_trans }}</a>
                             {% elif item.text %}
                             Item Text
                             {% else %}

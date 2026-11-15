@@ -1,10 +1,11 @@
 {% extends "admin/core/base.html" %}
 {% load bootstrap4 %}
+{% load setting_i18n %}
 
 
-{% block title %}Setting : {{ setting.pretty_name }}{% endblock title %}
+{% block title %}Setting : {{ setting.pretty_name|setting_trans }}{% endblock title %}
 {% block title-section %}Edit Setting{% endblock %}
-{% block title-sub %}{{ setting.pretty_name }}{% endblock %}
+{% block title-sub %}{{ setting.pretty_name|setting_trans }}{% endblock %}
 
 {% block breadcrumbs %}
     {{ block.super }}
@@ -18,7 +19,7 @@
             <li><a href="{% url 'core_default_settings_index' %}">Settings</a></li>
         {% endif %}
     {% endif %}
-    <li>Edit {{ setting.pretty_name }}</li>
+    <li>Edit {{ setting.pretty_name|setting_trans }}</li>
 {% endblock %}
 
 {% block body %}
@@ -27,7 +28,7 @@
             <div class="large-12 columns">
                 <div class="box">
                     <div class="title-area">
-                        <h2>Edit {{ setting.pretty_name }} ({{ setting.name }})</h2>
+                        <h2>Edit {{ setting.pretty_name|setting_trans }} ({{ setting.name }})</h2>
                     </div>
                     <div class="content">
                         {% if setting.is_translatable %}
@@ -42,7 +43,7 @@
                                 Journals with a specific journal override will not use this value.</h5>
                         {% endif %}
                         </h5>
-                        {% if setting.description %}<label for="id_value">{{ setting.description|safe }}</label>{% endif %}
+                        {% if setting.description %}<label for="id_value">{{ setting.description|setting_trans|safe }}</label>{% endif %}
 
                         {% include "elements/forms/errors.html" with form=edit_form %}
 

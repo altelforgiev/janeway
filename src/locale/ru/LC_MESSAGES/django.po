@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 14:57+0000\n"
+"POT-Creation-Date: 2026-11-15 17:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Are you sure you want to complete the copyedit task?"
 msgstr "Вы уверены, что хотите выполнить задачу редактирования?"
 
-#: core/forms/forms.py:123 core/forms/forms.py:171
+#: core/forms/forms.py:125 core/forms/forms.py:173
 #: templates/admin/core/accounts/orcid_registration.html:31
 #: themes/BTE/templates/admin/core/accounts/login.html:104
 #: themes/BTE/templates/core/accounts/orcid_registration.html:36
@@ -51,11 +51,11 @@ msgstr "Вы уверены, что хотите выполнить задачу
 msgid "Password"
 msgstr "Пароль"
 
-#: core/forms/forms.py:132 core/forms/forms.py:179
+#: core/forms/forms.py:134 core/forms/forms.py:181
 msgid "Repeat Password"
 msgstr "Повторите пароль"
 
-#: core/forms/forms.py:157 core/models.py:435 submission/models.py:2696
+#: core/forms/forms.py:159 core/models.py:435 submission/models.py:2704
 #: templates/admin/core/accounts/orcid_registration.html:27
 #: templates/admin/elements/author_summary_table.html:20
 #: templates/admin/elements/current_authors_inner.html:84
@@ -74,7 +74,7 @@ msgstr "Повторите пароль"
 msgid "Email"
 msgstr "Электронная почта"
 
-#: core/forms/forms.py:189
+#: core/forms/forms.py:191
 msgid ""
 "Check this box if you would like to receive notifications of new articles "
 "published in this journal"
@@ -82,16 +82,16 @@ msgstr ""
 "Установите этот флажок, если вы хотите получать уведомления о новых статьях, "
 "опубликованных в этом журнале."
 
-#: core/forms/forms.py:713
+#: core/forms/forms.py:721
 msgid "E-mail"
 msgstr "Электронная почта"
 
-#: core/forms/forms.py:909
+#: core/forms/forms.py:917
 #: templates/admin/core/affiliation_update_from_orcid.html:63
 msgid "Are you sure?"
 msgstr "Вы уверены?"
 
-#: core/forms/forms.py:940
+#: core/forms/forms.py:948
 #, python-format
 msgid ""
 "The account belonging to %(email)s has not yet been activated, so the "
@@ -236,7 +236,7 @@ msgstr "Приветствие"
 msgid "Name suffix"
 msgstr "Суффикс имени"
 
-#: core/models.py:474 submission/models.py:2685
+#: core/models.py:474 submission/models.py:2693
 #: templates/admin/submission/edit/author.html:129
 #: themes/BTE/templates/core/accounts/public_profile.html:41
 #: themes/OLH/templates/core/accounts/public_profile.html:41
@@ -249,9 +249,9 @@ msgstr "Биография"
 msgid "ORCiD"
 msgstr "ОРЦиД"
 
-#: core/models.py:480
+#: core/models.py:480 core/setting_strings.py:483
 msgid "Twitter Handle"
-msgstr "Твиттер-дескриптор"
+msgstr "Аккаунт Twitter"
 
 #: core/models.py:483
 msgid "Facebook Handle"
@@ -372,6 +372,2625 @@ msgstr "Звание, должность или роль"
 msgid "Department, unit, or team"
 msgstr "Отдел, подразделение или команда"
 
+#: core/setting_strings.py:11
+msgid "Altermetric Badge Type"
+msgstr "Тип бейджа Altmetric"
+
+#: core/setting_strings.py:12
+msgid ""
+"Select a badge type, 1, large-donut, large-bar etc. Defaults to '1' if none "
+"selected."
+msgstr ""
+"Выберите тип бейджа: 1, large-donut, large-bar и т. д. Если ничего не "
+"выбрано, используется «1»."
+
+#: core/setting_strings.py:13
+msgid "Disable article large image"
+msgstr "Отключить большое изображение статьи"
+
+#: core/setting_strings.py:14
+msgid ""
+"If checked, the article large image will not be displayed on the article page"
+msgstr ""
+"Если отмечено, большое изображение статьи не будет показываться на странице "
+"статьи"
+
+#: core/setting_strings.py:15
+msgid "Disable article thumbnails"
+msgstr "Отключить миниатюры статей"
+
+#: core/setting_strings.py:16
+msgid ""
+"If checked, no article thumbnails will be rendered on public article lists"
+msgstr ""
+"Если отмечено, миниатюры статей не будут показываться в публичных списках "
+"статей"
+
+#: core/setting_strings.py:17
+msgid "Display Altmetric Badges"
+msgstr "Показывать бейджи Altmetric"
+
+#: core/setting_strings.py:18
+msgid "If enabled altmetric badges will be displayed in the sidebar."
+msgstr "Если включено, бейджи Altmetric будут показываться на боковой панели."
+
+#: core/setting_strings.py:19
+msgid "Display Date Accepted"
+msgstr "Показывать дату принятия"
+
+#: core/setting_strings.py:20
+msgid ""
+"When enabled the date an article was accepted will be displayed on the "
+"article page."
+msgstr "Если включено, на странице статьи будет показываться дата её принятия."
+
+#: core/setting_strings.py:21
+msgid "Display Date Submitted"
+msgstr "Показывать дату поступления"
+
+#: core/setting_strings.py:22
+msgid ""
+"When enabled the date an article was submitted will be displayed on the "
+"article page."
+msgstr ""
+"Если включено, на странице статьи будет показываться дата её поступления."
+
+#: core/setting_strings.py:23
+msgid "Display Guest Editors"
+msgstr "Показывать приглашённых редакторов"
+
+#: core/setting_strings.py:24
+msgid ""
+"If enabled guest editors will display on the article page for primary issues."
+msgstr ""
+"Если включено, приглашённые редакторы будут показываться на странице статьи "
+"для основных выпусков."
+
+#: core/setting_strings.py:25
+msgid "Hide Author Email Links"
+msgstr "Скрыть ссылки на e-mail авторов"
+
+#: core/setting_strings.py:26
+msgid ""
+"If enabled the article page will not display links to email correspondence "
+"authors."
+msgstr ""
+"Если включено, на странице статьи не будут показываться ссылки на e-mail "
+"авторов для переписки."
+
+#: core/setting_strings.py:27
+msgid "Suppress Citation Metrics"
+msgstr "Скрыть показатели цитирования"
+
+#: core/setting_strings.py:28
+msgid ""
+"If enabled this will suppress the citations counter on the article page. The "
+"citation block will only appear for articles that have a citation. This "
+"setting is overruled by the Disable Metrics setting."
+msgstr ""
+"Если включено, счётчик цитирований на странице статьи будет скрыт. Блок "
+"цитирований показывается только для статей, у которых есть цитирования. Эта "
+"настройка перекрывается настройкой «Отключить метрики»."
+
+#: core/setting_strings.py:29
+msgid "Suppress How to Cite"
+msgstr "Скрыть блок «Как цитировать»"
+
+#: core/setting_strings.py:30
+msgid ""
+"If enabled this will suppress the how to cite block on the article page."
+msgstr "Если включено, блок «Как цитировать» на странице статьи будет скрыт."
+
+#: core/setting_strings.py:31
+msgid "Enable Crosscheck"
+msgstr "Включить Crosscheck"
+
+#: core/setting_strings.py:32
+msgid "If enabled, links to crosscheck reports will be displayed"
+msgstr "Если включено, будут показываться ссылки на отчёты Crosscheck"
+
+#: core/setting_strings.py:33
+msgid "Password for crosscheck/ithenticate"
+msgstr "Пароль Crosscheck/iThenticate"
+
+#: core/setting_strings.py:34
+msgid "Used to submit files for review"
+msgstr "Используется для отправки файлов на проверку"
+
+#: core/setting_strings.py:35
+msgid "Username for crosscheck/ithenticate"
+msgstr "Имя пользователя Crosscheck/iThenticate"
+
+#: core/setting_strings.py:36
+msgid "Crossref Date Suffix"
+msgstr "Суффикс даты Crossref"
+
+#: core/setting_strings.py:37
+msgid "For migrated content where we need to tweak the crossref date."
+msgstr ""
+"Для перенесённого контента, где нужно скорректировать дату для Crossref."
+
+#: core/setting_strings.py:38
+msgid "Accepted Review Reminder"
+msgstr "Напоминание о принятой рецензии"
+
+#: core/setting_strings.py:39
+msgid ""
+"Notify reviewer of accepted request and remind them to review submission."
+msgstr ""
+"Уведомить рецензента о принятом запросе и напомнить о рецензировании "
+"рукописи."
+
+#: core/setting_strings.py:40
+msgid "Author Copyediting Complete"
+msgstr "Авторская проверка редактуры завершена"
+
+#: core/setting_strings.py:41
+msgid "Email sent to Editor when an author copyedit review is complete."
+msgstr ""
+"Письмо редактору о завершении авторской проверки литературной редактуры."
+
+#: core/setting_strings.py:42
+msgid "Author Copyedit Deleted"
+msgstr "Авторская проверка редактуры удалена"
+
+#: core/setting_strings.py:43
+msgid ""
+"Email sent to an author when an editor deletes their copyedit review task."
+msgstr ""
+"Письмо автору, когда редактор удаляет его задачу по проверке редактуры."
+
+#: core/setting_strings.py:44
+msgid "Author Publication Notification"
+msgstr "Уведомление автора о публикации"
+
+#: core/setting_strings.py:45
+msgid "Notify the author of their publication date and time."
+msgstr "Уведомить автора о дате и времени публикации."
+
+#: core/setting_strings.py:46
+msgid "Bounced Email Notification"
+msgstr "Уведомление о недоставленном письме"
+
+#: core/setting_strings.py:47
+msgid "Email sent when an outgoing email bounces."
+msgstr "Письмо, отправляемое, когда исходящее письмо не доставлено."
+
+#: core/setting_strings.py:48
+msgid "Conditional Accept"
+msgstr "Условное принятие"
+
+#: core/setting_strings.py:49
+msgid ""
+"Email sent to authors when sending a conditional accept revision request."
+msgstr "Письмо авторам при запросе доработки с условным принятием."
+
+#: core/setting_strings.py:50
+msgid "Copyediting Request Deleted"
+msgstr "Запрос на редактуру удалён"
+
+#: core/setting_strings.py:51
+msgid "Sent when a copyediting assignment is deleted."
+msgstr "Отправляется при удалении задания на литературную редактуру."
+
+#: core/setting_strings.py:52
+msgid "Copyedit Acknowledge"
+msgstr "Благодарность литературному редактору"
+
+#: core/setting_strings.py:53
+msgid "Email sent to Copyeditor to thank them."
+msgstr "Письмо литературному редактору с благодарностью."
+
+#: core/setting_strings.py:54
+msgid "Copyedit Notify Copyeditor"
+msgstr "Уведомление литературного редактора"
+
+#: core/setting_strings.py:55
+msgid "Email sent to copyeditors."
+msgstr "Письмо литературным редакторам."
+
+#: core/setting_strings.py:56
+msgid "Copyedit Notify Author"
+msgstr "Уведомление автора о редактуре"
+
+#: core/setting_strings.py:57
+msgid "Email sent to Author asking them to review copyedits."
+msgstr "Письмо автору с просьбой проверить правки литературного редактора."
+
+#: core/setting_strings.py:58
+msgid "Copyedit Notify Editor"
+msgstr "Уведомление редактора о редактуре"
+
+#: core/setting_strings.py:59
+msgid "Email sent to editor when copyedits are complete."
+msgstr "Письмо редактору о завершении литературной редактуры."
+
+#: core/setting_strings.py:60
+msgid "Copyedit Reopen Task"
+msgstr "Повторное открытие задачи редактуры"
+
+#: core/setting_strings.py:61
+msgid "Email sent to Copyeditor asking them to undertake further copyedits."
+msgstr ""
+"Письмо литературному редактору с просьбой выполнить дополнительную редактуру."
+
+#: core/setting_strings.py:62
+msgid "Copyediting Request Updated"
+msgstr "Запрос на редактуру обновлён"
+
+#: core/setting_strings.py:63
+msgid "Sent when a copyediting assignment is updated."
+msgstr "Отправляется при изменении задания на литературную редактуру."
+
+#: core/setting_strings.py:64
+msgid "Default Review Reminder"
+msgstr "Стандартное напоминание о рецензии"
+
+#: core/setting_strings.py:65
+msgid "Email to remind reviewers of a new request."
+msgstr "Письмо с напоминанием рецензентам о новом запросе."
+
+#: core/setting_strings.py:66
+msgid "Draft Decisions Editor Message"
+msgstr "Сообщение редактору о проекте решения"
+
+#: core/setting_strings.py:67
+msgid "Email sent to the Editor when a section editor makes a draft decision."
+msgstr "Письмо редактору, когда редактор раздела готовит проект решения."
+
+#: core/setting_strings.py:68
+msgid "Draft Decisions Message"
+msgstr "Сообщение о проекте решения"
+
+#: core/setting_strings.py:69
+msgid "Email sent when a section editor makes a draft decision."
+msgstr "Письмо, отправляемое, когда редактор раздела готовит проект решения."
+
+#: core/setting_strings.py:70
+msgid "Editor Assignment"
+msgstr "Назначение редактора"
+
+#: core/setting_strings.py:71
+msgid "Email sent to editors when they are assigned to a submission."
+msgstr "Письмо редакторам о назначении на рукопись."
+
+#: core/setting_strings.py:72
+msgid "Editor Digest"
+msgstr "Сводка для редактора"
+
+#: core/setting_strings.py:73
+msgid "Digest email sent to editors.."
+msgstr "Сводное письмо для редакторов."
+
+#: core/setting_strings.py:74
+msgid "New Submission for Editor"
+msgstr "Новая рукопись для редактора"
+
+#: core/setting_strings.py:75
+msgid "Email sent to the Editor when there is a new submission."
+msgstr "Письмо редактору о поступлении новой рукописи."
+
+#: core/setting_strings.py:76
+msgid "New User Registration"
+msgstr "Регистрация нового пользователя"
+
+#: core/setting_strings.py:77
+msgid "Email sent when user registers."
+msgstr "Письмо, отправляемое при регистрации пользователя."
+
+#: core/setting_strings.py:78
+msgid "Submission Notification"
+msgstr "Уведомление о рукописи"
+
+#: core/setting_strings.py:79
+msgid "Send to a user specified in notification manager."
+msgstr "Отправляется пользователю, указанному в менеджере уведомлений."
+
+#: core/setting_strings.py:80
+msgid "Correction Task Cancelled"
+msgstr "Задача по исправлениям отменена"
+
+#: core/setting_strings.py:81
+msgid "Email sent when an Editor cancels or deletes a correction task."
+msgstr ""
+"Письмо, отправляемое, когда редактор отменяет или удаляет задачу по "
+"исправлениям."
+
+#: core/setting_strings.py:82
+msgid "Notify Editor that Proofreading is Complete"
+msgstr "Уведомить редактора о завершении корректуры"
+
+#: core/setting_strings.py:83
+msgid "Email sent to the Editor when Proofing is complete."
+msgstr "Письмо редактору о завершении корректуры."
+
+#: core/setting_strings.py:84
+msgid "Notify Proofing Manager"
+msgstr "Уведомить менеджера корректуры"
+
+#: core/setting_strings.py:85
+msgid "Auto email sent to Proofing Manager when they are assigned."
+msgstr "Автоматическое письмо менеджеру корректуры при его назначении."
+
+#: core/setting_strings.py:86
+msgid "Notify Proofreader of Assignment"
+msgstr "Уведомить корректора о назначении"
+
+#: core/setting_strings.py:87
+msgid "Email sent to a proofreader when they are given an assignment."
+msgstr "Письмо корректору при получении задания."
+
+#: core/setting_strings.py:88
+msgid "Notify Proofreader of Cancellation"
+msgstr "Уведомить корректора об отмене"
+
+#: core/setting_strings.py:89
+msgid "Email sent to the proofreader when the manager cancels their task."
+msgstr "Письмо корректору, когда менеджер отменяет его задачу."
+
+#: core/setting_strings.py:90
+msgid "Notify Proofreader Complete"
+msgstr "Уведомление о завершении корректуры"
+
+#: core/setting_strings.py:91
+msgid "Email sent to the proofing manager on completion."
+msgstr "Письмо менеджеру корректуры по завершении."
+
+#: core/setting_strings.py:92
+msgid "Proofing Task Edited"
+msgstr "Задача корректуры изменена"
+
+#: core/setting_strings.py:93
+msgid "Sent when a proofing assignment is edited."
+msgstr "Отправляется при изменении задания на корректуру."
+
+#: core/setting_strings.py:94
+msgid "Draft Decision Declined"
+msgstr "Проект решения отклонён"
+
+#: core/setting_strings.py:95
+msgid ""
+"Email sent to a section editor when a senior editor declines their draft "
+"decision."
+msgstr ""
+"Письмо редактору раздела, когда старший редактор отклоняет его проект "
+"решения."
+
+#: core/setting_strings.py:96
+msgid "Notify Typesetter of Proofreading Feedback"
+msgstr "Уведомить верстальщика о замечаниях корректуры"
+
+#: core/setting_strings.py:97
+msgid ""
+"Email sent to the typesetter requesting changes based on Proofing feedback."
+msgstr ""
+"Письмо верстальщику с просьбой внести изменения по замечаниям корректуры."
+
+#: core/setting_strings.py:98
+msgid "Password Reset"
+msgstr "Сброс пароля"
+
+#: core/setting_strings.py:99
+msgid "Email sent when user requests a password reset."
+msgstr "Письмо, отправляемое при запросе пользователем сброса пароля."
+
+#: core/setting_strings.py:100
+msgid "Peer Reviewer Publication Notification"
+msgstr "Уведомление рецензента о публикации"
+
+#: core/setting_strings.py:101
+msgid "Email sent to the Peer Reviewer when article is published."
+msgstr "Письмо рецензенту при публикации статьи."
+
+#: core/setting_strings.py:102
+msgid "Production Assign Article"
+msgstr "Назначение на производство"
+
+#: core/setting_strings.py:103
+msgid "Sent when a user is assigned to production."
+msgstr "Отправляется при назначении пользователя на этап производства."
+
+#: core/setting_strings.py:104
+msgid "Production Complete"
+msgstr "Производство завершено"
+
+#: core/setting_strings.py:105
+msgid "Email sent to Editors when Production is Complete."
+msgstr "Письмо редакторам о завершении этапа производства."
+
+#: core/setting_strings.py:106
+msgid "Production Manager Assignment Notification"
+msgstr "Уведомление о назначении менеджера производства"
+
+#: core/setting_strings.py:107
+msgid "Email sent to Production Manager on assignment."
+msgstr "Письмо менеджеру производства при назначении."
+
+#: core/setting_strings.py:108
+msgid "Reader Publication Notification"
+msgstr "Уведомление читателей о публикации"
+
+#: core/setting_strings.py:109
+msgid "Email sent readers when new articles are published."
+msgstr "Письмо читателям при публикации новых статей."
+
+#: core/setting_strings.py:110
+msgid "Request Revisions"
+msgstr "Запрос доработки"
+
+#: core/setting_strings.py:111
+msgid "Email sent to authors when requesting revisions."
+msgstr "Письмо авторам с запросом доработки."
+
+#: core/setting_strings.py:112
+msgid "Review Acceptance Acknowledgement"
+msgstr "Подтверждение согласия на рецензирование"
+
+#: core/setting_strings.py:113
+msgid "Email sent to reviewers when they agree to undertake a review."
+msgstr "Письмо рецензентам, когда они соглашаются выполнить рецензию."
+
+#: core/setting_strings.py:114
+msgid "Review Assignment"
+msgstr "Назначение рецензии"
+
+#: core/setting_strings.py:115
+msgid "Email sent to reviewers to request a review."
+msgstr "Письмо рецензентам с запросом рецензии."
+
+#: core/setting_strings.py:116
+msgid "Review Complete Update"
+msgstr "Обновление о завершении рецензии"
+
+#: core/setting_strings.py:117
+msgid "Email sent to editors when a reviewer complete a review."
+msgstr "Письмо редакторам, когда рецензент завершает рецензию."
+
+#: core/setting_strings.py:118
+msgid "Review Complete Acknowledgement"
+msgstr "Подтверждение завершения рецензии"
+
+#: core/setting_strings.py:119
+msgid "Email sent to reviewers when they complete a review."
+msgstr "Письмо рецензентам по завершении рецензии."
+
+#: core/setting_strings.py:120
+msgid "Article Review Accept"
+msgstr "Принятие статьи по итогам рецензирования"
+
+#: core/setting_strings.py:121
+msgid "Email sent to authors when an article is accepted."
+msgstr "Письмо авторам о принятии статьи."
+
+#: core/setting_strings.py:122
+msgid "Article Review Decline"
+msgstr "Отклонение статьи по итогам рецензирования"
+
+#: core/setting_strings.py:123
+msgid "Email sent to authors when an article is declined."
+msgstr "Письмо авторам об отклонении статьи."
+
+#: core/setting_strings.py:124
+msgid "Article Desk Reject"
+msgstr "Отклонение статьи без рецензирования"
+
+#: core/setting_strings.py:125
+msgid "Email sent to authors when an article is desk rejected."
+msgstr "Письмо авторам об отклонении статьи без рецензирования."
+
+#: core/setting_strings.py:126
+#: templates/admin/journal/manage/archive_article.html:179
+msgid "Undo Article Rejection"
+msgstr "Отменить отклонение статьи"
+
+#: core/setting_strings.py:127
+msgid ""
+"Email sent to authors when a decision to decline an article is reversed."
+msgstr "Письмо авторам при отмене решения об отклонении статьи."
+
+#: core/setting_strings.py:128
+msgid "Review Decline Acknowledgement"
+msgstr "Подтверждение отказа от рецензирования"
+
+#: core/setting_strings.py:129
+msgid "Email sent to reviewers when they decline to undertake a review."
+msgstr "Письмо рецензентам, когда они отказываются выполнять рецензию."
+
+#: core/setting_strings.py:130
+msgid "Reviewer Acknowledgement"
+msgstr "Ответ рецензента"
+
+#: core/setting_strings.py:131
+msgid "Email sent to editors when a reviewer accepts or declines a review."
+msgstr ""
+"Письмо редакторам, когда рецензент принимает или отклоняет запрос на "
+"рецензию."
+
+#: core/setting_strings.py:132
+msgid "Review Digest"
+msgstr "Сводка по рецензиям"
+
+#: core/setting_strings.py:133
+msgid "Email sent to Reviewers."
+msgstr "Письмо рецензентам."
+
+#: core/setting_strings.py:134
+msgid "Review Request Update"
+msgstr "Обновление запроса на рецензию"
+
+#: core/setting_strings.py:135
+msgid "Email sent when a review assignment is updated."
+msgstr "Письмо, отправляемое при изменении задания на рецензию."
+
+#: core/setting_strings.py:136
+msgid "Review Withdrawl"
+msgstr "Отзыв запроса на рецензию"
+
+#: core/setting_strings.py:137
+msgid "Email sent to reviewers when a review request is withdrawn."
+msgstr "Письмо рецензентам при отзыве запроса на рецензию."
+
+#: core/setting_strings.py:138
+msgid "Revision Digest"
+msgstr "Сводка по доработкам"
+
+#: core/setting_strings.py:139
+msgid "Email sent to Revision People."
+msgstr "Письмо участникам доработки."
+
+#: core/setting_strings.py:140
+msgid "Revisions Complete Editor Notification"
+msgstr "Уведомление редактора о завершении доработки"
+
+#: core/setting_strings.py:141
+msgid "Email sent editors when an author completes a revision request."
+msgstr "Письмо редакторам, когда автор завершает доработку."
+
+#: core/setting_strings.py:142
+msgid "Revisions Complete Receipt"
+msgstr "Подтверждение получения доработки"
+
+#: core/setting_strings.py:143
+msgid ""
+"Email sent to an article's correspondence author when revisions are "
+"completed."
+msgstr "Письмо автору для переписки по статье после завершения доработки."
+
+#: core/setting_strings.py:144
+msgid "Section Editor Publication Notification"
+msgstr "Уведомление редактора раздела о публикации"
+
+#: core/setting_strings.py:145
+msgid ""
+"NOTE: This setting is deprecated--please use Notify Section Editors of "
+"Publication instead. Email sent to the Section Editor when article is "
+"published."
+msgstr ""
+"ПРИМЕЧАНИЕ: эта настройка устарела — используйте вместо неё «Уведомлять "
+"редакторов разделов о публикации». Письмо редактору раздела при публикации "
+"статьи."
+
+#: core/setting_strings.py:146
+msgid "Share Reviews Notification"
+msgstr "Уведомление о передаче рецензий"
+
+#: core/setting_strings.py:147
+msgid "Email sent by editors to reviewers when sharing peer reviews."
+msgstr "Письмо, которое редакторы отправляют рецензентам, делясь рецензиями."
+
+#: core/setting_strings.py:148
+msgid "Submission Access Request Complete"
+msgstr "Запрос на доступ к подаче рассмотрен"
+
+#: core/setting_strings.py:149
+msgid "Email sent when a Access Request is evaluated by a staff member."
+msgstr "Письмо, отправляемое, когда сотрудник рассмотрел запрос на доступ."
+
+#: core/setting_strings.py:150
+msgid "Submission Access Request Notification"
+msgstr "Уведомление о запросе на доступ к подаче"
+
+#: core/setting_strings.py:151
+msgid ""
+"Email sent to the submission access request contact when a new request is "
+"added."
+msgstr ""
+"Письмо контактному лицу по запросам доступа при поступлении нового запроса."
+
+#: core/setting_strings.py:152
+msgid "Submission Acknowledgement"
+msgstr "Подтверждение получения рукописи"
+
+#: core/setting_strings.py:153
+msgid "Email sent to authors when they have submitted an article."
+msgstr "Письмо авторам после подачи статьи."
+
+#: core/setting_strings.py:154
+msgid "Thank Proofreaders and Typesetters"
+msgstr "Благодарность корректорам и верстальщикам"
+
+#: core/setting_strings.py:155
+msgid "Email sent to the typesetter and proofreaders thanking them."
+msgstr "Письмо верстальщику и корректорам с благодарностью."
+
+#: core/setting_strings.py:156
+msgid "Typesetter Acknowledgement"
+msgstr "Подтверждение для верстальщика"
+
+#: core/setting_strings.py:157
+msgid "Email sent to Typesetter to acknowledge a completed task."
+msgstr "Письмо верстальщику с подтверждением выполненной задачи."
+
+#: core/setting_strings.py:158
+msgid "Typesetting Request Deleted"
+msgstr "Запрос на вёрстку удалён"
+
+#: core/setting_strings.py:159
+msgid "Sent when a typesetting assignment is deleted."
+msgstr "Отправляется при удалении задания на вёрстку."
+
+#: core/setting_strings.py:160
+msgid "Typeset Task Reopened"
+msgstr "Задача вёрстки открыта повторно"
+
+#: core/setting_strings.py:161
+msgid "Email sent to Typesetter to inform them that a task has been re-opened."
+msgstr "Письмо верстальщику о повторном открытии задачи."
+
+#: core/setting_strings.py:162
+msgid "Typesetter Complete Notification"
+msgstr "Уведомление о завершении вёрстки"
+
+#: core/setting_strings.py:163
+msgid "Email sent to Production Manager on typeset task complete."
+msgstr "Письмо менеджеру производства о завершении задачи вёрстки."
+
+#: core/setting_strings.py:164
+msgid "Corrections Complete"
+msgstr "Исправления завершены"
+
+#: core/setting_strings.py:165
+msgid "Notify the proofing manager that corrections are complete."
+msgstr "Уведомить менеджера корректуры о завершении исправлений."
+
+#: core/setting_strings.py:166
+msgid "Typesetter Assignment Notification"
+msgstr "Уведомление о назначении верстальщика"
+
+#: core/setting_strings.py:167
+msgid "Email sent to Typesetter on task assignment."
+msgstr "Письмо верстальщику при назначении задачи."
+
+#: core/setting_strings.py:168
+msgid "Typesetting Complete (PLUGIN)"
+msgstr "Вёрстка завершена (ПЛАГИН)"
+
+#: core/setting_strings.py:169
+msgid ""
+"Email sent to Editors when Typesetting is Complete. Used by the typesetting "
+"plugin"
+msgstr "Письмо редакторам о завершении вёрстки. Используется плагином вёрстки"
+
+#: core/setting_strings.py:170
+msgid "Proofreader Assignment Notification (PLUGIN)"
+msgstr "Уведомление о назначении корректора (ПЛАГИН)"
+
+#: core/setting_strings.py:171
+msgid "Email sent to Proofreaders on task assignment."
+msgstr "Письмо корректорам при назначении задачи."
+
+#: core/setting_strings.py:172
+msgid "Typesetter Assignment Notification (PLUGIN)"
+msgstr "Уведомление о назначении верстальщика (ПЛАГИН)"
+
+#: core/setting_strings.py:173
+msgid "Proofreading Cancelled (PLUGIN)"
+msgstr "Корректура отменена (ПЛАГИН)"
+
+#: core/setting_strings.py:174
+msgid ""
+"Email sent to Proofreaders when a Proofreading Assignment is Cancelled. Used "
+"by the typesetting plugin"
+msgstr ""
+"Письмо корректорам при отмене задания на корректуру. Используется плагином "
+"вёрстки"
+
+#: core/setting_strings.py:175
+msgid "Proofreading Complete (PLUGIN)"
+msgstr "Корректура завершена (ПЛАГИН)"
+
+#: core/setting_strings.py:176
+msgid ""
+"Email sent to Editors when a Proofreading Assignment is Complete. Used by "
+"the typesetting plugin"
+msgstr ""
+"Письмо редакторам о завершении задания на корректуру. Используется плагином "
+"вёрстки"
+
+#: core/setting_strings.py:177
+msgid "Proofreading Reset (PLUGIN)"
+msgstr "Корректура сброшена (ПЛАГИН)"
+
+#: core/setting_strings.py:178
+msgid ""
+"Email sent to Proofreaders when a Proofreading Assignment is Reset. Used by "
+"the typesetting plugin"
+msgstr ""
+"Письмо корректорам при сбросе задания на корректуру. Используется плагином "
+"вёрстки"
+
+#: core/setting_strings.py:179
+msgid "Typesetting Cancelled (PLUGIN)"
+msgstr "Вёрстка отменена (ПЛАГИН)"
+
+#: core/setting_strings.py:180
+msgid ""
+"Email sent to Typesetters when a Typesetting Assignment is Cancelled. Used "
+"by the typesetting plugin"
+msgstr ""
+"Письмо верстальщикам при отмене задания на вёрстку. Используется плагином "
+"вёрстки"
+
+#: core/setting_strings.py:181
+msgid "Typesetter Complete (PLUGIN)"
+msgstr "Верстальщик завершил задачу (ПЛАГИН)"
+
+#: core/setting_strings.py:182
+msgid "Email sent to typesetting manager when a typesetter completes a task."
+msgstr "Письмо менеджеру вёрстки, когда верстальщик завершает задачу."
+
+#: core/setting_strings.py:183
+msgid "Typesetting Deleted (PLUGIN)"
+msgstr "Вёрстка удалена (ПЛАГИН)"
+
+#: core/setting_strings.py:184
+msgid ""
+"Email sent to Typesetters when a Typesetting Assignment is Deleted. Used by "
+"the typesetting plugin"
+msgstr ""
+"Письмо верстальщикам при удалении задания на вёрстку. Используется плагином "
+"вёрстки"
+
+#: core/setting_strings.py:185
+msgid "Typesetter Accept (PLUGIN)"
+msgstr "Верстальщик принял задачу (ПЛАГИН)"
+
+#: core/setting_strings.py:186
+msgid "Email sent to typesetting manager when a typesetter accepts a task."
+msgstr "Письмо менеджеру вёрстки, когда верстальщик принимает задачу."
+
+#: core/setting_strings.py:187
+msgid "Typesetter Decline (PLUGIN)"
+msgstr "Верстальщик отклонил задачу (ПЛАГИН)"
+
+#: core/setting_strings.py:188
+msgid "Email sent to typesetting manager when a typesetter declines a task."
+msgstr "Письмо менеджеру вёрстки, когда верстальщик отклоняет задачу."
+
+#: core/setting_strings.py:189
+msgid "Unassign Editor"
+msgstr "Снятие редактора с назначения"
+
+#: core/setting_strings.py:190
+msgid "Email sent to editors when they are unassigned from an article"
+msgstr "Письмо редакторам при снятии их с назначения на статью"
+
+#: core/setting_strings.py:191
+msgid "User Email Change"
+msgstr "Смена e-mail пользователя"
+
+#: core/setting_strings.py:192
+msgid "Sent when an existing user updates their email address."
+msgstr "Отправляется, когда существующий пользователь меняет адрес e-mail."
+
+#: core/setting_strings.py:193
+msgid "Subject for Accepted Review Reminder."
+msgstr "Тема письма: напоминание о принятой рецензии"
+
+#: core/setting_strings.py:194
+msgid ""
+"Subject for Email sent to Editor when an author copyedit review is complete."
+msgstr ""
+"Тема письма: письмо редактору о завершении авторской проверки литературной "
+"редактуры"
+
+#: core/setting_strings.py:195
+msgid "Author Copyedit Deleted Subject"
+msgstr "Тема: авторская проверка редактуры удалена"
+
+#: core/setting_strings.py:196
+msgid "Subject for Author Copyedit Deleted email."
+msgstr "Тема письма об удалении авторской проверки редактуры."
+
+#: core/setting_strings.py:197
+msgid "Article Publication"
+msgstr "Публикация статьи"
+
+#: core/setting_strings.py:198
+msgid "Subject for notifying the author that the article is published."
+msgstr "Тема письма автору о публикации статьи."
+
+#: core/setting_strings.py:199
+msgid "Subject Bounced Email Notification"
+msgstr "Тема: уведомление о недоставленном письме"
+
+#: core/setting_strings.py:200
+msgid "Subject for Bounced Email Notification."
+msgstr "Тема письма: уведомление о недоставленном письме"
+
+#: core/setting_strings.py:201
+msgid "Subject Conditional Accept"
+msgstr "Тема: условное принятие"
+
+#: core/setting_strings.py:202
+msgid "Subject for Conditional Accept Email"
+msgstr "Тема письма об условном принятии"
+
+#: core/setting_strings.py:203
+msgid "Subject for Sent when a copyediting assignment is deleted."
+msgstr ""
+"Тема письма: отправляется при удалении задания на литературную редактуру"
+
+#: core/setting_strings.py:204
+msgid "Copyediting Decision"
+msgstr "Решение по редактуре"
+
+#: core/setting_strings.py:205
+msgid ""
+"Subject for email sent to managing editor when a copyeditor accepts or "
+"declines a request."
+msgstr ""
+"Тема письма ответственному редактору, когда литературный редактор принимает "
+"или отклоняет запрос."
+
+#: core/setting_strings.py:206
+msgid "Subject for Email sent to Copyeditor to thank them."
+msgstr "Тема письма: письмо литературному редактору с благодарностью"
+
+#: core/setting_strings.py:207
+msgid "Subject for Email sent to copyeditors."
+msgstr "Тема письма: письмо литературным редакторам"
+
+#: core/setting_strings.py:208
+msgid "Subject for Email sent to Author asking them to review copyedits."
+msgstr ""
+"Тема письма: письмо автору с просьбой проверить правки литературного "
+"редактора"
+
+#: core/setting_strings.py:209
+msgid "Subject for Email sent to editor when copyedits are complete."
+msgstr "Тема письма: письмо редактору о завершении литературной редактуры"
+
+#: core/setting_strings.py:210
+msgid ""
+"Subject for Email sent to Copyeditor asking them to undertake further "
+"copyedits."
+msgstr ""
+"Тема письма: письмо литературному редактору с просьбой выполнить "
+"дополнительную редактуру"
+
+#: core/setting_strings.py:211
+msgid "Subject for Sent when a copyediting assignment is updated."
+msgstr ""
+"Тема письма: отправляется при изменении задания на литературную редактуру"
+
+#: core/setting_strings.py:212
+msgid "Subject for Review Reminder."
+msgstr "Тема напоминания о рецензии."
+
+#: core/setting_strings.py:213
+msgid ""
+"Subject for Email sent to the Editor when a section editor makes a draft "
+"decision."
+msgstr ""
+"Тема письма: письмо редактору, когда редактор раздела готовит проект решения"
+
+#: core/setting_strings.py:214
+msgid "Subject for Email sent when a section editor makes a draft decision."
+msgstr ""
+"Тема письма: письмо, отправляемое, когда редактор раздела готовит проект "
+"решения"
+
+#: core/setting_strings.py:215
+msgid ""
+"Subject for Email sent to editors when they are assigned to a submission."
+msgstr "Тема письма: письмо редакторам о назначении на рукопись"
+
+#: core/setting_strings.py:216
+msgid "Subject for Email sent to Editors."
+msgstr "Тема письма редакторам."
+
+#: core/setting_strings.py:217
+msgid "Subject for Email sent to the Editor when there is a new submission."
+msgstr "Тема письма: письмо редактору о поступлении новой рукописи"
+
+#: core/setting_strings.py:218
+msgid "Subject for Email sent when user registers."
+msgstr "Тема письма: письмо, отправляемое при регистрации пользователя"
+
+#: core/setting_strings.py:219
+msgid "Subject for Send to a user specified in notification manager."
+msgstr ""
+"Тема письма: отправляется пользователю, указанному в менеджере уведомлений"
+
+#: core/setting_strings.py:220
+msgid "Subject for Email when Editor cancels or deletes a correction task."
+msgstr "Тема письма об отмене или удалении редактором задачи по исправлениям."
+
+#: core/setting_strings.py:221
+msgid "Subject for Email sent to the Editor when Proofing is complete."
+msgstr "Тема письма: письмо редактору о завершении корректуры"
+
+#: core/setting_strings.py:222
+msgid "Subject for Auto email sent to Proofing Manager when they are assigned."
+msgstr ""
+"Тема письма: автоматическое письмо менеджеру корректуры при его назначении"
+
+#: core/setting_strings.py:223
+msgid ""
+"Subject for Email sent to the typesetter requesting changes based on "
+"Proofing feedback."
+msgstr ""
+"Тема письма: письмо верстальщику с просьбой внести изменения по замечаниям "
+"корректуры"
+
+#: core/setting_strings.py:224
+msgid ""
+"Subject for Email sent to the proofreader when the manager cancels their "
+"task."
+msgstr "Тема письма: письмо корректору, когда менеджер отменяет его задачу"
+
+#: core/setting_strings.py:225
+msgid "Subject for Email sent to the proofing manager on completion."
+msgstr "Тема письма: письмо менеджеру корректуры по завершении"
+
+#: core/setting_strings.py:226
+msgid "Subject for Sent when a proofing assignment is edited."
+msgstr "Тема письма: отправляется при изменении задания на корректуру"
+
+#: core/setting_strings.py:227
+msgid "Draft Decision Declined Subject"
+msgstr "Тема: проект решения отклонён"
+
+#: core/setting_strings.py:228
+msgid "Subject for Draft Decision Declined email"
+msgstr "Тема письма об отклонении проекта решения"
+
+#: core/setting_strings.py:229
+msgid "Subject for Email sent when user requests a password reset."
+msgstr ""
+"Тема письма: письмо, отправляемое при запросе пользователем сброса пароля"
+
+#: core/setting_strings.py:230
+msgid "Subject for Email sent to the Peer Reviewer when article is published."
+msgstr "Тема письма: письмо рецензенту при публикации статьи"
+
+#: core/setting_strings.py:231
+msgid "Subject for Sent when a user is assigned to production."
+msgstr ""
+"Тема письма: отправляется при назначении пользователя на этап производства"
+
+#: core/setting_strings.py:232
+msgid "Subject for Email sent to Editors when Production is Complete."
+msgstr "Тема письма: письмо редакторам о завершении этапа производства"
+
+#: core/setting_strings.py:233
+msgid "Subject for Email sent to Production Manager on assignment."
+msgstr "Тема письма: письмо менеджеру производства при назначении"
+
+#: core/setting_strings.py:234
+msgid "Subject Reader Publication Notification"
+msgstr "Тема: уведомление читателей о публикации"
+
+#: core/setting_strings.py:235
+msgid "Subject for Submission Access Request Complete."
+msgstr "Тема письма: запрос на доступ к подаче рассмотрен"
+
+#: core/setting_strings.py:236
+msgid "Subject for Email sent to editors when requesting revisions."
+msgstr "Тема письма с запросом доработки."
+
+#: core/setting_strings.py:237
+msgid "Review Assignment Accepted"
+msgstr "Согласие на рецензирование получено"
+
+#: core/setting_strings.py:238
+msgid ""
+"Subject for Email sent to reviewers when they agree to undertake a review."
+msgstr ""
+"Тема письма: письмо рецензентам, когда они соглашаются выполнить рецензию"
+
+#: core/setting_strings.py:239
+msgid "Subject for Email sent to reviewers to request a review."
+msgstr "Тема письма: письмо рецензентам с запросом рецензии"
+
+#: core/setting_strings.py:240
+msgid "Subject for Email sent to editors when a reviewer complete a review."
+msgstr "Тема письма: письмо редакторам, когда рецензент завершает рецензию"
+
+#: core/setting_strings.py:241
+msgid "Subject for Email sent to reviewers when they complete a review."
+msgstr "Тема письма: письмо рецензентам по завершении рецензии"
+
+#: core/setting_strings.py:242
+msgid "Subject for Email sent to authors when an article is accepted."
+msgstr "Тема письма: письмо авторам о принятии статьи"
+
+#: core/setting_strings.py:243
+msgid "Article Decline"
+msgstr "Отклонение статьи"
+
+#: core/setting_strings.py:244
+msgid "Subject for Email sent to authors when an article is declined."
+msgstr "Тема письма: письмо авторам об отклонении статьи"
+
+#: core/setting_strings.py:245
+msgid "Subject Desk Reject"
+msgstr "Тема: отклонение без рецензирования"
+
+#: core/setting_strings.py:246
+msgid "Subject for Desk Reject Email"
+msgstr "Тема письма об отклонении без рецензирования"
+
+#: core/setting_strings.py:247
+msgid "Undo Article Rejection Subject"
+msgstr "Тема: отмена отклонения статьи"
+
+#: core/setting_strings.py:248
+msgid ""
+"Subject for email sent to authors when a decision to reject an article is "
+"reversed."
+msgstr "Тема письма авторам об отмене решения об отклонении статьи."
+
+#: core/setting_strings.py:249
+msgid "Review Declination Acknowledgement"
+msgstr "Подтверждение отказа от рецензирования"
+
+#: core/setting_strings.py:250
+msgid ""
+"Subject for Email sent to reviewers when they decline to undertake a review."
+msgstr ""
+"Тема письма: письмо рецензентам, когда они отказываются выполнять рецензию"
+
+#: core/setting_strings.py:251
+msgid "Review Acknowledgement"
+msgstr "Подтверждение рецензии"
+
+#: core/setting_strings.py:252
+msgid ""
+"Subject for Email sent to editors when a reviewer accepts or declines a "
+"review."
+msgstr ""
+"Тема письма: письмо редакторам, когда рецензент принимает или отклоняет "
+"запрос на рецензию"
+
+#: core/setting_strings.py:253
+msgid "Subject for Email sent to Reviewers."
+msgstr "Тема письма: письмо рецензентам"
+
+#: core/setting_strings.py:254
+msgid "Subject for Email sent to editors when a reviewer request is sent."
+msgstr "Тема письма редакторам об отправке запроса на рецензию."
+
+#: core/setting_strings.py:255
+msgid "Subject for Email sent to reviewers when a review request is withdrawn."
+msgstr "Тема письма: письмо рецензентам при отзыве запроса на рецензию"
+
+#: core/setting_strings.py:256
+msgid "Subject for Email sent to Revision People."
+msgstr "Тема письма: письмо участникам доработки"
+
+#: core/setting_strings.py:257
+msgid "Subject for Revisions Complete Editor Notification"
+msgstr "Тема письма: уведомление редактора о завершении доработки"
+
+#: core/setting_strings.py:258
+msgid "Subject for Revisions Complete Editor Notification."
+msgstr "Тема письма: уведомление редактора о завершении доработки"
+
+#: core/setting_strings.py:259
+msgid "Subject Revisions Complete Receipt"
+msgstr "Тема: подтверждение получения доработки"
+
+#: core/setting_strings.py:260
+msgid "Subject for Revisions Complete Receipt"
+msgstr "Тема письма: подтверждение получения доработки"
+
+#: core/setting_strings.py:261
+msgid "Subject for Email sent to the Section Editor when article is published."
+msgstr "Тема письма редактору раздела о публикации статьи."
+
+#: core/setting_strings.py:262
+msgid "Subject for Share Reviews Notification"
+msgstr "Тема письма: уведомление о передаче рецензий"
+
+#: core/setting_strings.py:263
+msgid "Subject for Share Reviews Notification."
+msgstr "Тема письма: уведомление о передаче рецензий"
+
+#: core/setting_strings.py:264
+msgid "Subject for Submission Access Request Notification."
+msgstr "Тема письма: уведомление о запросе на доступ к подаче"
+
+#: core/setting_strings.py:265
+msgid "Subject for Email sent to authors when they have submitted an article."
+msgstr "Тема письма: письмо авторам после подачи статьи"
+
+#: core/setting_strings.py:266
+msgid ""
+"Subject for Email sent to the typesetter and proofreaders thanking them."
+msgstr "Тема письма: письмо верстальщику и корректорам с благодарностью"
+
+#: core/setting_strings.py:267
+msgid "Subject for Email sent to Typesetter to acknowledge a completed task."
+msgstr "Тема письма: письмо верстальщику с подтверждением выполненной задачи"
+
+#: core/setting_strings.py:268
+msgid "Subject for Sent when a typesetting assignment is deleted."
+msgstr "Тема письма: отправляется при удалении задания на вёрстку"
+
+#: core/setting_strings.py:269
+msgid ""
+"Subject for Email sent to Typesetter to inform them that a task has been re-"
+"opened."
+msgstr "Тема письма: письмо верстальщику о повторном открытии задачи"
+
+#: core/setting_strings.py:270
+msgid "Subject for Email sent to Production Manager on typeset task complete."
+msgstr "Тема письма: письмо менеджеру производства о завершении задачи вёрстки"
+
+#: core/setting_strings.py:271
+msgid "Subject for Notify the proofing manager that corrections are complete."
+msgstr "Тема письма: уведомить менеджера корректуры о завершении исправлений"
+
+#: core/setting_strings.py:272
+msgid "Subject for Email sent to Typesetter on task assignment."
+msgstr "Тема письма: письмо верстальщику при назначении задачи"
+
+#: core/setting_strings.py:273
+msgid "Subject for Typesetting Complete (PLUGIN)"
+msgstr "Тема письма: вёрстка завершена (ПЛАГИН)"
+
+#: core/setting_strings.py:274
+msgid "Subject for Proofreader Assignment Notification (PLUGIN)"
+msgstr "Тема письма: уведомление о назначении корректора (ПЛАГИН)"
+
+#: core/setting_strings.py:275
+msgid "Subject for Proofreader Assignment Notification"
+msgstr "Тема уведомления о назначении корректора"
+
+#: core/setting_strings.py:276
+msgid "Subject for Typesetter Assignment Notification (PLUGIN)"
+msgstr "Тема письма: уведомление о назначении верстальщика (ПЛАГИН)"
+
+#: core/setting_strings.py:277
+msgid "Subject for Typesetter Assignment Notification."
+msgstr "Тема письма: уведомление о назначении верстальщика"
+
+#: core/setting_strings.py:278
+msgid "Subject for Proofreading Cancelled (PLUGIN)"
+msgstr "Тема письма: корректура отменена (ПЛАГИН)"
+
+#: core/setting_strings.py:279
+msgid "Subject for Proofreading Complete (PLUGIN)"
+msgstr "Тема письма: корректура завершена (ПЛАГИН)"
+
+#: core/setting_strings.py:280
+msgid "Subject for Proofreading Reset (PLUGIN)"
+msgstr "Тема письма: корректура сброшена (ПЛАГИН)"
+
+#: core/setting_strings.py:281
+msgid "Subject for Typesetting Cancelled (PLUGIN)"
+msgstr "Тема письма: вёрстка отменена (ПЛАГИН)"
+
+#: core/setting_strings.py:282
+msgid "Subject for Typesetter Complete (PLUGIN)"
+msgstr "Тема письма: верстальщик завершил задачу (ПЛАГИН)"
+
+#: core/setting_strings.py:283
+msgid "Subject for Typesetter Complete  (PLUGIN)"
+msgstr "Тема письма: верстальщик завершил задачу (ПЛАГИН)"
+
+#: core/setting_strings.py:284
+msgid "Subject for Typesetting Deleted (PLUGIN)"
+msgstr "Тема письма: вёрстка удалена (ПЛАГИН)"
+
+#: core/setting_strings.py:285
+msgid "Subject for Typesetter Accept (PLUGIN)"
+msgstr "Тема письма: верстальщик принял задачу (ПЛАГИН)"
+
+#: core/setting_strings.py:286
+msgid "Subject for Typesetter Accept"
+msgstr "Тема письма о принятии задачи верстальщиком"
+
+#: core/setting_strings.py:287
+msgid "Subject for Typesetter Decline (PLUGIN)"
+msgstr "Тема письма: верстальщик отклонил задачу (ПЛАГИН)"
+
+#: core/setting_strings.py:288
+msgid "Subject for Typesetter Decline"
+msgstr "Тема письма об отказе верстальщика от задачи"
+
+#: core/setting_strings.py:289
+msgid "Subject Unassign Editor"
+msgstr "Тема: снятие редактора с назначения"
+
+#: core/setting_strings.py:290
+msgid "Subject for Unassign Editor Email"
+msgstr "Тема письма о снятии редактора с назначения"
+
+#: core/setting_strings.py:291
+msgid "Subject for Sent when an existing user updates their email address."
+msgstr ""
+"Тема письма: отправляется, когда существующий пользователь меняет адрес e-"
+"mail"
+
+#: core/setting_strings.py:292
+msgid "Accessibility Information for the Public"
+msgstr "Информация о доступности для читателей"
+
+#: core/setting_strings.py:293
+msgid ""
+"This is information about the accessibility of user-content. It will appear "
+"on the accessibility page under the journal name."
+msgstr ""
+"Информация о доступности пользовательского контента. Показывается на "
+"странице «Доступность» под названием журнала."
+
+#: core/setting_strings.py:294
+msgid "Abstracts Are Required"
+msgstr "Аннотация обязательна"
+
+#: core/setting_strings.py:295
+msgid "If enabled all submissions will require an abstract."
+msgstr "Если включено, для всех рукописей потребуется аннотация."
+
+#: core/setting_strings.py:296
+msgid "Acceptance Criteria"
+msgstr "Критерии принятия"
+
+#: core/setting_strings.py:297
+msgid ""
+"<p>Displayed on the Submission pages. You should update this to display the "
+"Journal's acceptance criteria."
+msgstr ""
+"<p>Показывается на страницах подачи рукописей. Укажите здесь критерии "
+"принятия статей в журнал."
+
+#: core/setting_strings.py:298
+msgid "Accept Article Warning"
+msgstr "Предупреждение о принятии статьи"
+
+#: core/setting_strings.py:299
+msgid ""
+"A warning displayed warning Editors what will happen when they accept an "
+"article."
+msgstr ""
+"Предупреждение для редакторов о том, что произойдёт при принятии статьи."
+
+#: core/setting_strings.py:300
+msgid "Accepts Preprint Submissions"
+msgstr "Принимает препринты"
+
+#: core/setting_strings.py:301
+msgid ""
+"If true, preprint authors can flow their preprint into the journal for "
+"publication."
+msgstr ""
+"Если включено, авторы препринтов могут передавать свои препринты в журнал "
+"для публикации."
+
+#: core/setting_strings.py:302
+msgid "Author Copyediting Guidelines"
+msgstr "Рекомендации по редактуре для авторов"
+
+#: core/setting_strings.py:303
+msgid "Guide shown to Author during Copyediting."
+msgstr "Руководство, показываемое автору на этапе литературной редактуры."
+
+#: core/setting_strings.py:304
+msgid "Auto Signature"
+msgstr "Автоматическая подпись"
+
+#: core/setting_strings.py:305
+msgid "Tacked onto the end of system automated emails where there is no actor."
+msgstr ""
+"Добавляется в конец автоматических системных писем, у которых нет "
+"отправителя."
+
+#: core/setting_strings.py:306
+msgid "Collection Name"
+msgstr "Название подборок"
+
+#: core/setting_strings.py:307
+msgid "<p>Overrides the term \"Collections\" across all the templates.</p>"
+msgstr "<p>Заменяет термин «Подборки» (Collections) во всех шаблонах.</p>"
+
+#: core/setting_strings.py:308
+msgid "Collection Name Plural"
+msgstr "Название подборок (мн. ч.)"
+
+#: core/setting_strings.py:309 templates/admin/journal/contact.html:27
+#: themes/BTE/templates/journal/contact.html:22
+#: themes/OLH/templates/journal/contact.html:22
+#: themes/clean/templates/journal/contact.html:18
+#: themes/material/templates/journal/contact.html:26
+msgid "Contact Information"
+msgstr "Контактная информация"
+
+#: core/setting_strings.py:310
+msgid ""
+"Can include information such as the physical contact address for the journal."
+msgstr "Может содержать, например, почтовый адрес журнала."
+
+#: core/setting_strings.py:311
+msgid "Copyediting Guidelines"
+msgstr "Рекомендации по литературной редактуре"
+
+#: core/setting_strings.py:312
+msgid "Guide shown to Copyeditors."
+msgstr "Руководство для литературных редакторов."
+
+#: core/setting_strings.py:313
+msgid "Copyediting steps"
+msgstr "Шаги литературной редактуры"
+
+#: core/setting_strings.py:314
+msgid "Guidelines displayed to the editor on the copyediting page."
+msgstr "Рекомендации для редактора на странице литературной редактуры."
+
+#: core/setting_strings.py:315 templates/admin/submission/start.html:59
+msgid "Copyright Notice"
+msgstr "Уведомление об авторских правах"
+
+#: core/setting_strings.py:316
+msgid ""
+"<p>Displayed on the About and Submission pages. You should update this to "
+"display the Journal's copyright requirements."
+msgstr ""
+"<p>Показывается на страницах «О журнале» и «Подача рукописей». Укажите здесь "
+"требования журнала в отношении авторских прав."
+
+#: core/setting_strings.py:317
+msgid "Copyright Submission Label"
+msgstr "Подпись согласия с авторскими правами при подаче"
+
+#: core/setting_strings.py:318
+msgid ""
+"This label appears on the Submit Start page and this setting allows you to "
+"customise what appears there."
+msgstr ""
+"Эта подпись показывается на стартовой странице подачи рукописи; настройка "
+"позволяет изменить её текст."
+
+#: core/setting_strings.py:319
+msgid "Custom CMS Templates"
+msgstr "Пользовательские шаблоны CMS"
+
+#: core/setting_strings.py:320
+msgid ""
+"The name of a folder containing Django templates that can be used to "
+"populate Janeway CMS pages. The folder should be located in the theme's "
+"templates folder. All HTML files inside will be loaded into a dropdown in "
+"the CMS."
+msgstr ""
+"Имя папки с шаблонами Django, которые можно использовать для наполнения "
+"страниц CMS Janeway. Папка должна находиться в папке templates темы. Все "
+"HTML-файлы в ней появятся в выпадающем списке CMS."
+
+#: core/setting_strings.py:321
+msgid "Data and Figure File Submission Instructions"
+msgstr "Инструкции по загрузке данных и рисунков"
+
+#: core/setting_strings.py:322
+msgid "Instruction text for data and figure file upload pop-up window."
+msgstr ""
+"Текст инструкции во всплывающем окне загрузки файлов данных и рисунков."
+
+#: core/setting_strings.py:323
+msgid "Default Journal Language"
+msgstr "Язык журнала по умолчанию"
+
+#: core/setting_strings.py:324
+msgid "The default language for the journal."
+msgstr "Язык журнала по умолчанию."
+
+#: core/setting_strings.py:325
+msgid "Default Number of Days for Review"
+msgstr "Срок рецензирования по умолчанию (дней)"
+
+#: core/setting_strings.py:326
+msgid "The default number of days before a review assignment is due."
+msgstr "Количество дней до срока сдачи рецензии по умолчанию."
+
+#: core/setting_strings.py:327
+msgid "Default Review Form"
+msgstr "Форма рецензии по умолчанию"
+
+#: core/setting_strings.py:328
+msgid "Default Review Form."
+msgstr "Форма рецензии по умолчанию."
+
+#: core/setting_strings.py:329
+msgid "Default Review Anonymity"
+msgstr "Анонимность рецензирования по умолчанию"
+
+#: core/setting_strings.py:330
+msgid ""
+"Sets Open, Single Anonymous or Double Anonymous as the default for the "
+"anonymity drop down when creating a review assignment."
+msgstr ""
+"Задаёт значение по умолчанию (открытое, одностороннее слепое или двойное "
+"слепое) в списке анонимности при создании задания на рецензию."
+
+#: core/setting_strings.py:331
+msgid "Disable Submission"
+msgstr "Отключить подачу рукописей"
+
+#: core/setting_strings.py:332
+msgid "If true, users cannot submit new articles."
+msgstr "Если включено, пользователи не могут подавать новые статьи."
+
+#: core/setting_strings.py:333
+msgid "Disabled Submission Message"
+msgstr "Сообщение об отключённой подаче"
+
+#: core/setting_strings.py:334
+msgid "A message that is displayed when Disable Submission is on."
+msgstr ""
+"Сообщение, которое показывается, когда включено «Отключить подачу рукописей»."
+
+#: core/setting_strings.py:335
+msgid "Disable Reviewer Recommendation"
+msgstr "Отключить рекомендацию рецензента"
+
+#: core/setting_strings.py:336
+msgid ""
+"Reviewers will not be asked to make any recommendation e.g. Accept or "
+"Reject. Review recommendation will be set to No Recommendation"
+msgstr ""
+"Рецензентов не будут просить дать рекомендацию (например, «Принять» или "
+"«Отклонить»). Рекомендация будет установлена как «Без рекомендации»"
+
+#: core/setting_strings.py:337
+msgid "Display Completed Reviews in Review Interface"
+msgstr "Показывать завершённые рецензии в интерфейсе рецензирования"
+
+#: core/setting_strings.py:338
+msgid ""
+"When in an additional review round (eg round 2 or 3) reviewers will see "
+"completed reviews from previous rounds in the review interface."
+msgstr ""
+"В дополнительном раунде рецензирования (например, 2-м или 3-м) рецензенты "
+"увидят в интерфейсе завершённые рецензии предыдущих раундов."
+
+#: core/setting_strings.py:339
+msgid "Display Completed Reviews in Review Interface Text"
+msgstr "Текст для показа завершённых рецензий в интерфейсе рецензирования"
+
+#: core/setting_strings.py:340
+msgid ""
+"This text is displayed to reviewers when \"Display Completed Reviews in "
+"Review Interface\" is enabled."
+msgstr ""
+"Этот текст показывается рецензентам, когда включено «Показывать завершённые "
+"рецензии в интерфейсе рецензирования»."
+
+#: core/setting_strings.py:341
+msgid "Display Login Page Notice"
+msgstr "Показывать объявление на странице входа"
+
+#: core/setting_strings.py:342
+msgid "If set to true the Login Page Notice will display."
+msgstr "Если включено, будет показываться объявление на странице входа."
+
+#: core/setting_strings.py:343
+msgid "Display Registration Page Notice"
+msgstr "Показывать объявление на странице регистрации"
+
+#: core/setting_strings.py:344
+msgid "If set to true the Registration Page Notice will display."
+msgstr "Если включено, будет показываться объявление на странице регистрации."
+
+#: core/setting_strings.py:345
+msgid "Draft Decisions"
+msgstr "Проекты решений"
+
+#: core/setting_strings.py:346
+msgid ""
+"If enabled, Sections Editors can only make a draft of a decision for a "
+"Senior Editor to review."
+msgstr ""
+"Если включено, редакторы разделов могут лишь подготовить проект решения, "
+"который рассматривает старший редактор."
+
+#: core/setting_strings.py:347
+msgid "Editors Notified on Submission"
+msgstr "Редакторы, уведомляемые о новых рукописях"
+
+#: core/setting_strings.py:348
+msgid ""
+"Selected Editors will receive a submission notification. If None, all "
+"Editors are emailed."
+msgstr ""
+"Выбранные редакторы получат уведомление о новой рукописи. Если никто не "
+"выбран, письмо получат все редакторы."
+
+#: core/setting_strings.py:349
+msgid "Enable Editorial Team Display"
+msgstr "Показывать редакционную команду"
+
+#: core/setting_strings.py:350
+msgid "If checked, editorial team link will display in Navigation."
+msgstr ""
+"Если отмечено, ссылка на редакционную команду будет показываться в навигации."
+
+#: core/setting_strings.py:351
+msgid "Enable expanded review details"
+msgstr "Подробные сведения о рецензиях"
+
+#: core/setting_strings.py:352
+msgid ""
+"If enabled, the review dashboard will show all active reviews, otherwise "
+"just a count of completed reviews"
+msgstr ""
+"Если включено, панель рецензирования покажет все активные рецензии, иначе — "
+"только число завершённых"
+
+#: core/setting_strings.py:353
+msgid "Language Button Text Override"
+msgstr "Текст на кнопках языков"
+
+#: core/setting_strings.py:354
+msgid "If enabled the language buttons will use text rather than flags."
+msgstr ""
+"Если включено, кнопки выбора языка будут показывать текст вместо флагов."
+
+#: core/setting_strings.py:355
+msgid "Enable One Click Review Access"
+msgstr "Доступ к рецензии в один клик"
+
+#: core/setting_strings.py:356
+msgid "If enabled, one click access links are emailed to reviewers."
+msgstr ""
+"Если включено, рецензентам по e-mail отправляются ссылки для доступа в один "
+"клик."
+
+#: core/setting_strings.py:357
+msgid "Enable Peer Review Data on Author Page"
+msgstr "Данные о рецензировании на странице автора"
+
+#: core/setting_strings.py:358
+msgid ""
+"If enabled, authors will see the requested, due, and complete date for their "
+"article's review assignments on the author page."
+msgstr ""
+"Если включено, авторы будут видеть на странице автора даты запроса, срока и "
+"завершения рецензий своей статьи."
+
+#: core/setting_strings.py:359
+msgid "Enable Peer Review Data on Review Pages"
+msgstr "Данные о рецензировании на страницах рецензий"
+
+#: core/setting_strings.py:360
+msgid ""
+"If enabled, authors will see the requested, due, and complete date for their "
+"article's review assignments on review pages."
+msgstr ""
+"Если включено, авторы будут видеть на страницах рецензий даты запроса, срока "
+"и завершения рецензий своей статьи."
+
+#: core/setting_strings.py:361
+msgid "Enable save review progress"
+msgstr "Сохранение прогресса рецензии"
+
+#: core/setting_strings.py:362
+msgid ""
+"If enabled, reviewers will be able to save the progress in a peer-review and "
+"come back later to complete it (Only recommended journals using custom "
+"review forms that are particularly long)"
+msgstr ""
+"Если включено, рецензенты смогут сохранить незаконченную рецензию и "
+"вернуться к ней позже (рекомендуется только журналам с особенно длинными "
+"собственными формами рецензий)"
+
+#: core/setting_strings.py:363
+msgid "Enable Share Reviews Decision"
+msgstr "Решение «Поделиться рецензиями»"
+
+#: core/setting_strings.py:364
+msgid ""
+"Adds a new decision to the decision helper that allows editors to share peer "
+"reviews amongst assigned reviewers."
+msgstr ""
+"Добавляет в помощник решений новое решение, позволяющее редакторам делиться "
+"рецензиями между назначенными рецензентами."
+
+#: core/setting_strings.py:365
+msgid "Enable Suggested Reviewers"
+msgstr "Предлагаемые рецензенты"
+
+#: core/setting_strings.py:366
+msgid ""
+"When this setting is enabled the review assignment page will attempt to "
+"match keywords with interests. Warning: This is an expensive process."
+msgstr ""
+"Если включено, страница назначения рецензии попытается сопоставить ключевые "
+"слова с интересами рецензентов. Внимание: это ресурсоёмкий процесс."
+
+#: core/setting_strings.py:367
+msgid "External Newsletter Signup URL"
+msgstr "URL внешней подписки на рассылку"
+
+#: core/setting_strings.py:368
+msgid "Action URL for an external newsletter signup form"
+msgstr "URL действия (action) внешней формы подписки на рассылку"
+
+#: core/setting_strings.py:369
+msgid "RSS/Atom Feeds"
+msgstr "Ленты RSS/Atom"
+
+#: core/setting_strings.py:370
+msgid "RSS and Atom feed links in the journal's page headers."
+msgstr "Ссылки на ленты RSS и Atom в заголовках страниц журнала."
+
+#: core/setting_strings.py:371
+msgid "File Submission Guidelines"
+msgstr "Требования к файлам при подаче"
+
+#: core/setting_strings.py:372
+msgid "Describe what files you expect at the time of submission."
+msgstr "Опишите, какие файлы вы ожидаете получить при подаче рукописи."
+
+#: core/setting_strings.py:373
+msgid "Focus and Scope"
+msgstr "Цели и тематика"
+
+#: core/setting_strings.py:374
+msgid "Journal's Focus and Scope, displayed on the Submissions page."
+msgstr "Цели и тематика журнала; показываются на странице «Подача рукописей»."
+
+#: core/setting_strings.py:375
+msgid "From Address"
+msgstr "Адрес отправителя"
+
+#: core/setting_strings.py:376
+msgid "System emails are sent From this address."
+msgstr "С этого адреса отправляются системные письма."
+
+#: core/setting_strings.py:377
+msgid "Google Analytics Code"
+msgstr "Код Google Analytics"
+
+#: core/setting_strings.py:378
+msgid "Allows journals to track usage with Google Analytics."
+msgstr "Позволяет журналу отслеживать посещаемость с помощью Google Analytics."
+
+#: core/setting_strings.py:379
+msgid "Hide Assigned Editor Details"
+msgstr "Скрыть сведения о назначенном редакторе"
+
+#: core/setting_strings.py:380
+msgid ""
+"Removes the editor section from the author's article status page. This does "
+"not stop editors from identifying themselves when, for example, rejecting an "
+"article if using an account with their name associated."
+msgstr ""
+"Убирает раздел о редакторе со страницы статуса статьи у автора. Это не "
+"мешает редакторам раскрыть себя, например, при отклонении статьи с учётной "
+"записи, связанной с их именем."
+
+#: core/setting_strings.py:381
+msgid "Hide Review Data from Authors Before Release"
+msgstr "Скрывать данные рецензирования от авторов до их выпуска"
+
+#: core/setting_strings.py:382
+msgid ""
+"Enable if you want to hide all review data from authors through the end of "
+"the review stage, except reviews that are individually shared with authors "
+"during review."
+msgstr ""
+"Включите, чтобы скрывать от авторов все данные рецензирования до конца этапа "
+"рецензирования, кроме рецензий, отдельно переданных авторам в ходе "
+"рецензирования."
+
+#: core/setting_strings.py:383
+msgid "Journal Uses HTTPS"
+msgstr "Журнал использует HTTPS"
+
+#: core/setting_strings.py:384
+msgid "Used for URL generation."
+msgstr "Используется для формирования URL."
+
+#: core/setting_strings.py:385
+msgid "Journal Base Theme"
+msgstr "Базовая тема журнала"
+
+#: core/setting_strings.py:386
+msgid ""
+"When using a custom theme you can set the base theme, when a template from a "
+"custom theme is missing templates from the base theme will be used as a "
+"backup."
+msgstr ""
+"При использовании собственной темы можно указать базовую тему: если в "
+"собственной теме нет какого-либо шаблона, будет использован шаблон базовой "
+"темы."
+
+#: core/setting_strings.py:387
+msgid "Journal Description"
+msgstr "Описание журнала"
+
+#: core/setting_strings.py:388
+msgid "Localised description of the journal."
+msgstr "Описание журнала на текущем языке."
+
+#: core/setting_strings.py:389
+msgid "Journal ISSN"
+msgstr "ISSN журнала"
+
+#: core/setting_strings.py:390
+msgid "The ISSN of the journal."
+msgstr "ISSN журнала."
+
+#: core/setting_strings.py:391
+msgid "Journal Languages"
+msgstr "Языки журнала"
+
+#: core/setting_strings.py:392
+msgid "Languages available for this journal."
+msgstr "Языки, доступные в этом журнале."
+
+#: core/setting_strings.py:393
+msgid "Journal Name"
+msgstr "Название журнала"
+
+#: core/setting_strings.py:394
+msgid "Name of the journal."
+msgstr "Название журнала."
+
+#: core/setting_strings.py:395
+msgid "Journal Theme"
+msgstr "Тема журнала"
+
+#: core/setting_strings.py:396
+msgid "The HTML theme set to use for the journal."
+msgstr "HTML-тема оформления журнала."
+
+#: core/setting_strings.py:397
+msgid "Enable the Keyword list page"
+msgstr "Страница списка ключевых слов"
+
+#: core/setting_strings.py:398
+msgid ""
+"Lists all of the keywords used by a journal and for each keyword a list of "
+"articles that use it."
+msgstr ""
+"Список всех ключевых слов журнала и для каждого — список статей, в которых "
+"оно используется."
+
+#: core/setting_strings.py:399
+msgid "Limit Access to Submission"
+msgstr "Ограничить доступ к подаче"
+
+#: core/setting_strings.py:400
+msgid ""
+"If enabled users must request the author role before they are allowed to "
+"submit."
+msgstr ""
+"Если включено, пользователи должны запросить роль автора, прежде чем смогут "
+"подавать рукописи."
+
+#: core/setting_strings.py:401
+msgid "Limit Manuscript Types"
+msgstr "Ограничить типы файлов рукописи"
+
+#: core/setting_strings.py:402
+msgid ""
+"If enabled, only Doc, Docx, RTF and ODT files will be accepted during "
+"submission."
+msgstr ""
+"Если включено, при подаче будут приниматься только файлы Doc, Docx, RTF и "
+"ODT."
+
+#: core/setting_strings.py:403
+msgid "Login Page Notice"
+msgstr "Объявление на странице входа"
+
+#: core/setting_strings.py:404
+msgid "Message to display if you enable Display Login Notice."
+msgstr ""
+"Сообщение, показываемое при включённой настройке «Показывать объявление на "
+"странице входа»."
+
+#: core/setting_strings.py:405
+msgid "Main Contact"
+msgstr "Основной контакт"
+
+#: core/setting_strings.py:406
+msgid "Primary contact for the journal."
+msgstr "Основное контактное лицо журнала."
+
+#: core/setting_strings.py:407
+msgid "Maintenance Mode Message"
+msgstr "Сообщение режима обслуживания"
+
+#: core/setting_strings.py:408
+msgid "Message displayed when maintenance mode is enabled."
+msgstr "Сообщение, показываемое при включённом режиме обслуживания."
+
+#: core/setting_strings.py:409
+msgid "Enable Maintenance Mode"
+msgstr "Включить режим обслуживания"
+
+#: core/setting_strings.py:410
+msgid "When enabled, non staff will not be able to access the site."
+msgstr ""
+"Если включено, пользователи, не являющиеся сотрудниками, не смогут зайти на "
+"сайт."
+
+#: core/setting_strings.py:411
+msgid "Manuscript File Submission Instructions"
+msgstr "Инструкции по загрузке файла рукописи"
+
+#: core/setting_strings.py:412
+msgid "Instruction text for manuscript file upload pop-up window."
+msgstr "Текст инструкции во всплывающем окне загрузки файла рукописи."
+
+#: core/setting_strings.py:413
+msgid "Matomo Tracking Code"
+msgstr "Код отслеживания Matomo"
+
+#: core/setting_strings.py:414
+msgid "Tracking code for Matomo."
+msgstr "Код отслеживания для Matomo."
+
+#: core/setting_strings.py:415
+msgid "Maximum Proofreders per Round"
+msgstr "Максимум корректоров в раунде"
+
+#: core/setting_strings.py:416
+msgid ""
+"The maximum number of proofreaders allowed per round. To disable this set to "
+"0."
+msgstr ""
+"Максимальное число корректоров в одном раунде. Чтобы снять ограничение, "
+"укажите 0."
+
+#: core/setting_strings.py:417
+msgid "Notify Peer Reviewers of Publication"
+msgstr "Уведомлять рецензентов о публикации"
+
+#: core/setting_strings.py:418
+msgid ""
+"When enabled this will populate an email from the Peer Reviewer Publication "
+"Notification setting to be edited and sent out during the prepublication "
+"process."
+msgstr ""
+"Если включено, в процессе подготовки к публикации будет сформировано письмо "
+"на основе настройки «Уведомление рецензента о публикации» для редактирования "
+"и отправки."
+
+#: core/setting_strings.py:419
+msgid "Notify Section Editors of Publication"
+msgstr "Уведомлять редакторов разделов о публикации"
+
+#: core/setting_strings.py:420
+msgid ""
+"When this setting is enabled, section editors will be copied on publication "
+"notification emails sent to authors."
+msgstr ""
+"Если включено, редакторы разделов будут получать копии писем авторам с "
+"уведомлением о публикации."
+
+#: core/setting_strings.py:421
+msgid "Enable open peer review"
+msgstr "Открытое рецензирование"
+
+#: core/setting_strings.py:422
+msgid ""
+"Enable open peer review mode on this journal. With this feature enabled, "
+"each peer review can be approved for public display alongside its published "
+"article. The peer reviewer and the editor must separately approve each "
+"review before it is made public."
+msgstr ""
+"Включает режим открытого рецензирования в журнале. В этом режиме каждую "
+"рецензию можно одобрить для публичного показа рядом с опубликованной "
+"статьёй. Рецензент и редактор должны по отдельности одобрить каждую "
+"рецензию, прежде чем она станет публичной."
+
+#: core/setting_strings.py:423
+msgid "Open Review Defaults to Opt In"
+msgstr "Открытое рецензирование включено по умолчанию"
+
+#: core/setting_strings.py:424
+msgid ""
+"Reviewers opt in to open review by default, the field will be checked "
+"forcing them to opt out if they want to."
+msgstr ""
+"Рецензенты по умолчанию соглашаются на открытое рецензирование: флажок будет "
+"отмечен, и при желании им нужно его снять."
+
+#: core/setting_strings.py:425
+msgid "Peer Review Information"
+msgstr "Информация о рецензировании"
+
+#: core/setting_strings.py:426
+msgid "Peer Review Information, displayed on the Submissions page."
+msgstr ""
+"Информация о рецензировании; показывается на странице «Подача рукописей»."
+
+#: core/setting_strings.py:427
+msgid "Peer Review Upload Text"
+msgstr "Текст над загрузкой файла рецензии"
+
+#: core/setting_strings.py:428
+msgid ""
+"Changes the generic text above the File Upload box on the Peer Review form "
+"page."
+msgstr "Заменяет стандартный текст над полем загрузки файла в форме рецензии."
+
+#: core/setting_strings.py:429
+#: templates/admin/press/edit_press_journal_description.html:5
+#: templates/admin/press/edit_press_journal_description.html:6
+msgid "Journal Description for Press Site"
+msgstr "Описание журнала для сайта издательства"
+
+#: core/setting_strings.py:430
+msgid ""
+"Localised description of the journal specifically for the press' journal "
+"list page."
+msgstr ""
+"Описание журнала на текущем языке для страницы списка журналов издательства."
+
+#: core/setting_strings.py:431
+#: themes/clean/templates/elements/journal_footer.html:8
+msgid "Print ISSN"
+msgstr "Печатный ISSN"
+
+#: core/setting_strings.py:432
+msgid "The ISSN of the printed version of the journal."
+msgstr "ISSN печатной версии журнала."
+
+#: core/setting_strings.py:433
+msgid "External Privacy Policy URL"
+msgstr "URL внешней политики конфиденциальности"
+
+#: core/setting_strings.py:434
+msgid ""
+"URL to an external privacy-policy, linked from the footer. If blank, it "
+"links to the Janeway CMS page: /site/privacy."
+msgstr ""
+"URL внешней политики конфиденциальности, ссылка на неё размещается в подвале "
+"сайта. Если пусто — ссылка ведёт на страницу CMS Janeway: /site/privacy."
+
+#: core/setting_strings.py:435
+msgid "Production steps"
+msgstr "Шаги производства"
+
+#: core/setting_strings.py:436
+msgid "Guidelines displayed to the production manager on the production stage."
+msgstr "Рекомендации для менеджера производства на этапе производства."
+
+#: core/setting_strings.py:437
+msgid "Proofing steps"
+msgstr "Шаги корректуры"
+
+#: core/setting_strings.py:438
+msgid "Guidelines displayed to the proofing manager on the proofing stage."
+msgstr "Рекомендации для менеджера корректуры на этапе корректуры."
+
+#: core/setting_strings.py:439
+msgid "Proofreading Guidelines"
+msgstr "Рекомендации по корректуре"
+
+#: core/setting_strings.py:440
+msgid "Guidelines displayed to the proofreader."
+msgstr "Рекомендации, показываемые корректору."
+
+#: core/setting_strings.py:441
+msgid "Publication Cycle"
+msgstr "Периодичность выхода"
+
+#: core/setting_strings.py:442
+msgid "Journal's publication schedule, displayed on the Submissions page."
+msgstr "График выхода журнала; показывается на странице «Подача рукописей»."
+
+#: core/setting_strings.py:443 templates/admin/submission/start.html:34
+msgid "Publication Fees"
+msgstr "Плата за публикацию"
+
+#: core/setting_strings.py:444
+msgid ""
+"Display of feeds for this journal. Displayed on the About and the Submission "
+"pages."
+msgstr ""
+"Информация о плате за публикацию в этом журнале. Показывается на страницах "
+"«О журнале» и «Подача рукописей»."
+
+#: core/setting_strings.py:445
+msgid "Publisher Name"
+msgstr "Название издателя"
+
+#: core/setting_strings.py:446
+msgid ""
+"Name of the Journal's Publisher. Displayed throughout the site and metadata."
+msgstr "Название издателя журнала. Показывается на всём сайте и в метаданных."
+
+#: core/setting_strings.py:447
+msgid "Publisher URL"
+msgstr "URL издателя"
+
+#: core/setting_strings.py:448
+msgid "URL of the Journal's Publisher."
+msgstr "URL сайта издателя журнала."
+
+#: core/setting_strings.py:449
+msgid "Registration Page Notice"
+msgstr "Объявление на странице регистрации"
+
+#: core/setting_strings.py:450
+msgid "Message to display if you enable Display Registration Page Notice."
+msgstr ""
+"Сообщение, показываемое при включённой настройке «Показывать объявление на "
+"странице регистрации»."
+
+#: core/setting_strings.py:451
+msgid "Reply-To Address"
+msgstr "Адрес для ответа (Reply-To)"
+
+#: core/setting_strings.py:452
+msgid "Address set as the 'Reply-to' for system emails."
+msgstr "Адрес, указываемый как «Reply-To» в системных письмах."
+
+#: core/setting_strings.py:453
+msgid "Review Form Download"
+msgstr "Скачивание формы рецензии"
+
+#: core/setting_strings.py:454
+msgid "Enables reviewer form download link."
+msgstr "Включает ссылку для скачивания формы рецензии."
+
+#: core/setting_strings.py:455
+msgid "Reviewer Guidelines"
+msgstr "Рекомендации для рецензентов"
+
+#: core/setting_strings.py:456
+msgid ""
+"A set of generic guidelines that reviewers should follow whilst undertaking "
+"review for this journal."
+msgstr ""
+"Общие рекомендации, которым рецензенты должны следовать при рецензировании "
+"для этого журнала."
+
+#: core/setting_strings.py:457
+msgid "Review File Help"
+msgstr "Справка по файлам рецензии"
+
+#: core/setting_strings.py:458
+msgid ""
+"Text displayed when a journal defaults to single anonymous or double "
+"anonymous review ensuring that files remain anonymous."
+msgstr ""
+"Текст, показываемый, когда в журнале по умолчанию используется одностороннее "
+"или двойное слепое рецензирование, чтобы файлы оставались анонимными."
+
+#: core/setting_strings.py:459
+msgid "Review steps"
+msgstr "Шаги рецензирования"
+
+#: core/setting_strings.py:460
+msgid "Guidelines displayed to the editor on the review page."
+msgstr "Рекомендации для редактора на странице рецензирования."
+
+#: core/setting_strings.py:461
+msgid "Automatically Share Author Response Letters"
+msgstr "Автоматически передавать ответные письма авторов"
+
+#: core/setting_strings.py:462
+msgid ""
+"When this setting is enabled and you make either a share reviews decision or "
+"are sharing reviews via the review interface then Janeway will include any "
+"reviewer response letters."
+msgstr ""
+"Если включено, при решении «Поделиться рецензиями» или при передаче рецензий "
+"через интерфейс рецензирования Janeway приложит ответные письма."
+
+#: core/setting_strings.py:463
+msgid "Slack Logging"
+msgstr "Журналирование в Slack"
+
+#: core/setting_strings.py:464
+msgid "When enabled, we will send all log entries to slack."
+msgstr "Если включено, все записи журнала будут отправляться в Slack."
+
+#: core/setting_strings.py:465
+msgid "Slack Webhook"
+msgstr "Вебхук Slack"
+
+#: core/setting_strings.py:466
+msgid "Webhook for sending slack messages."
+msgstr "Вебхук для отправки сообщений в Slack."
+
+#: core/setting_strings.py:467
+msgid "Submission Access Request Contact"
+msgstr "Контакт для запросов на доступ к подаче"
+
+#: core/setting_strings.py:468
+msgid "Email address of the access request contact."
+msgstr "Адрес e-mail контактного лица по запросам доступа."
+
+#: core/setting_strings.py:469
+msgid "Submission Access Request Text"
+msgstr "Текст запроса на доступ к подаче"
+
+#: core/setting_strings.py:470
+msgid "Text to accompany access requests. Linked to Limit Access to Submission"
+msgstr ""
+"Текст, сопровождающий запросы на доступ. Связан с настройкой «Ограничить "
+"доступ к подаче»"
+
+#: core/setting_strings.py:471 templates/admin/submission/start.html:47
+msgid "Submission Checklist"
+msgstr "Контрольный список подачи"
+
+#: core/setting_strings.py:472
+msgid ""
+"Displayed on the About and Submission pages. You should update this with an "
+"ordered list of submission requirements."
+msgstr ""
+"Показывается на страницах «О журнале» и «Подача рукописей». Укажите здесь "
+"нумерованный список требований к рукописи."
+
+#: core/setting_strings.py:473
+msgid "Submission Page Text"
+msgstr "Текст страницы подачи"
+
+#: core/setting_strings.py:474
+msgid "Introductory text displayed at the head of the Submission page."
+msgstr "Вводный текст в начале страницы «Подача рукописей»."
+
+#: core/setting_strings.py:475
+#: themes/BTE/templates/elements/journal/summary_modal.html:3
+#: themes/BTE/templates/journal/article.html:443
+#: themes/OLH/templates/elements/journal/summary_modal.html:3
+#: themes/OLH/templates/journal/article.html:443
+#: themes/clean/templates/elements/journal/summary_modal.html:6
+#: themes/clean/templates/journal/article.html:236
+#: themes/material/templates/elements/summary_modal.html:5
+#: themes/material/templates/journal/article.html:371
+msgid "Non Specialist Summary"
+msgstr "Резюме для неспециалистов"
+
+#: core/setting_strings.py:476
+msgid "Enables the Non Specialist Summary submission field."
+msgstr "Включает поле «Резюме для неспециалистов» при подаче рукописи."
+
+#: core/setting_strings.py:477
+msgid "Janeway Support Contact for Staff"
+msgstr "Контакт поддержки Janeway для сотрудников"
+
+#: core/setting_strings.py:478
+msgid "Support message to display to editors and staff on Manager page."
+msgstr ""
+"Сообщение о поддержке для редакторов и сотрудников на странице менеджера."
+
+#: core/setting_strings.py:479
+msgid "Support Email"
+msgstr "E-mail поддержки"
+
+#: core/setting_strings.py:480
+msgid "Support email address for editors and staff users."
+msgstr "Адрес e-mail поддержки для редакторов и сотрудников."
+
+#: core/setting_strings.py:481
+msgid "Switch Language"
+msgstr "Переключение языка"
+
+#: core/setting_strings.py:482
+msgid "Allow users to change their language."
+msgstr "Разрешить пользователям менять язык."
+
+#: core/setting_strings.py:484
+msgid "Journal's twitter handle."
+msgstr "Аккаунт журнала в Twitter."
+
+#: core/setting_strings.py:485
+msgid "Typesetting Guidelines"
+msgstr "Рекомендации по вёрстке"
+
+#: core/setting_strings.py:486
+msgid "Guidelines displayed to the typesetter."
+msgstr "Рекомендации, показываемые верстальщику."
+
+#: core/setting_strings.py:487
+msgid "Proofreader Guide (PLUGIN)"
+msgstr "Руководство для корректора (ПЛАГИН)"
+
+#: core/setting_strings.py:488
+msgid "Proofreader guidelines"
+msgstr "Рекомендации для корректора"
+
+#: core/setting_strings.py:489
+msgid "Enable CRediT"
+msgstr "Включить CRediT"
+
+#: core/setting_strings.py:490
+msgid "Whether or not to use CRediT for this journal"
+msgstr "Использовать ли таксономию CRediT в этом журнале"
+
+#: core/setting_strings.py:491
+msgid "Use Google Analytics 4"
+msgstr "Использовать Google Analytics 4"
+
+#: core/setting_strings.py:492
+msgid "Use cookieless GA 4 instead of traditional analytics."
+msgstr "Использовать GA 4 без cookie вместо традиционной аналитики."
+
+#: core/setting_strings.py:493
+msgid "Journal Uses Isolinear Plugin"
+msgstr "Журнал использует плагин Isolinear"
+
+#: core/setting_strings.py:494
+msgid "Enable this to show that this journal uses the isolinear plugin."
+msgstr "Включите, чтобы показать, что журнал использует плагин Isolinear."
+
+#: core/setting_strings.py:495
+msgid "Crossref depositor email"
+msgstr "E-mail депозитора Crossref"
+
+#: core/setting_strings.py:496
+msgid "The email of the depositor for this journal on Crossref's system."
+msgstr "Адрес e-mail депозитора этого журнала в системе Crossref."
+
+#: core/setting_strings.py:497
+msgid "Crossref depositor name"
+msgstr "Имя депозитора Crossref"
+
+#: core/setting_strings.py:498
+msgid "The name of the depositor for this journal on Crossref's system."
+msgstr "Имя депозитора этого журнала в системе Crossref."
+
+#: core/setting_strings.py:499
+msgid "Crossref password"
+msgstr "Пароль Crossref"
+
+#: core/setting_strings.py:500
+msgid "The password to log in to Crossref's deposit API."
+msgstr "Пароль для входа в API депонирования Crossref."
+
+#: core/setting_strings.py:501
+msgid "Crossref prefix"
+msgstr "Префикс Crossref"
+
+#: core/setting_strings.py:502
+msgid "The prefix for this journal on Crossref's system."
+msgstr "Префикс этого журнала в системе Crossref."
+
+#: core/setting_strings.py:503
+msgid "Crossref registrant name"
+msgstr "Имя регистранта Crossref"
+
+#: core/setting_strings.py:504
+msgid "The name of the registrant for this journal on Crossref's system."
+msgstr "Имя регистранта этого журнала в системе Crossref."
+
+#: core/setting_strings.py:505
+msgid "Use Crossref test deposit server"
+msgstr "Использовать тестовый сервер депонирования Crossref"
+
+#: core/setting_strings.py:506
+msgid "Whether or not to use Crossref's test server."
+msgstr "Использовать ли тестовый сервер Crossref."
+
+#: core/setting_strings.py:507
+msgid "Crossref username"
+msgstr "Имя пользователя Crossref"
+
+#: core/setting_strings.py:508
+msgid "The username to log in to Crossref's deposit API."
+msgstr "Имя пользователя для входа в API депонирования Crossref."
+
+#: core/setting_strings.py:509
+msgid "DOI display prefix"
+msgstr "Префикс отображения DOI"
+
+#: core/setting_strings.py:510
+msgid "Text to prepend to DOIs. Also used to generate URLs."
+msgstr "Текст, добавляемый перед DOI. Также используется для формирования URL."
+
+#: core/setting_strings.py:511
+msgid "DOI display suffix"
+msgstr "Суффикс отображения DOI"
+
+#: core/setting_strings.py:512
+msgid "Text to append to DOIs. Also used to generate URLs."
+msgstr "Текст, добавляемый после DOI. Также используется для формирования URL."
+
+#: core/setting_strings.py:513
+msgid "DOI Manager Action Maximum Size"
+msgstr "Максимальный объём действия в менеджере DOI"
+
+#: core/setting_strings.py:514
+msgid ""
+"Maximum number of articles on which an action can be performed in the DOI "
+"Manager"
+msgstr ""
+"Максимальное число статей, над которыми можно выполнить действие в менеджере "
+"DOI"
+
+#: core/setting_strings.py:515
+msgid "Article DOI Pattern"
+msgstr "Шаблон DOI статьи"
+
+#: core/setting_strings.py:516
+msgid ""
+"You can set your DOI pattern. The default is ``{{ article.journal.code }}."
+"{{ article.pk }}``"
+msgstr ""
+"Можно задать шаблон DOI. По умолчанию: ``{{ article.journal.code }}."
+"{{ article.pk }}``"
+
+#: core/setting_strings.py:517
+msgid "Issue DOI Pattern"
+msgstr "Шаблон DOI выпуска"
+
+#: core/setting_strings.py:518
+msgid ""
+"The suffix pattern from which Issue DOIs are auto-generated (e.g. 10.0001/"
+"myjournal.issue.1)"
+msgstr ""
+"Шаблон суффикса, по которому автоматически формируются DOI выпусков "
+"(например, 10.0001/myjournal.issue.1)"
+
+#: core/setting_strings.py:519
+msgid "Mint Open Review DOIs"
+msgstr "Регистрировать DOI открытых рецензий"
+
+#: core/setting_strings.py:520
+msgid "If enabled crossref DOIs will be minted for open reviews."
+msgstr ""
+"Если включено, для открытых рецензий будут регистрироваться DOI в Crossref."
+
+#: core/setting_strings.py:521
+msgid "Register DOI at acceptance"
+msgstr "Регистрировать DOI при принятии"
+
+#: core/setting_strings.py:522
+msgid ""
+"Whether or not to automatically register DOIs with Crossref at acceptance. "
+"If set to false, DOIs are generated at acceptance but should manually "
+"registered. Has no effect if `use_crossref` if off."
+msgstr ""
+"Регистрировать ли DOI в Crossref автоматически при принятии статьи. Если "
+"выключено, DOI формируются при принятии, но регистрируются вручную. Не "
+"действует, если `use_crossref` выключен."
+
+#: core/setting_strings.py:523
+msgid "Auto-register issue-level DOIs"
+msgstr "Автоматически регистрировать DOI выпусков"
+
+#: core/setting_strings.py:524
+msgid ""
+"Automatically register issue DOIs on article publication, based on the issue "
+"DOI pattern"
+msgstr ""
+"Автоматически регистрировать DOI выпуска при публикации статьи по шаблону "
+"DOI выпуска"
+
+#: core/setting_strings.py:525
+msgid "Title DOI"
+msgstr "DOI журнала (Title DOI)"
+
+#: core/setting_strings.py:526
+msgid ""
+"The DOI (not in URL format) registered for this journal (e.g. 10.001/my-"
+"journal). It is included on all deposits for this journal. It must be "
+"registered ahead of time."
+msgstr ""
+"DOI (не в формате URL), зарегистрированный для журнала (например, 10.001/my-"
+"journal). Включается во все депозиты журнала. Должен быть зарегистрирован "
+"заранее."
+
+#: core/setting_strings.py:527
+msgid "Use Crossref DOIs"
+msgstr "Использовать DOI Crossref"
+
+#: core/setting_strings.py:528
+msgid "Whether or not to use Crossref DOIs."
+msgstr "Использовать ли DOI Crossref."
+
+#: core/setting_strings.py:529
+msgid "Embargo Period (KBART)"
+msgstr "Период эмбарго (KBART)"
+
+#: core/setting_strings.py:530
+msgid ""
+"Optional period of embargo this journal is subject to. It must follow the "
+"kbart format such as 'R2Y' or 'P1Y'"
+msgstr ""
+"Необязательный период эмбарго журнала. Указывается в формате KBART, например "
+"«R2Y» или «P1Y»"
+
+#: core/setting_strings.py:531
+msgid "News Title"
+msgstr "Заголовок новостей"
+
+#: core/setting_strings.py:532
+msgid "Title for the News Page and Homepage block"
+msgstr "Заголовок страницы новостей и блока на главной"
+
+#: core/setting_strings.py:533
+msgid "Send Reader Notifications"
+msgstr "Отправлять уведомления читателям"
+
+#: core/setting_strings.py:534
+msgid "If enabled Janeway will notify readers of new published articles."
+msgstr ""
+"Если включено, Janeway будет уведомлять читателей о новых опубликованных "
+"статьях."
+
+#: core/setting_strings.py:535
+msgid "Role can manage licenses"
+msgstr "Роли, управляющие лицензиями"
+
+#: core/setting_strings.py:536
+msgid "Determines which roles can access the licenses pages."
+msgstr "Определяет, какие роли имеют доступ к страницам лицензий."
+
+#: core/setting_strings.py:537
+msgid "Role can manage sections"
+msgstr "Роли, управляющие разделами"
+
+#: core/setting_strings.py:538
+msgid "Determines which roles can access the sections pages."
+msgstr "Определяет, какие роли имеют доступ к страницам разделов."
+
+#: core/setting_strings.py:539
+msgid "Section Editor Personally Identifiable Information Filter"
+msgstr "Фильтр персональных данных для редакторов разделов"
+
+#: core/setting_strings.py:540
+msgid ""
+"When this setting is enabled assigned section editors will not be able to "
+"see personally identifiable information about authors until a decision for "
+"an article has been made. The general setting Reply-To Address should be set "
+"in order for this setting to work correctly."
+msgstr ""
+"Если включено, назначенные редакторы разделов не увидят персональные данные "
+"авторов до принятия решения по статье. Для корректной работы должна быть "
+"задана общая настройка «Адрес для ответа (Reply-To)»."
+
+#: core/setting_strings.py:541
+msgid "About Block Title"
+msgstr "Заголовок блока «О журнале»"
+
+#: core/setting_strings.py:542
+msgid "Sets the title of the About Block"
+msgstr "Задаёт заголовок блока «О журнале»"
+
+#: core/setting_strings.py:543
+msgid "HTML Block Content"
+msgstr "Содержимое HTML-блока"
+
+#: core/setting_strings.py:544
+msgid "This is a homepage element that renders an HTML block"
+msgstr "Элемент главной страницы, выводящий HTML-блок"
+
+#: core/setting_strings.py:545
+msgid "Display Images"
+msgstr "Показывать изображения"
+
+#: core/setting_strings.py:546
+msgid "When enabled the News Plugin will display news images."
+msgstr "Если включено, плагин новостей будет показывать изображения новостей."
+
+#: core/setting_strings.py:547
+msgid "Number of Articles"
+msgstr "Количество новостей"
+
+#: core/setting_strings.py:548
+msgid "Number of news articles to display on the homepage."
+msgstr "Количество новостей, показываемых на главной странице."
+
+#: core/setting_strings.py:549
+msgid "Display Most Popular Articles"
+msgstr "Показывать самые популярные статьи"
+
+#: core/setting_strings.py:550
+msgid "Displays the most popular articles."
+msgstr "Показывает самые популярные статьи."
+
+#: core/setting_strings.py:551
+msgid "Most Popular Timescale"
+msgstr "Период популярности"
+
+#: core/setting_strings.py:552
+msgid "Select from this week, this month or this year."
+msgstr "Выберите: эта неделя, этот месяц или этот год."
+
+#: core/setting_strings.py:553
+msgid "Number of Most Popular Articles to Display"
+msgstr "Количество популярных статей для показа"
+
+#: core/setting_strings.py:554
+msgid "Determines how many popular articles we should display."
+msgstr "Определяет, сколько популярных статей показывать."
+
+#: core/setting_strings.py:555
+msgid "Enable Preprints"
+msgstr "Включить препринты"
+
+#: core/setting_strings.py:556
+msgid ""
+"Allow authors to select to make their works publicly available during "
+"ongoing review."
+msgstr ""
+"Разрешить авторам делать свои работы общедоступными во время рецензирования."
+
+#: core/setting_strings.py:557
+msgid "Maximum preprint DOIs per month"
+msgstr "Максимум DOI препринтов в месяц"
+
+#: core/setting_strings.py:558
+msgid ""
+"The maximum number of preprint DOIs that are allowed each month without the "
+"author paying."
+msgstr ""
+"Максимальное число DOI препринтов в месяц, разрешённых без оплаты автором."
+
+#: core/setting_strings.py:559
+msgid "Display Country on Editorial Team Page"
+msgstr "Показывать страну на странице редакционной команды"
+
+#: core/setting_strings.py:560
+msgid ""
+"When this setting is enabled, and a group member has their country set, the "
+"editorial team will display the group member's country."
+msgstr ""
+"Если включено и у участника группы указана страна, на странице редакционной "
+"команды будет показываться его страна."
+
+#: core/setting_strings.py:561
+msgid "Enable Journal title in Navbar"
+msgstr "Показывать название журнала в верхней панели"
+
+#: core/setting_strings.py:562
+msgid ""
+"If checked, the journal title will be displayed on the top bar of the site "
+"(not supported on Material theme)"
+msgstr ""
+"Если отмечено, название журнала будет показываться в верхней панели сайта "
+"(не поддерживается темой Material)"
+
+#: core/setting_strings.py:563
+msgid "Editorial Group Page Name"
+msgstr "Название страницы редакционных групп"
+
+#: core/setting_strings.py:564
+msgid "Display name for the page displaying editorial groups."
+msgstr "Отображаемое название страницы с редакционными группами."
+
+#: core/setting_strings.py:565
+msgid "Hide Editorial Group Names"
+msgstr "Скрыть названия редакционных групп"
+
+#: core/setting_strings.py:566
+msgid "When enabled no group names are displayed on the editorial group page."
+msgstr ""
+"Если включено, на странице редакционных групп названия групп не показываются."
+
+#: core/setting_strings.py:567
+msgid ""
+"Enable Multi Page Editorial Team Display (is overwritten by Enable Team "
+"Display)"
+msgstr ""
+"Многостраничный показ редакционной команды (перекрывается настройкой "
+"«Показывать редакционную команду»)"
+
+#: core/setting_strings.py:568
+msgid "If checked, editorial groups will have their own pages."
+msgstr "Если отмечено, у каждой редакционной группы будет своя страница."
+
 #: core/validators.py:18
 #, python-brace-format
 msgid ""
@@ -485,7 +3104,7 @@ msgstr ""
 msgid "Affiliations updated."
 msgstr "Принадлежности обновлены."
 
-#: core/views.py:2409
+#: core/views.py:2414
 msgid ""
 "You cannot remove a section that contains articles. Remove articles from the "
 "section if you want to delete it."
@@ -493,42 +3112,42 @@ msgstr ""
 "Вы не можете удалить раздел, содержащий статьи. Удалите статьи из раздела, "
 "если хотите его удалить."
 
-#: core/views.py:2839
+#: core/views.py:2844
 msgid "The form did not validate: "
 msgstr "Форма не прошла проверку:"
 
-#: core/views.py:3071 journal/forms.py:24 journal/views.py:3040
+#: core/views.py:3076 journal/forms.py:24 journal/views.py:3053
 msgid "Newest"
 msgstr "Новейший"
 
-#: core/views.py:3072 journal/forms.py:25 journal/views.py:3041
+#: core/views.py:3077 journal/forms.py:25 journal/views.py:3054
 msgid "Oldest"
 msgstr "Самый старый"
 
-#: core/views.py:3073
+#: core/views.py:3078
 msgid "Last name A-Z"
 msgstr "Фамилия А-Я"
 
-#: core/views.py:3074
+#: core/views.py:3079
 msgid "Last name Z-A"
 msgstr "Фамилия З-А"
 
-#: core/views.py:3228 submission/views.py:1327
+#: core/views.py:3233 submission/views.py:1327
 #, python-format
 msgid "Custom organization updated: %(organization)s"
 msgstr "Пользовательская организация обновлена: %(organization)s"
 
-#: core/views.py:3277 submission/views.py:1394
+#: core/views.py:3282 submission/views.py:1394
 #, python-format
 msgid "Affiliation created: %(affiliation)s"
 msgstr "Создана принадлежность: %(affiliation)s"
 
-#: core/views.py:3324 submission/views.py:1456
+#: core/views.py:3329 submission/views.py:1456
 #, python-format
 msgid "Affiliation updated: %(affiliation)s"
 msgstr "Принадлежность обновлена: %(affiliation)s"
 
-#: core/views.py:3363 submission/views.py:1511
+#: core/views.py:3368 submission/views.py:1511
 #, python-format
 msgid "Affiliation removed: %(affiliation)s"
 msgstr "Принадлежность удалена: %(affiliation)s"
@@ -542,11 +3161,11 @@ msgstr "Макс. 300 символов."
 msgid "Relevance"
 msgstr "Актуальность"
 
-#: journal/forms.py:22 journal/views.py:3042
+#: journal/forms.py:22 journal/views.py:3055
 msgid "Titles A-Z"
 msgstr "Заголовки от А до Я"
 
-#: journal/forms.py:23 journal/views.py:3043
+#: journal/forms.py:23 journal/views.py:3056
 msgid "Titles Z-A"
 msgstr "Титулы Я-А"
 
@@ -825,58 +3444,58 @@ msgstr "Теперь вы рецензент"
 msgid "Your message has been sent."
 msgstr "Ваше сообщение отправлено."
 
-#: journal/views.py:2629
+#: journal/views.py:2639
 msgid "Manuscript file uploaded."
 msgstr "Файл рукописи загружен."
 
-#: journal/views.py:2647
+#: journal/views.py:2657
 msgid "Data/figure file uploaded."
 msgstr "Файл данных/рисунков загружен."
 
-#: journal/views.py:2659
+#: journal/views.py:2669
 msgid "Production file uploaded."
 msgstr "Производственный файл загружен."
 
-#: journal/views.py:2670
+#: journal/views.py:2680
 msgid "Galley file uploaded."
 msgstr "Файл гранки загружен."
 
-#: journal/views.py:2708
+#: journal/views.py:2718
 msgid "Proofing file uploaded."
 msgstr "Файл проверки загружен."
 
-#: journal/views.py:2714
+#: journal/views.py:2724
 msgid "Saved file."
 msgstr "Сохраненный файл."
 
-#: journal/views.py:2725
+#: journal/views.py:2735
 msgid "Supplementary file uploaded."
 msgstr "Загружен дополнительный файл."
 
-#: journal/views.py:2736
+#: journal/views.py:2746
 msgid "Typesetting source file uploaded."
 msgstr "Исходный файл верстки загружен."
 
-#: journal/views.py:3011
+#: journal/views.py:3024
 msgid "Published after"
 msgstr "Опубликовано после"
 
-#: journal/views.py:3015
+#: journal/views.py:3028
 msgid "Published before"
 msgstr "Опубликовано ранее"
 
-#: journal/views.py:3020 templates/admin/submission/submit_review.html:70
+#: journal/views.py:3033 templates/admin/submission/submit_review.html:70
 msgid "Section"
 msgstr "Раздел"
 
-#: journal/views.py:3044 themes/BTE/templates/repository/list.html:122
+#: journal/views.py:3057 themes/BTE/templates/repository/list.html:122
 #: themes/OLH/templates/repository/list.html:122
 #: themes/material/templates/preprints/list.html:98
 #: themes/material/templates/repository/list.html:72
 msgid "Author Name"
 msgstr "Имя автора"
 
-#: journal/views.py:3045
+#: journal/views.py:3058
 msgid "Volume"
 msgstr "Том"
 
@@ -935,11 +3554,11 @@ msgstr ""
 "можете добавить здесь тип."
 
 #: repository/models.py:599 repository/models.py:1259 repository/models.py:1624
-#: submission/models.py:1008
+#: submission/models.py:1016
 msgid "Your article title"
 msgstr "Название вашей статьи"
 
-#: repository/models.py:1220 submission/models.py:2702
+#: repository/models.py:1220 submission/models.py:2710
 #: templates/admin/elements/author_summary_table.html:24
 #: templates/admin/elements/current_authors_inner.html:86
 #: templates/admin/submission/edit/author.html:136
@@ -999,7 +3618,7 @@ msgstr "доступен автору"
 msgid "not available for the author to access"
 msgstr "недоступен автору"
 
-#: review/views.py:1782
+#: review/views.py:1826
 msgid "This article has already been accepted or declined."
 msgstr "Эта статья уже была принята или отклонена."
 
@@ -1078,24 +3697,24 @@ msgstr "%(author_name)s больше не имеет роли %(role)s."
 msgid "Additional information regarding this funding entry"
 msgstr "Дополнительная информация относительно этой записи о финансировании"
 
-#: submission/models.py:1015
+#: submission/models.py:1023
 msgid "Do not use--deprecated in version 1.4.1 and later."
 msgstr "Не используйте — устарело в версии 1.4.1 и более поздних версиях."
 
-#: submission/models.py:1035
+#: submission/models.py:1043
 msgid "The primary language of the article"
 msgstr "Основной язык статьи"
 
-#: submission/models.py:1151
+#: submission/models.py:1159
 msgid "Custom page range. e.g.: 'I-VII' or 1-3,4-8"
 msgstr "Пользовательский диапазон страниц. например: «I-VII» или 1-3,4-8"
 
-#: submission/models.py:1177
+#: submission/models.py:1185
 msgid "Add any comments you'd like the editor to consider here."
 msgstr ""
 "Добавьте сюда любые комментарии, которые вы хотели бы, чтобы редактор учёл."
 
-#: submission/models.py:1213
+#: submission/models.py:1221
 msgid ""
 "Custom 'how to cite' text. To be used only if the block generated by Janeway "
 "is not suitable."
@@ -1103,7 +3722,7 @@ msgstr ""
 "Пользовательский текст «Как цитировать». Используется только в том случае, "
 "если блок, сгенерированный Janeway, не подходит."
 
-#: submission/models.py:1223 submission/models.py:1233
+#: submission/models.py:1231 submission/models.py:1241
 msgid ""
 "Name of the publisher who published this article Only relevant to migrated "
 "articles from a different publisher"
@@ -1111,7 +3730,7 @@ msgstr ""
 "Имя издателя, опубликовавшего эту статью. Актуально только для статей, "
 "перенесенных от другого издателя."
 
-#: submission/models.py:1242
+#: submission/models.py:1250
 msgid ""
 "Original ISSN of this article's journal when published Only relevant for "
 "back content published under a different title"
@@ -1119,43 +3738,43 @@ msgstr ""
 "Исходный ISSN журнала этой статьи при публикации. Актуально только для бэк-"
 "контента, опубликованного под другим названием."
 
-#: submission/models.py:2658
+#: submission/models.py:2666
 msgid "Optional name prefix (e.g: Prof or Dr)"
 msgstr "Необязательный префикс имени (например, профессор или доктор)"
 
-#: submission/models.py:2664
+#: submission/models.py:2672
 msgid "Optional name suffix (e.g.: Jr or III)"
 msgstr "Необязательный суффикс имени (например: Jr или III)"
 
-#: submission/models.py:2704
+#: submission/models.py:2712
 msgid "ORCID to be displayed when no account is associated with this author."
 msgstr ""
 "ORCID будет отображаться, если с этим автором не связана ни одна учетная "
 "запись."
 
-#: submission/models.py:2710
+#: submission/models.py:2718
 msgid ""
 "Whether to display this author's email address on the published article."
 msgstr ""
 "Отображать ли адрес электронной почты этого автора в опубликованной статье."
 
-#: submission/models.py:3333 templates/admin/submission/submit_files.html:72
+#: submission/models.py:3341 templates/admin/submission/submit_files.html:72
 msgid "Figures and Data Files"
 msgstr "Рисунки и файлы данных"
 
-#: submission/models.py:3340
+#: submission/models.py:3348
 msgid "The default license applied when no option is presented"
 msgstr "Лицензия по умолчанию применяется, когда опция не представлена."
 
-#: submission/models.py:3347
+#: submission/models.py:3355
 msgid "The license that is applied to open peer reviews."
 msgstr "Лицензия, которая применяется для открытия рецензий."
 
-#: submission/models.py:3356
+#: submission/models.py:3364
 msgid "The default language of articles when lang is hidden"
 msgstr "Язык статей по умолчанию, когда язык скрыт"
 
-#: submission/models.py:3362
+#: submission/models.py:3370
 msgid "The default section of articles when no option is presented"
 msgstr "Раздел статей по умолчанию, когда опция не представлена"
 
@@ -1261,7 +3880,7 @@ msgstr "Редактирование элемента страницы отпр�
 msgid "Add a Submission Page Item"
 msgstr "Добавить элемент на страницу отправки"
 
-#: templates/admin/cms/submission_item_list.html:58
+#: templates/admin/cms/submission_item_list.html:59
 msgid "No submission items found"
 msgstr "Элементы отправки не найдены"
 
@@ -2940,14 +5559,6 @@ msgstr "Представители журнала"
 msgid "Press Representatives"
 msgstr "Представители издательства"
 
-#: templates/admin/journal/contact.html:27
-#: themes/BTE/templates/journal/contact.html:22
-#: themes/OLH/templates/journal/contact.html:22
-#: themes/clean/templates/journal/contact.html:18
-#: themes/material/templates/journal/contact.html:26
-msgid "Contact Information"
-msgstr "Контактная информация"
-
 #: templates/admin/journal/contact.html:32
 #: themes/BTE/templates/core/nav.html:96
 #: themes/BTE/templates/elements/journal_footer.html:40
@@ -3000,10 +5611,6 @@ msgstr "Редактировать информацию о публикации"
 #: templates/admin/journal/manage/archive_article.html:29
 msgid "Remote Article View"
 msgstr "Удаленный просмотр статьи"
-
-#: templates/admin/journal/manage/archive_article.html:179
-msgid "Undo Article Rejection"
-msgstr "Отменить отклонение статьи"
 
 #: templates/admin/journal/manage/archive_article.html:183
 msgid "Review"
@@ -3072,11 +5679,6 @@ msgstr "Лицензии"
 #: themes/material/templates/journal/submissions.html:52
 msgid "The following licences are allowed:"
 msgstr "Разрешены следующие лицензии:"
-
-#: templates/admin/press/edit_press_journal_description.html:5
-#: templates/admin/press/edit_press_journal_description.html:6
-msgid "Journal Description for Press Site"
-msgstr "Описание журнала для пресс-сайта"
 
 #: templates/admin/press/edit_press_journal_description.html:11
 #: templates/admin/press/edit_press_journal_description.html:17
@@ -3895,27 +6497,15 @@ msgstr ""
 "Если вы не согласны с этими условиями, вы не сможете продолжить подачу "
 "заявки."
 
-#: templates/admin/submission/start.html:34
-msgid "Publication Fees"
-msgstr "Плата за публикацию"
-
 #: templates/admin/submission/start.html:41
 msgid "Author(s) agrees to the above statement"
 msgstr "Автор(ы) согласен с приведенным выше утверждением"
-
-#: templates/admin/submission/start.html:47
-msgid "Submission Checklist"
-msgstr "Контрольный список подачи"
 
 #: templates/admin/submission/start.html:53
 msgid "Author(s) confirms that this article adheres to the above requirements"
 msgstr ""
 "Автор(ы) подтверждает, что данная статья соответствует вышеуказанным "
 "требованиям."
-
-#: templates/admin/submission/start.html:59
-msgid "Copyright Notice"
-msgstr "Уведомление об авторских правах"
 
 #: templates/admin/submission/start.html:71
 #: themes/BTE/templates/journal/article.html:434
@@ -5449,17 +8039,6 @@ msgstr "Делиться"
 msgid "Article URL"
 msgstr "URL статьи"
 
-#: themes/BTE/templates/elements/journal/summary_modal.html:3
-#: themes/BTE/templates/journal/article.html:443
-#: themes/OLH/templates/elements/journal/summary_modal.html:3
-#: themes/OLH/templates/journal/article.html:443
-#: themes/clean/templates/elements/journal/summary_modal.html:6
-#: themes/clean/templates/journal/article.html:236
-#: themes/material/templates/elements/summary_modal.html:5
-#: themes/material/templates/journal/article.html:371
-msgid "Non Specialist Summary"
-msgstr "Резюме для неспециалистов"
-
 #: themes/BTE/templates/elements/journal/summary_modal.html:7
 #: themes/OLH/templates/elements/journal/summary_modal.html:7
 #: themes/clean/templates/elements/journal/summary_modal.html:15
@@ -5567,7 +8146,7 @@ msgstr "Публичные материалы"
 #: themes/clean/templates/journal/article.html:219
 #: themes/material/templates/elements/sections_display.html:6
 msgid "Peer Reviewed"
-msgstr "Рецензирование"
+msgstr "Прошла рецензирование"
 
 #: themes/BTE/templates/elements/section_block.html:8
 #: themes/OLH/templates/elements/section_block.html:8
@@ -5962,7 +8541,7 @@ msgstr "Роли CRediT"
 #: themes/OLH/templates/journal/article.html:518
 #: themes/material/templates/journal/article.html:426
 msgid "Peer Review"
-msgstr "Экспертная оценка"
+msgstr "Рецензирование"
 
 #: themes/BTE/templates/journal/article_list.html:16
 #: themes/OLH/templates/journal/article_list.html:15
@@ -6156,6 +8735,34 @@ msgstr "География наших читателей"
 msgid "Swipe to rotate the globe"
 msgstr "Проведите, чтобы повернуть глобус"
 
+#: themes/BTE/templates/journal/index.html:149
+#: themes/BTE/templates/press/core/news/index.html:7
+#: themes/BTE/templates/press/core/news/index.html:12
+#: themes/OLH/templates/press/core/news/index.html:7
+#: themes/OLH/templates/press/core/news/index.html:12
+#: themes/clean/templates/press/core/news/index.html:11
+#: themes/clean/templates/press/nav.html:17
+#: themes/material/templates/core/nav.html:109
+#: themes/material/templates/press/core/news/index.html:6
+#: themes/material/templates/press/core/news/index.html:11
+#: themes/material/templates/press/core/news/item.html:7
+msgid "News"
+msgstr "Новости"
+
+#: themes/BTE/templates/journal/index.html:149
+#: themes/BTE/templates/repository/about.html:15
+#: themes/BTE/templates/repository/nav.html:5
+#: themes/OLH/templates/repository/about.html:15
+#: themes/OLH/templates/repository/nav.html:5
+#: themes/material/templates/preprints/about.html:9
+#: themes/material/templates/preprints/about.html:14
+#: themes/material/templates/repository/about.html:4
+#: themes/material/templates/repository/about.html:9
+#: themes/material/templates/repository/nav.html:20
+#: themes/material/templates/repository/nav.html:52
+msgid "About"
+msgstr "О журнале"
+
 #: themes/BTE/templates/journal/keyword.html:6
 #: themes/BTE/templates/journal/keyword.html:12
 #: themes/BTE/templates/journal/search.html:23
@@ -6247,19 +8854,6 @@ msgstr "Войти с помощью ORCID"
 msgid "Login with"
 msgstr "Войти с помощью"
 
-#: themes/BTE/templates/press/core/news/index.html:7
-#: themes/BTE/templates/press/core/news/index.html:12
-#: themes/OLH/templates/press/core/news/index.html:7
-#: themes/OLH/templates/press/core/news/index.html:12
-#: themes/clean/templates/press/core/news/index.html:11
-#: themes/clean/templates/press/nav.html:17
-#: themes/material/templates/core/nav.html:109
-#: themes/material/templates/press/core/news/index.html:6
-#: themes/material/templates/press/core/news/index.html:11
-#: themes/material/templates/press/core/news/item.html:7
-msgid "News"
-msgstr "Новости"
-
 #: themes/BTE/templates/press/core/news/index.html:24
 #: themes/OLH/templates/press/core/news/index.html:24
 #: themes/clean/templates/press/core/news/index.html:17
@@ -6331,19 +8925,6 @@ msgstr "Дисциплины"
 #: themes/material/templates/press/press_journals.html:49
 msgid "View"
 msgstr "Просмотр"
-
-#: themes/BTE/templates/repository/about.html:15
-#: themes/BTE/templates/repository/nav.html:5
-#: themes/OLH/templates/repository/about.html:15
-#: themes/OLH/templates/repository/nav.html:5
-#: themes/material/templates/preprints/about.html:9
-#: themes/material/templates/preprints/about.html:14
-#: themes/material/templates/repository/about.html:4
-#: themes/material/templates/repository/about.html:9
-#: themes/material/templates/repository/nav.html:20
-#: themes/material/templates/repository/nav.html:52
-msgid "About"
-msgstr "О журнале"
 
 #: themes/BTE/templates/repository/hierarchy.html:60
 #: themes/OLH/templates/repository/hierarchy.html:60
@@ -6708,10 +9289,6 @@ msgstr ""
 msgid "Text display options"
 msgstr "Параметры отображения текста"
 
-#: themes/clean/templates/elements/journal_footer.html:8
-msgid "Print ISSN"
-msgstr "Распечатать ISSN"
-
 #: themes/clean/templates/elements/pagination.html:76
 msgid "all"
 msgstr "все"
@@ -6738,7 +9315,7 @@ msgstr "Информация о представлении разделов"
 
 #: themes/clean/templates/journal/article.html:256
 msgid "Open Peer Reviews"
-msgstr "Открытые экспертные оценки"
+msgstr "Открытые рецензии"
 
 #: themes/clean/templates/journal/article.html:261
 msgid "Review by"
