@@ -566,4 +566,7 @@ SETTING_STRINGS = [
     gettext_noop('When enabled no group names are displayed on the editorial group page.'),
     gettext_noop('Enable Multi Page Editorial Team Display (is overwritten by Enable Team Display)'),
     gettext_noop('If checked, editorial groups will have their own pages.'),
+    # BTE custom settings
+    gettext_noop('Display readers geography map'),
+    gettext_noop('If enabled, the “Geography of our readers” map is shown on the journal home page. Visit statistics are still collected while the map is hidden.'),
 ]

@@ -955,8 +955,7 @@
     </style>
     {% block css %}{% endblock %}
 
-    {# Скрипты для карты D3.js (Equal Earth) #}
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+    {# D3.js is loaded only by journal/index.html when the readers map is enabled #}
 
     {% hook 'base_head_css' %}
     {% include "common/elements/favicons.html" %}

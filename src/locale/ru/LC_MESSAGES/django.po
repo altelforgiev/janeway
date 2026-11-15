@@ -9810,3 +9810,11 @@ msgstr "Читатели"
 #: themes/BTE/templates/journal/index.html
 msgid "Reset view"
 msgstr "Сбросить вид"
+
+#: core/setting_strings.py
+msgid "Display readers geography map"
+msgstr "Показывать карту географии читателей"
+
+#: core/setting_strings.py
+msgid "If enabled, the “Geography of our readers” map is shown on the journal home page. Visit statistics are still collected while the map is hidden."
+msgstr "Если включено, на главной странице журнала показывается карта «География наших читателей». Статистика посещений собирается и при скрытой карте."

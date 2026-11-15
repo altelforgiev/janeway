@@ -738,6 +738,17 @@ def get_settings_to_edit(display_group, journal, user):
             },
         ]
         setting_group = "news"
+    elif display_group == "custom":
+        # BTE: journal-specific switches (Manager -> Settings -> Custom Settings)
+        group_of_settings = [
+            {
+                "name": "display_reader_geography_map",
+                "object": setting_handler.get_setting(
+                    "general", "display_reader_geography_map", journal
+                ),
+            },
+        ]
+        setting_group = "general"
     else:
         group_of_settings = []
         setting_group = None

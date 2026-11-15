@@ -9716,3 +9716,11 @@ msgstr "Оқырмандар"
 #: themes/BTE/templates/journal/index.html
 msgid "Reset view"
 msgstr "Көріністі қалпына келтіру"
+
+#: core/setting_strings.py
+msgid "Display readers geography map"
+msgstr "Оқырмандар географиясының картасын көрсету"
+
+#: core/setting_strings.py
+msgid "If enabled, the “Geography of our readers” map is shown on the journal home page. Visit statistics are still collected while the map is hidden."
+msgstr "Қосулы болса, журналдың басты бетінде «Оқырмандарымыздың географиясы» картасы көрсетіледі. Карта жасырылған кезде де кірулер статистикасы жиналады."

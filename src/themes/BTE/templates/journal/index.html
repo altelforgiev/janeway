@@ -325,7 +325,8 @@
             <p>{% trans "No articles published yet." %}</p>
         {% endif %}
 
-        {# Render Map at the Bottom #}
+        {# Render Map at the Bottom (Manager -> Settings -> Custom Settings: display_reader_geography_map) #}
+        {% if journal_settings.general.display_reader_geography_map %}
         <div class="homepage-element-wrapper">
             <div class="map-widget">
                 <h2 id="map-heading" style="font-family: 'Proxima Nova', Montserrat, Helvetica, Roboto, Arial, sans-serif; line-height: 1.4; font-size: 1rem; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid rgba(200, 16, 46, 0.4); padding-bottom: 0.5rem; margin-top: 0; margin-bottom: 1.2rem; letter-spacing: 0.05em; display: flex; align-items: center; text-align: left;">
@@ -361,6 +362,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
 
     </div>
 
@@ -387,6 +389,7 @@
 {% endblock body %}
 
 {% block js %}
+{% if journal_settings.general.display_reader_geography_map %}
 {# Hybrid Map Script: Equal Earth for Desktop, Smooth 110m Orthographic Globe with Heatmap for Mobile, Period Filter & Top-5 HUD #}
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
@@ -935,4 +938,5 @@ document.addEventListener("DOMContentLoaded", function() {
     }).catch(error => console.error('Map loading error:', error));
 });
 </script>
+{% endif %}
 {% endblock js %}

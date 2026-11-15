@@ -5672,5 +5672,24 @@
             "editor",
             "journal-manager"
         ]
+    },
+    {
+        "value": {
+            "default": "on"
+        },
+        "setting": {
+            "type": "boolean",
+            "pretty_name": "Display readers geography map",
+            "is_translatable": false,
+            "description": "If enabled, the “Geography of our readers” map is shown on the journal home page. Visit statistics are still collected while the map is hidden.",
+            "name": "display_reader_geography_map"
+        },
+        "group": {
+            "name": "general"
+        },
+        "editable_by": [
+            "editor",
+            "journal-manager"
+        ]
     }
 ]
