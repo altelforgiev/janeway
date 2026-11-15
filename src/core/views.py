@@ -3611,11 +3611,104 @@ def _migrate_legacy_archive_if_needed(legacy_json_path, jsonl_path):
             pass
 
 
-def map_analytics_api(request):
-    """API для отдачи данных о странах и городах на карту D3.js (Equal Earth и Globe)"""
-    stats_file = os.path.join(settings.BASE_DIR, 'metrics', 'map_stats.json')
-    stats = {"countries": {}, "cities": {}}
+# --- Geography map: period filter (7d / 30d / 365d / all) -------------------
+# Публичный API отдаёт только агрегаты (страна -> число уникальных читателей,
+# город -> координаты и число). IP-адреса наружу никогда не уходят.
+MAP_PERIOD_DAYS = {'7d': 7, '30d': 30, '365d': 365}
+MAP_PERIODS = tuple(MAP_PERIOD_DAYS) + ('all',)
+MAP_API_CACHE_TTL = 300  # 5 минут
+MAP_API_CACHE_PREFIX = "bte_map_analytics_"
 
+
+def _map_cache_clear():
+    for p_key in MAP_PERIODS:
+        cache.delete(f"{MAP_API_CACHE_PREFIX}{p_key}")
+
+
+def _parse_archive_ts(ts_str):
+    from datetime import datetime as _dt, timezone as _dt_timezone
+    if not isinstance(ts_str, str):
+        return None
+    try:
+        dt = _dt.fromisoformat(ts_str.replace("Z", "+00:00"))
+    except (TypeError, ValueError):
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=_dt_timezone.utc)
+    return dt
+
+
+def _aggregate_periods_from_jsonl(archive_file):
+    """
+    Один проход по map_stats_archive.jsonl -> агрегаты сразу для 7d/30d/365d.
+    Считаются уникальные IP (без ботов, VPN/Tor/хостингов) по странам и городам.
+    """
+    from datetime import timedelta as _td
+
+    now = timezone.now()
+    cutoffs = {p: now - _td(days=d) for p, d in MAP_PERIOD_DAYS.items()}
+    oldest_cutoff = min(cutoffs.values())
+    acc = {p: {"countries": {}, "cities": {}} for p in MAP_PERIOD_DAYS}
+
+    if os.path.exists(archive_file):
+        try:
+            with open(archive_file, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        entry = json.loads(line)
+                    except ValueError:
+                        continue
+                    if not isinstance(entry, dict) or entry.get("is_bot"):
+                        continue
+                    anon = entry.get("anonymous_ip")
+                    if isinstance(anon, dict) and anon.get("is_anonymous"):
+                        continue
+
+                    dt = _parse_archive_ts(entry.get("timestamp"))
+                    if dt is None or dt < oldest_cutoff:
+                        continue
+
+                    ip = entry.get("ip")
+                    cc = entry.get("country_code")
+                    if not ip or not cc:
+                        continue
+                    city = entry.get("city_name")
+                    lat = entry.get("lat")
+                    lon = entry.get("lon")
+                    city_key = f"{city}, {cc}" if city and lat is not None and lon is not None else None
+
+                    for p, cutoff in cutoffs.items():
+                        if dt < cutoff:
+                            continue
+                        bucket = acc[p]
+                        bucket["countries"].setdefault(cc, set()).add(ip)
+                        if city_key:
+                            c = bucket["cities"].get(city_key)
+                            if c is None:
+                                c = bucket["cities"][city_key] = {"coords": [lon, lat], "ips": set()}
+                            c["ips"].add(ip)
+        except OSError as e:
+            logger.warning(f"[MAP_API] Ошибка чтения архива {archive_file}: {e}")
+
+    result = {}
+    for p, bucket in acc.items():
+        result[p] = {
+            "period": p,
+            "countries": {cc: len(ips) for cc, ips in bucket["countries"].items()},
+            "cities": [
+                {"name": name, "coords": item["coords"], "count": len(item["ips"])}
+                for name, item in bucket["cities"].items()
+            ],
+        }
+    return result
+
+
+def _aggregate_all_time(stats_file):
+    """Период 'all' — накопленные счётчики map_stats.json (как раньше)."""
+    stats = {"countries": {}, "cities": {}}
     if os.path.exists(stats_file):
         try:
             with open(stats_file, 'r', encoding='utf-8') as f:
@@ -3627,10 +3720,7 @@ def map_analytics_api(request):
         except Exception:
             pass
 
-    response_data = {
-        "countries": {},
-        "cities": []
-    }
+    response_data = {"period": "all", "countries": {}, "cities": []}
 
     for code, data in stats.get("countries", {}).items():
         response_data["countries"][code] = data.get("count", 0) if isinstance(data, dict) else data
@@ -3643,8 +3733,32 @@ def map_analytics_api(request):
                 "coords": [coords[1], coords[0]],  # D3 использует формат [долгота, широта]
                 "count": data.get("count", 0)
             })
+    return response_data
 
-    return JsonResponse(response_data)
+
+def map_analytics_api(request):
+    """API для карты D3.js: страны и города за период ?period=7d|30d|365d|all (по умолчанию all)"""
+    period = request.GET.get('period', 'all')
+    if period not in MAP_PERIODS:
+        period = 'all'
+
+    cache_key = f"{MAP_API_CACHE_PREFIX}{period}"
+    response_data = cache.get(cache_key)
+    if response_data is None:
+        metrics_dir = os.path.join(settings.BASE_DIR, 'metrics')
+        if period == 'all':
+            response_data = _aggregate_all_time(os.path.join(metrics_dir, 'map_stats.json'))
+            cache.set(cache_key, response_data, MAP_API_CACHE_TTL)
+        else:
+            # Один проход по архиву кэширует сразу все три периода
+            periods = _aggregate_periods_from_jsonl(os.path.join(metrics_dir, 'map_stats_archive.jsonl'))
+            for p_key, data in periods.items():
+                cache.set(f"{MAP_API_CACHE_PREFIX}{p_key}", data, MAP_API_CACHE_TTL)
+            response_data = periods[period]
+
+    response = JsonResponse(response_data)
+    response["Cache-Control"] = "public, max-age=60"
+    return response
 
 
 def record_geo_view(request):
@@ -3776,6 +3890,10 @@ def record_geo_view(request):
             with open(temp_file, 'w', encoding='utf-8') as f:
                 json.dump(stats, f, ensure_ascii=False)
             shutil.move(temp_file, stats_file)
+
+        # Новый уникальный читатель -> сбрасываем кэш API карты (все периоды)
+        if stats_changed:
+            _map_cache_clear()
 
         # 7. Миграция старого архива (если есть) и мгновенная дозапись в map_stats_archive.jsonl
         _migrate_legacy_archive_if_needed(legacy_archive_file, archive_file)

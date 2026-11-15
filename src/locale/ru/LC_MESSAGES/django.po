@@ -9773,3 +9773,36 @@ msgstr "принял"
 #: utils/transactional_emails.py:399
 msgid "declined"
 msgstr "отклоненный"
+
+#: themes/BTE/templates/journal/index.html
+msgid "7d"
+msgstr "7 дн."
+
+#: themes/BTE/templates/journal/index.html
+msgid "30d"
+msgstr "30 дн."
+
+#: themes/BTE/templates/journal/index.html
+msgid "1y"
+msgstr "Год"
+
+#: themes/BTE/templates/journal/index.html
+msgctxt "map period"
+msgid "All"
+msgstr "Всё"
+
+#: themes/BTE/templates/journal/index.html
+msgid "Top-5 Countries"
+msgstr "Топ-5 стран"
+
+#: themes/BTE/templates/journal/index.html
+msgid "No data for period"
+msgstr "Нет данных за период"
+
+#: themes/BTE/templates/journal/index.html
+msgid "Period filter"
+msgstr "Фильтр по периоду"
+
+#: themes/BTE/templates/journal/index.html
+msgid "Readers"
+msgstr "Читатели"

@@ -9679,3 +9679,36 @@ msgstr "қабылданды"
 #: utils/transactional_emails.py:399
 msgid "declined"
 msgstr "бас тартты"
+
+#: themes/BTE/templates/journal/index.html
+msgid "7d"
+msgstr "7 күн"
+
+#: themes/BTE/templates/journal/index.html
+msgid "30d"
+msgstr "30 күн"
+
+#: themes/BTE/templates/journal/index.html
+msgid "1y"
+msgstr "1 жыл"
+
+#: themes/BTE/templates/journal/index.html
+msgctxt "map period"
+msgid "All"
+msgstr "Барлығы"
+
+#: themes/BTE/templates/journal/index.html
+msgid "Top-5 Countries"
+msgstr "Топ-5 ел"
+
+#: themes/BTE/templates/journal/index.html
+msgid "No data for period"
+msgstr "Бұл кезеңде дерек жоқ"
+
+#: themes/BTE/templates/journal/index.html
+msgid "Period filter"
+msgstr "Кезең бойынша сүзгі"
+
+#: themes/BTE/templates/journal/index.html
+msgid "Readers"
+msgstr "Оқырмандар"

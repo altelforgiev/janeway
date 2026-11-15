@@ -1,20 +1,36 @@
 {% extends "core/base.html" %}
 {% load i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
 
 {% block body %}
 <section id="content">
 
-{# Adaptive Map Styles #}
+{# Adaptive Map & Overlay HUD Styles #}
 <style>
     :root {
         --map-empty-fill: #e5e7eb;
         --map-ocean-fill: #e0f2fe;
         --map-border: #003d71;
+        --map-hud-bg: rgba(255, 255, 255, 0.88);
+        --map-hud-text: #1f2937;
+        --map-hud-muted: #6b7280;
+        --map-hud-border: rgba(0, 61, 113, 0.2);
+        --map-btn-bg: rgba(0, 61, 113, 0.08);
     }
     body.dark-theme {
         --map-empty-fill: #444444;
         --map-ocean-fill: #1e1e1e;
         --map-border: #333333;
+        --map-hud-bg: rgba(24, 24, 27, 0.88);
+        --map-hud-text: #f3f4f6;
+        --map-hud-muted: #9ca3af;
+        --map-hud-border: rgba(255, 255, 255, 0.14);
+        --map-btn-bg: rgba(255, 255, 255, 0.08);
+    }
+
+    #journal-world-map {
+        position: relative;
+        width: 100%;
     }
 
     #journal-world-map svg {
@@ -55,7 +71,7 @@
         stroke-width: 0.5px;
     }
     .is-desktop-map .d3-country {
-        transition: fill 0.2s;
+        transition: fill 0.35s ease;
     }
     body.dark-theme .d3-country {
         stroke: #2a2a2a;
@@ -96,6 +112,142 @@
         color: #f5f5f5;
         border: 1px solid #333;
     }
+
+    {# Compact HUD Overlay (Bottom-Left on Desktop, Below Globe on Mobile) #}
+    .map-hud-overlay {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        z-index: 20;
+        width: 225px;
+        background: var(--map-hud-bg);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid var(--map-hud-border);
+        border-radius: 8px;
+        padding: 10px 12px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        font-family: "Montserrat", sans-serif;
+        color: var(--map-hud-text);
+        cursor: default;
+        user-select: none;
+    }
+
+    .map-period-tabs {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3px;
+        margin-bottom: 8px;
+        padding-bottom: 7px;
+        border-bottom: 1px solid var(--map-hud-border);
+    }
+
+    .map-period-btn {
+        background: var(--map-btn-bg);
+        color: var(--map-hud-text);
+        border: none;
+        border-radius: 4px;
+        padding: 4px 2px;
+        margin: 0;
+        font-size: 0.68rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .map-period-btn:hover {
+        background: rgba(0, 61, 113, 0.2);
+    }
+
+    .map-period-btn.active {
+        background: #003d71;
+        color: #ffffff;
+    }
+
+    body.dark-theme .map-period-btn.active {
+        background: #c8102e;
+        color: #ffffff;
+    }
+
+    .map-top-title {
+        font-size: 0.68rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--map-hud-muted);
+        margin-bottom: 6px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .map-top-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .map-top-item {
+        margin-bottom: 5px;
+        font-size: 0.75rem;
+    }
+    .map-top-item:last-child {
+        margin-bottom: 0;
+    }
+    .map-top-empty {
+        color: var(--map-hud-muted);
+    }
+
+    .map-top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2px;
+    }
+
+    .map-top-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 155px;
+        font-weight: 500;
+    }
+
+    .map-top-count {
+        font-weight: 700;
+        font-size: 0.72rem;
+        color: #003d71;
+    }
+    body.dark-theme .map-top-count {
+        color: #93c5fd;
+    }
+
+    .map-top-bar-bg {
+        width: 100%;
+        height: 3px;
+        background: var(--map-btn-bg);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .map-top-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #003d71, #c8102e);
+        border-radius: 2px;
+        transition: width 0.4s ease;
+    }
+
+    @media (max-width: 768px) {
+        .map-hud-overlay {
+            position: static;
+            width: 100%;
+            margin-top: 12px;
+        }
+        .map-top-name {
+            max-width: 75%;
+        }
+    }
 </style>
 
 <div class="row columns">
@@ -129,7 +281,24 @@
                     <i class="fa fa-hand-pointer-o"></i> {% trans 'Swipe to rotate the globe' %}
                 </p>
 
-                <div id="journal-world-map"></div>
+                <div id="journal-world-map">
+                    {# Compact Bottom-Left Date Filter + Top-5 Countries HUD #}
+                    <div id="map-hud-overlay" class="map-hud-overlay">
+                        <div class="map-period-tabs" role="group" aria-label="{% trans 'Period filter' %}">
+                            <button type="button" class="map-period-btn" data-period="7d" aria-pressed="false">{% trans '7d' %}</button>
+                            <button type="button" class="map-period-btn" data-period="30d" aria-pressed="false">{% trans '30d' %}</button>
+                            <button type="button" class="map-period-btn" data-period="365d" aria-pressed="false">{% trans '1y' %}</button>
+                            <button type="button" class="map-period-btn active" data-period="all" aria-pressed="true">{% trans 'All' context 'map period' %}</button>
+                        </div>
+                        <div class="map-top-title">
+                            <span>{% trans 'Top-5 Countries' %}</span>
+                            <span id="map-total-readers" title="{% trans 'Readers' %}"></span>
+                        </div>
+                        <ul id="map-top-countries-list" class="map-top-list" aria-live="polite">
+                            <li class="map-top-item map-top-empty">&hellip;</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -158,14 +327,27 @@
 {% endblock body %}
 
 {% block js %}
-{# Hybrid Map Script: Equal Earth for Desktop, Smooth 110m Orthographic Globe with Heatmap for Mobile #}
+{# Hybrid Map Script: Equal Earth for Desktop, Smooth 110m Orthographic Globe with Heatmap for Mobile, Period Filter & Top-5 HUD #}
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const container = document.getElementById("journal-world-map");
     if (!container || typeof d3 === "undefined") return;
 
-    const mapTranslations = { views: "{% trans 'Views' %}" };
+    {# Prevent D3 zoom/drag when interacting with the HUD overlay #}
+    const hudOverlay = document.getElementById("map-hud-overlay");
+    if (hudOverlay) {
+        ["mousedown", "touchstart", "wheel", "dblclick"].forEach(evtName => {
+            hudOverlay.addEventListener(evtName, e => e.stopPropagation(), { passive: true });
+        });
+    }
+
+    const mapTranslations = {
+        views: "{% filter escapejs %}{% trans 'Views' %}{% endfilter %}",
+        noData: "{% filter escapejs %}{% trans 'No data for period' %}{% endfilter %}"
+    };
+    const pageLanguage = "{{ CURRENT_LANGUAGE|default:'en'|escapejs }}";
+    const escapeHtml = s => String(s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
     const tooltip = d3.select("body").append("div").attr("class", "d3-tooltip");
 
     const isMobile = window.innerWidth <= 768;
@@ -174,12 +356,30 @@ document.addEventListener("DOMContentLoaded", function() {
     const baseGlobeScale = 280;
 
     const svg = d3.select("#journal-world-map")
-        .append("svg")
+        .insert("svg", "#map-hud-overlay")
         .attr("viewBox", `0 0 ${width} ${height}`)
         .attr("preserveAspectRatio", "xMidYMid meet")
         .attr("class", isMobile ? "is-mobile-globe" : "is-desktop-map");
 
     let currentZoomScale = 1;
+    let currentCountryData = {};
+    const countryNameByCode = {};
+
+    {# Localized country names (ru/kk/en) via Intl, falling back to GeoJSON English names #}
+    let displayNames = null;
+    try {
+        displayNames = new Intl.DisplayNames([pageLanguage, "en"], { type: "region" });
+    } catch (e) {}
+
+    const resolveCountryLabel = code => {
+        if (displayNames && code) {
+            try {
+                const localized = displayNames.of(code);
+                if (localized && localized !== code) return localized;
+            } catch (e) {}
+        }
+        return countryNameByCode[code] || code || "";
+    };
 
     const mapGroup = svg.append("g");
 
@@ -229,37 +429,70 @@ document.addEventListener("DOMContentLoaded", function() {
         ? "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
         : "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson";
 
+    const getCountryCode = d => {
+        const p = d.properties;
+        if (p.ISO_A2 && p.ISO_A2 !== "-99") return p.ISO_A2;
+        return p.ISO_A2_EH || p["ISO3166-1-Alpha-2"] || p.WB_A2;
+    };
+
+    const getCountryName = d => d.properties.ADMIN || d.properties.NAME || d.properties.name;
+
+    const renderTopCountriesHUD = countryData => {
+        const listEl = document.getElementById("map-top-countries-list");
+        const totalEl = document.getElementById("map-total-readers");
+        if (!listEl) return;
+
+        const entries = Object.entries(countryData)
+            .filter(([, count]) => count > 0)
+            .sort((a, b) => b[1] - a[1]);
+
+        const totalReaders = entries.reduce((sum, [, count]) => sum + count, 0);
+        if (totalEl) {
+            totalEl.textContent = totalReaders > 0 ? `${totalReaders}` : "";
+        }
+
+        const top5 = entries.slice(0, 5);
+        if (!top5.length) {
+            listEl.innerHTML = `<li class="map-top-item map-top-empty">${escapeHtml(mapTranslations.noData)}</li>`;
+            return;
+        }
+
+        const maxCount = top5[0][1] || 1;
+        listEl.innerHTML = top5.map(([code, count]) => {
+            const label = escapeHtml(resolveCountryLabel(code));
+            const pct = Math.max(8, Math.round((count / maxCount) * 100));
+            return `
+                <li class="map-top-item">
+                    <div class="map-top-row">
+                        <span class="map-top-name" title="${label}">${label}</span>
+                        <span class="map-top-count">${Number(count)}</span>
+                    </div>
+                    <div class="map-top-bar-bg">
+                        <div class="map-top-bar-fill" style="width: ${pct}%;"></div>
+                    </div>
+                </li>
+            `;
+        }).join("");
+    };
+
+    const fetchPeriod = period => fetch(`/api/map-data/?period=${encodeURIComponent(period)}`)
+        .then(r => {
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            return r.json();
+        });
+
     Promise.all([
-        fetch('/api/map-data/').then(r => r.json()),
+        fetchPeriod("all"),
         d3.json(geoJsonUrl)
-    ]).then(([statData, geoData]) => {
-        const countryData = statData.countries || {};
-        const rawCities = statData.cities || statData.markers || [];
-
-        const citiesData = rawCities.map(d => ({
-            name: d.name || "",
-            coords: d.coords,
-            count: d.count !== undefined ? d.count : (d.views || 1)
-        })).filter(d => Array.isArray(d.coords) && d.coords.length === 2);
-
-        const maxViews = d3.max(Object.values(countryData)) || 1;
-        const colorScale = d3.scaleLinear()
-            .domain([0, maxViews])
-            .range(['#b3d4f0', '#003d71']);
+    ]).then(([initialStatData, geoData]) => {
+        geoData.features.forEach(f => {
+            const code = getCountryCode(f);
+            const name = getCountryName(f);
+            if (code && name) countryNameByCode[code] = name;
+        });
 
         {# Set minimum ceiling of 50 views so 10 views don't get maximum radius #}
-        const maxCityViews = Math.max(50, d3.max(citiesData, d => d.count) || 1);
-        const baseRadiusScale = d3.scaleSqrt()
-            .domain([1, maxCityViews])
-            .range([3, 10]);
-
-        const getCountryCode = d => {
-            const p = d.properties;
-            if (p.ISO_A2 && p.ISO_A2 !== "-99") return p.ISO_A2;
-            return p.ISO_A2_EH || p["ISO3166-1-Alpha-2"] || p.WB_A2;
-        };
-
-        const getCountryName = d => d.properties.ADMIN || d.properties.NAME || d.properties.name;
+        const baseRadiusScale = d3.scaleSqrt().range([3, 10]);
 
         {# Draw countries #}
         const countryPaths = mapGroup.selectAll(".d3-country")
@@ -267,18 +500,9 @@ document.addEventListener("DOMContentLoaded", function() {
             .enter().append("path")
             .attr("class", "d3-country")
             .attr("d", path)
-            .attr("fill", d => {
-                const code = getCountryCode(d);
-                return countryData[code] ? colorScale(countryData[code]) : 'var(--map-empty-fill)';
-            });
+            .attr("fill", "var(--map-empty-fill)");
 
-        {# Draw heat spots for cities #}
-        const heatSpots = mapGroup.selectAll(".heat-spot")
-            .data(citiesData)
-            .enter().append("circle")
-            .attr("class", "heat-spot")
-            .attr("fill", "url(#heat-glow)")
-            .style("pointer-events", "none");
+        let heatSpots = mapGroup.selectAll(".heat-spot");
 
         {# Update spot positions, visibility, and scale-adjusted radius #}
         const updateSpots = () => {
@@ -306,7 +530,70 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
         };
 
-        updateSpots();
+        {# Apply a period's data: country fills, city heat spots, Top-5 HUD #}
+        const applyStatData = statData => {
+            currentCountryData = (statData && statData.countries) || {};
+            const rawCities = (statData && (statData.cities || statData.markers)) || [];
+
+            const citiesData = rawCities.map(d => ({
+                name: d.name || "",
+                coords: d.coords,
+                count: d.count !== undefined ? d.count : (d.views || 1)
+            })).filter(d => Array.isArray(d.coords) && d.coords.length === 2);
+
+            const maxViews = d3.max(Object.values(currentCountryData)) || 1;
+            const colorScale = d3.scaleLinear()
+                .domain([0, maxViews])
+                .range(['#b3d4f0', '#003d71']);
+
+            countryPaths.attr("fill", d => {
+                const code = getCountryCode(d);
+                return currentCountryData[code] ? colorScale(currentCountryData[code]) : 'var(--map-empty-fill)';
+            });
+
+            const maxCityViews = Math.max(50, d3.max(citiesData, d => d.count) || 1);
+            baseRadiusScale.domain([1, maxCityViews]);
+
+            heatSpots = mapGroup.selectAll(".heat-spot")
+                .data(citiesData, d => d.name)
+                .join(
+                    enter => enter.append("circle")
+                        .attr("class", "heat-spot")
+                        .attr("fill", "url(#heat-glow)")
+                        .style("pointer-events", "none"),
+                    update => update,
+                    exit => exit.remove()
+                );
+
+            updateSpots();
+            renderTopCountriesHUD(currentCountryData);
+        };
+
+        applyStatData(initialStatData);
+
+        {# Period filter buttons; only the latest request is applied #}
+        const periodButtons = document.querySelectorAll(".map-period-btn");
+        let periodRequestId = 0;
+        periodButtons.forEach(btn => {
+            btn.addEventListener("click", function() {
+                const selectedPeriod = this.getAttribute("data-period");
+                if (!selectedPeriod || this.classList.contains("active")) return;
+
+                periodButtons.forEach(b => {
+                    b.classList.remove("active");
+                    b.setAttribute("aria-pressed", "false");
+                });
+                this.classList.add("active");
+                this.setAttribute("aria-pressed", "true");
+
+                const requestId = ++periodRequestId;
+                fetchPeriod(selectedPeriod)
+                    .then(newData => {
+                        if (requestId === periodRequestId) applyStatData(newData);
+                    })
+                    .catch(err => console.error("Period filter error:", err));
+            });
+        });
 
         if (!isMobile) {
             {# Desktop zoom and pan #}
@@ -326,8 +613,8 @@ document.addEventListener("DOMContentLoaded", function() {
             countryPaths
                 .on("mouseover", function(event, d) {
                     const code = getCountryCode(d);
-                    const countryName = getCountryName(d);
-                    const views = countryData[code] || 0;
+                    const countryName = escapeHtml(resolveCountryLabel(code));
+                    const views = currentCountryData[code] || 0;
 
                     tooltip.transition().duration(200).style("opacity", 1);
                     tooltip.html(`<strong>${countryName}</strong><br/>${mapTranslations.views}: ${views}`)
@@ -346,8 +633,8 @@ document.addEventListener("DOMContentLoaded", function() {
             {# Mobile tap tooltip #}
             countryPaths.on("click", function(event, d) {
                 const code = getCountryCode(d);
-                const countryName = getCountryName(d);
-                const views = countryData[code] || 0;
+                const countryName = escapeHtml(resolveCountryLabel(code));
+                const views = currentCountryData[code] || 0;
 
                 tooltip.transition().duration(150).style("opacity", 1);
                 tooltip.html(`<strong>${countryName}</strong><br/>${mapTranslations.views}: ${views}`)
