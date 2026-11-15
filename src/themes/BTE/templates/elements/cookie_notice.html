@@ -1,0 +1,111 @@
+{% load i18n %}
+{# BTE: informational cookie notice (no consent needed: essential cookies + cookieless GA4). #}
+{# Toggle: Manager -> Settings -> Custom Settings -> display_cookie_notice. Dismissal is kept in localStorage, not in a cookie. #}
+<style>
+    .bte-cookie-notice {
+        position: fixed;
+        left: 16px;
+        bottom: 16px;
+        z-index: 1050;
+        max-width: 420px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px 10px 14px;
+        background: rgba(255, 255, 255, 0.96);
+        color: #1f2937;
+        border: 1px solid rgba(0, 61, 113, 0.18);
+        border-left: 3px solid #003d71;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.78rem;
+        line-height: 1.45;
+    }
+    .bte-cookie-notice[hidden] {
+        display: none !important;
+    }
+    .bte-cookie-notice p {
+        margin: 0;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit !important;
+    }
+    .bte-cookie-notice a {
+        color: #003d71;
+        text-decoration: underline;
+    }
+    .bte-cookie-notice a:hover {
+        color: #c8102e;
+    }
+    .bte-cookie-notice__btn {
+        flex: 0 0 auto;
+        margin: 0;
+        padding: 6px 14px;
+        border: none;
+        border-radius: 4px;
+        background: #003d71;
+        color: #ffffff;
+        font-family: inherit;
+        font-size: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+    .bte-cookie-notice__btn:hover {
+        background: #c8102e;
+    }
+    .bte-cookie-notice__btn:focus-visible,
+    .bte-cookie-notice a:focus-visible {
+        outline: 2px solid #c8102e;
+        outline-offset: 2px;
+    }
+    body.dark-theme .bte-cookie-notice {
+        background: rgba(30, 30, 30, 0.96);
+        color: #f3f4f6;
+        border-color: rgba(255, 255, 255, 0.14);
+        border-left-color: #c8102e;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    }
+    body.dark-theme .bte-cookie-notice a {
+        color: #93c5fd;
+    }
+    body.dark-theme .bte-cookie-notice__btn {
+        background: #c8102e;
+    }
+    @media (max-width: 640px) {
+        .bte-cookie-notice {
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            max-width: none;
+            font-size: 0.74rem;
+        }
+    }
+    @media print {
+        .bte-cookie-notice { display: none !important; }
+    }
+</style>
+<div id="bte-cookie-notice" class="bte-cookie-notice" role="region" aria-label="{% trans 'Cookie notice' %}" hidden>
+    <p>
+        {% trans 'This site uses essential cookies and Google Analytics cookies to collect anonymous visit statistics.' %}
+        <a href="{% if journal_settings.general.privacy_policy_url %}{{ journal_settings.general.privacy_policy_url }}{% else %}{% url 'cms_page' 'privacy' %}{% endif %}">{% trans 'Learn more in our Privacy Policy.' %}</a>
+    </p>
+    <button type="button" class="bte-cookie-notice__btn" id="bte-cookie-notice-ok">{% trans 'Got it' %}</button>
+</div>
+<script>
+(function () {
+    var KEY = "bte_cookie_notice_dismissed";
+    var box = document.getElementById("bte-cookie-notice");
+    var btn = document.getElementById("bte-cookie-notice-ok");
+    if (!box || !btn) return;
+    var dismissed = false;
+    try { dismissed = window.localStorage.getItem(KEY) === "1"; } catch (e) {}
+    if (dismissed) return;
+    box.hidden = false;
+    btn.addEventListener("click", function () {
+        try { window.localStorage.setItem(KEY, "1"); } catch (e) {}
+        box.hidden = true;
+    });
+})();
+</script>

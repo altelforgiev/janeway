@@ -1301,6 +1301,9 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 {% block js %}{% endblock %}
+{% if request.journal and journal_settings.general.display_cookie_notice %}
+    {% include "elements/cookie_notice.html" %}
+{% endif %}
 <a href="/assets/archive/download-all/" style="display: none !important; visibility: hidden;" tabindex="-1" rel="nofollow">All publications archive</a>
 </body>
 </html>

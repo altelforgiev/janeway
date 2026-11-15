@@ -9724,3 +9724,27 @@ msgstr "Оқырмандар географиясының картасын кө�
 #: core/setting_strings.py
 msgid "If enabled, the “Geography of our readers” map is shown on the journal home page. Visit statistics are still collected while the map is hidden."
 msgstr "Қосулы болса, журналдың басты бетінде «Оқырмандарымыздың географиясы» картасы көрсетіледі. Карта жасырылған кезде де кірулер статистикасы жиналады."
+
+#: core/setting_strings.py
+msgid "Display cookie notice"
+msgstr "Cookie туралы хабарламаны көрсету"
+
+#: core/setting_strings.py
+msgid "If enabled, a small informational cookie notice is shown at the bottom of public pages until the visitor dismisses it (stored in the browser's localStorage, not in a cookie)."
+msgstr "Қосулы болса, қоғамдық беттердің төменгі жағында келуші жапқанға дейін cookie туралы шағын ақпараттық хабарлама көрсетіледі (белгі cookie-де емес, браузердің localStorage-інде сақталады)."
+
+#: themes/BTE/templates/elements/cookie_notice.html
+msgid "Cookie notice"
+msgstr "Cookie туралы хабарлама"
+
+#: themes/BTE/templates/elements/cookie_notice.html
+msgid "This site uses essential cookies and Google Analytics cookies to collect anonymous visit statistics."
+msgstr "Сайт қажетті cookie файлдарын және кірулердің жасырын статистикасын жинау үшін Google Analytics cookie файлдарын қолданады."
+
+#: themes/BTE/templates/elements/cookie_notice.html
+msgid "Learn more in our Privacy Policy."
+msgstr "Толығырақ — Құпиялылық саясатында."
+
+#: themes/BTE/templates/elements/cookie_notice.html
+msgid "Got it"
+msgstr "Түсінікті"

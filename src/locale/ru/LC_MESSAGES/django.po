@@ -9818,3 +9818,27 @@ msgstr "Показывать карту географии читателей"
 #: core/setting_strings.py
 msgid "If enabled, the “Geography of our readers” map is shown on the journal home page. Visit statistics are still collected while the map is hidden."
 msgstr "Если включено, на главной странице журнала показывается карта «География наших читателей». Статистика посещений собирается и при скрытой карте."
+
+#: core/setting_strings.py
+msgid "Display cookie notice"
+msgstr "Показывать уведомление о cookie"
+
+#: core/setting_strings.py
+msgid "If enabled, a small informational cookie notice is shown at the bottom of public pages until the visitor dismisses it (stored in the browser's localStorage, not in a cookie)."
+msgstr "Если включено, внизу публичных страниц показывается небольшое информационное уведомление о cookie, пока посетитель его не закроет (отметка хранится в localStorage браузера, а не в cookie)."
+
+#: themes/BTE/templates/elements/cookie_notice.html
+msgid "Cookie notice"
+msgstr "Уведомление о cookie"
+
+#: themes/BTE/templates/elements/cookie_notice.html
+msgid "This site uses essential cookies and Google Analytics cookies to collect anonymous visit statistics."
+msgstr "Сайт использует необходимые cookie и cookie Google Analytics для сбора анонимной статистики посещений."
+
+#: themes/BTE/templates/elements/cookie_notice.html
+msgid "Learn more in our Privacy Policy."
+msgstr "Подробнее — в Политике конфиденциальности."
+
+#: themes/BTE/templates/elements/cookie_notice.html
+msgid "Got it"
+msgstr "Понятно"

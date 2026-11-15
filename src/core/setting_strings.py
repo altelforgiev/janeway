@@ -569,4 +569,6 @@ SETTING_STRINGS = [
     # BTE custom settings
     gettext_noop('Display readers geography map'),
     gettext_noop('If enabled, the “Geography of our readers” map is shown on the journal home page. Visit statistics are still collected while the map is hidden.'),
+    gettext_noop('Display cookie notice'),
+    gettext_noop("If enabled, a small informational cookie notice is shown at the bottom of public pages until the visitor dismisses it (stored in the browser's localStorage, not in a cookie)."),
 ]

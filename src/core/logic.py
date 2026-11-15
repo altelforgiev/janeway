@@ -747,6 +747,12 @@ def get_settings_to_edit(display_group, journal, user):
                     "general", "display_reader_geography_map", journal
                 ),
             },
+            {
+                "name": "display_cookie_notice",
+                "object": setting_handler.get_setting(
+                    "general", "display_cookie_notice", journal
+                ),
+            },
         ]
         setting_group = "general"
     else:

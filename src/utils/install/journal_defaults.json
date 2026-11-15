@@ -5691,5 +5691,24 @@
             "editor",
             "journal-manager"
         ]
+    },
+    {
+        "value": {
+            "default": "on"
+        },
+        "setting": {
+            "type": "boolean",
+            "pretty_name": "Display cookie notice",
+            "is_translatable": false,
+            "description": "If enabled, a small informational cookie notice is shown at the bottom of public pages until the visitor dismisses it (stored in the browser's localStorage, not in a cookie).",
+            "name": "display_cookie_notice"
+        },
+        "group": {
+            "name": "general"
+        },
+        "editable_by": [
+            "editor",
+            "journal-manager"
+        ]
     }
 ]
