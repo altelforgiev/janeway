@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-15 09:30+0000\n"
+"POT-Creation-Date: 2026-11-15 14:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -106,7 +106,6 @@ msgid "Off"
 msgstr "Өшірулі"
 
 #: core/homepage_elements/carousel/models.py:10
-#: themes/BTE/templates/journal/index.html:9
 msgid "Latest Articles"
 msgstr "Соңғы мақалалар"
 
@@ -133,7 +132,35 @@ msgstr ""
 
 #: core/homepage_elements/carousel/models.py:70
 msgid "Issues and Collections"
-msgstr "Мәселелер мен жинақтар"
+msgstr "Шығарылымдар мен жинақтар"
+
+#: core/janeway_global_settings.py:252
+msgid "English"
+msgstr "Ағылшын тілі"
+
+#: core/janeway_global_settings.py:253
+msgid "English (US)"
+msgstr "Ағылшын тілі (АҚШ)"
+
+#: core/janeway_global_settings.py:254
+msgid "French"
+msgstr "Француз тілі"
+
+#: core/janeway_global_settings.py:255
+msgid "German"
+msgstr "Неміс тілі"
+
+#: core/janeway_global_settings.py:256
+msgid "Dutch"
+msgstr "Нидерланд тілі"
+
+#: core/janeway_global_settings.py:257
+msgid "Welsh"
+msgstr "Уэльс тілі"
+
+#: core/janeway_global_settings.py:258
+msgid "Spanish"
+msgstr "Испан тілі"
 
 #: core/logic.py:1042
 msgid "Your password must be {} characters long"
@@ -276,7 +303,6 @@ msgstr "PK мақаласы"
 #: templates/admin/submission/submit_files.html:43
 #: templates/admin/submission/submit_files.html:83
 #: templates/admin/submission/submit_review.html:110
-#: themes/BTE/templates/admin/submission/submit_files.html:61
 msgid "Label"
 msgstr "Белгі"
 
@@ -317,35 +343,35 @@ msgstr "Тақырып"
 msgid "Your message"
 msgstr "Сенің хатың"
 
-#: core/models.py:2777
+#: core/models.py:2778
 msgid "Active"
 msgstr "Белсенді"
 
-#: core/models.py:2778
+#: core/models.py:2779
 msgid "Inactive"
 msgstr "Белсенді емес"
 
-#: core/models.py:2779 templates/admin/review/view_review.html:62
+#: core/models.py:2780 templates/admin/review/view_review.html:62
 msgid "Withdrawn"
 msgstr "Шығарылды"
 
-#: core/models.py:2780
+#: core/models.py:2781
 msgid "Unknown"
 msgstr "Белгісіз"
 
-#: core/models.py:3001
+#: core/models.py:3002
 msgid "Title, position, or role"
 msgstr "Атауы, лауазымы немесе рөлі"
 
-#: core/models.py:3006
+#: core/models.py:3007
 msgid "Department, unit, or team"
 msgstr "Бөлім, бөлім немесе команда"
 
 #: core/validators.py:18
 #, python-brace-format
 msgid ""
-"Extension {extension} is not allowed. Allowed extensions are: "
-"{validator.extensions}"
+"Extension {extension} is not allowed. Allowed extensions are: {validator."
+"extensions}"
 msgstr ""
 "Кеңейтім {extension} рұқсат етілмейді. Рұқсат етілген кеңейтімдер: "
 "{validator.extensions}"
@@ -356,11 +382,11 @@ msgid ""
 "MIME type {mimetype} is not valid. Valid types are: {validator.mimetypes}"
 msgstr "MIME түрі {mimetype} жарамсыз. Жарамды түрлері: {validator.mimetypes}"
 
-#: core/views.py:87
+#: core/views.py:96
 msgid "You have been banned from logging in due to failed attempts."
 msgstr "Сәтсіз әрекеттерге байланысты жүйеге кіруге тыйым салынды."
 
-#: core/views.py:131
+#: core/views.py:140
 msgid ""
 "Password reset process has been initiated, please check your inbox for a "
 "reset request link."
@@ -368,7 +394,7 @@ msgstr ""
 "Құпия сөзді қалпына келтіру процесі басталды, кіріс жәшігіңізді қалпына "
 "келтіру сұрауының сілтемесін тексеріңіз."
 
-#: core/views.py:142
+#: core/views.py:151
 msgid ""
 "Wrong email/password combination or your email address has not been "
 "confirmed yet."
@@ -376,19 +402,19 @@ msgstr ""
 "Қате электрондық пошта/құпия сөз тіркесімі немесе электрондық пошта "
 "мекенжайыңыз әлі расталмады."
 
-#: core/views.py:194
+#: core/views.py:203
 msgid "ORCID is not enabled.Please log in with your username and password."
 msgstr "ORCID қосылмаған. Пайдаланушы аты мен құпия сөзбен жүйеге кіріңіз."
 
-#: core/views.py:294
+#: core/views.py:303
 msgid "You have been logged out."
 msgstr "Сіз жүйеден шықтыңыз."
 
-#: core/views.py:318
+#: core/views.py:327
 msgid "If your account was found, an email has been sent to you."
 msgstr "Есептік жазбаңыз табылса, сізге электрондық хат жіберілді."
 
-#: core/views.py:472
+#: core/views.py:481
 msgid ""
 "Your account has been created. Please follow the instructions in the email "
 "that has been sent to you."
@@ -396,46 +422,45 @@ msgstr ""
 "Тіркелгіңіз жасалды. Сізге жіберілген электрондық поштадағы нұсқауларды "
 "орындаңыз."
 
-#: core/views.py:527
+#: core/views.py:536
 msgid "Account activated"
 msgstr "Есептік жазба белсендірілді"
 
-#: core/views.py:577
+#: core/views.py:586
 msgid "An account with that email address already exists."
 msgstr "Бұл электрондық пошта мекенжайы бар есептік жазба бұрыннан бар."
 
-#: core/views.py:583
+#: core/views.py:592
 msgid "Email address is not valid."
 msgstr "Электрондық пошта мекенжайы жарамсыз."
 
-#: core/views.py:598
+#: core/views.py:607
 msgid "Password updated."
 msgstr "Құпия сөз жаңартылды."
 
-#: core/views.py:607
+#: core/views.py:616
 msgid "Passwords do not match"
 msgstr "Құпия сөздер сәйкес келмейді"
 
-#: core/views.py:612
+#: core/views.py:621
 msgid "Old password is not correct."
 msgstr "Ескі құпия сөз дұрыс емес."
 
-#: core/views.py:623
+#: core/views.py:632
 msgid "Successfully subscribed to article notifications."
 msgstr "Мақала хабарландыруларына сәтті жазылды."
 
-#: core/views.py:631
+#: core/views.py:640
 msgid "Successfully unsubscribed from article notifications."
 msgstr "Мақала хабарландыруларына жазылу сәтті аяқталды."
 
-#: core/views.py:733
+#: core/views.py:742
 msgid ""
 "Your account does not have an ORCID. Please log in with ORCID and try again."
 msgstr ""
-"Есептік жазбаңызда ORCID жоқ. ORCID арқылы жүйеге кіріп, әрекетті "
-"қайталаңыз."
+"Есептік жазбаңызда ORCID жоқ. ORCID арқылы жүйеге кіріп, әрекетті қайталаңыз."
 
-#: core/views.py:749 submission/views.py:1587
+#: core/views.py:758 submission/views.py:1587
 #, python-format
 msgid ""
 "No affiliations were found on your public ORCID record for ID %(orcid_id)s. "
@@ -445,54 +470,54 @@ msgstr ""
 "ешқандай серіктестік табылмады. orcid.org сайтындағы серіктестіктеріңізді "
 "жаңартып, әрекетті қайталаңыз."
 
-#: core/views.py:782 submission/views.py:1622
+#: core/views.py:791 submission/views.py:1622
 msgid "Affiliations updated."
 msgstr "Серіктестіктер жаңартылды."
 
-#: core/views.py:2400
+#: core/views.py:2409
 msgid ""
-"You cannot remove a section that contains articles. Remove articles from the"
-" section if you want to delete it."
+"You cannot remove a section that contains articles. Remove articles from the "
+"section if you want to delete it."
 msgstr ""
-"Мақалалары бар бөлімді жою мүмкін емес. Бөлімнен мақалаларды жойғыңыз келсе,"
-" оны жойыңыз."
+"Мақалалары бар бөлімді жою мүмкін емес. Бөлімнен мақалаларды жойғыңыз келсе, "
+"оны жойыңыз."
 
-#: core/views.py:2830
+#: core/views.py:2839
 msgid "The form did not validate: "
 msgstr "Пішін расталмады:"
 
-#: core/views.py:3062 journal/forms.py:24 journal/views.py:3040
+#: core/views.py:3071 journal/forms.py:24 journal/views.py:3040
 msgid "Newest"
 msgstr "Ең жаңасы"
 
-#: core/views.py:3063 journal/forms.py:25 journal/views.py:3041
+#: core/views.py:3072 journal/forms.py:25 journal/views.py:3041
 msgid "Oldest"
 msgstr "Ең ескі"
 
-#: core/views.py:3064
+#: core/views.py:3073
 msgid "Last name A-Z"
 msgstr "Тегі A-Z"
 
-#: core/views.py:3065
+#: core/views.py:3074
 msgid "Last name Z-A"
 msgstr "Тегі З-А"
 
-#: core/views.py:3219 submission/views.py:1327
+#: core/views.py:3228 submission/views.py:1327
 #, python-format
 msgid "Custom organization updated: %(organization)s"
 msgstr "Арнаулы ұйым жаңартылды: %(organization)s"
 
-#: core/views.py:3268 submission/views.py:1394
+#: core/views.py:3277 submission/views.py:1394
 #, python-format
 msgid "Affiliation created: %(affiliation)s"
 msgstr "Құрылған серіктестік: %(affiliation)s"
 
-#: core/views.py:3315 submission/views.py:1456
+#: core/views.py:3324 submission/views.py:1456
 #, python-format
 msgid "Affiliation updated: %(affiliation)s"
 msgstr "Серіктестік жаңартылды: %(affiliation)s"
 
-#: core/views.py:3354 submission/views.py:1511
+#: core/views.py:3363 submission/views.py:1511
 #, python-format
 msgid "Affiliation removed: %(affiliation)s"
 msgstr "Қатысу жойылды: %(affiliation)s"
@@ -559,15 +584,14 @@ msgid ""
 "Short acronym for the journal. Used as part of the journal URLin path mode "
 "and to uniquely identify the journal"
 msgstr ""
-"Журналдың қысқаша аббревиатурасы. Журналдың URL жол режимінің бөлігі ретінде"
-" және журналды бірегей анықтау үшін пайдаланылады"
+"Журналдың қысқаша аббревиатурасы. Журналдың URL жол режимінің бөлігі ретінде "
+"және журналды бірегей анықтау үшін пайдаланылады"
 
 #: journal/models.py:135
 msgid ""
 "The default thumbnail for articles, not to be confused with 'Default cover "
 "image'."
-msgstr ""
-"«Әдепкі мұқаба суретімен» шатастырмау үшін мақалалардың әдепкі нобайы."
+msgstr "«Әдепкі мұқаба суретімен» шатастырмау үшін мақалалардың әдепкі нобайы."
 
 #: journal/models.py:144
 msgid "Replaces the press logo in the footer."
@@ -591,8 +615,8 @@ msgid ""
 "The logo-sized image at the top of all pages, typically used for journal "
 "logos."
 msgstr ""
-"Барлық беттердің жоғарғы жағындағы логотип өлшеміндегі кескін, әдетте журнал"
-" логотиптері үшін пайдаланылады."
+"Барлық беттердің жоғарғы жағындағы логотип өлшеміндегі кескін, әдетте журнал "
+"логотиптері үшін пайдаланылады."
 
 #: journal/models.py:181
 msgid ""
@@ -651,8 +675,7 @@ msgstr "Шығарылым тақырыбын көрсету пішімінің 
 #: journal/models.py:867
 msgid "Autogenerated cache of the accessible display format of an issue title"
 msgstr ""
-"Мәселе тақырыбының қол жетімді дисплей пішімінің автоматты түрде жасалған "
-"кэші"
+"Шығарылым атауының қолжетімді көрсету пішімінің автоматты түрде жасалған кэші"
 
 #: journal/models.py:888
 msgid "Image representing the cover of a printed issue or volume"
@@ -673,8 +696,7 @@ msgstr ""
 
 #: journal/models.py:940
 msgid ""
-"An ISBN is relevant for non-serial collections such as conference "
-"proceedings"
+"An ISBN is relevant for non-serial collections such as conference proceedings"
 msgstr "ISBN конференция материалдары сияқты сериялық емес жинақтарға қатысты"
 
 #: journal/models.py:998
@@ -686,7 +708,7 @@ msgstr "ISBN конференция материалдары сияқты сер
 #: themes/clean/templates/press/press_journals.html:48
 #: themes/material/templates/press/press_journals.html:52
 msgid "Current Issue"
-msgstr "Ағымдағы мәселе"
+msgstr "Ағымдағы шығарылым"
 
 #: journal/models.py:1077
 msgid "pages"
@@ -752,11 +774,11 @@ msgstr "Редактор шығарылымнан жойылды."
 
 #: journal/views.py:1785
 msgid "Issue Editor not found."
-msgstr "Мәселе өңдегіші табылмады."
+msgstr "Шығарылым редакторы табылмады."
 
 #: journal/views.py:1791
 msgid "No Issue Editor ID supplied."
-msgstr "Мәселе өңдегішінің идентификаторы берілмейді."
+msgstr "Шығарылым редакторының идентификаторы берілмеген."
 
 #: journal/views.py:1942
 msgid "Uploaded file is not UTF-8 encoded"
@@ -843,7 +865,7 @@ msgstr "Автордың аты"
 
 #: journal/views.py:3045
 msgid "Volume"
-msgstr "Көлемі"
+msgstr "Том"
 
 #: press/views.py:403
 msgid "Description deleted."
@@ -899,8 +921,8 @@ msgstr ""
 "Бұл өріс тұрақты ток метадеректер өрісі ретінде шығарылатын болса, түрін "
 "осында қосуға болады."
 
-#: repository/models.py:599 repository/models.py:1259
-#: repository/models.py:1624 submission/models.py:1008
+#: repository/models.py:599 repository/models.py:1259 repository/models.py:1624
+#: submission/models.py:1008
 msgid "Your article title"
 msgstr "Сіздің мақалаңыздың тақырыбы"
 
@@ -1061,8 +1083,8 @@ msgstr "Редактор қарастырған кез келген пікірл
 
 #: submission/models.py:1213
 msgid ""
-"Custom 'how to cite' text. To be used only if the block generated by Janeway"
-" is not suitable."
+"Custom 'how to cite' text. To be used only if the block generated by Janeway "
+"is not suitable."
 msgstr ""
 "«Қалай сілтеме жасау керек» мәтіні. Janeway жасаған блок жарамсыз болған "
 "жағдайда ғана қолданылады."
@@ -1099,8 +1121,8 @@ msgstr "ORCID осы автормен ешбір тіркелгі байланы
 msgid ""
 "Whether to display this author's email address on the published article."
 msgstr ""
-"Жарияланған мақалада осы автордың электрондық пошта мекенжайын көрсету керек"
-" пе."
+"Жарияланған мақалада осы автордың электрондық пошта мекенжайын көрсету керек "
+"пе."
 
 #: submission/models.py:3333 templates/admin/submission/submit_files.html:72
 msgid "Figures and Data Files"
@@ -1276,18 +1298,23 @@ msgid ""
 "      below.\n"
 "    "
 msgstr ""
+"\n"
 "Түймені басу арқылы белсендіру процесін аяқтауға болады\n"
 "      төменде."
 
 #: templates/admin/core/accounts/activate_account.html:34
 msgid ""
 "\n"
-"      Sorry, we could not find an account to activate, or your account is active\n"
+"      Sorry, we could not find an account to activate, or your account is "
+"active\n"
 "      already. You can check if it is active by attempting to log in.\n"
 "    "
 msgstr ""
-"Кешіріңіз, біз белсендіру үшін тіркелгіні таба алмадық немесе сіздің тіркелгіңіз белсенді\n"
-"      қазірдің өзінде. Жүйеге кіру әрекеті арқылы оның белсенді екенін тексеруге болады."
+"\n"
+"Кешіріңіз, біз белсендіру үшін тіркелгіні таба алмадық немесе сіздің "
+"тіркелгіңіз белсенді\n"
+"      қазірдің өзінде. Жүйеге кіру әрекеті арқылы оның белсенді екенін "
+"тексеруге болады."
 
 #: templates/admin/core/accounts/activate_account.html:40
 #: templates/admin/core/accounts/login.html:5
@@ -1296,14 +1323,13 @@ msgstr ""
 #: templates/admin/journal/submissions.html:40
 #: themes/BTE/templates/admin/core/accounts/login.html:84
 #: themes/BTE/templates/admin/core/accounts/login.html:115
-#: themes/BTE/templates/core/base.html:254
+#: themes/BTE/templates/core/base.html:1080
 #: themes/BTE/templates/core/login.html:77
 #: themes/BTE/templates/core/login.html:107
-#: themes/BTE/templates/core/nav.html:30
-#: themes/BTE/templates/elements/journal_footer.html:48
+#: themes/BTE/templates/core/nav.html:166
 #: themes/BTE/templates/journal/become_reviewer.html:17
-#: themes/BTE/templates/journal/submissions.html:36
-#: themes/BTE/templates/press/elements/press_footer.html:21
+#: themes/BTE/templates/journal/submissions.html:29
+#: themes/BTE/templates/press/elements/press_footer.html:33
 #: themes/BTE/templates/press/nav.html:58
 #: themes/OLH/templates/core/base.html:152
 #: themes/OLH/templates/core/login.html:47
@@ -1360,11 +1386,15 @@ msgid ""
 "        are one and the same.</p>\n"
 "      "
 msgstr ""
-"<p>Электрондық пошта мекенжайыңызды өзгерткіңіз келсе, төменде өзгерте аласыз:\n"
+"\n"
+"<p>Электрондық пошта мекенжайыңызды өзгерткіңіз келсе, төменде өзгерте "
+"аласыз:\n"
 "        дегенмен, сіз жүйеден шығасыз және сіздің\n"
 "        тіркелгі сіз орындамайынша белсенді емес деп белгіленеді\n"
-"        растау электрондық поштасындағы нұсқаулар. <strong>Ескертпе: </strong>\n"
-"        Электрондық пошта мекенжайын өзгерту пайдаланушы атыңызды да осылай өзгертеді\n"
+"        растау электрондық поштасындағы нұсқаулар. <strong>Ескертпе: </"
+"strong>\n"
+"        Электрондық пошта мекенжайын өзгерту пайдаланушы атыңызды да осылай "
+"өзгертеді\n"
 "        бір және бірдей.</p>"
 
 #: templates/admin/core/accounts/edit_profile.html:36
@@ -1401,11 +1431,14 @@ msgstr "Мақала хабарландыруларына тіркеліңіз"
 #: templates/admin/core/accounts/edit_profile.html:61
 msgid ""
 "\n"
-"            Use the button below to register to receive notifications of new articles\n"
+"            Use the button below to register to receive notifications of new "
+"articles\n"
 "            published in this journal.\n"
 "          "
 msgstr ""
-"Жаңа мақалалар туралы хабарландыруларды алу үшін тіркелу үшін төмендегі түймені пайдаланыңыз\n"
+"\n"
+"Жаңа мақалалар туралы хабарландыруларды алу үшін тіркелу үшін төмендегі "
+"түймені пайдаланыңыз\n"
 "            осы журналда жарияланған."
 
 #: templates/admin/core/accounts/edit_profile.html:68
@@ -1444,6 +1477,7 @@ msgid ""
 "        password plus your new password.\n"
 "      "
 msgstr ""
+"\n"
 "Құпия сөзді бұрыннан бар енгізу арқылы жаңартуға болады\n"
 "        құпия сөзді және жаңа құпия сөзіңізді."
 
@@ -1453,7 +1487,7 @@ msgstr ""
 #: themes/clean/templates/elements/accounts/edit_profile_body_block.html:77
 #: themes/material/templates/elements/accounts/edit_profile_body_block.html:76
 msgid "Current Password"
-msgstr "ағымдағы құпия сөз"
+msgstr "Ағымдағы құпия сөз"
 
 #: templates/admin/core/accounts/edit_profile.html:98
 #: themes/BTE/templates/elements/accounts/edit_profile_body_block.html:67
@@ -1498,9 +1532,11 @@ msgstr "Құпия сөзді қалпына келтіру"
 #: templates/admin/core/accounts/get_reset_token.html:22
 msgid ""
 "\n"
-"      Enter your email address and then follow the link sent to you by email.\n"
+"      Enter your email address and then follow the link sent to you by "
+"email.\n"
 "    "
 msgstr ""
+"\n"
 "Электрондық пошта мекенжайыңызды енгізіңіз, содан кейін сізге электрондық "
 "пошта арқылы жіберілген сілтемені орындаңыз."
 
@@ -1561,12 +1597,15 @@ msgstr "Тіркелмеген ORCiD"
 msgid ""
 "\n"
 "    The ORCiD you logged in with is not currently linked with an\n"
-"    account in our system. You can either register a new account, or login with\n"
+"    account in our system. You can either register a new account, or login "
+"with\n"
 "    an existing account to link your ORCiD for future use.\n"
 "  "
 msgstr ""
+"\n"
 "Сіз жүйеге кірген ORCiD қазіргі уақытта байланысқан емес\n"
-"    біздің жүйеміздегі есептік жазба. Сіз жаңа есептік жазбаны тіркей аласыз немесе жүйеге кіре аласыз\n"
+"    біздің жүйеміздегі есептік жазба. Сіз жаңа есептік жазбаны тіркей аласыз "
+"немесе жүйеге кіре аласыз\n"
 "    болашақта пайдалану үшін ORCiD байланыстыру үшін бар тіркелгі."
 
 #: templates/admin/core/accounts/password_guide.html:11
@@ -1587,7 +1626,9 @@ msgid ""
 "\n"
 "        When it comes to passwords, length is better than complexity.\n"
 "      "
-msgstr "Құпия сөздерге келетін болсақ, күрделіліктен гөрі ұзындық жақсырақ."
+msgstr ""
+"\n"
+"Құпия сөздерге келетін болсақ, күрделіліктен гөрі ұзындық жақсырақ."
 
 #: templates/admin/core/accounts/password_guide.html:18
 msgid ""
@@ -1597,6 +1638,7 @@ msgid ""
 "        (our awesome moon base rocks).\n"
 "      "
 msgstr ""
+"\n"
 "Бұл қысқа және күрделі құпия сөз туралы кең таралған миф\n"
 "        (Jfjfy&65^87) ұзақ және күрделі емес құпия сөзге қарағанда қауіпсіз\n"
 "        (біздің керемет ай негізі жартастары)."
@@ -1606,11 +1648,13 @@ msgid ""
 "\n"
 "        We recommend selecting a long, but easy to remember\n"
 "        password such as our awesome moon base rocks which would take an\n"
-"        estimated septillion years to crack as opposed to a complex one like\n"
+"        estimated septillion years to crack as opposed to a complex one "
+"like\n"
 "        Jfjfy&65^87 which would take just over 600 years on a standard\n"
 "        computer.\n"
 "      "
 msgstr ""
+"\n"
 "Ұзын, бірақ есте сақтау оңай таңдауды ұсынамыз\n"
 "        Құпия сөз, мысалы, айдың ғажайып тастары\n"
 "        септилион жылдарға есептелген күрделі кезеңнен айырмашылығы\n"
@@ -1645,6 +1689,7 @@ msgid ""
 "    data-open=\"password-modal\">password guide</a>.\n"
 "  "
 msgstr ""
+"\n"
 "Қосымша ақпарат алу үшін біздің <a href=\"#\"\n"
 "    data-open=\"password-modal\">пароль нұсқаулығы</a>."
 
@@ -1665,9 +1710,9 @@ msgstr "Тіркелгіні тіркеу арқылы сіз біздің ша�
 #: themes/BTE/templates/core/accounts/orcid_registration.html:54
 #: themes/BTE/templates/core/accounts/register.html:9
 #: themes/BTE/templates/core/accounts/register.html:100
-#: themes/BTE/templates/core/base.html:255
-#: themes/BTE/templates/core/nav.html:31
-#: themes/BTE/templates/journal/submissions.html:33
+#: themes/BTE/templates/core/base.html:1083
+#: themes/BTE/templates/core/nav.html:169
+#: themes/BTE/templates/journal/submissions.html:26
 #: themes/BTE/templates/press/nav.html:59
 #: themes/OLH/templates/core/accounts/orcid_registration.html:52
 #: themes/OLH/templates/core/accounts/orcid_registration.html:54
@@ -1715,7 +1760,9 @@ msgid ""
 "\n"
 "      Remove \"%(thing_to_delete)s\"\n"
 "    "
-msgstr "\"%(thing_to_delete)s\" жою"
+msgstr ""
+"\n"
+"\"%(thing_to_delete)s\" жою"
 
 #: templates/admin/core/affiliation_form.html:7
 #: templates/admin/core/affiliation_form.html:19
@@ -1725,7 +1772,9 @@ msgid ""
 "\n"
 "      Edit \"%(affiliation)s\"\n"
 "    "
-msgstr "\"%(affiliation)s\" өңдеу"
+msgstr ""
+"\n"
+"\"%(affiliation)s\" өңдеу"
 
 #: templates/admin/core/affiliation_form.html:11
 #: templates/admin/core/affiliation_form.html:23
@@ -1735,7 +1784,9 @@ msgid ""
 "\n"
 "      Create affiliation with \"%(organization)s\"\n"
 "    "
-msgstr "\"%(organization)s\" арқылы серіктестік құру"
+msgstr ""
+"\n"
+"\"%(organization)s\" арқылы серіктестік құру"
 
 #: templates/admin/core/affiliation_form.html:36
 #: templates/admin/core/affiliation_form.html:45
@@ -1754,18 +1805,22 @@ msgstr "Қатысу мәліметтері"
 #: templates/admin/core/affiliation_form.html:71
 msgid ""
 "\n"
-"      <p>Make your changes to the affiliation, and then select <strong>Save</strong>.</p>\n"
+"      <p>Make your changes to the affiliation, and then select <strong>Save</"
+"strong>.</p>\n"
 "    "
 msgstr ""
-"<p>Үлестікке өзгертулер енгізіп, <strong>Сақтау</strong> пәрменін "
-"таңдаңыз.</p>"
+"\n"
+"<p>Үлестікке өзгертулер енгізіп, <strong>Сақтау</strong> пәрменін таңдаңыз.</"
+"p>"
 
 #: templates/admin/core/affiliation_form.html:75
 msgid ""
 "\n"
-"      <p>Enter optional affiliation details, and select <strong>Save</strong> to create the affiliation.</p>\n"
+"      <p>Enter optional affiliation details, and select <strong>Save</"
+"strong> to create the affiliation.</p>\n"
 "    "
 msgstr ""
+"\n"
 "<p>Қосымша серіктестік мәліметтерін енгізіңіз және серіктестік жасау үшін "
 "<strong>Сақтау</strong> пәрменін таңдаңыз.</p>"
 
@@ -1841,6 +1896,7 @@ msgstr "Бөлімдер"
 
 #: templates/admin/core/manager/sections/section_articles.html:11
 #: templates/admin/press/edit_press_journal_description.html:10
+#: themes/BTE/templates/core/nav.html:147
 #: themes/BTE/templates/elements/right_hand_menu.html:15
 #: themes/BTE/templates/press/elements/right_hand_menu.html:7
 #: themes/BTE/templates/press/nav.html:49
@@ -1863,10 +1919,9 @@ msgstr "Менеджер"
 
 #: templates/admin/core/manager/sections/section_articles.html:13
 #: templates/admin/core/manager/sections/section_articles.html:20
+#: themes/BTE/templates/core/nav.html:53
 #: themes/BTE/templates/journal/article_list.html:6
-#: themes/BTE/templates/journal/article_list.html:22
-#: themes/BTE/templates/journal/articles.html:9
-#: themes/BTE/templates/journal/articles.html:35
+#: themes/BTE/templates/journal/article_list.html:23
 #: themes/BTE/templates/journal/search.html:31
 #: themes/OLH/templates/core/nav.html:53
 #: themes/OLH/templates/journal/article_list.html:6
@@ -1933,11 +1988,15 @@ msgstr "Бұл бөлімде мақалалар жоқ."
 #: templates/admin/core/manager/sections/section_list.html:26
 msgid ""
 "\n"
-"\t\t\t\t\t\t\t\t\tHere you can create and edit the sections that make up a typical issue. You can also think of these as article types, since authors will choose one on submission. To quickly re-order sections, drag and drop the \n"
+"\t\t\t\t\t\t\t\t\tHere you can create and edit the sections that make up a "
+"typical issue. You can also think of these as article types, since authors "
+"will choose one on submission. To quickly re-order sections, drag and drop "
+"the \n"
 "\t\t\t\t\t\t\t\t\t"
 msgstr ""
-"Мұнда әдеттегі мәселені құрайтын бөлімдерді жасауға және өңдеуге болады. Сіз"
-" оларды мақала түрлері ретінде де қарастыра аласыз, өйткені авторлар жіберу "
+"\n"
+"Мұнда әдеттегі мәселені құрайтын бөлімдерді жасауға және өңдеуге болады. Сіз "
+"оларды мақала түрлері ретінде де қарастыра аласыз, өйткені авторлар жіберу "
 "кезінде біреуін таңдайды. Бөлімдердің ретін жылдам өзгерту үшін белгішесін "
 "сүйреп апарыңыз"
 
@@ -1948,16 +2007,19 @@ msgstr "әр жолдың сол жағындағы тұтқалар"
 #: templates/admin/core/manager/sections/section_list.html:31
 msgid ""
 "\n"
-"\t\t\t\t\t\t\t\t\t\tThis will change the order that the author sees these on the submission page - so you may want to move the most popular or current sections to the top.\n"
+"\t\t\t\t\t\t\t\t\t\tThis will change the order that the author sees these on "
+"the submission page - so you may want to move the most popular or current "
+"sections to the top.\n"
 "\t\t\t\t\t\t\t\t\t"
 msgstr ""
+"\n"
 "Бұл автордың оларды жіберу бетінде көретін ретін өзгертеді, сондықтан ең "
 "танымал немесе ағымдағы бөлімдерді жоғарғы жағына жылжытқыңыз келуі мүмкін."
 
 #: templates/admin/core/manager/sections/section_list.html:36
 msgid ""
-"You cannot delete a Section that contains articles. Remove the articles from"
-" the section if you want to delete it."
+"You cannot delete a Section that contains articles. Remove the articles from "
+"the section if you want to delete it."
 msgstr ""
 "Мақалалары бар Бөлімді жою мүмкін емес. Егер сіз оны жойғыңыз келсе, "
 "мақалаларды бөлімнен алып тастаңыз."
@@ -2062,8 +2124,7 @@ msgstr "Әдепкі сурет"
 #: templates/admin/core/partials/journal_image/upload_field.html:108
 msgid "Upload a custom image above to set your own alt text."
 msgstr ""
-"Жеке балама мәтінді орнату үшін жоғарыдағы реттелетін суретті жүктеп "
-"салыңыз."
+"Жеке балама мәтінді орнату үшін жоғарыдағы реттелетін суретті жүктеп салыңыз."
 
 #: templates/admin/core/request_submission_access.html:14
 msgid "requires that you request permission to make a submission."
@@ -2086,7 +2147,6 @@ msgid "Create"
 msgstr "Жасау"
 
 #: templates/admin/elements/a_delete.html:11
-#: templates/admin/elements/review/dropdown.html:47
 #: templates/admin/repository/article.html:238
 #: templates/admin/repository/submit/authors.html:79
 #: templates/admin/submission/submit_funding.html:71
@@ -2094,7 +2154,6 @@ msgid "Delete"
 msgstr "Жою"
 
 #: templates/admin/elements/a_edit.html:11
-#: templates/admin/elements/review/dropdown.html:27
 #: templates/admin/press/edit_press_journal_description.html:11
 #: templates/admin/press/edit_press_journal_description.html:17
 #: templates/admin/repository/article.html:237
@@ -2150,7 +2209,7 @@ msgstr "Өмірбаяны және қолы"
 #: themes/clean/templates/elements/accounts/user_form.html:75
 #: themes/material/templates/elements/accounts/user_form.html:72
 msgid "Review Interests"
-msgstr "Қызығушылықтарды шолу"
+msgstr "Рецензиялау салалары"
 
 #: templates/admin/elements/accounts/user_form.html:43
 #: themes/BTE/templates/elements/accounts/user_form.html:79
@@ -2228,7 +2287,9 @@ msgid ""
 "\n"
 "        Edit \"%(author_name)s\"\n"
 "      "
-msgstr "\"%(author_name)s\" өңдеу"
+msgstr ""
+"\n"
+"\"%(author_name)s\" өңдеу"
 
 #: templates/admin/elements/breadcrumbs/edit_author_base.html:16
 #, python-format
@@ -2236,7 +2297,9 @@ msgid ""
 "\n"
 "      Edit \"%(author_name)s\"\n"
 "    "
-msgstr "\"%(author_name)s\" өңдеу"
+msgstr ""
+"\n"
+"\"%(author_name)s\" өңдеу"
 
 #: templates/admin/elements/breadcrumbs/submit_authors_base.html:3
 #: templates/admin/submission/start.html:7
@@ -2255,6 +2318,7 @@ msgid "Copied"
 msgstr "Көшірілген"
 
 #: templates/admin/elements/button_submit_warning.html:14
+#: themes/BTE/templates/core/nav.html:136
 #: themes/BTE/templates/elements/right_hand_menu.html:11
 #: themes/BTE/templates/press/press_journals.html:75
 #: themes/BTE/templates/press/press_journals.html:89
@@ -2291,7 +2355,9 @@ msgid ""
 "\n"
 "    Delete \"%(thing_to_delete)s\"\n"
 "  "
-msgstr "\"%(thing_to_delete)s\" жою"
+msgstr ""
+"\n"
+"\"%(thing_to_delete)s\" жою"
 
 #: templates/admin/elements/confirm_delete.html:25
 #: templates/admin/elements/confirm_modal.html:7
@@ -2306,7 +2372,9 @@ msgid ""
 "\n"
 "      Are you sure you want to delete \"%(thing_to_delete)s\"?\n"
 "    "
-msgstr "\"%(thing_to_delete)s\" файлын шынымен жойғыңыз келе ме?"
+msgstr ""
+"\n"
+"\"%(thing_to_delete)s\" файлын шынымен жойғыңыз келе ме?"
 
 #: templates/admin/elements/confirm_modal.html:22
 #: templates/admin/elements/review/draft_decisions_js.html:27
@@ -2334,7 +2402,9 @@ msgid ""
 "\n"
 "    Remove \"%(thing_to_delete)s\"\n"
 "  "
-msgstr "\"%(thing_to_delete)s\" жою"
+msgstr ""
+"\n"
+"\"%(thing_to_delete)s\" жою"
 
 #: templates/admin/elements/confirm_remove.html:30
 #, python-format
@@ -2342,7 +2412,9 @@ msgid ""
 "\n"
 "      Are you sure you want to remove \"%(thing_to_delete)s\"?\n"
 "    "
-msgstr "\"%(thing_to_delete)s\" файлын шынымен жойғыңыз келе ме?"
+msgstr ""
+"\n"
+"\"%(thing_to_delete)s\" файлын шынымен жойғыңыз келе ме?"
 
 #: templates/admin/elements/current_authors_inner.html:14
 msgid "Current authors"
@@ -2357,14 +2429,18 @@ msgstr "Авторды жою"
 msgid ""
 "\n"
 "                              You cannot edit this author's details,\n"
-"                              because they have a user account with <i>%(journal)s</i>.\n"
+"                              because they have a user account with <i>"
+"%(journal)s</i>.\n"
 "                              If their details are out of date, ask them to\n"
 "                              log in and edit their user profile.\n"
 "                            "
 msgstr ""
+"\n"
 "Сіз бұл автордың мәліметтерін өңдей алмайсыз,\n"
-"                              себебі оларда <i>%(journal)s</i> пайдаланушы тіркелгісі бар.\n"
-"                              Егер олардың мәліметтері ескірген болса, олардан сұраңыз\n"
+"                              себебі оларда <i>%(journal)s</i> пайдаланушы "
+"тіркелгісі бар.\n"
+"                              Егер олардың мәліметтері ескірген болса, "
+"олардан сұраңыз\n"
 "                              жүйеге кіріп, пайдаланушы профилін өңдеңіз."
 
 #: templates/admin/elements/current_authors_inner.html:72
@@ -2380,12 +2456,15 @@ msgstr "Сілтеме көшірілді"
 #: templates/admin/elements/current_authors_inner.html:75
 msgid ""
 "\n"
-"                              After they have made their changes, remove and re-add\n"
+"                              After they have made their changes, remove and "
+"re-add\n"
 "                              them to the author list via the search.\n"
 "                            "
 msgstr ""
+"\n"
 "Өзгерістерді енгізгеннен кейін алып тастап, қайта қосыңыз\n"
-"                              оларды іздеу арқылы авторлар тізіміне енгізіңіз."
+"                              оларды іздеу арқылы авторлар тізіміне "
+"енгізіңіз."
 
 #: templates/admin/elements/current_authors_inner.html:88
 msgid "Has user account"
@@ -2416,7 +2495,9 @@ msgid ""
 "          published.\n"
 "        "
 msgstr ""
-"Авторларды ретін орнату үшін жоғары немесе төмен жылжытуға болады. Бұл бұйрық\n"
+"\n"
+"Авторларды ретін орнату үшін жоғары немесе төмен жылжытуға болады. Бұл "
+"бұйрық\n"
 "          мақала болған кезде автор есімдерін көрсету үшін пайдаланылады\n"
 "          жарияланды."
 
@@ -2458,8 +2539,8 @@ msgstr ""
 
 #: templates/admin/elements/forms/group_journal.html:42
 msgid ""
-"Where you have a journal in your press that is not hosted on Janeway you can"
-" link directly to the journal and submit pages."
+"Where you have a journal in your press that is not hosted on Janeway you can "
+"link directly to the journal and submit pages."
 msgstr ""
 "Баспасөзіңізде Janeway сайтында жоқ журнал болса, журналға тікелей сілтеме "
 "жасап, беттерді жіберуге болады."
@@ -2482,8 +2563,7 @@ msgstr "Қолдау"
 
 #: templates/admin/elements/forms/group_journal.html:61
 msgid "How should editors and staff members get help with Janeway?"
-msgstr ""
-"Редакторлар мен қызметкерлер Janeway көмегімен қалай көмек алуы керек?"
+msgstr "Редакторлар мен қызметкерлер Janeway көмегімен қалай көмек алуы керек?"
 
 #: templates/admin/elements/forms/group_journal.html:104
 msgid ""
@@ -2493,8 +2573,8 @@ msgid ""
 "specific information is required."
 msgstr ""
 "Осы журналға арналған арнайы мүмкіндіктер туралы ақпаратты көрсеткіңіз "
-"келсе, оны осында қосуыңызға болады.  Бұл Janeway қол жетімділік ақпаратымен"
-" қатар көрсетіледі және журналға қатысты қосымша ақпарат қажет болмаса, бос "
+"келсе, оны осында қосуыңызға болады.  Бұл Janeway қол жетімділік ақпаратымен "
+"қатар көрсетіледі және журналға қатысты қосымша ақпарат қажет болмаса, бос "
 "қалдырылуы мүмкін."
 
 #: templates/admin/elements/forms/group_journal_images.html:4
@@ -2505,16 +2585,15 @@ msgstr "Журнал суреттері"
 msgid ""
 "Each image can be uploaded individually. Once an image is uploaded, options "
 "to add alt text for accessibility will appear alongside the preview. For "
-"details about where each image appears, see the <a "
-"href=\"https://janeway.readthedocs.io/en/latest/manager/journal/index.html#images\">Journal"
-" Images Settings</a> documentation."
+"details about where each image appears, see the <a href=\"https://janeway."
+"readthedocs.io/en/latest/manager/journal/index.html#images\">Journal Images "
+"Settings</a> documentation."
 msgstr ""
 "Әрбір суретті жеке жүктеп салуға болады. Кескін жүктеп салынғаннан кейін, "
 "алдын ала қараудың жанында қол жетімділік үшін балама мәтін қосу опциялары "
-"пайда болады. Әрбір кескіннің қай жерде көрсетілетіні туралы мәліметтерді <a"
-" "
-"href=\"https://janeway.readthedocs.io/en/latest/manager/journal/index.html#images\">Журнал"
-" кескіндерінің параметрлері</a> құжаттамасынан қараңыз."
+"пайда болады. Әрбір кескіннің қай жерде көрсетілетіні туралы мәліметтерді <a "
+"href=\"https://janeway.readthedocs.io/en/latest/manager/journal/index."
+"html#images\">Журнал кескіндерінің параметрлері</a> құжаттамасынан қараңыз."
 
 #: templates/admin/elements/forms/group_journal_news.html:5
 msgid "You can use this setting to overwrite the title of the news section."
@@ -2692,7 +2771,6 @@ msgstr "Мақалаларды сұрыптау"
 
 #: templates/admin/elements/journal/article_keywords.html:8
 #: templates/admin/submission/submit_info.html:73
-#: themes/BTE/templates/admin/submission/submit_info.html:93
 #: themes/BTE/templates/journal/keywords.html:6
 #: themes/BTE/templates/journal/keywords.html:12
 #: themes/BTE/templates/journal/print.html:28
@@ -2788,44 +2866,6 @@ msgstr "Жаңа кілт сөзді қосу үшін Enter пернесін б
 msgid "Additional Fields"
 msgstr "Қосымша өрістер"
 
-#: templates/admin/elements/review/dropdown.html:4
-#: templates/admin/elements/review/dropdown.html:16
-#: themes/BTE/templates/press/press_journals.html:83
-#: themes/BTE/templates/press/press_journals.html:92
-#: themes/OLH/templates/press/press_journals.html:83
-#: themes/OLH/templates/press/press_journals.html:92
-#: themes/clean/templates/journal/article.html:74
-#: themes/clean/templates/journal/article.html:149
-#: themes/clean/templates/press/press_journals.html:36
-#: themes/clean/templates/press/press_journals.html:45
-#: themes/material/templates/journal/article.html:264
-#: themes/material/templates/press/press_journals.html:40
-#: themes/material/templates/press/press_journals.html:49
-msgid "View"
-msgstr "Көру"
-
-#: templates/admin/elements/review/dropdown.html:22
-#: templates/admin/review/view_review.html:122
-msgid "Reset"
-msgstr "Қалпына келтіру"
-
-#: templates/admin/elements/review/dropdown.html:33
-msgid "Send Reminder"
-msgstr "Еске салғышты жіберу"
-
-#: templates/admin/elements/review/dropdown.html:39
-msgid "Rate"
-msgstr "Бағалау"
-
-#: templates/admin/elements/review/dropdown.html:43
-msgid "Withdraw"
-msgstr "Алып тастау"
-
-#: templates/admin/elements/review/dropdown.html:53
-#: templates/admin/review/view_review.html:30
-msgid "Edit in Admin"
-msgstr "Әкімшіде өңдеу"
-
 #: templates/admin/elements/submit/author.html:8
 #: templates/admin/repository/submit/authors.html:62
 #: templates/admin/repository/submit/authors.html:113
@@ -2881,7 +2921,7 @@ msgstr "Журнал өкілдері"
 #: themes/OLH/templates/press/journal/contact.html:12
 #: themes/material/templates/journal/contact.html:17
 msgid "Press Representatives"
-msgstr "Баспасөз өкілдері"
+msgstr "Баспа өкілдері"
 
 #: templates/admin/journal/contact.html:27
 #: themes/BTE/templates/journal/contact.html:22
@@ -2892,14 +2932,14 @@ msgid "Contact Information"
 msgstr "Байланыс ақпараты"
 
 #: templates/admin/journal/contact.html:32
-#: themes/BTE/templates/elements/journal_footer.html:43
+#: themes/BTE/templates/core/nav.html:96
+#: themes/BTE/templates/elements/journal_footer.html:40
 #: themes/BTE/templates/journal/contact.html:5
 #: themes/BTE/templates/journal/contact.html:27
-#: themes/BTE/templates/press/elements/press_footer.html:16
+#: themes/BTE/templates/press/elements/press_footer.html:28
 #: themes/BTE/templates/press/journal/contact.html:5
 #: themes/BTE/templates/press/journal/contact.html:19
-#: themes/BTE/templates/press/nav.html:41
-#: themes/OLH/templates/core/nav.html:96
+#: themes/BTE/templates/press/nav.html:41 themes/OLH/templates/core/nav.html:96
 #: themes/OLH/templates/elements/journal_footer.html:43
 #: themes/OLH/templates/journal/contact.html:5
 #: themes/OLH/templates/journal/contact.html:27
@@ -2972,22 +3012,23 @@ msgstr "Шығарылатын күн болашақта."
 
 #: templates/admin/journal/manage/issues.html:88
 msgid "Issue is already set as the current issue."
-msgstr "Мәселе ағымдағы мәселе ретінде орнатылған."
+msgstr "Бұл шығарылым ағымдағы шығарылым ретінде орнатылған."
 
 #: templates/admin/journal/manage/languages.html:21
 msgid ""
 "\n"
-"                 This interface allows you to override the press level languages and set the languages that are available for this journal.\n"
+"                 This interface allows you to override the press level "
+"languages and set the languages that are available for this journal.\n"
 "                 "
 msgstr ""
-"Бұл интерфейс баспасөз деңгейіндегі тілдерді қайта анықтауға және осы журнал"
-" үшін қолжетімді тілдерді орнатуға мүмкіндік береді."
+"\n"
+"Бұл интерфейс баспасөз деңгейіндегі тілдерді қайта анықтауға және осы журнал "
+"үшін қолжетімді тілдерді орнатуға мүмкіндік береді."
 
 #: templates/admin/journal/submissions.html:43
 #: templates/admin/submission/start.html:77
-#: themes/BTE/templates/admin/submission/start.html:7
-#: themes/BTE/templates/admin/submission/start.html:93
-#: themes/BTE/templates/journal/submissions.html:39
+#: themes/BTE/templates/core/nav.html:105
+#: themes/BTE/templates/journal/submissions.html:32
 #: themes/OLH/templates/core/nav.html:105
 #: themes/OLH/templates/journal/submissions.html:39
 #: themes/clean/templates/core/nav.html:85
@@ -3001,14 +3042,14 @@ msgid "Contact Us"
 msgstr "Бізбен хабарласыңы"
 
 #: templates/admin/journal/submissions.html:52
-#: themes/BTE/templates/journal/submissions.html:46
+#: themes/BTE/templates/journal/submissions.html:39
 #: themes/OLH/templates/journal/submissions.html:46
 msgid "Licences"
 msgstr "Лицензиялар"
 
 #: templates/admin/journal/submissions.html:53
 #: templates/admin/submission/submit_info.html:105
-#: themes/BTE/templates/journal/submissions.html:47
+#: themes/BTE/templates/journal/submissions.html:40
 #: themes/OLH/templates/journal/submissions.html:47
 #: themes/clean/templates/journal/submissions.html:33
 #: themes/material/templates/journal/submissions.html:52
@@ -3055,12 +3096,17 @@ msgstr "Авторлар қосылмаған."
 #: templates/admin/repository/edit_authors.html:28
 msgid ""
 "\n"
-"                            You can search for an existing author or add them using the form below. If you\n"
-"                            complete the form with an email address of an existing user, that user will be added\n"
+"                            You can search for an existing author or add "
+"them using the form below. If you\n"
+"                            complete the form with an email address of an "
+"existing user, that user will be added\n"
 "                            to the"
 msgstr ""
-"Бұрыннан бар авторды іздеуге немесе төмендегі пішінді пайдаланып қосуға болады. Егер сіз\n"
-"                            бар пайдаланушының электрондық пошта мекенжайымен пішінді толтырыңыз, сол пайдаланушы қосылады\n"
+"\n"
+"Бұрыннан бар авторды іздеуге немесе төмендегі пішінді пайдаланып қосуға "
+"болады. Егер сіз\n"
+"                            бар пайдаланушының электрондық пошта "
+"мекенжайымен пішінді толтырыңыз, сол пайдаланушы қосылады\n"
 "                            -ге"
 
 #: templates/admin/repository/submit/authors.html:8
@@ -3068,7 +3114,6 @@ msgid "Add Authors to"
 msgstr "Авторларды қосыңыз"
 
 #: templates/admin/repository/submit/authors.html:20
-#: themes/BTE/templates/journal/index.html:52
 #: themes/clean/templates/journal/article.html:186
 msgid "Information"
 msgstr "Ақпарат"
@@ -3098,7 +3143,6 @@ msgstr "Төмендегі пішінді пайдаланып автор үші
 
 #: templates/admin/repository/submit/authors.html:31
 #: templates/admin/submission/submit_authors.html:45
-#: themes/BTE/templates/admin/submission/submit_authors.html:53
 msgid "Add Self as Author"
 msgstr "Өзіңізді автор ретінде қосыңыз"
 
@@ -3119,8 +3163,8 @@ msgid ""
 "You can search by email or ORCiD. eg. person@example.com or "
 "0000-0003-2126-266X."
 msgstr ""
-"Электрондық пошта немесе ORCiD арқылы іздеуге болады. мысалы. "
-"person@example.com немесе 0000-0003-2126-266X."
+"Электрондық пошта немесе ORCiD арқылы іздеуге болады. мысалы. person@example."
+"com немесе 0000-0003-2126-266X."
 
 #: templates/admin/repository/submit/authors.html:58
 msgid "Add an Author"
@@ -3129,20 +3173,19 @@ msgstr "Авторды қосыңыз"
 #: templates/admin/repository/submit/authors.html:61
 msgid ""
 "If you cannot find the author record by searching, and you are not the only "
-"author, you can add one by clicking the button below. This will open a popup"
-" modal for you to complete their details."
+"author, you can add one by clicking the button below. This will open a popup "
+"modal for you to complete their details."
 msgstr ""
 "Авторлық жазбаны іздеу арқылы таба алмасаңыз және сіз жалғыз автор "
-"болмасаңыз, төмендегі түймені басу арқылы біреуін қосуға болады. Бұл олардың"
-" мәліметтерін аяқтау үшін қалқымалы терезені ашады."
+"болмасаңыз, төмендегі түймені басу арқылы біреуін қосуға болады. Бұл олардың "
+"мәліметтерін аяқтау үшін қалқымалы терезені ашады."
 
 #: templates/admin/repository/submit/authors.html:70
 msgid ""
-"You can reorder the authors by dragging and dropping rows in the table "
-"below."
+"You can reorder the authors by dragging and dropping rows in the table below."
 msgstr ""
-"Төмендегі кестедегі жолдарды сүйреп апару арқылы авторлардың ретін өзгертуге"
-" болады."
+"Төмендегі кестедегі жолдарды сүйреп апару арқылы авторлардың ретін өзгертуге "
+"болады."
 
 #: templates/admin/repository/submit/authors.html:100
 msgid "Once you have added all of your authors you can complete this stage."
@@ -3182,8 +3225,8 @@ msgid ""
 "If you want to change this file you can upload a new one and it will be "
 "overwritten."
 msgstr ""
-"Бұл файлды өзгерткіңіз келсе, жаңасын жүктеп салуыңызға болады және ол қайта"
-" жазылады."
+"Бұл файлды өзгерткіңіз келсе, жаңасын жүктеп салуыңызға болады және ол қайта "
+"жазылады."
 
 #: templates/admin/repository/submit/files.html:89
 msgid "Complete Step 3 of 4"
@@ -3218,31 +3261,41 @@ msgid ""
 "The following updates are ready for moderation. By default the lists are "
 "show the oldest request first."
 msgstr ""
-"Келесі жаңартулар модерацияға дайын. Әдепкі бойынша тізімдер алдымен ең ескі"
-" сұрауды көрсетеді."
+"Келесі жаңартулар модерацияға дайын. Әдепкі бойынша тізімдер алдымен ең ескі "
+"сұрауды көрсетеді."
 
 #: templates/admin/review/add_review_assignment.html:27
 msgid ""
 "\n"
 "                                You can select a reviewer using the radio\n"
-"                                buttons in the first column and complete the\n"
+"                                buttons in the first column and complete "
+"the\n"
 "                                section under 'Set Options'.\n"
 "                                If you cannot find the reviewer you want in\n"
-"                                this list you can use 'Enroll Existing User' to\n"
-"                                search the database and give users the Reviewer\n"
+"                                this list you can use 'Enroll Existing User' "
+"to\n"
+"                                search the database and give users the "
+"Reviewer\n"
 "                                role, or 'Add New Reviewer' to create a new\n"
-"                                account for a reviewer (this process is silent,\n"
-"                                so they will not receive an account creation\n"
+"                                account for a reviewer (this process is "
+"silent,\n"
+"                                so they will not receive an account "
+"creation\n"
 "                                email).\n"
 "                            "
 msgstr ""
+"\n"
 "Радио арқылы шолушыны таңдауға болады\n"
-"                                бірінші бағандағы түймелерді басып, аяқтаңыз\n"
+"                                бірінші бағандағы түймелерді басып, "
+"аяқтаңыз\n"
 "                                «Параметрлерді орнату» бөлімінде.\n"
 "                                Қажетті шолушыны таба алмасаңыз\n"
-"                                бұл тізімге \"Бар пайдаланушыны тіркеу\" функциясын қолдануға болады\n"
-"                                дерекқорды іздеп, пайдаланушыларға шолушыны беріңіз\n"
-"                                рөлді немесе жаңасын жасау үшін \"Жаңа шолушы қосу\"\n"
+"                                бұл тізімге \"Бар пайдаланушыны тіркеу\" "
+"функциясын қолдануға болады\n"
+"                                дерекқорды іздеп, пайдаланушыларға шолушыны "
+"беріңіз\n"
+"                                рөлді немесе жаңасын жасау үшін \"Жаңа "
+"шолушы қосу\"\n"
 "                                шолушыға тіркелу (бұл процесс үнсіз,\n"
 "                                сондықтан олар тіркелгі жасауды алмайды\n"
 "                                электрондық пошта)."
@@ -3303,18 +3356,23 @@ msgstr "iThenticate арқылы ұқсастықты тексеру"
 #, python-format
 msgid ""
 "\n"
-"                                            These files are the versions sent out to reviewers in Round %(round.round_number)s of review.\n"
+"                                            These files are the versions "
+"sent out to reviewers in Round %(round.round_number)s of review.\n"
 "                                            "
 msgstr ""
+"\n"
 "Бұл файлдар шолудың %(round.round_number)s раундындағы шолушыларға "
 "жіберілген нұсқалар."
 
 #: templates/admin/review/in_review.html:215
 msgid ""
 "\n"
-"                                The latest manuscript and figure files for this article. When a revision task is completed these will be updated with the latest versions from the authors.\n"
+"                                The latest manuscript and figure files for "
+"this article. When a revision task is completed these will be updated with "
+"the latest versions from the authors.\n"
 "                                "
 msgstr ""
+"\n"
 "Осы мақалаға арналған соңғы қолжазба және сурет файлдары. Қайта қарау "
 "тапсырмасы аяқталғанда, олар авторлардың соңғы нұсқаларымен жаңартылады."
 
@@ -3324,7 +3382,7 @@ msgstr "Келесі кезеңге өту"
 
 #: templates/admin/review/projected_issue.html:27
 msgid "Save Projected Issue"
-msgstr "Болжалды мәселені сақтау"
+msgstr "Жоспарланған шығарылымды сақтау"
 
 #: templates/admin/review/projected_issue.html:37
 msgid "What is this for?"
@@ -3352,7 +3410,7 @@ msgstr ""
 
 #: templates/admin/review/projected_issue.html:39
 msgid "issue management"
-msgstr "мәселені басқару"
+msgstr "шығарылымдарды басқару"
 
 #: templates/admin/review/projected_issue.html:40
 msgid "How does it work?"
@@ -3363,12 +3421,12 @@ msgid ""
 "Select an issue from the drop down on the left and press save. This "
 "article's projected issue will now be set."
 msgstr ""
-"Сол жақтағы ашылмалы тізімнен мәселені таңдап, сақтау түймесін басыңыз. Бұл "
-"мақаланың болжамды мәселесі енді орнатылады."
+"Сол жақтағы ашылмалы тізімнен шығарылымды таңдап, «Сақтау» түймесін басыңыз. "
+"Мақала үшін жоспарланған шығарылым орнатылады."
 
 #: templates/admin/review/projected_issue.html:42
 msgid "Can I unset a projected issue?"
-msgstr "Жобаланған мәселені орнатудан бас тарта аламын ба?"
+msgstr "Жоспарланған шығарылымды алып тастауға бола ма?"
 
 #: templates/admin/review/projected_issue.html:43
 msgid "Yes, you can select the blank option (-------) from the dropdown."
@@ -3392,7 +3450,7 @@ msgstr "Тағайындау"
 
 #: templates/admin/review/unassigned_article.html:101
 msgid "Projected Issue"
-msgstr "Болжалды мәселе"
+msgstr "Жоспарланған шығарылым"
 
 #: templates/admin/review/unassigned_article.html:106
 msgid "This article is projected to be published as part of"
@@ -3421,29 +3479,44 @@ msgid ""
 "\n"
 "                        Review #%(review_id)s by %(reviewer_full_name)s\n"
 "                    "
-msgstr "%(reviewer_full_name)s бойынша #%(review_id)s шолу"
+msgstr ""
+"\n"
+"%(reviewer_full_name)s бойынша #%(review_id)s шолу"
+
+#: templates/admin/review/view_review.html:30
+msgid "Edit in Admin"
+msgstr "Әкімшіде өңдеу"
 
 #: templates/admin/review/view_review.html:36
 msgid ""
 "\n"
-"                        You can make this review available for the author to see using\n"
-"                        the <em>Review Availability Controls</em> below. You can also\n"
-"                        make individual review elements hidden or available.\n"
+"                        You can make this review available for the author to "
+"see using\n"
+"                        the <em>Review Availability Controls</em> below. You "
+"can also\n"
+"                        make individual review elements hidden or "
+"available.\n"
 "                    "
 msgstr ""
+"\n"
 "Сіз бұл шолуды автордың пайдалануын көруі үшін қол жетімді ете аласыз\n"
-"                        төмендегі <em>Қолжетімділікті басқару элементтерін қарап шығу</em>. Сіз де аласыз\n"
+"                        төмендегі <em>Қолжетімділікті басқару элементтерін "
+"қарап шығу</em>. Сіз де аласыз\n"
 "                        жеке шолу элементтерін жасырын немесе қолжетімді ету."
 
 #: templates/admin/review/view_review.html:43
 msgid ""
 "\n"
-"                        If you need to make changes to the review you can do so by\n"
-"                        using the <em>Edit</em> button below each form element\n"
+"                        If you need to make changes to the review you can do "
+"so by\n"
+"                        using the <em>Edit</em> button below each form "
+"element\n"
 "                    "
 msgstr ""
+"\n"
 "Шолуға өзгертулер енгізу қажет болса, мұны істеуге болады\n"
-"                        әр пішін элементінің астындағы <em>Өңдеу</em> түймесін пайдаланып"
+"                        әр пішін элементінің астындағы <em>Өңдеу</em> "
+"түймесін пайдаланып"
 
 #: templates/admin/review/view_review.html:50
 msgid "Reviewer"
@@ -3497,6 +3570,10 @@ msgstr "Файлды қарап шығу"
 msgid "Edited Answer"
 msgstr "Өңделген жауап"
 
+#: templates/admin/review/view_review.html:122
+msgid "Reset"
+msgstr "Қалпына келтіру"
+
 #: templates/admin/review/view_review.html:133
 msgid "Comments for the Editor"
 msgstr "Редакторға түсініктеме"
@@ -3513,12 +3590,16 @@ msgstr "Көріну мүмкіндігін қарап шығу"
 #, python-format
 msgid ""
 "\n"
-"                                            Currently this review is %(visibility_statement)s. Note that the author\n"
-"                                            must have access to the review before they can access the review file.\n"
+"                                            Currently this review is "
+"%(visibility_statement)s. Note that the author\n"
+"                                            must have access to the review "
+"before they can access the review file.\n"
 "                                        "
 msgstr ""
+"\n"
 "Қазіргі уақытта бұл шолу %(visibility_statement)s. Автор екенін ескеріңіз\n"
-"                                            шолу файлына қол жеткізе алмас бұрын шолуға рұқсаты болуы керек."
+"                                            шолу файлына қол жеткізе алмас "
+"бұрын шолуға рұқсаты болуы керек."
 
 #: templates/admin/review/view_review.html:173
 msgid "Answer Visibility"
@@ -3527,15 +3608,21 @@ msgstr "Жауаптың көрінуі"
 #: templates/admin/review/view_review.html:177
 msgid ""
 "\n"
-"                                                The toggles below control the visibility of the individual review form\n"
-"                                                answers. Note that changing these will have no effect unless the Review is\n"
-"                                                marked as visible to the author using the <em>Author can access this review</em>\n"
+"                                                The toggles below control "
+"the visibility of the individual review form\n"
+"                                                answers. Note that changing "
+"these will have no effect unless the Review is\n"
+"                                                marked as visible to the "
+"author using the <em>Author can access this review</em>\n"
 "                                                toggle above.\n"
 "                                            "
 msgstr ""
+"\n"
 "Төмендегі қосқыштар жеке шолу пішінінің көрінуін басқарады\n"
-"                                                жауаптар. Тексеру болмаса, оларды өзгерту ешқандай әсер етпейтінін ескеріңіз\n"
-"                                                <em>Автор осы шолуға қол жеткізе алады</em> арқылы авторға көрінетін деп белгіленді\n"
+"                                                жауаптар. Тексеру болмаса, "
+"оларды өзгерту ешқандай әсер етпейтінін ескеріңіз\n"
+"                                                <em>Автор осы шолуға қол "
+"жеткізе алады</em> арқылы авторға көрінетін деп белгіленді\n"
 "                                                жоғарыдан ауыстырыңыз."
 
 #: templates/admin/review/view_review.html:202
@@ -3570,8 +3657,10 @@ msgid ""
 "          <a href=\"%(author_list_url)s\">page listing all authors</a>.\n"
 "        "
 msgstr ""
+"\n"
 "CRediT рөлдерін мына сайтта өңдеуге болады\n"
-"          <a href=\"%(author_list_url)s\">барлық авторлар тізімі берілген бет</a>."
+"          <a href=\"%(author_list_url)s\">барлық авторлар тізімі берілген "
+"бет</a>."
 
 #: templates/admin/submission/edit/author.html:166
 #: themes/material/templates/preprints/editors.html:34
@@ -3588,6 +3677,7 @@ msgid ""
 "          <i>%(journal_title)s</i>, which can be edited at any time.\n"
 "        "
 msgstr ""
+"\n"
 "Бұл беттегі мәліметтер автор туралы ақпарат болып табылады\n"
 "          жариялау үшін \"%(article_title)s\" байланыстырылған.\n"
 "          Олар автордың пайдаланушы профилінен бөлек\n"
@@ -3597,9 +3687,11 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"          This author has not registerd for a user account with <i>%(journal_title)s</i>.\n"
+"          This author has not registerd for a user account with <i>"
+"%(journal_title)s</i>.\n"
 "        "
 msgstr ""
+"\n"
 "Бұл автор <i>%(journal_title)s</i> пайдаланушы тіркелгісіне тіркелмеген."
 
 #: templates/admin/submission/edit/author_metadata.html:13
@@ -3620,32 +3712,41 @@ msgstr "Қосымша авторларды қосыңыз"
 #, python-format
 msgid ""
 "\n"
-"                Some authors may already be registered in <i>%(journal)s</i>,\n"
+"                Some authors may already be registered in <i>%(journal)s</"
+"i>,\n"
 "                %(press)s, or <a href=\"https://orcid.org/\"\n"
 "                target=\"_blank\">the ORCID registry<span\n"
 "                class=\"show-for-sr\">(opens in new tab)</span></a>.\n"
 "                You can check by searching for\n"
-"                their email or ORCID. If a match is found, they will be added to\n"
+"                their email or ORCID. If a match is found, they will be "
+"added to\n"
 "                the author list.\n"
 "              "
 msgstr ""
-"Кейбір авторлар <i>%(journal)s</i> журналында бұрыннан тіркелген болуы мүмкін,\n"
+"\n"
+"Кейбір авторлар <i>%(journal)s</i> журналында бұрыннан тіркелген болуы "
+"мүмкін,\n"
 "                %(press)s немесе <a href=\"https://orcid.org/\"\n"
 "                target=\"_blank\">ORCID тізілімі<span\n"
 "                class=\"show-for-sr\">(жаңа қойындыда ашылады)</span></a>.\n"
 "                Іздеу арқылы тексеруге болады\n"
-"                олардың электрондық поштасы немесе ORCID. Сәйкестік табылса, олар қосылады\n"
+"                олардың электрондық поштасы немесе ORCID. Сәйкестік табылса, "
+"олар қосылады\n"
 "                авторлар тізімі."
 
 #: templates/admin/submission/edit/author_metadata.html:51
 #: templates/admin/submission/submit_authors.html:68
+#: themes/BTE/templates/core/base.html:1025
+#: themes/BTE/templates/core/base.html:1027
+#: themes/BTE/templates/core/base.html:1101
+#: themes/BTE/templates/core/base.html:1102
 #: themes/BTE/templates/core/homepage_elements/search_bar.html:3
 #: themes/BTE/templates/core/homepage_elements/search_bar.html:17
+#: themes/BTE/templates/elements/journal/search_form.html:20
 #: themes/BTE/templates/journal/full-text-search.html:8
 #: themes/BTE/templates/journal/full-text-search.html:10
 #: themes/BTE/templates/journal/full-text-search.html:39
 #: themes/BTE/templates/journal/full-text-search.html:88
-#: themes/BTE/templates/journal/index.html:31
 #: themes/BTE/templates/journal/search.html:8
 #: themes/BTE/templates/repository/list.html:101
 #: themes/OLH/templates/core/base.html:170
@@ -3696,6 +3797,7 @@ msgid ""
 "              you can add them manually.\n"
 "            "
 msgstr ""
+"\n"
 "Егер сіз іздеуде авторды таба алмасаңыз,\n"
 "              оларды қолмен қосуға болады."
 
@@ -3707,12 +3809,17 @@ msgstr "Авторды қолмен қосыңыз"
 #: templates/admin/submission/edit/metadata.html:136
 msgid ""
 "\n"
-"                            You can search the <a href=\"https://www.crossref.org/services/funder-registry/\">\n"
-"                            Crossref Funder Registry</a> to add known funders.\n"
+"                            You can search the <a href=\"https://www."
+"crossref.org/services/funder-registry/\">\n"
+"                            Crossref Funder Registry</a> to add known "
+"funders.\n"
 "                        "
 msgstr ""
-"<a href=\"https://www.crossref.org/services/funder-registry/\"> іздеуге болады.\n"
-"                            Белгілі қаржыландырушыларды қосу үшін Crossref Fender Registry</a>."
+"\n"
+"<a href=\"https://www.crossref.org/services/funder-registry/\"> іздеуге "
+"болады.\n"
+"                            Белгілі қаржыландырушыларды қосу үшін Crossref "
+"Fender Registry</a>."
 
 #: templates/admin/submission/manager/delete_license.html:25
 msgid ""
@@ -3727,8 +3834,7 @@ msgid ""
 "You should only delete this license if you are absolutely sure you want to "
 "remove it."
 msgstr ""
-"Бұл лицензияны жойғыңыз келетініне толық сенімді болсаңыз ғана жоюыңыз "
-"керек."
+"Бұл лицензияны жойғыңыз келетініне толық сенімді болсаңыз ғана жоюыңыз керек."
 
 #: templates/admin/submission/start.html:9
 msgid "Author Agreement"
@@ -3742,19 +3848,18 @@ msgstr ""
 
 #: templates/admin/submission/start.html:29
 msgid ""
-"All authors must agree to the below statements in order to submit an article"
-" to"
+"All authors must agree to the below statements in order to submit an article "
+"to"
 msgstr ""
 "Барлық авторлар мақаланы жіберу үшін төмендегі мәлімдемелермен келісуі керек"
 
 #: templates/admin/submission/start.html:29
 msgid ""
-"If you do not agree with these terms you will be unable to proceed with your"
-" submission."
+"If you do not agree with these terms you will be unable to proceed with your "
+"submission."
 msgstr "Осы шарттармен келіспесеңіз, жіберуді жалғастыра алмайсыз."
 
 #: templates/admin/submission/start.html:34
-#: themes/BTE/templates/admin/submission/start.html:54
 msgid "Publication Fees"
 msgstr "Жарияланым ақысы"
 
@@ -3763,7 +3868,6 @@ msgid "Author(s) agrees to the above statement"
 msgstr "Автор(лар) жоғарыда аталған мәлімдемемен келіседі"
 
 #: templates/admin/submission/start.html:47
-#: themes/BTE/templates/admin/submission/start.html:65
 msgid "Submission Checklist"
 msgstr "Жіберуді тексеру тізімі"
 
@@ -3774,18 +3878,16 @@ msgstr ""
 "растайды"
 
 #: templates/admin/submission/start.html:59
-#: themes/BTE/templates/admin/submission/start.html:75
 msgid "Copyright Notice"
 msgstr "Авторлық құқық туралы ескерту"
 
 #: templates/admin/submission/start.html:71
-#: themes/BTE/templates/admin/submission/start.html:85
 #: themes/BTE/templates/journal/article.html:434
 #: themes/OLH/templates/journal/article.html:434
 #: themes/clean/templates/journal/article.html:243
 #: themes/material/templates/journal/article.html:404
 msgid "Competing Interests"
-msgstr "Бәсекелес қызығушылықтар"
+msgstr "Мүдделер қақтығысы"
 
 #: templates/admin/submission/submit_author_order.html:15
 #, python-format
@@ -3793,7 +3895,9 @@ msgid ""
 "\n"
 "              Move %(author_name)s to top\n"
 "            "
-msgstr "%(author_name)s жоғарыға жылжытыңыз"
+msgstr ""
+"\n"
+"%(author_name)s жоғарыға жылжытыңыз"
 
 #: templates/admin/submission/submit_author_order.html:28
 #, python-format
@@ -3801,7 +3905,9 @@ msgid ""
 "\n"
 "              Move %(author_name)s up\n"
 "            "
-msgstr "%(author_name)s жоғары жылжытыңыз"
+msgstr ""
+"\n"
+"%(author_name)s жоғары жылжытыңыз"
 
 #: templates/admin/submission/submit_author_order.html:41
 #, python-format
@@ -3809,7 +3915,9 @@ msgid ""
 "\n"
 "              Move %(author_name)s down\n"
 "            "
-msgstr "%(author_name)s төмен жылжытыңыз"
+msgstr ""
+"\n"
+"%(author_name)s төмен жылжытыңыз"
 
 #: templates/admin/submission/submit_author_order.html:54
 #, python-format
@@ -3817,15 +3925,13 @@ msgid ""
 "\n"
 "              Move %(author_name)s to bottom\n"
 "            "
-msgstr "%(author_name)s төменге жылжытыңыз"
+msgstr ""
+"\n"
+"%(author_name)s төменге жылжытыңыз"
 
 #: templates/admin/submission/submit_authors.html:9
 #: templates/admin/submission/timeline.html:29
 #: templates/admin/submission/timeline.html:30
-#: themes/BTE/templates/admin/submission/submit_authors.html:6
-#: themes/BTE/templates/admin/submission/submit_authors.html:37
-#: themes/BTE/templates/admin/submission/timeline.html:29
-#: themes/BTE/templates/admin/submission/timeline.html:30
 msgid "Author Information"
 msgstr "Автор туралы ақпарат"
 
@@ -3842,7 +3948,9 @@ msgid ""
 "\n"
 "            Is the author information complete?\n"
 "          "
-msgstr "Автор туралы ақпарат толық па?"
+msgstr ""
+"\n"
+"Автор туралы ақпарат толық па?"
 
 #: templates/admin/submission/submit_authors.html:140
 msgid "Save and continue"
@@ -3872,7 +3980,9 @@ msgid ""
 "      for work on the article during the review and publication process.\n"
 "    "
 msgstr ""
-"Корреспонденция авторы пайдаланушы тіркелгісі бар кез келген автор бола алады,\n"
+"\n"
+"Корреспонденция авторы пайдаланушы тіркелгісі бар кез келген автор бола "
+"алады,\n"
 "      тәртіпке тәуелсіз. Олар жаңартулар мен сұрауларды алады\n"
 "      шолу және жариялау процесінде мақаламен жұмыс үшін."
 
@@ -3886,7 +3996,9 @@ msgid ""
 "\n"
 "                    (%(email)s)\n"
 "                  "
-msgstr "(%(email)s)"
+msgstr ""
+"\n"
+"(%(email)s)"
 
 #: templates/admin/submission/submit_correspondence_author.html:69
 msgid "(no email address)"
@@ -3900,6 +4012,7 @@ msgid ""
 "          First invite a co-author to register for an account.\n"
 "        "
 msgstr ""
+"\n"
 "Корреспонденция авторын өзгерту мүмкін емес,\n"
 "          өйткені пайдаланушы тіркелгілері бар басқа авторлар жоқ.\n"
 "          Алдымен тіркелгіге тіркелу үшін бірлескен авторды шақырыңыз."
@@ -3911,6 +4024,7 @@ msgid ""
 "            them to the author list via the search.\n"
 "          "
 msgstr ""
+"\n"
 "Олар тіркелгіні жасағаннан кейін өшіріп, қайта қосыңыз\n"
 "            оларды іздеу арқылы авторлар тізіміне енгізіңіз."
 
@@ -3921,6 +4035,7 @@ msgid ""
 "            them to the author list via the search.\n"
 "          "
 msgstr ""
+"\n"
 "Олар тіркелгіні жасағаннан кейін қосыңыз\n"
 "            оларды іздеу арқылы авторлар тізіміне енгізіңіз."
 
@@ -3930,7 +4045,9 @@ msgid ""
 "\n"
 "                    Remove %(credit_role)s\n"
 "                  "
-msgstr "%(credit_role)s жою"
+msgstr ""
+"\n"
+"%(credit_role)s жою"
 
 #: templates/admin/submission/submit_credit_roles.html:37
 msgid "This author has no contributor roles."
@@ -3962,7 +4079,6 @@ msgstr "Файлдарды жүктеп салу"
 #: templates/admin/submission/submit_files.html:44
 #: templates/admin/submission/submit_files.html:84
 #: templates/admin/submission/submit_review.html:111
-#: themes/BTE/templates/admin/submission/submit_files.html:61
 msgid "File Name"
 msgstr "Файл атауы"
 
@@ -3974,9 +4090,6 @@ msgstr "Жүктеп салынған файлдар жоқ"
 #: templates/admin/submission/submit_files.html:115
 #: templates/admin/submission/submit_funding.html:105
 #: templates/admin/submission/submit_info.html:89
-#: themes/BTE/templates/admin/submission/submit_authors.html:97
-#: themes/BTE/templates/admin/submission/submit_files.html:85
-#: themes/BTE/templates/admin/submission/submit_info.html:107
 msgid "Save and Continue"
 msgstr "Сақтау және Жалғастыру"
 
@@ -3988,17 +4101,19 @@ msgstr "Қаржыландыру туралы ақпарат"
 #: templates/admin/submission/timeline.html:45
 #: templates/admin/submission/timeline.html:46
 #: templates/common/elements/funder_info_for_readers.html:3
-#: themes/BTE/templates/admin/submission/timeline.html:45
-#: themes/BTE/templates/admin/submission/timeline.html:46
 msgid "Funding"
 msgstr "Қаржыландыру"
 
 #: templates/admin/submission/submit_funding.html:24
 msgid ""
 "\n"
-"                         Here you can search the FundRef database to add grant IDs to your article's metadata. If you can't find a specific funder, you can manually enter the details. You can also edit or delete entries as necessary.\n"
+"                         Here you can search the FundRef database to add "
+"grant IDs to your article's metadata. If you can't find a specific funder, "
+"you can manually enter the details. You can also edit or delete entries as "
+"necessary.\n"
 "                    "
 msgstr ""
+"\n"
 "Мұнда мақаланың метадеректеріне грант идентификаторларын қосу үшін FundRef "
 "дерекқорынан іздеуге болады. Белгілі бір қаржыландырушыны таба алмасаңыз, "
 "мәліметтерді қолмен енгізуге болады. Қажет болса, жазбаларды өңдеуге немесе "
@@ -4030,7 +4145,6 @@ msgstr "Қаржыгерлер қосылмаған."
 
 #: templates/admin/submission/submit_info.html:6
 #: templates/admin/submission/submit_review.html:43
-#: themes/BTE/templates/admin/submission/submit_info.html:6
 msgid "Article Info"
 msgstr "Мақала туралы ақпарат"
 
@@ -4039,7 +4153,6 @@ msgid "This article is a preprint"
 msgstr "Бұл мақала алдын ала басып шығару болып табылады"
 
 #: templates/admin/submission/submit_info.html:27
-#: themes/BTE/templates/admin/submission/submit_info.html:31
 msgid "Basic Information"
 msgstr "Негізгі ақпарат"
 
@@ -4048,7 +4161,6 @@ msgid "View license information"
 msgstr "Лицензия ақпаратын көру"
 
 #: templates/admin/submission/submit_info.html:102
-#: themes/BTE/templates/admin/submission/submit_info.html:117
 msgid "License Information"
 msgstr "Лицензия туралы ақпарат"
 
@@ -4057,10 +4169,6 @@ msgstr "Лицензия туралы ақпарат"
 #: templates/admin/submission/timeline.html:53
 #: templates/admin/submission/timeline.html:60
 #: templates/admin/submission/timeline.html:61
-#: themes/BTE/templates/admin/submission/timeline.html:52
-#: themes/BTE/templates/admin/submission/timeline.html:53
-#: themes/BTE/templates/admin/submission/timeline.html:60
-#: themes/BTE/templates/admin/submission/timeline.html:61
 msgid "Review your submission"
 msgstr "Жіберуіңізді қарап шығыңыз"
 
@@ -4122,8 +4230,6 @@ msgstr "Лицензия"
 #: templates/admin/submission/submit_review.html:107
 #: templates/admin/submission/timeline.html:37
 #: templates/admin/submission/timeline.html:38
-#: themes/BTE/templates/admin/submission/timeline.html:37
-#: themes/BTE/templates/admin/submission/timeline.html:38
 msgid "Article Files"
 msgstr "Мақалалар файлдары"
 
@@ -4146,11 +4252,10 @@ msgstr "Редакторға түсініктеме"
 #: templates/admin/submission/submit_review.html:139
 msgid ""
 "Before submitting you have the option to add additional comments for the "
-"editor using the field below. Only the editor will see anything you add "
-"here."
+"editor using the field below. Only the editor will see anything you add here."
 msgstr ""
-"Жібермес бұрын төмендегі өрісті пайдаланып редакторға қосымша түсініктемелер"
-" қосу мүмкіндігі бар. Мұнда сіз қосқан кез келген нәрсені тек редактор ғана "
+"Жібермес бұрын төмендегі өрісті пайдаланып редакторға қосымша түсініктемелер "
+"қосу мүмкіндігі бар. Мұнда сіз қосқан кез келген нәрсені тек редактор ғана "
 "көреді."
 
 #: templates/admin/submission/submit_review.html:145
@@ -4158,7 +4263,7 @@ msgid "Complete"
 msgstr "Аяқталды"
 
 #: templates/admin/submission/submit_review.html:145
-#: themes/OLH/templates/core/nav.html:90
+#: themes/BTE/templates/core/nav.html:90 themes/OLH/templates/core/nav.html:90
 #: themes/clean/templates/core/nav.html:48
 #: themes/material/templates/core/nav.html:48
 #: themes/material/templates/core/nav.html:121
@@ -4166,16 +4271,12 @@ msgid "Submission"
 msgstr "Жіберу"
 
 #: templates/admin/submission/timeline.html:6
-#: themes/BTE/templates/admin/submission/timeline.html:6
 msgid "Submission Started"
 msgstr "Жіберу басталды"
 
 #: templates/admin/submission/timeline.html:15
 #: templates/admin/submission/timeline.html:18
 #: templates/admin/submission/timeline.html:21
-#: themes/BTE/templates/admin/submission/timeline.html:15
-#: themes/BTE/templates/admin/submission/timeline.html:18
-#: themes/BTE/templates/admin/submission/timeline.html:21
 #: themes/BTE/templates/journal/article.html:313
 #: themes/OLH/templates/journal/article.html:313
 #: themes/clean/templates/journal/article.html:123
@@ -4186,10 +4287,10 @@ msgstr "Мақала туралы ақпарат"
 #: templates/common/accounts/register_privacy_policy.html:3
 #: templates/common/accounts/register_privacy_policy.html:7
 #: templates/common/accounts/register_privacy_policy.html:11
-#: themes/BTE/templates/elements/journal_footer.html:39
-#: themes/BTE/templates/elements/journal_footer.html:41
-#: themes/BTE/templates/press/elements/press_footer.html:11
-#: themes/BTE/templates/press/elements/press_footer.html:13
+#: themes/BTE/templates/elements/journal_footer.html:36
+#: themes/BTE/templates/elements/journal_footer.html:38
+#: themes/BTE/templates/press/elements/press_footer.html:23
+#: themes/BTE/templates/press/elements/press_footer.html:25
 #: themes/OLH/templates/elements/journal_footer.html:39
 #: themes/OLH/templates/elements/journal_footer.html:41
 #: themes/OLH/templates/press/elements/press_footer.html:11
@@ -4229,6 +4330,7 @@ msgid "ORCID profile."
 msgstr "ORCID профилі."
 
 #: templates/common/elements/journal/article_issue_list.html:4
+#: themes/BTE/templates/core/nav.html:59
 #: themes/BTE/templates/journal/issues.html:5
 #: themes/BTE/templates/journal/issues.html:7
 #: themes/OLH/templates/core/nav.html:59
@@ -4240,7 +4342,7 @@ msgstr "ORCID профилі."
 #: themes/material/templates/core/nav.html:115
 #: themes/material/templates/journal/issues.html:5
 msgid "Issues"
-msgstr "Мәселелер"
+msgstr "Шығарылымдар"
 
 #: templates/common/elements/journal/article_issue_list.html:4
 #: themes/BTE/templates/403.html:4 themes/BTE/templates/journal/issue.html:9
@@ -4250,7 +4352,7 @@ msgstr "Мәселелер"
 #: themes/material/templates/elements/journal/issue_sidebar.html:11
 #: themes/material/templates/journal/issue.html:8
 msgid "Issue"
-msgstr "Мәселе"
+msgstr "Шығарылым"
 
 #: templates/common/elements/journal/article_issue_list.html:10
 msgid "Primary: "
@@ -4258,7 +4360,7 @@ msgstr "Негізгі:"
 
 #: templates/common/elements/journal/article_issue_list.html:26
 msgid "This article is not a part of any issues"
-msgstr "Бұл мақала ешқандай мәселелердің бөлігі емес"
+msgstr "Бұл мақала ешбір шығарылымға енгізілмеген"
 
 #: templates/common/elements/journal/cite.html:4
 #: themes/BTE/templates/journal/print.html:30
@@ -4294,7 +4396,11 @@ msgid_plural ""
 "        Affiliations:\n"
 "      "
 msgstr[0] ""
+"\n"
+"Аффилиация:"
 msgstr[1] ""
+"\n"
+"Аффилиациялар:"
 
 #: templates/common/elements/skip_to_main_content.html:3
 msgid "Skip to main content"
@@ -4313,7 +4419,11 @@ msgid_plural ""
 "                    %(result_count)s results\n"
 "                "
 msgstr[0] ""
+"\n"
+"1 нәтиже"
 msgstr[1] ""
+"\n"
+"%(result_count)s нәтиже"
 
 #: templates/typesetting/typesetting_proofreading_assignment.html:116
 msgid "Mark Task as Complete"
@@ -4422,89 +4532,6 @@ msgstr ""
 "Ұзақ, бірақ есте сақтауға оңай құпия сөзді таңдаңыз (мысалы, «айдың керемет "
 "негізі»)."
 
-#: themes/BTE/templates/admin/submission/start.html:27
-msgid "Submission Agreements"
-msgstr "Беру келісімдері"
-
-#: themes/BTE/templates/admin/submission/start.html:39
-msgid "Problems processing the form:"
-msgstr "Пішінді өңдеудегі мәселелер:"
-
-#: themes/BTE/templates/admin/submission/start.html:50
-msgid "All authors must agree to the below statements in order to proceed."
-msgstr ""
-"Жалғастыру үшін барлық авторлар төмендегі мәлімдемелермен келісуі керек."
-
-#: themes/BTE/templates/admin/submission/start.html:59
-msgid "I agree to the publication fees statement."
-msgstr "Мен жариялау ақысы туралы мәлімдемемен келісемін."
-
-#: themes/BTE/templates/admin/submission/start.html:69
-msgid "I confirm that this article adheres to the requirements."
-msgstr "Мен бұл мақаланың талаптарға сәйкес келетінін растаймын."
-
-#: themes/BTE/templates/admin/submission/submit_authors.html:36
-msgid "Step 3 of 5"
-msgstr "3/5 қадам"
-
-#: themes/BTE/templates/admin/submission/submit_authors.html:46
-msgid "Quick Add"
-msgstr "Жылдам қосу"
-
-#: themes/BTE/templates/admin/submission/submit_authors.html:60
-msgid "Search by Email or ORCID"
-msgstr "Электрондық пошта немесе ORCID арқылы іздеу"
-
-#: themes/BTE/templates/admin/submission/submit_authors.html:63
-msgid "Search and Add"
-msgstr "Іздеу және қосу"
-
-#: themes/BTE/templates/admin/submission/submit_authors.html:72
-msgid "Add Author Manually"
-msgstr "Авторды қолмен қосу"
-
-#: themes/BTE/templates/admin/submission/submit_authors.html:85
-msgid "Add Manual Author"
-msgstr "Қолмен авторды қосыңыз"
-
-#: themes/BTE/templates/admin/submission/submit_files.html:5
-#: themes/BTE/templates/admin/submission/submit_files.html:34
-msgid "Upload Files"
-msgstr "Файлдарды жүктеп салу"
-
-#: themes/BTE/templates/admin/submission/submit_files.html:37
-msgid "Manuscript Template"
-msgstr "Қолжазба үлгісі"
-
-#: themes/BTE/templates/admin/submission/submit_files.html:38
-msgid ""
-"We recommend using our official Google Docs template for your submission."
-msgstr "Жіберу үшін ресми Google Docs үлгісін пайдалануды ұсынамыз."
-
-#: themes/BTE/templates/admin/submission/submit_files.html:40
-msgid "Open Google Doc Template"
-msgstr "Google Doc үлгісін ашыңыз"
-
-#: themes/BTE/templates/admin/submission/submit_files.html:54
-msgid "Upload Data File"
-msgstr "Деректер файлын жүктеп салу"
-
-#: themes/BTE/templates/admin/submission/submit_files.html:74
-msgid "No files uploaded yet."
-msgstr "Әлі жүктеп салынған файлдар жоқ."
-
-#: themes/BTE/templates/admin/submission/submit_info.html:30
-msgid "Step 2 of 5"
-msgstr "2/5 қадам"
-
-#: themes/BTE/templates/admin/submission/submit_info.html:84
-msgid "View license info"
-msgstr "Лицензия туралы ақпаратты көру"
-
-#: themes/BTE/templates/admin/submission/submit_info.html:95
-msgid "Press enter or comma to add each keyword."
-msgstr "Әрбір кілт сөзді қосу үшін enter немесе үтір пернесін басыңыз."
-
 #: themes/BTE/templates/cms/page.html:23
 #: themes/BTE/templates/journal/article.html:454
 #: themes/OLH/templates/cms/page.html:23
@@ -4517,14 +4544,12 @@ msgstr "Әрбір кілт сөзді қосу үшін enter немесе үт
 msgid "Table of Contents"
 msgstr "Мазмұны"
 
-#: themes/BTE/templates/core/a11y.html:3
-#: themes/BTE/templates/core/a11y.html:10
-#: themes/BTE/templates/elements/journal_footer.html:44
+#: themes/BTE/templates/core/a11y.html:3 themes/BTE/templates/core/a11y.html:10
+#: themes/BTE/templates/elements/journal_footer.html:41
 #: themes/BTE/templates/press/a11y.html:3
 #: themes/BTE/templates/press/a11y.html:10
-#: themes/BTE/templates/press/elements/press_footer.html:17
-#: themes/OLH/templates/core/a11y.html:3
-#: themes/OLH/templates/core/a11y.html:10
+#: themes/BTE/templates/press/elements/press_footer.html:29
+#: themes/OLH/templates/core/a11y.html:3 themes/OLH/templates/core/a11y.html:10
 #: themes/OLH/templates/elements/journal_footer.html:44
 #: themes/OLH/templates/press/a11y.html:3
 #: themes/OLH/templates/press/a11y.html:10
@@ -4626,7 +4651,7 @@ msgid "Forgot your password?"
 msgstr "Құпия сөзіңізді ұмыттыңыз ба?"
 
 #: themes/BTE/templates/core/accounts/public_profile.html:5
-#: themes/BTE/templates/core/nav.html:27
+#: themes/BTE/templates/core/nav.html:159
 #: themes/BTE/templates/elements/right_hand_menu.html:40
 #: themes/BTE/templates/press/elements/right_hand_menu.html:12
 #: themes/BTE/templates/press/nav.html:55
@@ -4677,8 +4702,8 @@ msgstr "арқылы тіркелгіге тіркеліңіз"
 #: themes/OLH/templates/core/accounts/register.html:35
 #: themes/OLH/templates/core/accounts/reset_password.html:36
 msgid ""
-"For more information read our <a href=\"#\" data-open=\"password-"
-"modal\">password guide</a>."
+"For more information read our <a href=\"#\" data-open=\"password-modal"
+"\">password guide</a>."
 msgstr ""
 "Қосымша ақпарат алу үшін <a href=\"#\" data-open=\"password-modal\">құпия "
 "сөз нұсқаулығын</a> оқыңыз."
@@ -4719,8 +4744,8 @@ msgid ""
 msgstr ""
 "Стандартты компьютерде 600 жылдан сәл астам уақыт алатын Jfjfy&65^87 сияқты "
 "күрделі құпия сөзге қарағанда, жарылуы шамамен септилион жылдарға созылатын "
-"керемет ай негізі жартастары сияқты ұзақ, бірақ есте сақтау оңай құпия сөзді"
-" таңдауды ұсынамыз."
+"керемет ай негізі жартастары сияқты ұзақ, бірақ есте сақтау оңай құпия сөзді "
+"таңдауды ұсынамыз."
 
 #: themes/BTE/templates/core/accounts/reset_password.html:10
 #: themes/BTE/templates/core/accounts/reset_password.html:42
@@ -4743,15 +4768,16 @@ msgid "Enter your new password twice to complete the reset process"
 msgstr ""
 "Қалпына келтіру процесін аяқтау үшін жаңа құпия сөзді екі рет енгізіңіз"
 
-#: themes/BTE/templates/core/base.html:238
-#: themes/BTE/templates/core/nav.html:10 themes/BTE/templates/press/nav.html:7
+#: themes/BTE/templates/core/base.html:982
+#: themes/BTE/templates/core/base.html:989
+#: themes/BTE/templates/core/nav.html:11 themes/BTE/templates/press/nav.html:7
 #: themes/BTE/templates/press/press_index.html:5
 #: themes/BTE/templates/repository/nav.html:4
 #: themes/OLH/templates/core/base.html:58
 #: themes/OLH/templates/core/base.html:65
 #: themes/OLH/templates/core/base.html:77
-#: themes/OLH/templates/core/base.html:83
-#: themes/OLH/templates/core/nav.html:11 themes/OLH/templates/press/nav.html:7
+#: themes/OLH/templates/core/base.html:83 themes/OLH/templates/core/nav.html:11
+#: themes/OLH/templates/press/nav.html:7
 #: themes/OLH/templates/press/press_index.html:5
 #: themes/OLH/templates/repository/nav.html:4
 #: themes/clean/templates/core/nav.html:17
@@ -4763,32 +4789,27 @@ msgstr ""
 #: themes/material/templates/repository/nav.html:19
 #: themes/material/templates/repository/nav.html:51
 msgid "Home"
-msgstr "Үй"
+msgstr "Басты бет"
 
-#: themes/BTE/templates/core/base.html:252
-#: themes/BTE/templates/core/nav.html:28
-#: themes/BTE/templates/elements/right_hand_menu.html:41
-#: themes/BTE/templates/press/elements/right_hand_menu.html:13
-#: themes/BTE/templates/press/nav.html:56
-#: themes/BTE/templates/repository/elements/right_hand_menu.html:11
-#: themes/OLH/templates/core/nav.html:177
-#: themes/OLH/templates/elements/right_hand_menu.html:41
-#: themes/OLH/templates/press/elements/right_hand_menu.html:13
-#: themes/OLH/templates/press/nav.html:56
-#: themes/OLH/templates/repository/elements/right_hand_menu.html:11
-#: themes/clean/templates/core/nav.html:117
-#: themes/clean/templates/press/nav.html:73
-#: themes/material/templates/core/nav.html:198
-#: themes/material/templates/core/nav.html:235
-#: themes/material/templates/press/nav.html:154
-#: themes/material/templates/press/nav.html:165
-#: themes/material/templates/repository/nav.html:93
-#: themes/material/templates/repository/nav.html:106
-msgid "Logout"
-msgstr "Шығу"
+#: themes/BTE/templates/core/base.html:1000
+#: themes/OLH/templates/core/base.html:95
+msgid "Toggle main menu"
+msgstr "Негізгі мәзірді ауыстыру"
+
+#: themes/BTE/templates/core/base.html:1005
+#: themes/BTE/templates/core/base.html:1044
+#: themes/OLH/templates/core/base.html:100
+msgid "Toggle search"
+msgstr "Іздеуді қосу/өшіру"
+
+#: themes/BTE/templates/core/base.html:1029
+#: themes/BTE/templates/core/base.html:1104
+msgid "Go"
+msgstr "Іздеу"
 
 #: themes/BTE/templates/core/dashboard.html:4
 #: themes/BTE/templates/core/dashboard.html:37
+#: themes/BTE/templates/core/nav.html:130
 #: themes/BTE/templates/elements/right_hand_menu.html:5
 #: themes/BTE/templates/repository/elements/right_hand_menu.html:5
 #: themes/OLH/templates/core/nav.html:130
@@ -4855,9 +4876,90 @@ msgstr "Автор"
 msgid "User"
 msgstr "Пайдаланушы"
 
-#: themes/BTE/templates/core/nav.html:25
-msgid "Admin Dashboard"
-msgstr "Әкімші бақылау тақтасы"
+#: themes/BTE/templates/core/nav.html:114
+#: themes/BTE/templates/journal/become_reviewer.html:6
+#: themes/BTE/templates/journal/become_reviewer.html:11
+#: themes/BTE/templates/journal/become_reviewer.html:22
+#: themes/OLH/templates/core/nav.html:114
+#: themes/OLH/templates/journal/become_reviewer.html:6
+#: themes/OLH/templates/journal/become_reviewer.html:11
+#: themes/OLH/templates/journal/become_reviewer.html:22
+#: themes/clean/templates/core/nav.html:88
+#: themes/clean/templates/journal/become_reviewer.html:5
+#: themes/clean/templates/journal/become_reviewer.html:6
+#: themes/clean/templates/journal/become_reviewer.html:19
+#: themes/material/templates/core/nav.html:74
+#: themes/material/templates/journal/become_reviewer.html:5
+#: themes/material/templates/journal/become_reviewer.html:6
+#: themes/material/templates/journal/become_reviewer.html:11
+#: themes/material/templates/journal/become_reviewer.html:23
+msgid "Become a Reviewer"
+msgstr "Рецензент болыңыз"
+
+#: themes/BTE/templates/core/nav.html:125
+#: themes/BTE/templates/press/nav.html:44
+#: themes/OLH/templates/core/nav.html:125
+#: themes/OLH/templates/press/nav.html:44
+#: themes/clean/templates/press/nav.html:62
+#: themes/material/templates/core/nav.html:86
+#: themes/material/templates/core/nav.html:155
+#: themes/material/templates/press/nav.html:62
+#: themes/material/templates/press/nav.html:118
+#: themes/material/templates/repository/nav.html:63
+msgid "Account"
+msgstr "Есептік жазба"
+
+#: themes/BTE/templates/core/nav.html:144
+#: themes/BTE/templates/elements/right_hand_menu.html:7
+#: themes/OLH/templates/core/nav.html:144
+#: themes/OLH/templates/elements/right_hand_menu.html:7
+#: themes/clean/templates/core/nav.html:101
+#: themes/material/templates/core/nav.html:182
+#: themes/material/templates/core/nav.html:204
+msgid "Kanban"
+msgstr "Канбан"
+
+#: themes/BTE/templates/core/nav.html:153
+#: themes/BTE/templates/elements/right_hand_menu.html:37
+#: themes/BTE/templates/press/elements/right_hand_menu.html:8
+#: themes/BTE/templates/press/nav.html:52
+#: themes/BTE/templates/repository/elements/right_hand_menu.html:9
+#: themes/OLH/templates/core/nav.html:168
+#: themes/OLH/templates/elements/right_hand_menu.html:37
+#: themes/OLH/templates/press/elements/right_hand_menu.html:8
+#: themes/OLH/templates/press/nav.html:52
+#: themes/OLH/templates/repository/elements/right_hand_menu.html:9
+#: themes/clean/templates/core/nav.html:114
+#: themes/clean/templates/press/nav.html:70
+#: themes/material/templates/core/nav.html:195
+#: themes/material/templates/core/nav.html:232
+#: themes/material/templates/press/nav.html:151
+#: themes/material/templates/press/nav.html:162
+#: themes/material/templates/repository/nav.html:91
+#: themes/material/templates/repository/nav.html:104
+msgid "Admin"
+msgstr "Админ"
+
+#: themes/BTE/templates/core/nav.html:162
+#: themes/BTE/templates/elements/right_hand_menu.html:41
+#: themes/BTE/templates/press/elements/right_hand_menu.html:13
+#: themes/BTE/templates/press/nav.html:56
+#: themes/BTE/templates/repository/elements/right_hand_menu.html:11
+#: themes/OLH/templates/core/nav.html:177
+#: themes/OLH/templates/elements/right_hand_menu.html:41
+#: themes/OLH/templates/press/elements/right_hand_menu.html:13
+#: themes/OLH/templates/press/nav.html:56
+#: themes/OLH/templates/repository/elements/right_hand_menu.html:11
+#: themes/clean/templates/core/nav.html:117
+#: themes/clean/templates/press/nav.html:73
+#: themes/material/templates/core/nav.html:198
+#: themes/material/templates/core/nav.html:235
+#: themes/material/templates/press/nav.html:154
+#: themes/material/templates/press/nav.html:165
+#: themes/material/templates/repository/nav.html:93
+#: themes/material/templates/repository/nav.html:106
+msgid "Logout"
+msgstr "Шығу"
 
 #: themes/BTE/templates/core/news/index.html:13
 #: themes/OLH/templates/core/news/index.html:13
@@ -4868,7 +4970,6 @@ msgstr "Сүзгі белгісі"
 
 #: themes/BTE/templates/core/news/index.html:26
 #: themes/BTE/templates/elements/news_item_banner.html:12
-#: themes/BTE/templates/journal/homepage_elements/news.html:29
 #: themes/BTE/templates/press/core/news/index.html:24
 #: themes/OLH/templates/core/news/index.html:26
 #: themes/OLH/templates/elements/news_item_banner.html:12
@@ -4883,7 +4984,7 @@ msgid "on"
 msgstr "қосулы"
 
 #: themes/BTE/templates/core/news/index.html:30
-#: themes/BTE/templates/journal/homepage_elements/news.html:34
+#: themes/BTE/templates/journal/homepage_elements/news.html:26
 #: themes/BTE/templates/press/core/news/index.html:29
 #: themes/OLH/templates/core/news/index.html:30
 #: themes/OLH/templates/journal/homepage_elements/news.html:34
@@ -4925,14 +5026,21 @@ msgstr "Тізім"
 #: themes/OLH/templates/elements/accounts/edit_profile_body_block.html:13
 msgid ""
 "\n"
-"                <p>If you want to change your email address you may do so below, however, you will be logged out and your\n"
-"                account will be marked as inactive until you follow the instructions in the verification email. <strong>Note: </strong>\n"
-"                Changing your email address will also change your username as these are one and the same.</p>\n"
+"                <p>If you want to change your email address you may do so "
+"below, however, you will be logged out and your\n"
+"                account will be marked as inactive until you follow the "
+"instructions in the verification email. <strong>Note: </strong>\n"
+"                Changing your email address will also change your username "
+"as these are one and the same.</p>\n"
 "                "
 msgstr ""
-"<p>Электрондық пошта мекенжайыңызды өзгерткіңіз келсе, мұны төменде жасай аласыз, бірақ жүйеден шығасыз және\n"
-"                растау электрондық поштасындағы нұсқауларды орындамайынша тіркелгі белсенді емес деп белгіленеді. <strong>Ескертпе: </strong>\n"
-"                Электрондық пошта мекенжайын өзгерту пайдаланушы атыңызды да өзгертеді, себебі олар бір және бірдей.</p>"
+"\n"
+"<p>Электрондық пошта мекенжайыңызды өзгерткіңіз келсе, мұны төменде жасай "
+"аласыз, бірақ жүйеден шығасыз және\n"
+"                растау электрондық поштасындағы нұсқауларды орындамайынша "
+"тіркелгі белсенді емес деп белгіленеді. <strong>Ескертпе: </strong>\n"
+"                Электрондық пошта мекенжайын өзгерту пайдаланушы атыңызды да "
+"өзгертеді, себебі олар бір және бірдей.</p>"
 
 #: themes/BTE/templates/elements/accounts/edit_profile_body_block.html:36
 #: themes/OLH/templates/elements/accounts/edit_profile_body_block.html:36
@@ -4941,7 +5049,8 @@ msgid ""
 "Use the button below to register to receive notifications of new articles\n"
 "                            published in this journal "
 msgstr ""
-"Жаңа мақалалар туралы хабарландыруларды алу үшін тіркелу үшін төмендегі түймені пайдаланыңыз\n"
+"Жаңа мақалалар туралы хабарландыруларды алу үшін тіркелу үшін төмендегі "
+"түймені пайдаланыңыз\n"
 "                            осы журналда жарияланған"
 
 #: themes/BTE/templates/elements/accounts/edit_profile_body_block.html:58
@@ -5016,7 +5125,6 @@ msgstr "Күн"
 #: themes/BTE/templates/elements/journal/article_filter_form.html:26
 #: themes/BTE/templates/elements/journal/article_filter_form.html:35
 #: themes/BTE/templates/elements/journal/article_list_filters.html:7
-#: themes/BTE/templates/elements/journal/search_form.html:19
 #: themes/BTE/templates/press/press_journals.html:114
 #: themes/BTE/templates/press/press_journals.html:118
 #: themes/BTE/templates/press/press_journals.html:119
@@ -5196,12 +5304,14 @@ msgstr "Бұл журналда әлі шығарылған нөмірлер ж�
 #: themes/material/templates/elements/journal/issue_list_by_decade.html:3
 msgid ""
 "\n"
-"            Issues are grouped by decade. Select a decade to view the issues\n"
+"            Issues are grouped by decade. Select a decade to view the "
+"issues\n"
 "            published during that decade.\n"
 "        "
 msgstr ""
-"Мәселелер онжылдықтар бойынша топтастырылған. Мәселелерді көру үшін онжылдықты таңдаңыз\n"
-"            сол онжылдықта жарық көрді."
+"\n"
+"Шығарылымдар онжылдықтар бойынша топтастырылған. Сол онжылдықта жарық көрген "
+"шығарылымдарды көру үшін онжылдықты таңдаңыз."
 
 #: themes/BTE/templates/elements/journal/issue_paginator.html:5
 #: themes/OLH/templates/elements/journal/issue_paginator.html:5
@@ -5231,14 +5341,14 @@ msgstr "Жүктеулер"
 #: themes/clean/templates/elements/journal/issue_sidebar.html:15
 #: themes/material/templates/elements/journal/issue_sidebar.html:31
 msgid "Issue Archive"
-msgstr "Мәселе мұрағаты"
+msgstr "Шығарылымдар мұрағаты"
 
 #: themes/BTE/templates/elements/journal/keywords_block.html:4
 #: themes/OLH/templates/elements/journal/keywords_block.html:4
 #: themes/clean/templates/elements/journal/keywords_block.html:4
 msgid ""
-"Keywords used by articles in this journal are listed below. Select a keyword"
-" to view which articles use it."
+"Keywords used by articles in this journal are listed below. Select a keyword "
+"to view which articles use it."
 msgstr ""
 "Осы журналдағы мақалалар пайдаланатын негізгі сөздер төменде келтірілген. "
 "Оны қай мақалалар пайдаланатынын көру үшін кілт сөзді таңдаңыз."
@@ -5249,20 +5359,20 @@ msgstr ""
 msgid "This journal has no keywords to display."
 msgstr "Бұл журналда көрсетілетін кілт сөздер жоқ."
 
-#: themes/BTE/templates/elements/journal/search_form.html:6
+#: themes/BTE/templates/elements/journal/search_form.html:7
 #: themes/OLH/templates/elements/journal/search_form.html:6
 #: themes/clean/templates/journal/search.html:40
 #: themes/material/templates/journal/search.html:39
 msgid "Search titles, keywords, and authors"
 msgstr "Тақырыптарды, кілт сөздерді және авторларды іздеңіз"
 
-#: themes/BTE/templates/elements/journal/search_form.html:9
+#: themes/BTE/templates/elements/journal/search_form.html:10
 #: themes/OLH/templates/elements/journal/search_form.html:9
 #: themes/clean/templates/journal/full-text-search.html:54
 msgid "You are currently browsing by keyword"
 msgstr "Сіз қазір кілт сөз бойынша қарап жатырсыз"
 
-#: themes/BTE/templates/elements/journal/search_form.html:10
+#: themes/BTE/templates/elements/journal/search_form.html:11
 #: themes/BTE/templates/journal/full-text-search.html:82
 #: themes/OLH/templates/elements/journal/search_form.html:10
 #: themes/OLH/templates/journal/full-text-search.html:82
@@ -5272,7 +5382,7 @@ msgstr "Сіз қазір кілт сөз бойынша қарап жатырс
 msgid "Search for an article"
 msgstr "Мақаланы іздеңіз"
 
-#: themes/BTE/templates/elements/journal/search_form.html:14
+#: themes/BTE/templates/elements/journal/search_form.html:15
 #: themes/OLH/templates/elements/journal/search_form.html:14
 #: themes/clean/templates/journal/search.html:60
 #: themes/material/templates/journal/new_search.html:40
@@ -5312,7 +5422,7 @@ msgstr "Маман емес түйіндеме"
 msgid "This article has no summary"
 msgstr "Бұл мақалада түйіндеме жоқ"
 
-#: themes/BTE/templates/elements/journal_footer.html:8
+#: themes/BTE/templates/elements/journal_footer.html:11
 #: themes/OLH/templates/elements/journal_footer.html:8
 #: themes/clean/templates/elements/journal_footer.html:11
 #: themes/material/templates/elements/journal_footer.html:7
@@ -5324,21 +5434,17 @@ msgstr "Басып шығарған"
 #, python-format
 msgid ""
 "\n"
-"                    <p><b>Note:</b><br/>This review refers to round %(review.review_round.round_number)s of peer\n"
-"                        review and may pertain to an earlier version of the document.</p>\n"
+"                    <p><b>Note:</b><br/>This review refers to round "
+"%(review.review_round.round_number)s of peer\n"
+"                        review and may pertain to an earlier version of the "
+"document.</p>\n"
 "                    "
 msgstr ""
-"<p><b>Ескертпе:</b><br/>Бұл шолу тең дәрежедегі %(review.review_round.round_number)s айналымына қатысты.\n"
-"                        қарап шығыңыз және құжаттың бұрынғы нұсқасына қатысты болуы мүмкін.</p>"
-
-#: themes/BTE/templates/elements/right_hand_menu.html:7
-#: themes/OLH/templates/core/nav.html:144
-#: themes/OLH/templates/elements/right_hand_menu.html:7
-#: themes/clean/templates/core/nav.html:101
-#: themes/material/templates/core/nav.html:182
-#: themes/material/templates/core/nav.html:204
-msgid "Kanban"
-msgstr "Канбан"
+"\n"
+"<p><b>Ескертпе:</b><br/>Бұл шолу тең дәрежедегі "
+"%(review.review_round.round_number)s айналымына қатысты.\n"
+"                        қарап шығыңыз және құжаттың бұрынғы нұсқасына "
+"қатысты болуы мүмкін.</p>"
 
 #: themes/BTE/templates/elements/right_hand_menu.html:17
 #: themes/OLH/templates/elements/right_hand_menu.html:17
@@ -5383,7 +5489,7 @@ msgstr "Мақаланы өңдеу"
 #: themes/material/templates/core/nav.html:225
 #: themes/material/templates/elements/journal/issue_list.html:66
 msgid "Edit Issue"
-msgstr "Мәселені өңдеу"
+msgstr "Шығарылымды өңдеу"
 
 #: themes/BTE/templates/elements/right_hand_menu.html:33
 #: themes/OLH/templates/core/nav.html:161
@@ -5393,26 +5499,6 @@ msgstr "Мәселені өңдеу"
 #: themes/material/templates/core/nav.html:228
 msgid "Edit News Item"
 msgstr "Жаңалық элементін өңдеу"
-
-#: themes/BTE/templates/elements/right_hand_menu.html:37
-#: themes/BTE/templates/press/elements/right_hand_menu.html:8
-#: themes/BTE/templates/press/nav.html:52
-#: themes/BTE/templates/repository/elements/right_hand_menu.html:9
-#: themes/OLH/templates/core/nav.html:168
-#: themes/OLH/templates/elements/right_hand_menu.html:37
-#: themes/OLH/templates/press/elements/right_hand_menu.html:8
-#: themes/OLH/templates/press/nav.html:52
-#: themes/OLH/templates/repository/elements/right_hand_menu.html:9
-#: themes/clean/templates/core/nav.html:114
-#: themes/clean/templates/press/nav.html:70
-#: themes/material/templates/core/nav.html:195
-#: themes/material/templates/core/nav.html:232
-#: themes/material/templates/press/nav.html:151
-#: themes/material/templates/press/nav.html:162
-#: themes/material/templates/repository/nav.html:91
-#: themes/material/templates/repository/nav.html:104
-msgid "Admin"
-msgstr "Админ"
 
 #: themes/BTE/templates/elements/section_block.html:5
 #: themes/OLH/templates/elements/section_block.html:5
@@ -5452,8 +5538,8 @@ msgid ""
 "journal urges you to submit this document to a repository such as Figshare "
 "so that a DOI can be assigned to it, but this is not required."
 msgstr ""
-"Түпнұсқа фигура файлдарын немесе қосымша ақпаратты беріңіз. Журнал сізге DOI"
-" тағайындалуы үшін бұл құжатты Figshare сияқты репозиторийге жіберуге "
+"Түпнұсқа фигура файлдарын немесе қосымша ақпаратты беріңіз. Журнал сізге DOI "
+"тағайындалуы үшін бұл құжатты Figshare сияқты репозиторийге жіберуге "
 "шақырады, бірақ бұл талап етілмейді."
 
 #: themes/BTE/templates/elements/submit/file.html:11
@@ -5474,8 +5560,8 @@ msgid ""
 "format. LaTeX may be accepted later in the process but a simple, readable "
 "file is required at this stage."
 msgstr ""
-"Қолжазба файлыңызды жүктеп салыңыз, ол RTF, ODT немесе DOC/X пішімінде болуы"
-" керек. LaTeX кейінірек процесте қабылдануы мүмкін, бірақ бұл кезеңде "
+"Қолжазба файлыңызды жүктеп салыңыз, ол RTF, ODT немесе DOC/X пішімінде болуы "
+"керек. LaTeX кейінірек процесте қабылдануы мүмкін, бірақ бұл кезеңде "
 "қарапайым, оқылатын файл қажет."
 
 #: themes/BTE/templates/elements/submit/preprint_file.html:8
@@ -5521,7 +5607,11 @@ msgid_plural ""
 "                        Authors\n"
 "                      "
 msgstr[0] ""
+"\n"
+"Автор"
 msgstr[1] ""
+"\n"
+"Авторлар"
 
 #: themes/BTE/templates/journal/article.html:49
 #: themes/OLH/templates/journal/article.html:49
@@ -5535,7 +5625,11 @@ msgid_plural ""
 "                      Authors\n"
 "                    "
 msgstr[0] ""
+"\n"
+"Автор"
 msgstr[1] ""
+"\n"
+"Авторлар"
 
 #: themes/BTE/templates/journal/article.html:78
 #: themes/OLH/templates/journal/article.html:78
@@ -5596,7 +5690,11 @@ msgid_plural ""
 "                          Authors\n"
 "                        "
 msgstr[0] ""
+"\n"
+"Автор"
 msgstr[1] ""
+"\n"
+"Авторлар"
 
 #: themes/BTE/templates/journal/article.html:179
 #: themes/OLH/templates/journal/article.html:179
@@ -5610,7 +5708,7 @@ msgstr "Құқықтар"
 #: themes/clean/templates/journal/article.html:101
 #: themes/material/templates/journal/article.html:89
 msgid "Publisher Notes"
-msgstr "Publisher Notes"
+msgstr "Баспагер ескертпелері"
 
 #: themes/BTE/templates/journal/article.html:196
 #: themes/BTE/templates/journal/article.html:334
@@ -5643,6 +5741,7 @@ msgid "Downloads are not available for this article."
 msgstr "Бұл мақала үшін жүктеп алулар қолжетімді емес."
 
 #: themes/BTE/templates/journal/article.html:237
+#: themes/BTE/templates/journal/index.html:168
 #: themes/BTE/templates/repository/preprint.html:200
 #: themes/OLH/templates/journal/article.html:237
 #: themes/OLH/templates/repository/preprint.html:200
@@ -5688,7 +5787,11 @@ msgid_plural ""
 "                                        Authors\n"
 "                                      "
 msgstr[0] ""
+"\n"
+"Автор"
 msgstr[1] ""
+"\n"
+"Авторлар"
 
 #: themes/BTE/templates/journal/article.html:367
 #: themes/OLH/templates/journal/article.html:367
@@ -5794,21 +5897,13 @@ msgstr "CRediT рөлдері"
 msgid "Peer Review"
 msgstr "Бірлескен пікір"
 
-#: themes/BTE/templates/journal/article.html:553
-#: themes/OLH/templates/journal/article.html:553
-#: themes/clean/templates/journal/article.html:389
-#: themes/material/templates/journal/article.html:528
-msgid "View Larger Table"
-msgstr "Үлкенірек кестені көру"
-
-#: themes/BTE/templates/journal/article_list.html:15
-#: themes/BTE/templates/journal/articles.html:22
+#: themes/BTE/templates/journal/article_list.html:16
 #: themes/OLH/templates/journal/article_list.html:15
 #: themes/OLH/templates/journal/articles.html:22
 msgid "Show Filter Options"
 msgstr "Сүзгі опцияларын көрсету"
 
-#: themes/BTE/templates/journal/article_list.html:23
+#: themes/BTE/templates/journal/article_list.html:24
 #: themes/OLH/templates/journal/article_list.html:23
 #: themes/clean/templates/journal/article_list.html:15
 #: themes/material/templates/journal/article_list.html:17
@@ -5816,7 +5911,7 @@ msgstr "Сүзгі опцияларын көрсету"
 msgid "Results"
 msgstr "Нәтижелер"
 
-#: themes/BTE/templates/journal/article_list.html:28
+#: themes/BTE/templates/journal/article_list.html:29
 #: themes/OLH/templates/journal/article_list.html:28
 #: themes/clean/templates/journal/article_list.html:20
 #: themes/material/templates/journal/article_list.html:27
@@ -5825,16 +5920,6 @@ msgstr "Нәтижелер"
 #: themes/material/templates/journal/search.html:26
 msgid "No articles to display."
 msgstr "Көрсетілетін мақалалар жоқ."
-
-#: themes/BTE/templates/journal/articles.html:30
-#: themes/OLH/templates/journal/articles.html:30
-msgid "Pinned Articles"
-msgstr "Бекітілген мақалалар"
-
-#: themes/BTE/templates/journal/articles.html:39
-#: themes/OLH/templates/journal/articles.html:39
-msgid "There are no articles published in this journal yet"
-msgstr "Бұл журналда әлі жарияланған мақалалар жоқ"
 
 #: themes/BTE/templates/journal/authors.html:44
 #: themes/BTE/templates/journal/editorial_team.html:45
@@ -5846,25 +5931,6 @@ msgstr "Бұл журналда әлі жарияланған мақалалар
 #: themes/material/templates/journal/editorial_team.html:38
 msgid "View Profile"
 msgstr "Профильді қарау"
-
-#: themes/BTE/templates/journal/become_reviewer.html:6
-#: themes/BTE/templates/journal/become_reviewer.html:11
-#: themes/BTE/templates/journal/become_reviewer.html:22
-#: themes/OLH/templates/core/nav.html:114
-#: themes/OLH/templates/journal/become_reviewer.html:6
-#: themes/OLH/templates/journal/become_reviewer.html:11
-#: themes/OLH/templates/journal/become_reviewer.html:22
-#: themes/clean/templates/core/nav.html:88
-#: themes/clean/templates/journal/become_reviewer.html:5
-#: themes/clean/templates/journal/become_reviewer.html:6
-#: themes/clean/templates/journal/become_reviewer.html:19
-#: themes/material/templates/core/nav.html:74
-#: themes/material/templates/journal/become_reviewer.html:5
-#: themes/material/templates/journal/become_reviewer.html:6
-#: themes/material/templates/journal/become_reviewer.html:11
-#: themes/material/templates/journal/become_reviewer.html:23
-msgid "Become a Reviewer"
-msgstr "Рецензент болыңыз"
 
 #: themes/BTE/templates/journal/collections.html:34
 #: themes/BTE/templates/journal/issue.html:7
@@ -5921,7 +5987,11 @@ msgid_plural ""
 "                                    %(result_count)s results\n"
 "                                "
 msgstr[0] ""
+"\n"
+"1 нәтиже"
 msgstr[1] ""
+"\n"
+"%(result_count)s нәтиже"
 
 #: themes/BTE/templates/journal/homepage_elements/article_list_item.html:32
 msgid "Full Text"
@@ -5942,9 +6012,12 @@ msgstr "Жарияланған:"
 #, python-format
 msgid ""
 "\n"
-"                                        Slide %(slide_number)s of %(total_slides)s\n"
+"                                        Slide %(slide_number)s of "
+"%(total_slides)s\n"
 "                                    "
-msgstr "%(total_slides)s слайдының %(слайд_саны)s"
+msgstr ""
+"\n"
+"%(slide_number)s / %(total_slides)s слайд"
 
 #: themes/BTE/templates/journal/homepage_elements/featured.html:8
 #: themes/OLH/templates/journal/homepage_elements/featured.html:8
@@ -5974,27 +6047,9 @@ msgstr "Таңдаулы журналдар"
 msgid "Unnamed Journal"
 msgstr "Аты жоқ журнал"
 
-#: themes/BTE/templates/journal/homepage_elements/news.html:11
-#: themes/BTE/templates/repository/home.html:79
-#: themes/OLH/templates/journal/homepage_elements/news.html:11
-#: themes/OLH/templates/repository/home.html:79
-#: themes/clean/templates/journal/homepage_elements/news.html:9
-#: themes/material/templates/journal/homepage_elements/news.html:13
-msgid "Latest"
-msgstr "Соңғы"
-
-#: themes/BTE/templates/journal/homepage_elements/news.html:11
-#: themes/OLH/templates/journal/homepage_elements/news.html:11
-#: themes/clean/templates/journal/homepage_elements/news.html:9
-#: themes/material/templates/journal/homepage_elements/news.html:13
-msgid "Posts"
-msgstr "Жазбалар"
-
-#: themes/BTE/templates/journal/homepage_elements/news.html:41
-#: themes/OLH/templates/journal/homepage_elements/news.html:41
-#: themes/clean/templates/press/core/news/index.html:25
-msgid "This journal currently has no news items to display"
-msgstr "Бұл журналда қазір көрсетілетін жаңалықтар жоқ"
+#: themes/BTE/templates/journal/homepage_elements/news.html:31
+msgid "No news items to display"
+msgstr "Көрсетілетін жаңалықтар жоқ"
 
 #: themes/BTE/templates/journal/homepage_elements/popular.html:8
 #: themes/OLH/templates/journal/homepage_elements/popular.html:8
@@ -6009,17 +6064,24 @@ msgstr "Ең танымал мақалалар"
 msgid "Featured Preprints"
 msgstr "Таңдаулы алдын ала басып шығарулар"
 
-#: themes/BTE/templates/journal/index.html:21
+#: themes/BTE/templates/journal/index.html:104
+#: themes/OLH/templates/journal/index.html:11
+#: themes/clean/templates/journal/index.html:5
+#: themes/material/templates/journal/index.html:5
+msgid "Home Page"
+msgstr "Негізгі бет"
+
+#: themes/BTE/templates/journal/index.html:116
 msgid "No articles published yet."
 msgstr "Әзірге мақалалар жарияланған жоқ."
 
-#: themes/BTE/templates/journal/index.html:28
-msgid "Journal Tools"
-msgstr "Журнал құралдары"
+#: themes/BTE/templates/journal/index.html:124
+msgid "Geography of our readers"
+msgstr "Оқырмандарымыздың географиясы"
 
-#: themes/BTE/templates/journal/index.html:30
-msgid "Submit Article"
-msgstr "Мақаланы жіберу"
+#: themes/BTE/templates/journal/index.html:129
+msgid "Swipe to rotate the globe"
+msgstr "Глобусты айналдыру үшін сырғытыңыз"
 
 #: themes/BTE/templates/journal/keyword.html:6
 #: themes/BTE/templates/journal/keyword.html:12
@@ -6063,7 +6125,11 @@ msgid_plural ""
 "      Authors\n"
 "    "
 msgstr[0] ""
+"\n"
+"Автор"
 msgstr[1] ""
+"\n"
+"Авторлар"
 
 #: themes/BTE/templates/journal/search.html:21
 #: themes/OLH/templates/journal/search.html:21
@@ -6079,7 +6145,7 @@ msgid "All Articles"
 msgstr "Барлық мақалалар"
 
 #: themes/BTE/templates/journal/submissions.html:6
-#: themes/BTE/templates/journal/submissions.html:23
+#: themes/BTE/templates/journal/submissions.html:16
 #: themes/OLH/templates/journal/submissions.html:6
 #: themes/OLH/templates/journal/submissions.html:23
 #: themes/clean/templates/journal/submissions.html:6
@@ -6128,7 +6194,7 @@ msgstr "Жариялаған"
 msgid "This press currently has no news items to display."
 msgstr "Бұл баспасөзде қазір көрсетілетін жаңалықтар жоқ."
 
-#: themes/BTE/templates/press/elements/press_footer.html:15
+#: themes/BTE/templates/press/elements/press_footer.html:27
 #: themes/OLH/templates/press/elements/press_footer.html:15
 #: themes/clean/templates/elements/press_footer.html:18
 msgid "Sitemap"
@@ -6168,22 +6234,24 @@ msgstr "Репозиторийлер"
 msgid "Editorial Team"
 msgstr "Редакциялық топ"
 
-#: themes/BTE/templates/press/nav.html:44
-#: themes/OLH/templates/core/nav.html:125
-#: themes/OLH/templates/press/nav.html:44
-#: themes/clean/templates/press/nav.html:62
-#: themes/material/templates/core/nav.html:86
-#: themes/material/templates/core/nav.html:155
-#: themes/material/templates/press/nav.html:62
-#: themes/material/templates/press/nav.html:118
-#: themes/material/templates/repository/nav.html:63
-msgid "Account"
-msgstr "Есептік жазба"
-
 #: themes/BTE/templates/press/press_journals.html:55
 #: themes/OLH/templates/press/press_journals.html:55
 msgid "Disciplines"
 msgstr "Пәндер"
+
+#: themes/BTE/templates/press/press_journals.html:83
+#: themes/BTE/templates/press/press_journals.html:92
+#: themes/OLH/templates/press/press_journals.html:83
+#: themes/OLH/templates/press/press_journals.html:92
+#: themes/clean/templates/journal/article.html:74
+#: themes/clean/templates/journal/article.html:149
+#: themes/clean/templates/press/press_journals.html:36
+#: themes/clean/templates/press/press_journals.html:45
+#: themes/material/templates/journal/article.html:264
+#: themes/material/templates/press/press_journals.html:40
+#: themes/material/templates/press/press_journals.html:49
+msgid "View"
+msgstr "Көру"
 
 #: themes/BTE/templates/repository/about.html:15
 #: themes/BTE/templates/repository/nav.html:5
@@ -6196,7 +6264,7 @@ msgstr "Пәндер"
 #: themes/material/templates/repository/nav.html:20
 #: themes/material/templates/repository/nav.html:52
 msgid "About"
-msgstr "туралы"
+msgstr "Журнал туралы"
 
 #: themes/BTE/templates/repository/hierarchy.html:60
 #: themes/OLH/templates/repository/hierarchy.html:60
@@ -6229,6 +6297,14 @@ msgstr "туралы оқыңыз"
 msgid "or view "
 msgstr "немесе көру"
 
+#: themes/BTE/templates/repository/home.html:79
+#: themes/OLH/templates/journal/homepage_elements/news.html:11
+#: themes/OLH/templates/repository/home.html:79
+#: themes/clean/templates/journal/homepage_elements/news.html:9
+#: themes/material/templates/journal/homepage_elements/news.html:13
+msgid "Latest"
+msgstr "Соңғы"
+
 #: themes/BTE/templates/repository/home.html:89
 #: themes/OLH/templates/repository/home.html:89
 #, python-format
@@ -6236,7 +6312,9 @@ msgid ""
 "\n"
 "                        Select Sub-%(rou_name)s of %(selected_name)s\n"
 "                    "
-msgstr "%(selected_name)s ішінен Sub-%(rou_name)s таңдаңыз"
+msgstr ""
+"\n"
+"%(selected_name)s ішінен Sub-%(rou_name)s таңдаңыз"
 
 #: themes/BTE/templates/repository/home.html:93
 #: themes/OLH/templates/repository/home.html:93
@@ -6267,7 +6345,7 @@ msgstr "бойынша іздеуге болады"
 #: themes/OLH/templates/repository/list.html:123
 #: themes/material/templates/repository/list.html:73
 msgid "Author Affiliation"
-msgstr "Авторлық байланыс"
+msgstr "Автордың аффилиациясы"
 
 #: themes/BTE/templates/repository/nav.html:7
 #: themes/OLH/templates/repository/nav.html:7
@@ -6347,19 +6425,30 @@ msgstr "Көрсеткіштер"
 msgid "All submissions"
 msgstr "Барлық өтініштер"
 
-#: themes/OLH/templates/core/base.html:95
-msgid "Toggle main menu"
-msgstr "Негізгі мәзірді ауыстыру"
+#: themes/OLH/templates/journal/article.html:553
+#: themes/clean/templates/journal/article.html:389
+#: themes/material/templates/journal/article.html:528
+msgid "View Larger Table"
+msgstr "Үлкенірек кестені көру"
 
-#: themes/OLH/templates/core/base.html:100
-msgid "Toggle search"
-msgstr "Іздеуді қосу/өшіру"
+#: themes/OLH/templates/journal/articles.html:30
+msgid "Pinned Articles"
+msgstr "Бекітілген мақалалар"
 
-#: themes/OLH/templates/journal/index.html:11
-#: themes/clean/templates/journal/index.html:5
-#: themes/material/templates/journal/index.html:5
-msgid "Home Page"
-msgstr "Негізгі бет"
+#: themes/OLH/templates/journal/articles.html:39
+msgid "There are no articles published in this journal yet"
+msgstr "Бұл журналда әлі жарияланған мақалалар жоқ"
+
+#: themes/OLH/templates/journal/homepage_elements/news.html:11
+#: themes/clean/templates/journal/homepage_elements/news.html:9
+#: themes/material/templates/journal/homepage_elements/news.html:13
+msgid "Posts"
+msgstr "Жазбалар"
+
+#: themes/OLH/templates/journal/homepage_elements/news.html:41
+#: themes/clean/templates/press/core/news/index.html:25
+msgid "This journal currently has no news items to display"
+msgstr "Бұл журналда қазір көрсетілетін жаңалықтар жоқ"
 
 #: themes/clean/templates/403.html:18
 msgid "You do not have permission to view this page"
@@ -6371,11 +6460,15 @@ msgstr "Сервер қатесі орын алды."
 
 #: themes/clean/templates/core/accounts/orcid_registration.html:14
 msgid ""
-"The ORCiD you logged in with is not currently linked with an account in our system. You can either\n"
-"            register a new account, or login with an existing account to link your ORCiD for future use."
+"The ORCiD you logged in with is not currently linked with an account in our "
+"system. You can either\n"
+"            register a new account, or login with an existing account to "
+"link your ORCiD for future use."
 msgstr ""
-"Сіз кірген ORCiD қазір жүйеміздегі тіркелгімен байланысты емес. Сіз де аласыз\n"
-"            жаңа тіркелгіні тіркеңіз немесе болашақта пайдалану үшін ORCiD-ді байланыстыру үшін бар тіркелгімен кіріңіз."
+"Сіз кірген ORCiD қазір жүйеміздегі тіркелгімен байланысты емес. Сіз де "
+"аласыз\n"
+"            жаңа тіркелгіні тіркеңіз немесе болашақта пайдалану үшін ORCiD-"
+"ді байланыстыру үшін бар тіркелгімен кіріңіз."
 
 #: themes/clean/templates/core/accounts/orcid_registration.html:34
 msgid "Forgot your password"
@@ -6387,44 +6480,65 @@ msgid ""
 "For more information read our <a href=\"#\" data-toggle=\"modal\" data-"
 "target=\"#passwordmodal\">password guide</a>."
 msgstr ""
-"Қосымша ақпарат алу үшін <a href=\"#\" data-toggle=\"modal\" data-"
-"target=\"#passwordmodal\">құпия сөз нұсқаулығын</a> оқыңыз."
+"Қосымша ақпарат алу үшін <a href=\"#\" data-toggle=\"modal\" data-target="
+"\"#passwordmodal\">құпия сөз нұсқаулығын</a> оқыңыз."
 
 #: themes/clean/templates/core/accounts/register.html:60
 msgid ""
 "\n"
-"                    <p class=\"lead\">When it comes to passwords, length is better than complexity.</p>\n"
-"                    <p>Its a common myth that a short and complex password (Jfjfy&65^87) is more secure than a long and\n"
-"                        uncomplicated password (our awesome moon base rocks).</p>\n"
-"                    <p>We recommend selecting a long, but easy to remember password such as <em>our awesome moon base\n"
-"                        rocks</em> which would take an estimated septillion years to crack as opposed to a complex one\n"
-"                        like <em>Jfjfy&65^87</em> which would take just over 600 years on a standard computer.</p>\n"
+"                    <p class=\"lead\">When it comes to passwords, length is "
+"better than complexity.</p>\n"
+"                    <p>Its a common myth that a short and complex password "
+"(Jfjfy&65^87) is more secure than a long and\n"
+"                        uncomplicated password (our awesome moon base rocks)."
+"</p>\n"
+"                    <p>We recommend selecting a long, but easy to remember "
+"password such as <em>our awesome moon base\n"
+"                        rocks</em> which would take an estimated septillion "
+"years to crack as opposed to a complex one\n"
+"                        like <em>Jfjfy&65^87</em> which would take just over "
+"600 years on a standard computer.</p>\n"
 "                    "
 msgstr ""
-"<p class=\"lead\">Құпия сөздерге келетін болсақ, күрделіліктен гөрі ұзындық жақсырақ.</p>\n"
-"                    <p>Қысқа және күрделі құпия сөз (Jfjfy&65^87) ұзақ және құпия сөзге қарағанда қауіпсізрек деген кең таралған миф.\n"
-"                        күрделі емес құпия сөз (біздің керемет ай негізіндегі тастар).</p>\n"
-"                    <p>Ұзын, бірақ есте сақтау оңай құпия сөзді таңдауды ұсынамыз, мысалы, <em>айдың керемет негізі\n"
-"                        тау жыныстары</em>күрделіге қарағанда жарылуы шамамен септилия жылдарды алады.\n"
-"                        сияқты <em>Jfjfy&65^87</em> стандартты компьютерде 600 жылдан сәл астам уақыт алады.</p>"
+"\n"
+"<p class=\"lead\">Құпия сөздерге келетін болсақ, күрделіліктен гөрі ұзындық "
+"жақсырақ.</p>\n"
+"                    <p>Қысқа және күрделі құпия сөз (Jfjfy&65^87) ұзақ және "
+"құпия сөзге қарағанда қауіпсізрек деген кең таралған миф.\n"
+"                        күрделі емес құпия сөз (біздің керемет ай "
+"негізіндегі тастар).</p>\n"
+"                    <p>Ұзын, бірақ есте сақтау оңай құпия сөзді таңдауды "
+"ұсынамыз, мысалы, <em>айдың керемет негізі\n"
+"                        тау жыныстары</em>күрделіге қарағанда жарылуы "
+"шамамен септилия жылдарды алады.\n"
+"                        сияқты <em>Jfjfy&65^87</em> стандартты компьютерде "
+"600 жылдан сәл астам уақыт алады.</p>"
 
 #: themes/clean/templates/core/accounts/reset_password.html:54
 msgid ""
-"Its a common myth that a short and complex password (Jfjfy&65^87) is more secure than a long and\n"
+"Its a common myth that a short and complex password (Jfjfy&65^87) is more "
+"secure than a long and\n"
 "                        uncomplicated password (our awesome moon base rocks)."
 msgstr ""
-"Қысқа және күрделі құпия сөз (Jfjfy&65^87) ұзақ және күрделі құпия сөзге қарағанда қауіпсіз деген кең таралған миф.\n"
+"Қысқа және күрделі құпия сөз (Jfjfy&65^87) ұзақ және күрделі құпия сөзге "
+"қарағанда қауіпсіз деген кең таралған миф.\n"
 "                        күрделі емес құпия сөз (біздің керемет ай базасы)."
 
 #: themes/clean/templates/core/accounts/reset_password.html:56
 msgid ""
-"We recommend selecting a long, but easy to remember password such as <em>our awesome moon base\n"
-"                        rocks</em> which would take an estimated septillion years to crack as opposed to a complex one\n"
-"                        like <em>Jfjfy&65^87</em> which would take just over 600 years on a standard computer."
+"We recommend selecting a long, but easy to remember password such as <em>our "
+"awesome moon base\n"
+"                        rocks</em> which would take an estimated septillion "
+"years to crack as opposed to a complex one\n"
+"                        like <em>Jfjfy&65^87</em> which would take just over "
+"600 years on a standard computer."
 msgstr ""
-"Ұзын, бірақ есте сақтау оңай құпия сөзді таңдауды ұсынамыз, мысалы<em>біздің керемет ай негізі\n"
-"                        тау жыныстары</em>күрделіге қарағанда жарылуы шамамен септилия жылдарды алады.\n"
-"                        сияқты <em>Jfjfy&65^87</em> бұл стандартты компьютерде 600 жылдан сәл астам уақыт алады."
+"Ұзын, бірақ есте сақтау оңай құпия сөзді таңдауды ұсынамыз, мысалы<em>біздің "
+"керемет ай негізі\n"
+"                        тау жыныстары</em>күрделіге қарағанда жарылуы "
+"шамамен септилия жылдарды алады.\n"
+"                        сияқты <em>Jfjfy&65^87</em> бұл стандартты "
+"компьютерде 600 жылдан сәл астам уақыт алады."
 
 #: themes/clean/templates/core/base.html:83
 msgid "Close message"
@@ -6452,7 +6566,8 @@ msgstr "ағымдағы бет"
 msgid ""
 "If you want to change your email address you may do so\n"
 "                    below, however, you will be logged out and\n"
-"                    your account will be marked as inactive until you follow the\n"
+"                    your account will be marked as inactive until you follow "
+"the\n"
 "                    instructions in the verfication email."
 msgstr ""
 "Электрондық пошта мекенжайыңызды өзгерткіңіз келсе, өзгерте аласыз\n"
@@ -6494,7 +6609,7 @@ msgstr "Жаңа құпия сөзді қайтадан енгізіңіз"
 
 #: themes/clean/templates/elements/journal/issue_list.html:11
 msgid "This journal has no issues"
-msgstr "Бұл журналда ешқандай мәселе жоқ"
+msgstr "Бұл журналда шығарылымдар жоқ"
 
 #: themes/clean/templates/elements/journal/issue_list_by_decade.html:2
 msgid ""
@@ -6503,8 +6618,9 @@ msgid ""
 "        published during that decade.\n"
 "    "
 msgstr ""
-"Мәселелер онжылдықтар бойынша топтастырылған. Мәселелерді көру үшін онжылдықты таңдаңыз\n"
-"        сол онжылдықта жарық көрді."
+"\n"
+"Шығарылымдар онжылдықтар бойынша топтастырылған. Сол онжылдықта жарық көрген "
+"шығарылымдарды көру үшін онжылдықты таңдаңыз."
 
 #: themes/clean/templates/elements/journal/reading.html:2
 #: themes/material/templates/elements/journal/reading.html:2
@@ -6523,12 +6639,17 @@ msgstr "барлығы"
 #, python-format
 msgid ""
 "\n"
-"                    <p><b>Note:<br/>This review refers to round %(review.review_round.round_number)s of peer\n"
-"                        review and may pertain to an earlier version of the document.</p>\n"
+"                    <p><b>Note:<br/>This review refers to round "
+"%(review.review_round.round_number)s of peer\n"
+"                        review and may pertain to an earlier version of the "
+"document.</p>\n"
 "                    "
 msgstr ""
-"<p><b>Ескертпе:<br/>Бұл шолу %(review.review_round.round_number)s айналымына қатысты\n"
-"                        қарап шығыңыз және құжаттың бұрынғы нұсқасына қатысты болуы мүмкін.</p>"
+"\n"
+"<p><b>Ескертпе:<br/>Бұл шолу %(review.review_round.round_number)s айналымына "
+"қатысты\n"
+"                        қарап шығыңыз және құжаттың бұрынғы нұсқасына "
+"қатысты болуы мүмкін.</p>"
 
 #: themes/clean/templates/elements/sections_block.html:4
 msgid "Sections submission information"
@@ -6611,7 +6732,7 @@ msgstr "Кідірту"
 
 #: themes/clean/templates/journal/issues.html:14
 msgid "The current issue is"
-msgstr "Қазіргі мәселе"
+msgstr "Ағымдағы шығарылым"
 
 #: themes/clean/templates/press/core/news/index.html:20
 msgid "Read More."
@@ -6629,8 +6750,7 @@ msgstr "Сүзу үшін теруді бастаңыз."
 #: themes/material/templates/core/accounts/activate_account.html:29
 msgid ""
 "There was no inactive account with this activation code found. It is "
-"possible that your account is already active, you can check by attempting to"
-" "
+"possible that your account is already active, you can check by attempting to "
 msgstr ""
 "Бұл белсендіру коды бар белсенді емес тіркелгі табылмады. Тіркелгіңіз "
 "әлдеқашан белсенді болуы мүмкін, әрекет ету арқылы тексеруге болады"
@@ -6641,19 +6761,25 @@ msgid ""
 "For more information read our <a href=\"#\" data-target=\"passwordmodal\" "
 "class=\"modal-trigger\">password guide</a>."
 msgstr ""
-"Қосымша ақпарат алу үшін <a href=\"#\" data-target=\"passwordmodal\" "
-"class=\"modal-trigger\">құпиясөз нұсқаулығын</a> оқыңыз."
+"Қосымша ақпарат алу үшін <a href=\"#\" data-target=\"passwordmodal\" class="
+"\"modal-trigger\">құпиясөз нұсқаулығын</a> оқыңыз."
 
 #: themes/material/templates/core/accounts/register.html:56
 #: themes/material/templates/core/accounts/reset_password.html:46
 msgid ""
-"We recommend selecting a long, but easy to remember password such as <i>our awesome moon base\n"
-"                rocks</i> which would take an estimated septillion years to crack as opposed to a complex one\n"
-"                like <i>Jfjfy&65^87</i> which would take just over 600 years on a standard computer."
+"We recommend selecting a long, but easy to remember password such as <i>our "
+"awesome moon base\n"
+"                rocks</i> which would take an estimated septillion years to "
+"crack as opposed to a complex one\n"
+"                like <i>Jfjfy&65^87</i> which would take just over 600 years "
+"on a standard computer."
 msgstr ""
-"Ұзын, бірақ есте сақтау оңай құпия сөзді таңдауды ұсынамыз, мысалы, <i>біздің керемет ай негізі\n"
-"                тау жыныстары</i>күрделіге қарағанда жарылуы шамамен септилион жылдарды алады.\n"
-"                сияқты <i>Jfjfy&65^87</i> бұл стандартты компьютерде 600 жылдан сәл астам уақыт алады."
+"Ұзын, бірақ есте сақтау оңай құпия сөзді таңдауды ұсынамыз, мысалы, "
+"<i>біздің керемет ай негізі\n"
+"                тау жыныстары</i>күрделіге қарағанда жарылуы шамамен "
+"септилион жылдарды алады.\n"
+"                сияқты <i>Jfjfy&65^87</i> бұл стандартты компьютерде 600 "
+"жылдан сәл астам уақыт алады."
 
 #: themes/material/templates/core/login.html:19
 msgid "Login with your account"
@@ -6709,7 +6835,8 @@ msgid ""
 "Use the button below to register to receive notifications of new articles\n"
 "                                published in this journal "
 msgstr ""
-"Жаңа мақалалар туралы хабарландыруларды алу үшін тіркелу үшін төмендегі түймені пайдаланыңыз\n"
+"Жаңа мақалалар туралы хабарландыруларды алу үшін тіркелу үшін төмендегі "
+"түймені пайдаланыңыз\n"
 "                                осы журналда жарияланған"
 
 #: themes/material/templates/elements/accounts/edit_profile_body_block.html:54
@@ -6730,7 +6857,7 @@ msgstr "Жабу."
 
 #: themes/material/templates/elements/journal/issue_list.html:59
 msgid "View Issue"
-msgstr "Мәселені қарау"
+msgstr "Шығарылымды қарау"
 
 #: themes/material/templates/elements/pagination.html:19
 msgid "Previous page."
@@ -6766,7 +6893,11 @@ msgid_plural ""
 "                                    Authors\n"
 "                                "
 msgstr[0] ""
+"\n"
+"Автор"
 msgstr[1] ""
+"\n"
+"Авторлар"
 
 #: themes/material/templates/journal/article.html:307
 msgid "Article No."
@@ -6803,7 +6934,11 @@ msgid_plural ""
 "                                        %(result_count)s results\n"
 "                                    "
 msgstr[0] ""
+"\n"
+"1 нәтиже"
 msgstr[1] ""
+"\n"
+"%(result_count)s нәтиже"
 
 #: themes/material/templates/journal/new_search.html:18
 #: themes/material/templates/journal/search.html:20

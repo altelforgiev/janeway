@@ -8,15 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-15 09:26+0000\n"
+"POT-Creation-Date: 2026-11-15 14:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: comms/models.py:142 comms/models.py:144
 #, python-brace-format
@@ -77,8 +79,8 @@ msgid ""
 "Check this box if you would like to receive notifications of new articles "
 "published in this journal"
 msgstr ""
-"Установите этот флажок, если вы хотите получать уведомления о новых статьях,"
-" опубликованных в этом журнале."
+"Установите этот флажок, если вы хотите получать уведомления о новых статьях, "
+"опубликованных в этом журнале."
 
 #: core/forms/forms.py:713
 msgid "E-mail"
@@ -108,7 +110,6 @@ msgid "Off"
 msgstr "Выключенный"
 
 #: core/homepage_elements/carousel/models.py:10
-#: themes/BTE/templates/journal/index.html:9
 msgid "Latest Articles"
 msgstr "Последние статьи"
 
@@ -137,6 +138,34 @@ msgstr ""
 #: core/homepage_elements/carousel/models.py:70
 msgid "Issues and Collections"
 msgstr "Выпуски и коллекции"
+
+#: core/janeway_global_settings.py:252
+msgid "English"
+msgstr "Английский"
+
+#: core/janeway_global_settings.py:253
+msgid "English (US)"
+msgstr "Английский (США)"
+
+#: core/janeway_global_settings.py:254
+msgid "French"
+msgstr "Французский"
+
+#: core/janeway_global_settings.py:255
+msgid "German"
+msgstr "Немецкий"
+
+#: core/janeway_global_settings.py:256
+msgid "Dutch"
+msgstr "Нидерландский"
+
+#: core/janeway_global_settings.py:257
+msgid "Welsh"
+msgstr "Валлийский"
+
+#: core/janeway_global_settings.py:258
+msgid "Spanish"
+msgstr "Испанский"
 
 #: core/logic.py:1042
 msgid "Your password must be {} characters long"
@@ -279,9 +308,8 @@ msgstr "Артикул ПК"
 #: templates/admin/submission/submit_files.html:43
 #: templates/admin/submission/submit_files.html:83
 #: templates/admin/submission/submit_review.html:110
-#: themes/BTE/templates/admin/submission/submit_files.html:61
 msgid "Label"
-msgstr "Этикетка"
+msgstr "Метка"
 
 #: core/models.py:1237 core/models.py:1556
 msgid "Description"
@@ -320,38 +348,38 @@ msgstr "Предмет"
 msgid "Your message"
 msgstr "Ваше сообщение"
 
-#: core/models.py:2777
+#: core/models.py:2778
 msgid "Active"
 msgstr "Активный"
 
-#: core/models.py:2778
+#: core/models.py:2779
 msgid "Inactive"
 msgstr "Неактивный"
 
-#: core/models.py:2779 templates/admin/review/view_review.html:62
+#: core/models.py:2780 templates/admin/review/view_review.html:62
 msgid "Withdrawn"
 msgstr "снято"
 
-#: core/models.py:2780
+#: core/models.py:2781
 msgid "Unknown"
 msgstr "Неизвестный"
 
-#: core/models.py:3001
+#: core/models.py:3002
 msgid "Title, position, or role"
 msgstr "Звание, должность или роль"
 
-#: core/models.py:3006
+#: core/models.py:3007
 msgid "Department, unit, or team"
 msgstr "Отдел, подразделение или команда"
 
 #: core/validators.py:18
 #, python-brace-format
 msgid ""
-"Extension {extension} is not allowed. Allowed extensions are: "
-"{validator.extensions}"
+"Extension {extension} is not allowed. Allowed extensions are: {validator."
+"extensions}"
 msgstr ""
-"Расширение {extension} не разрешено. Разрешенные расширения: "
-"{validator.extensions}."
+"Расширение {extension} не разрешено. Разрешенные расширения: {validator."
+"extensions}."
 
 #: core/validators.py:22
 #, python-brace-format
@@ -360,11 +388,11 @@ msgid ""
 msgstr ""
 "MIME-тип {mimetype} недействителен. Допустимые типы: {validator.mimetypes}."
 
-#: core/views.py:87
+#: core/views.py:96
 msgid "You have been banned from logging in due to failed attempts."
 msgstr "Вам запретили вход в систему из-за неудачных попыток."
 
-#: core/views.py:131
+#: core/views.py:140
 msgid ""
 "Password reset process has been initiated, please check your inbox for a "
 "reset request link."
@@ -372,7 +400,7 @@ msgstr ""
 "Начался процесс сброса пароля. Проверьте свой почтовый ящик на наличие "
 "ссылки на запрос на сброс."
 
-#: core/views.py:142
+#: core/views.py:151
 msgid ""
 "Wrong email/password combination or your email address has not been "
 "confirmed yet."
@@ -380,23 +408,23 @@ msgstr ""
 "Неправильная комбинация адреса электронной почты и пароля или ваш адрес "
 "электронной почты еще не подтвержден."
 
-#: core/views.py:194
+#: core/views.py:203
 msgid "ORCID is not enabled.Please log in with your username and password."
 msgstr ""
 "ORCID не включен. Пожалуйста, войдите в систему, используя свое имя "
 "пользователя и пароль."
 
-#: core/views.py:294
+#: core/views.py:303
 msgid "You have been logged out."
 msgstr "Вы вышли из системы."
 
-#: core/views.py:318
+#: core/views.py:327
 msgid "If your account was found, an email has been sent to you."
 msgstr ""
 "Если ваша учетная запись была найдена, вам было отправлено электронное "
 "письмо."
 
-#: core/views.py:472
+#: core/views.py:481
 msgid ""
 "Your account has been created. Please follow the instructions in the email "
 "that has been sent to you."
@@ -404,103 +432,103 @@ msgstr ""
 "Ваша учетная запись создана. Пожалуйста, следуйте инструкциям в электронном "
 "письме, которое было отправлено вам."
 
-#: core/views.py:527
+#: core/views.py:536
 msgid "Account activated"
 msgstr "Аккаунт активирован"
 
-#: core/views.py:577
+#: core/views.py:586
 msgid "An account with that email address already exists."
 msgstr "Учетная запись с таким адресом электронной почты уже существует."
 
-#: core/views.py:583
+#: core/views.py:592
 msgid "Email address is not valid."
 msgstr "Адрес электронной почты недействителен."
 
-#: core/views.py:598
+#: core/views.py:607
 msgid "Password updated."
 msgstr "Пароль обновлен."
 
-#: core/views.py:607
+#: core/views.py:616
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
-#: core/views.py:612
+#: core/views.py:621
 msgid "Old password is not correct."
 msgstr "Старый пароль неверен."
 
-#: core/views.py:623
+#: core/views.py:632
 msgid "Successfully subscribed to article notifications."
 msgstr "Успешная подписка на уведомления о статьях."
 
-#: core/views.py:631
+#: core/views.py:640
 msgid "Successfully unsubscribed from article notifications."
 msgstr "Успешно отписана от уведомлений о статьях."
 
-#: core/views.py:733
+#: core/views.py:742
 msgid ""
 "Your account does not have an ORCID. Please log in with ORCID and try again."
 msgstr ""
 "В вашей учетной записи нет ORCID. Пожалуйста, войдите в систему с помощью "
 "ORCID и повторите попытку."
 
-#: core/views.py:749 submission/views.py:1587
+#: core/views.py:758 submission/views.py:1587
 #, python-format
 msgid ""
 "No affiliations were found on your public ORCID record for ID %(orcid_id)s. "
 "Please update your affiliations on orcid.org and try again."
 msgstr ""
 "В вашей общедоступной записи ORCID для идентификатора %(orcid_id)s не "
-"обнаружено никаких связей. Пожалуйста, обновите свою принадлежность на "
-"orcid.org и повторите попытку."
+"обнаружено никаких связей. Пожалуйста, обновите свою принадлежность на orcid."
+"org и повторите попытку."
 
-#: core/views.py:782 submission/views.py:1622
+#: core/views.py:791 submission/views.py:1622
 msgid "Affiliations updated."
 msgstr "Принадлежности обновлены."
 
-#: core/views.py:2400
+#: core/views.py:2409
 msgid ""
-"You cannot remove a section that contains articles. Remove articles from the"
-" section if you want to delete it."
+"You cannot remove a section that contains articles. Remove articles from the "
+"section if you want to delete it."
 msgstr ""
 "Вы не можете удалить раздел, содержащий статьи. Удалите статьи из раздела, "
 "если хотите его удалить."
 
-#: core/views.py:2830
+#: core/views.py:2839
 msgid "The form did not validate: "
 msgstr "Форма не прошла проверку:"
 
-#: core/views.py:3062 journal/forms.py:24 journal/views.py:3040
+#: core/views.py:3071 journal/forms.py:24 journal/views.py:3040
 msgid "Newest"
 msgstr "Новейший"
 
-#: core/views.py:3063 journal/forms.py:25 journal/views.py:3041
+#: core/views.py:3072 journal/forms.py:25 journal/views.py:3041
 msgid "Oldest"
 msgstr "Самый старый"
 
-#: core/views.py:3064
+#: core/views.py:3073
 msgid "Last name A-Z"
 msgstr "Фамилия А-Я"
 
-#: core/views.py:3065
+#: core/views.py:3074
 msgid "Last name Z-A"
 msgstr "Фамилия З-А"
 
-#: core/views.py:3219 submission/views.py:1327
+#: core/views.py:3228 submission/views.py:1327
 #, python-format
 msgid "Custom organization updated: %(organization)s"
-msgstr "Пользовательская организация обновлена: %(организация)s"
+msgstr "Пользовательская организация обновлена: %(organization)s"
 
-#: core/views.py:3268 submission/views.py:1394
+#: core/views.py:3277 submission/views.py:1394
 #, python-format
 msgid "Affiliation created: %(affiliation)s"
 msgstr "Создана принадлежность: %(affiliation)s"
 
-#: core/views.py:3315 submission/views.py:1456
+#: core/views.py:3324 submission/views.py:1456
 #, python-format
 msgid "Affiliation updated: %(affiliation)s"
 msgstr "Принадлежность обновлена: %(affiliation)s"
 
-#: core/views.py:3354 submission/views.py:1511
+#: core/views.py:3363 submission/views.py:1511
 #, python-format
 msgid "Affiliation removed: %(affiliation)s"
 msgstr "Принадлежность удалена: %(affiliation)s"
@@ -585,8 +613,8 @@ msgid ""
 "The default cover image for journal issues and for the journal's listing on "
 "the press-level website."
 msgstr ""
-"Изображение обложки по умолчанию для выпусков журнала и для листинга журнала"
-" на веб-сайте уровня прессы."
+"Изображение обложки по умолчанию для выпусков журнала и для листинга журнала "
+"на веб-сайте уровня прессы."
 
 #: journal/models.py:162
 msgid "The default background image for article openers and carousel items."
@@ -654,7 +682,7 @@ msgstr "Пожалуйста, добавьте как можно больше д
 
 #: journal/models.py:858
 msgid "Autogenerated cache of the display format of an issue title"
-msgstr "Автогенерируемый кеш формата отображения названия проблемы"
+msgstr "Автоматически сформированный кеш формата отображения названия выпуска"
 
 #: journal/models.py:867
 msgid "Autogenerated cache of the accessible display format of an issue title"
@@ -680,8 +708,7 @@ msgstr ""
 
 #: journal/models.py:940
 msgid ""
-"An ISBN is relevant for non-serial collections such as conference "
-"proceedings"
+"An ISBN is relevant for non-serial collections such as conference proceedings"
 msgstr ""
 "ISBN актуален для несерийных сборников, таких как материалы конференций."
 
@@ -719,8 +746,8 @@ msgid ""
 "Publication date set to {article.date_published.strftime('%Y-%m-%d %H:%M "
 "%Z')} "
 msgstr ""
-"Дата публикации установлена ​​на {article.date_published.strftime('%Y-%m-%d "
-"%H:%M %Z')}"
+"Дата публикации установлена на {article.date_published.strftime('%Y-%m-%d %H:"
+"%M %Z')}"
 
 #: journal/views.py:1179
 msgid "Publication date unset"
@@ -851,7 +878,7 @@ msgstr "Имя автора"
 
 #: journal/views.py:3045
 msgid "Volume"
-msgstr "Объем"
+msgstr "Том"
 
 #: press/views.py:403
 msgid "Description deleted."
@@ -873,7 +900,7 @@ msgstr "Описание сохранено."
 #: themes/material/templates/preprints/list.html:96
 #: themes/material/templates/repository/list.html:70
 msgid "Title"
-msgstr "Заголовок"
+msgstr "Название"
 
 #: repository/forms.py:101
 msgid "Enter your article's abstract here"
@@ -896,8 +923,8 @@ msgid ""
 "If set to True, this will require all file uploads fromauthors to be PDF "
 "files."
 msgstr ""
-"Если установлено значение True, все файлы, загружаемые авторами, должны быть"
-" PDF-файлами."
+"Если установлено значение True, все файлы, загружаемые авторами, должны быть "
+"PDF-файлами."
 
 #: repository/models.py:545
 msgid ""
@@ -907,8 +934,8 @@ msgstr ""
 "Если это поле должно выводиться как поле метаданных постоянного тока, вы "
 "можете добавить здесь тип."
 
-#: repository/models.py:599 repository/models.py:1259
-#: repository/models.py:1624 submission/models.py:1008
+#: repository/models.py:599 repository/models.py:1259 repository/models.py:1624
+#: submission/models.py:1008
 msgid "Your article title"
 msgstr "Название вашей статьи"
 
@@ -958,7 +985,7 @@ msgstr "Публиковать обзор"
 #: review/forms.py:467
 #, python-format
 msgid "Author can see ‘%(name)s’"
-msgstr "Автор может видеть «%(имя)s»"
+msgstr "Автор может видеть «%(name)s»"
 
 #: review/models.py:243
 msgid "Anonymity"
@@ -1070,8 +1097,8 @@ msgstr ""
 
 #: submission/models.py:1213
 msgid ""
-"Custom 'how to cite' text. To be used only if the block generated by Janeway"
-" is not suitable."
+"Custom 'how to cite' text. To be used only if the block generated by Janeway "
+"is not suitable."
 msgstr ""
 "Пользовательский текст «Как цитировать». Используется только в том случае, "
 "если блок, сгенерированный Janeway, не подходит."
@@ -1147,8 +1174,8 @@ msgid ""
 "Please add another author with an email address before removing "
 "%(author_name)s."
 msgstr ""
-"%(author_name)s (%(email)s) — единственный возможный автор переписки. Прежде"
-" чем удалять %(author_name)s, добавьте другого автора с адресом электронной "
+"%(author_name)s (%(email)s) — единственный возможный автор переписки. Прежде "
+"чем удалять %(author_name)s, добавьте другого автора с адресом электронной "
 "почты."
 
 #: submission/views.py:540
@@ -1163,8 +1190,8 @@ msgid ""
 "Please add another author who has a user account before removing "
 "%(author_name)s."
 msgstr ""
-"%(author_name)s (%(email)s) — единственный возможный автор переписки. Прежде"
-" чем удалять %(author_name)s, добавьте другого автора, у которого есть "
+"%(author_name)s (%(email)s) — единственный возможный автор переписки. Прежде "
+"чем удалять %(author_name)s, добавьте другого автора, у которого есть "
 "учетная запись."
 
 #: submission/views.py:603
@@ -1287,17 +1314,21 @@ msgid ""
 "      below.\n"
 "    "
 msgstr ""
+"\n"
 "Вы можете завершить процесс активации, нажав кнопку\n"
 "      ниже."
 
 #: templates/admin/core/accounts/activate_account.html:34
 msgid ""
 "\n"
-"      Sorry, we could not find an account to activate, or your account is active\n"
+"      Sorry, we could not find an account to activate, or your account is "
+"active\n"
 "      already. You can check if it is active by attempting to log in.\n"
 "    "
 msgstr ""
-"К сожалению, нам не удалось найти учетную запись для активации, или ваша учетная запись активна.\n"
+"\n"
+"К сожалению, нам не удалось найти учетную запись для активации, или ваша "
+"учетная запись активна.\n"
 "      уже. Вы можете проверить, активен ли он, попытавшись войти в систему."
 
 #: templates/admin/core/accounts/activate_account.html:40
@@ -1307,14 +1338,13 @@ msgstr ""
 #: templates/admin/journal/submissions.html:40
 #: themes/BTE/templates/admin/core/accounts/login.html:84
 #: themes/BTE/templates/admin/core/accounts/login.html:115
-#: themes/BTE/templates/core/base.html:254
+#: themes/BTE/templates/core/base.html:1080
 #: themes/BTE/templates/core/login.html:77
 #: themes/BTE/templates/core/login.html:107
-#: themes/BTE/templates/core/nav.html:30
-#: themes/BTE/templates/elements/journal_footer.html:48
+#: themes/BTE/templates/core/nav.html:166
 #: themes/BTE/templates/journal/become_reviewer.html:17
-#: themes/BTE/templates/journal/submissions.html:36
-#: themes/BTE/templates/press/elements/press_footer.html:21
+#: themes/BTE/templates/journal/submissions.html:29
+#: themes/BTE/templates/press/elements/press_footer.html:33
 #: themes/BTE/templates/press/nav.html:58
 #: themes/OLH/templates/core/base.html:152
 #: themes/OLH/templates/core/login.html:47
@@ -1339,7 +1369,7 @@ msgstr ""
 #: themes/material/templates/press/nav.html:125
 #: themes/material/templates/repository/nav.html:39
 msgid "Log in"
-msgstr "Авторизоваться"
+msgstr "Войти"
 
 #: templates/admin/core/accounts/edit_profile.html:9
 #: templates/admin/core/accounts/edit_profile.html:17
@@ -1371,11 +1401,14 @@ msgid ""
 "        are one and the same.</p>\n"
 "      "
 msgstr ""
-"<p>Если вы хотите изменить свой адрес электронной почты, вы можете сделать это ниже:\n"
+"\n"
+"<p>Если вы хотите изменить свой адрес электронной почты, вы можете сделать "
+"это ниже:\n"
 "        однако вы выйдете из системы, и ваш\n"
 "        учетная запись будет помечена как неактивная, пока вы не выполните\n"
 "        инструкции в письме с подтверждением. <strong>Примечание: </strong>\n"
-"        Изменение адреса электронной почты также приведет к изменению вашего имени пользователя, поскольку эти\n"
+"        Изменение адреса электронной почты также приведет к изменению вашего "
+"имени пользователя, поскольку эти\n"
 "        это одно и то же.</p>"
 
 #: templates/admin/core/accounts/edit_profile.html:36
@@ -1412,11 +1445,14 @@ msgstr "Зарегистрируйтесь для получения уведо�
 #: templates/admin/core/accounts/edit_profile.html:61
 msgid ""
 "\n"
-"            Use the button below to register to receive notifications of new articles\n"
+"            Use the button below to register to receive notifications of new "
+"articles\n"
 "            published in this journal.\n"
 "          "
 msgstr ""
-"Используйте кнопку ниже, чтобы зарегистрироваться и получать уведомления о новых статьях.\n"
+"\n"
+"Используйте кнопку ниже, чтобы зарегистрироваться и получать уведомления о "
+"новых статьях.\n"
 "            опубликовано в этом журнале."
 
 #: templates/admin/core/accounts/edit_profile.html:68
@@ -1455,6 +1491,7 @@ msgid ""
 "        password plus your new password.\n"
 "      "
 msgstr ""
+"\n"
 "Вы можете обновить свой пароль, введя существующий\n"
 "        пароль плюс ваш новый пароль."
 
@@ -1509,9 +1546,11 @@ msgstr "Сбросить пароль"
 #: templates/admin/core/accounts/get_reset_token.html:22
 msgid ""
 "\n"
-"      Enter your email address and then follow the link sent to you by email.\n"
+"      Enter your email address and then follow the link sent to you by "
+"email.\n"
 "    "
 msgstr ""
+"\n"
 "Введите свой адрес электронной почты, а затем перейдите по ссылке, "
 "отправленной вам по электронной почте."
 
@@ -1572,13 +1611,17 @@ msgstr "Незарегистрированный ORciD"
 msgid ""
 "\n"
 "    The ORCiD you logged in with is not currently linked with an\n"
-"    account in our system. You can either register a new account, or login with\n"
+"    account in our system. You can either register a new account, or login "
+"with\n"
 "    an existing account to link your ORCiD for future use.\n"
 "  "
 msgstr ""
+"\n"
 "ORCiD, с которым вы вошли в систему, в настоящее время не связан с\n"
-"    аккаунт в нашей системе. Вы можете зарегистрировать новую учетную запись или войти с помощью\n"
-"    существующая учетная запись, чтобы связать ваш ORCiD для будущего использования."
+"    аккаунт в нашей системе. Вы можете зарегистрировать новую учетную запись "
+"или войти с помощью\n"
+"    существующая учетная запись, чтобы связать ваш ORCiD для будущего "
+"использования."
 
 #: templates/admin/core/accounts/password_guide.html:11
 #: themes/BTE/templates/admin/core/accounts/register.html:158
@@ -1598,7 +1641,9 @@ msgid ""
 "\n"
 "        When it comes to passwords, length is better than complexity.\n"
 "      "
-msgstr "Когда дело доходит до паролей, длина важнее сложности."
+msgstr ""
+"\n"
+"Когда дело доходит до паролей, длина важнее сложности."
 
 #: templates/admin/core/accounts/password_guide.html:18
 msgid ""
@@ -1608,6 +1653,7 @@ msgid ""
 "        (our awesome moon base rocks).\n"
 "      "
 msgstr ""
+"\n"
 "Распространенный миф о том, что короткий и сложный пароль\n"
 "        (Jfjfy&65^87) более безопасен, чем длинный и несложный пароль.\n"
 "        (наша потрясающая лунная база скалится)."
@@ -1617,13 +1663,16 @@ msgid ""
 "\n"
 "        We recommend selecting a long, but easy to remember\n"
 "        password such as our awesome moon base rocks which would take an\n"
-"        estimated septillion years to crack as opposed to a complex one like\n"
+"        estimated septillion years to crack as opposed to a complex one "
+"like\n"
 "        Jfjfy&65^87 which would take just over 600 years on a standard\n"
 "        computer.\n"
 "      "
 msgstr ""
+"\n"
 "Рекомендуем выбирать длинный, но легко запоминающийся\n"
-"        пароль, такой как наши замечательные камни на лунной базе, для которого потребуется\n"
+"        пароль, такой как наши замечательные камни на лунной базе, для "
+"которого потребуется\n"
 "        примерно септиллион лет на взлом, в отличие от такого сложного, как\n"
 "        Jfjfy&65^87, что по стандарту заняло бы чуть более 600 лет.\n"
 "        компьютер."
@@ -1656,6 +1705,7 @@ msgid ""
 "    data-open=\"password-modal\">password guide</a>.\n"
 "  "
 msgstr ""
+"\n"
 "Для получения дополнительной информации прочтите наш <a href=\"#\"\n"
 "    data-open=\"password-modal\">руководство по паролям</a>."
 
@@ -1676,9 +1726,9 @@ msgstr "Регистрируя аккаунт, вы соглашаетесь с 
 #: themes/BTE/templates/core/accounts/orcid_registration.html:54
 #: themes/BTE/templates/core/accounts/register.html:9
 #: themes/BTE/templates/core/accounts/register.html:100
-#: themes/BTE/templates/core/base.html:255
-#: themes/BTE/templates/core/nav.html:31
-#: themes/BTE/templates/journal/submissions.html:33
+#: themes/BTE/templates/core/base.html:1083
+#: themes/BTE/templates/core/nav.html:169
+#: themes/BTE/templates/journal/submissions.html:26
 #: themes/BTE/templates/press/nav.html:59
 #: themes/OLH/templates/core/accounts/orcid_registration.html:52
 #: themes/OLH/templates/core/accounts/orcid_registration.html:54
@@ -1726,7 +1776,9 @@ msgid ""
 "\n"
 "      Remove \"%(thing_to_delete)s\"\n"
 "    "
-msgstr "Удалить \"%(thing_to_delete)s\""
+msgstr ""
+"\n"
+"Удалить \"%(thing_to_delete)s\""
 
 #: templates/admin/core/affiliation_form.html:7
 #: templates/admin/core/affiliation_form.html:19
@@ -1736,7 +1788,9 @@ msgid ""
 "\n"
 "      Edit \"%(affiliation)s\"\n"
 "    "
-msgstr "Изменить \"%(принадлежность)s\""
+msgstr ""
+"\n"
+"Изменить \"%(affiliation)s\""
 
 #: templates/admin/core/affiliation_form.html:11
 #: templates/admin/core/affiliation_form.html:23
@@ -1746,7 +1800,9 @@ msgid ""
 "\n"
 "      Create affiliation with \"%(organization)s\"\n"
 "    "
-msgstr "Создать принадлежность к «%(организации)s»"
+msgstr ""
+"\n"
+"Создать принадлежность к «%(organization)s»"
 
 #: templates/admin/core/affiliation_form.html:36
 #: templates/admin/core/affiliation_form.html:45
@@ -1765,20 +1821,24 @@ msgstr "Подробности о филиале"
 #: templates/admin/core/affiliation_form.html:71
 msgid ""
 "\n"
-"      <p>Make your changes to the affiliation, and then select <strong>Save</strong>.</p>\n"
+"      <p>Make your changes to the affiliation, and then select <strong>Save</"
+"strong>.</p>\n"
 "    "
 msgstr ""
-"<p>Внесите изменения в принадлежность и нажмите "
-"<strong>Сохранить</strong>.</p>"
+"\n"
+"<p>Внесите изменения в принадлежность и нажмите <strong>Сохранить</strong>.</"
+"p>"
 
 #: templates/admin/core/affiliation_form.html:75
 msgid ""
 "\n"
-"      <p>Enter optional affiliation details, and select <strong>Save</strong> to create the affiliation.</p>\n"
+"      <p>Enter optional affiliation details, and select <strong>Save</"
+"strong> to create the affiliation.</p>\n"
 "    "
 msgstr ""
-"<p>Введите дополнительные сведения об филиале и нажмите "
-"<strong>Сохранить</strong>, чтобы создать филиал.</p>"
+"\n"
+"<p>Введите дополнительные сведения об филиале и нажмите <strong>Сохранить</"
+"strong>, чтобы создать филиал.</p>"
 
 #: templates/admin/core/affiliation_list_display_with_actions.html:21
 msgid "Edit affiliation"
@@ -1852,6 +1912,7 @@ msgstr "Разделы"
 
 #: templates/admin/core/manager/sections/section_articles.html:11
 #: templates/admin/press/edit_press_journal_description.html:10
+#: themes/BTE/templates/core/nav.html:147
 #: themes/BTE/templates/elements/right_hand_menu.html:15
 #: themes/BTE/templates/press/elements/right_hand_menu.html:7
 #: themes/BTE/templates/press/nav.html:49
@@ -1874,10 +1935,9 @@ msgstr "Менеджер"
 
 #: templates/admin/core/manager/sections/section_articles.html:13
 #: templates/admin/core/manager/sections/section_articles.html:20
+#: themes/BTE/templates/core/nav.html:53
 #: themes/BTE/templates/journal/article_list.html:6
-#: themes/BTE/templates/journal/article_list.html:22
-#: themes/BTE/templates/journal/articles.html:9
-#: themes/BTE/templates/journal/articles.html:35
+#: themes/BTE/templates/journal/article_list.html:23
 #: themes/BTE/templates/journal/search.html:31
 #: themes/OLH/templates/core/nav.html:53
 #: themes/OLH/templates/journal/article_list.html:6
@@ -1944,9 +2004,13 @@ msgstr "В этом разделе нет статей."
 #: templates/admin/core/manager/sections/section_list.html:26
 msgid ""
 "\n"
-"\t\t\t\t\t\t\t\t\tHere you can create and edit the sections that make up a typical issue. You can also think of these as article types, since authors will choose one on submission. To quickly re-order sections, drag and drop the \n"
+"\t\t\t\t\t\t\t\t\tHere you can create and edit the sections that make up a "
+"typical issue. You can also think of these as article types, since authors "
+"will choose one on submission. To quickly re-order sections, drag and drop "
+"the \n"
 "\t\t\t\t\t\t\t\t\t"
 msgstr ""
+"\n"
 "Здесь вы можете создавать и редактировать разделы, составляющие типичную "
 "задачу. Вы также можете рассматривать их как типы статей, поскольку авторы "
 "выберут один из них при отправке. Чтобы быстро изменить порядок разделов, "
@@ -1959,16 +2023,19 @@ msgstr "ручки слева от каждой строки"
 #: templates/admin/core/manager/sections/section_list.html:31
 msgid ""
 "\n"
-"\t\t\t\t\t\t\t\t\t\tThis will change the order that the author sees these on the submission page - so you may want to move the most popular or current sections to the top.\n"
+"\t\t\t\t\t\t\t\t\t\tThis will change the order that the author sees these on "
+"the submission page - so you may want to move the most popular or current "
+"sections to the top.\n"
 "\t\t\t\t\t\t\t\t\t"
 msgstr ""
+"\n"
 "Это изменит порядок, в котором автор видит их на странице отправки, поэтому "
 "вы можете переместить самые популярные или текущие разделы вверх."
 
 #: templates/admin/core/manager/sections/section_list.html:36
 msgid ""
-"You cannot delete a Section that contains articles. Remove the articles from"
-" the section if you want to delete it."
+"You cannot delete a Section that contains articles. Remove the articles from "
+"the section if you want to delete it."
 msgstr ""
 "Вы не можете удалить раздел, содержащий статьи. Удалите статьи из раздела, "
 "если хотите его удалить."
@@ -2096,7 +2163,6 @@ msgid "Create"
 msgstr "Создавать"
 
 #: templates/admin/elements/a_delete.html:11
-#: templates/admin/elements/review/dropdown.html:47
 #: templates/admin/repository/article.html:238
 #: templates/admin/repository/submit/authors.html:79
 #: templates/admin/submission/submit_funding.html:71
@@ -2104,7 +2170,6 @@ msgid "Delete"
 msgstr "Удалить"
 
 #: templates/admin/elements/a_edit.html:11
-#: templates/admin/elements/review/dropdown.html:27
 #: templates/admin/press/edit_press_journal_description.html:11
 #: templates/admin/press/edit_press_journal_description.html:17
 #: templates/admin/repository/article.html:237
@@ -2238,7 +2303,9 @@ msgid ""
 "\n"
 "        Edit \"%(author_name)s\"\n"
 "      "
-msgstr "Изменить \"%(author_name)s\""
+msgstr ""
+"\n"
+"Изменить \"%(author_name)s\""
 
 #: templates/admin/elements/breadcrumbs/edit_author_base.html:16
 #, python-format
@@ -2246,7 +2313,9 @@ msgid ""
 "\n"
 "      Edit \"%(author_name)s\"\n"
 "    "
-msgstr "Изменить \"%(author_name)s\""
+msgstr ""
+"\n"
+"Изменить \"%(author_name)s\""
 
 #: templates/admin/elements/breadcrumbs/submit_authors_base.html:3
 #: templates/admin/submission/start.html:7
@@ -2265,6 +2334,7 @@ msgid "Copied"
 msgstr "Скопировано"
 
 #: templates/admin/elements/button_submit_warning.html:14
+#: themes/BTE/templates/core/nav.html:136
 #: themes/BTE/templates/elements/right_hand_menu.html:11
 #: themes/BTE/templates/press/press_journals.html:75
 #: themes/BTE/templates/press/press_journals.html:89
@@ -2284,7 +2354,7 @@ msgstr "Скопировано"
 #: themes/material/templates/repository/nav.html:23
 #: themes/material/templates/repository/nav.html:55
 msgid "Submit"
-msgstr "Представлять на рассмотрение"
+msgstr "Отправить"
 
 #: templates/admin/elements/button_yes_delete.html:12
 msgid "Yes, delete"
@@ -2301,7 +2371,9 @@ msgid ""
 "\n"
 "    Delete \"%(thing_to_delete)s\"\n"
 "  "
-msgstr "Удалить \"%(thing_to_delete)s\""
+msgstr ""
+"\n"
+"Удалить \"%(thing_to_delete)s\""
 
 #: templates/admin/elements/confirm_delete.html:25
 #: templates/admin/elements/confirm_modal.html:7
@@ -2316,7 +2388,9 @@ msgid ""
 "\n"
 "      Are you sure you want to delete \"%(thing_to_delete)s\"?\n"
 "    "
-msgstr "Вы уверены, что хотите удалить \"%(thing_to_delete)s\"?"
+msgstr ""
+"\n"
+"Вы уверены, что хотите удалить \"%(thing_to_delete)s\"?"
 
 #: templates/admin/elements/confirm_modal.html:22
 #: templates/admin/elements/review/draft_decisions_js.html:27
@@ -2344,7 +2418,9 @@ msgid ""
 "\n"
 "    Remove \"%(thing_to_delete)s\"\n"
 "  "
-msgstr "Удалить \"%(thing_to_delete)s\""
+msgstr ""
+"\n"
+"Удалить \"%(thing_to_delete)s\""
 
 #: templates/admin/elements/confirm_remove.html:30
 #, python-format
@@ -2352,7 +2428,9 @@ msgid ""
 "\n"
 "      Are you sure you want to remove \"%(thing_to_delete)s\"?\n"
 "    "
-msgstr "Вы уверены, что хотите удалить \"%(thing_to_delete)s\"?"
+msgstr ""
+"\n"
+"Вы уверены, что хотите удалить \"%(thing_to_delete)s\"?"
 
 #: templates/admin/elements/current_authors_inner.html:14
 msgid "Current authors"
@@ -2367,15 +2445,19 @@ msgstr "Удалить автора"
 msgid ""
 "\n"
 "                              You cannot edit this author's details,\n"
-"                              because they have a user account with <i>%(journal)s</i>.\n"
+"                              because they have a user account with <i>"
+"%(journal)s</i>.\n"
 "                              If their details are out of date, ask them to\n"
 "                              log in and edit their user profile.\n"
 "                            "
 msgstr ""
+"\n"
 "Вы не можете редактировать данные этого автора,\n"
-"                              потому что у них есть учетная запись пользователя в <i>%(journal)s</i>.\n"
+"                              потому что у них есть учетная запись "
+"пользователя в <i>%(journal)s</i>.\n"
 "                              Если их данные устарели, попросите их\n"
-"                              войдите в систему и отредактируйте свой профиль пользователя."
+"                              войдите в систему и отредактируйте свой "
+"профиль пользователя."
 
 #: templates/admin/elements/current_authors_inner.html:72
 #: templates/admin/submission/submit_correspondence_author.html:82
@@ -2390,10 +2472,12 @@ msgstr "Ссылка скопирована"
 #: templates/admin/elements/current_authors_inner.html:75
 msgid ""
 "\n"
-"                              After they have made their changes, remove and re-add\n"
+"                              After they have made their changes, remove and "
+"re-add\n"
 "                              them to the author list via the search.\n"
 "                            "
 msgstr ""
+"\n"
 "После внесения изменений удалите и снова добавьте\n"
 "                              их в список авторов через поиск."
 
@@ -2426,8 +2510,11 @@ msgid ""
 "          published.\n"
 "        "
 msgstr ""
-"Авторов можно перемещать вверх или вниз, чтобы установить их порядок. Этот заказ\n"
-"          будет использоваться для отображения имен авторов при публикации статьи.\n"
+"\n"
+"Авторов можно перемещать вверх или вниз, чтобы установить их порядок. Этот "
+"заказ\n"
+"          будет использоваться для отображения имен авторов при публикации "
+"статьи.\n"
 "          опубликовано."
 
 #: templates/admin/elements/forms/field.html:13
@@ -2468,8 +2555,8 @@ msgstr ""
 
 #: templates/admin/elements/forms/group_journal.html:42
 msgid ""
-"Where you have a journal in your press that is not hosted on Janeway you can"
-" link directly to the journal and submit pages."
+"Where you have a journal in your press that is not hosted on Janeway you can "
+"link directly to the journal and submit pages."
 msgstr ""
 "Если в вашей прессе есть журнал, который не размещен на Janeway, вы можете "
 "напрямую ссылаться на журнал и отправлять страницы."
@@ -2514,16 +2601,15 @@ msgstr "Изображения журнала"
 msgid ""
 "Each image can be uploaded individually. Once an image is uploaded, options "
 "to add alt text for accessibility will appear alongside the preview. For "
-"details about where each image appears, see the <a "
-"href=\"https://janeway.readthedocs.io/en/latest/manager/journal/index.html#images\">Journal"
-" Images Settings</a> documentation."
+"details about where each image appears, see the <a href=\"https://janeway."
+"readthedocs.io/en/latest/manager/journal/index.html#images\">Journal Images "
+"Settings</a> documentation."
 msgstr ""
 "Каждое изображение можно загрузить отдельно. После загрузки изображения "
 "рядом с предварительным просмотром появятся варианты добавления замещающего "
 "текста для доступности. Подробную информацию о том, где отображается каждое "
-"изображение, см. в документации <a "
-"href=\"https://janeway.readthedocs.io/en/latest/manager/journal/index.html#images\">Настройки"
-" изображений журнала</a>."
+"изображение, см. в документации <a href=\"https://janeway.readthedocs.io/en/"
+"latest/manager/journal/index.html#images\">Настройки изображений журнала</a>."
 
 #: templates/admin/elements/forms/group_journal_news.html:5
 msgid "You can use this setting to overwrite the title of the news section."
@@ -2613,7 +2699,7 @@ msgstr "История"
 #: themes/material/templates/elements/journal/table_modal.html:6
 #: themes/material/templates/elements/summary_modal.html:13
 msgid "Close"
-msgstr "Закрывать"
+msgstr "Закрыть"
 
 #: templates/admin/elements/icons/close_modal.html:2
 msgid "Close popup."
@@ -2702,7 +2788,6 @@ msgstr "Сортировать статьи"
 
 #: templates/admin/elements/journal/article_keywords.html:8
 #: templates/admin/submission/submit_info.html:73
-#: themes/BTE/templates/admin/submission/submit_info.html:93
 #: themes/BTE/templates/journal/keywords.html:6
 #: themes/BTE/templates/journal/keywords.html:12
 #: themes/BTE/templates/journal/print.html:28
@@ -2739,7 +2824,7 @@ msgstr "Поиск и фильтрация"
 #: themes/clean/templates/elements/journal/article_list_filters.html:15
 #: themes/material/templates/elements/journal/article_list_filters.html:19
 msgid "Apply"
-msgstr "Применять"
+msgstr "Применить"
 
 #: templates/admin/elements/list_filters.html:32
 #: themes/BTE/templates/elements/journal/article_list_filters.html:11
@@ -2798,44 +2883,6 @@ msgstr "Нажмите Enter, чтобы добавить новое ключе�
 msgid "Additional Fields"
 msgstr "Дополнительные поля"
 
-#: templates/admin/elements/review/dropdown.html:4
-#: templates/admin/elements/review/dropdown.html:16
-#: themes/BTE/templates/press/press_journals.html:83
-#: themes/BTE/templates/press/press_journals.html:92
-#: themes/OLH/templates/press/press_journals.html:83
-#: themes/OLH/templates/press/press_journals.html:92
-#: themes/clean/templates/journal/article.html:74
-#: themes/clean/templates/journal/article.html:149
-#: themes/clean/templates/press/press_journals.html:36
-#: themes/clean/templates/press/press_journals.html:45
-#: themes/material/templates/journal/article.html:264
-#: themes/material/templates/press/press_journals.html:40
-#: themes/material/templates/press/press_journals.html:49
-msgid "View"
-msgstr "Вид"
-
-#: templates/admin/elements/review/dropdown.html:22
-#: templates/admin/review/view_review.html:122
-msgid "Reset"
-msgstr "Перезагрузить"
-
-#: templates/admin/elements/review/dropdown.html:33
-msgid "Send Reminder"
-msgstr "Отправить напоминание"
-
-#: templates/admin/elements/review/dropdown.html:39
-msgid "Rate"
-msgstr "Ставка"
-
-#: templates/admin/elements/review/dropdown.html:43
-msgid "Withdraw"
-msgstr "Отзывать"
-
-#: templates/admin/elements/review/dropdown.html:53
-#: templates/admin/review/view_review.html:30
-msgid "Edit in Admin"
-msgstr "Редактировать в администраторе"
-
 #: templates/admin/elements/submit/author.html:8
 #: templates/admin/repository/submit/authors.html:62
 #: templates/admin/repository/submit/authors.html:113
@@ -2875,7 +2922,7 @@ msgstr "В настоящее время вы работаете от имени
 #: templates/admin/hijack/notification.html:9
 #, python-format
 msgid "release %(user)s"
-msgstr "освободить %(пользователя)s"
+msgstr "освободить %(user)s"
 
 #: templates/admin/journal/contact.html:18
 #: themes/BTE/templates/journal/contact.html:13
@@ -2891,7 +2938,7 @@ msgstr "Представители журнала"
 #: themes/OLH/templates/press/journal/contact.html:12
 #: themes/material/templates/journal/contact.html:17
 msgid "Press Representatives"
-msgstr "Представители прессы"
+msgstr "Представители издательства"
 
 #: templates/admin/journal/contact.html:27
 #: themes/BTE/templates/journal/contact.html:22
@@ -2902,14 +2949,14 @@ msgid "Contact Information"
 msgstr "Контактная информация"
 
 #: templates/admin/journal/contact.html:32
-#: themes/BTE/templates/elements/journal_footer.html:43
+#: themes/BTE/templates/core/nav.html:96
+#: themes/BTE/templates/elements/journal_footer.html:40
 #: themes/BTE/templates/journal/contact.html:5
 #: themes/BTE/templates/journal/contact.html:27
-#: themes/BTE/templates/press/elements/press_footer.html:16
+#: themes/BTE/templates/press/elements/press_footer.html:28
 #: themes/BTE/templates/press/journal/contact.html:5
 #: themes/BTE/templates/press/journal/contact.html:19
-#: themes/BTE/templates/press/nav.html:41
-#: themes/OLH/templates/core/nav.html:96
+#: themes/BTE/templates/press/nav.html:41 themes/OLH/templates/core/nav.html:96
 #: themes/OLH/templates/elements/journal_footer.html:43
 #: themes/OLH/templates/journal/contact.html:5
 #: themes/OLH/templates/journal/contact.html:27
@@ -2930,7 +2977,7 @@ msgstr "Контактная информация"
 #: themes/material/templates/press/nav.html:53
 #: themes/material/templates/press/nav.html:111
 msgid "Contact"
-msgstr "Контакт"
+msgstr "Контакты"
 
 #: templates/admin/journal/contact.html:53
 #: themes/BTE/templates/journal/contact.html:41
@@ -2965,7 +3012,7 @@ msgstr "Обзор"
 #: templates/admin/journal/manage/archive_article.html:185
 #: themes/BTE/templates/core/dashboard.html:67
 msgid "Unassigned"
-msgstr "Неназначенный"
+msgstr "Не назначено"
 
 #: templates/admin/journal/manage/archive_article.html:187
 #, python-format
@@ -2974,7 +3021,7 @@ msgid ""
 "article will move back to the %(stage)s stage."
 msgstr ""
 "У вас будет возможность отправить электронное письмо автору, после чего "
-"статья вернется на этап %(этап)s."
+"статья вернется на этап %(stage)s."
 
 #: templates/admin/journal/manage/issues.html:86
 msgid "Issue date is in the future."
@@ -2982,43 +3029,44 @@ msgstr "Дата выпуска в будущем."
 
 #: templates/admin/journal/manage/issues.html:88
 msgid "Issue is already set as the current issue."
-msgstr "Проблема уже установлена ​​как текущая проблема."
+msgstr "Этот выпуск уже назначен текущим."
 
 #: templates/admin/journal/manage/languages.html:21
 msgid ""
 "\n"
-"                 This interface allows you to override the press level languages and set the languages that are available for this journal.\n"
+"                 This interface allows you to override the press level "
+"languages and set the languages that are available for this journal.\n"
 "                 "
 msgstr ""
-"Этот интерфейс позволяет вам переопределить языки уровня прессы и установить"
-" языки, доступные для этого журнала."
+"\n"
+"Этот интерфейс позволяет вам переопределить языки уровня прессы и установить "
+"языки, доступные для этого журнала."
 
 #: templates/admin/journal/submissions.html:43
 #: templates/admin/submission/start.html:77
-#: themes/BTE/templates/admin/submission/start.html:7
-#: themes/BTE/templates/admin/submission/start.html:93
-#: themes/BTE/templates/journal/submissions.html:39
+#: themes/BTE/templates/core/nav.html:105
+#: themes/BTE/templates/journal/submissions.html:32
 #: themes/OLH/templates/core/nav.html:105
 #: themes/OLH/templates/journal/submissions.html:39
 #: themes/clean/templates/core/nav.html:85
 #: themes/clean/templates/journal/submissions.html:25
 #: themes/material/templates/journal/submissions.html:41
 msgid "Start Submission"
-msgstr "Начать отправку"
+msgstr "Начать подачу"
 
 #: templates/admin/journal/submissions.html:45
 msgid "Contact Us"
 msgstr "Связаться с нами"
 
 #: templates/admin/journal/submissions.html:52
-#: themes/BTE/templates/journal/submissions.html:46
+#: themes/BTE/templates/journal/submissions.html:39
 #: themes/OLH/templates/journal/submissions.html:46
 msgid "Licences"
 msgstr "Лицензии"
 
 #: templates/admin/journal/submissions.html:53
 #: templates/admin/submission/submit_info.html:105
-#: themes/BTE/templates/journal/submissions.html:47
+#: themes/BTE/templates/journal/submissions.html:40
 #: themes/OLH/templates/journal/submissions.html:47
 #: themes/clean/templates/journal/submissions.html:33
 #: themes/material/templates/journal/submissions.html:52
@@ -3042,8 +3090,8 @@ msgid ""
 "description is used."
 msgstr ""
 "Здесь вы можете добавить описание журнала для конкретной прессы, которое "
-"будет использоваться на странице со списком журналов. Если оставить это поле"
-" пустым, используется основное описание журнала."
+"будет использоваться на странице со списком журналов. Если оставить это поле "
+"пустым, используется основное описание журнала."
 
 #: templates/admin/press/edit_press_journal_description.html:25
 msgid "Clear Description"
@@ -3065,12 +3113,17 @@ msgstr "Авторы не добавлены."
 #: templates/admin/repository/edit_authors.html:28
 msgid ""
 "\n"
-"                            You can search for an existing author or add them using the form below. If you\n"
-"                            complete the form with an email address of an existing user, that user will be added\n"
+"                            You can search for an existing author or add "
+"them using the form below. If you\n"
+"                            complete the form with an email address of an "
+"existing user, that user will be added\n"
 "                            to the"
 msgstr ""
-"Вы можете найти существующего автора или добавить его, используя форму ниже. Если ты\n"
-"                            заполните форму, указав адрес электронной почты существующего пользователя, этот пользователь будет добавлен\n"
+"\n"
+"Вы можете найти существующего автора или добавить его, используя форму ниже. "
+"Если ты\n"
+"                            заполните форму, указав адрес электронной почты "
+"существующего пользователя, этот пользователь будет добавлен\n"
 "                            к"
 
 #: templates/admin/repository/submit/authors.html:8
@@ -3078,7 +3131,6 @@ msgid "Add Authors to"
 msgstr "Добавить авторов в"
 
 #: templates/admin/repository/submit/authors.html:20
-#: themes/BTE/templates/journal/index.html:52
 #: themes/clean/templates/journal/article.html:186
 msgid "Information"
 msgstr "Информация"
@@ -3108,7 +3160,6 @@ msgstr "Вы можете создать новую запись для авто
 
 #: templates/admin/repository/submit/authors.html:31
 #: templates/admin/submission/submit_authors.html:45
-#: themes/BTE/templates/admin/submission/submit_authors.html:53
 msgid "Add Self as Author"
 msgstr "Добавить себя в качестве автора"
 
@@ -3140,17 +3191,16 @@ msgstr "Добавить автора"
 #: templates/admin/repository/submit/authors.html:61
 msgid ""
 "If you cannot find the author record by searching, and you are not the only "
-"author, you can add one by clicking the button below. This will open a popup"
-" modal for you to complete their details."
+"author, you can add one by clicking the button below. This will open a popup "
+"modal for you to complete their details."
 msgstr ""
 "Если вы не можете найти запись автора с помощью поиска и вы не единственный "
-"автор, вы можете добавить ее, нажав кнопку ниже. Откроется всплывающее окно,"
-" в котором вы сможете заполнить свои данные."
+"автор, вы можете добавить ее, нажав кнопку ниже. Откроется всплывающее окно, "
+"в котором вы сможете заполнить свои данные."
 
 #: templates/admin/repository/submit/authors.html:70
 msgid ""
-"You can reorder the authors by dragging and dropping rows in the table "
-"below."
+"You can reorder the authors by dragging and dropping rows in the table below."
 msgstr ""
 "Вы можете изменить порядок авторов, перетаскивая строки в таблице ниже."
 
@@ -3238,26 +3288,38 @@ msgstr ""
 msgid ""
 "\n"
 "                                You can select a reviewer using the radio\n"
-"                                buttons in the first column and complete the\n"
+"                                buttons in the first column and complete "
+"the\n"
 "                                section under 'Set Options'.\n"
 "                                If you cannot find the reviewer you want in\n"
-"                                this list you can use 'Enroll Existing User' to\n"
-"                                search the database and give users the Reviewer\n"
+"                                this list you can use 'Enroll Existing User' "
+"to\n"
+"                                search the database and give users the "
+"Reviewer\n"
 "                                role, or 'Add New Reviewer' to create a new\n"
-"                                account for a reviewer (this process is silent,\n"
-"                                so they will not receive an account creation\n"
+"                                account for a reviewer (this process is "
+"silent,\n"
+"                                so they will not receive an account "
+"creation\n"
 "                                email).\n"
 "                            "
 msgstr ""
+"\n"
 "Выбрать рецензента можно с помощью радио\n"
 "                                кнопки в первом столбце и заполните\n"
 "                                раздел «Установить параметры».\n"
-"                                Если вы не можете найти нужного рецензента в\n"
-"                                этот список вы можете использовать «Зарегистрировать существующего пользователя», чтобы\n"
-"                                выполните поиск в базе данных и предоставьте пользователям Рецензента\n"
-"                                роль или «Добавить нового рецензента», чтобы создать новую\n"
-"                                учетная запись рецензента (этот процесс происходит молча,\n"
-"                                поэтому они не получат создание учетной записи\n"
+"                                Если вы не можете найти нужного рецензента "
+"в\n"
+"                                этот список вы можете использовать "
+"«Зарегистрировать существующего пользователя», чтобы\n"
+"                                выполните поиск в базе данных и предоставьте "
+"пользователям Рецензента\n"
+"                                роль или «Добавить нового рецензента», чтобы "
+"создать новую\n"
+"                                учетная запись рецензента (этот процесс "
+"происходит молча,\n"
+"                                поэтому они не получат создание учетной "
+"записи\n"
 "                                электронная почта)."
 
 #: templates/admin/review/decision.html:57
@@ -3318,18 +3380,23 @@ msgstr "Проверка сходства через iThenticate"
 #, python-format
 msgid ""
 "\n"
-"                                            These files are the versions sent out to reviewers in Round %(round.round_number)s of review.\n"
+"                                            These files are the versions "
+"sent out to reviewers in Round %(round.round_number)s of review.\n"
 "                                            "
 msgstr ""
+"\n"
 "Эти файлы представляют собой версии, разосланные рецензентам в раунде "
-"%(round.round_number) проверки."
+"%(round.round_number)s проверки."
 
 #: templates/admin/review/in_review.html:215
 msgid ""
 "\n"
-"                                The latest manuscript and figure files for this article. When a revision task is completed these will be updated with the latest versions from the authors.\n"
+"                                The latest manuscript and figure files for "
+"this article. When a revision task is completed these will be updated with "
+"the latest versions from the authors.\n"
 "                                "
 msgstr ""
+"\n"
 "Последняя версия рукописи и файлов рисунков для этой статьи. После "
 "завершения задачи по пересмотру они будут обновлены последними версиями от "
 "авторов."
@@ -3340,7 +3407,7 @@ msgstr "Перейти к следующему этапу"
 
 #: templates/admin/review/projected_issue.html:27
 msgid "Save Projected Issue"
-msgstr "Сохранить прогнозируемую проблему"
+msgstr "Сохранить планируемый выпуск"
 
 #: templates/admin/review/projected_issue.html:37
 msgid "What is this for?"
@@ -3363,12 +3430,12 @@ msgid ""
 "You can assign articles directly to issues in the prepublication stage or "
 "through "
 msgstr ""
-"Вы можете назначать статьи непосредственно выпускам на этапе предварительной"
-" публикации или через"
+"Вы можете назначать статьи непосредственно выпускам на этапе предварительной "
+"публикации или через"
 
 #: templates/admin/review/projected_issue.html:39
 msgid "issue management"
-msgstr "управление проблемами"
+msgstr "управление выпусками"
 
 #: templates/admin/review/projected_issue.html:40
 msgid "How does it work?"
@@ -3379,12 +3446,12 @@ msgid ""
 "Select an issue from the drop down on the left and press save. This "
 "article's projected issue will now be set."
 msgstr ""
-"Выберите проблему из раскрывающегося списка слева и нажмите «Сохранить». "
-"Предполагаемая проблема этой статьи теперь будет установлена."
+"Выберите выпуск в раскрывающемся списке слева и нажмите «Сохранить». Для "
+"статьи будет установлен планируемый выпуск."
 
 #: templates/admin/review/projected_issue.html:42
 msgid "Can I unset a projected issue?"
-msgstr "Могу ли я отменить запланированную проблему?"
+msgstr "Можно ли отменить планируемый выпуск?"
 
 #: templates/admin/review/projected_issue.html:43
 msgid "Yes, you can select the blank option (-------) from the dropdown."
@@ -3409,7 +3476,7 @@ msgstr "Назначать"
 
 #: templates/admin/review/unassigned_article.html:101
 msgid "Projected Issue"
-msgstr "Прогнозируемая проблема"
+msgstr "Планируемый выпуск"
 
 #: templates/admin/review/unassigned_article.html:106
 msgid "This article is projected to be published as part of"
@@ -3438,29 +3505,45 @@ msgid ""
 "\n"
 "                        Review #%(review_id)s by %(reviewer_full_name)s\n"
 "                    "
-msgstr "Отзыв #%(review_id)s от %(reviewer_full_name)s"
+msgstr ""
+"\n"
+"Отзыв #%(review_id)s от %(reviewer_full_name)s"
+
+#: templates/admin/review/view_review.html:30
+msgid "Edit in Admin"
+msgstr "Редактировать в администраторе"
 
 #: templates/admin/review/view_review.html:36
 msgid ""
 "\n"
-"                        You can make this review available for the author to see using\n"
-"                        the <em>Review Availability Controls</em> below. You can also\n"
-"                        make individual review elements hidden or available.\n"
+"                        You can make this review available for the author to "
+"see using\n"
+"                        the <em>Review Availability Controls</em> below. You "
+"can also\n"
+"                        make individual review elements hidden or "
+"available.\n"
 "                    "
 msgstr ""
+"\n"
 "Вы можете сделать этот обзор доступным для просмотра автору, используя\n"
-"                        <em>Просмотр элементов управления доступностью</em> ниже. Вы также можете\n"
-"                        сделать отдельные элементы обзора скрытыми или доступными."
+"                        <em>Просмотр элементов управления доступностью</em> "
+"ниже. Вы также можете\n"
+"                        сделать отдельные элементы обзора скрытыми или "
+"доступными."
 
 #: templates/admin/review/view_review.html:43
 msgid ""
 "\n"
-"                        If you need to make changes to the review you can do so by\n"
-"                        using the <em>Edit</em> button below each form element\n"
+"                        If you need to make changes to the review you can do "
+"so by\n"
+"                        using the <em>Edit</em> button below each form "
+"element\n"
 "                    "
 msgstr ""
+"\n"
 "Если вам необходимо внести изменения в отзыв, вы можете сделать это,\n"
-"                        с помощью кнопки <em>Изменить</em> под каждым элементом формы"
+"                        с помощью кнопки <em>Изменить</em> под каждым "
+"элементом формы"
 
 #: templates/admin/review/view_review.html:50
 msgid "Reviewer"
@@ -3514,6 +3597,10 @@ msgstr "Просмотр файла"
 msgid "Edited Answer"
 msgstr "Отредактированный ответ"
 
+#: templates/admin/review/view_review.html:122
+msgid "Reset"
+msgstr "Перезагрузить"
+
 #: templates/admin/review/view_review.html:133
 msgid "Comments for the Editor"
 msgstr "Комментарии для редактора"
@@ -3530,12 +3617,17 @@ msgstr "Обзор видимости"
 #, python-format
 msgid ""
 "\n"
-"                                            Currently this review is %(visibility_statement)s. Note that the author\n"
-"                                            must have access to the review before they can access the review file.\n"
+"                                            Currently this review is "
+"%(visibility_statement)s. Note that the author\n"
+"                                            must have access to the review "
+"before they can access the review file.\n"
 "                                        "
 msgstr ""
-"В настоящее время этот обзор составляет %(visibility_statement)s. Обратите внимание, что автор\n"
-"                                            должны иметь доступ к обзору, прежде чем они смогут получить доступ к файлу обзора."
+"\n"
+"В настоящее время этот обзор составляет %(visibility_statement)s. Обратите "
+"внимание, что автор\n"
+"                                            должны иметь доступ к обзору, "
+"прежде чем они смогут получить доступ к файлу обзора."
 
 #: templates/admin/review/view_review.html:173
 msgid "Answer Visibility"
@@ -3544,15 +3636,21 @@ msgstr "Видимость ответа"
 #: templates/admin/review/view_review.html:177
 msgid ""
 "\n"
-"                                                The toggles below control the visibility of the individual review form\n"
-"                                                answers. Note that changing these will have no effect unless the Review is\n"
-"                                                marked as visible to the author using the <em>Author can access this review</em>\n"
+"                                                The toggles below control "
+"the visibility of the individual review form\n"
+"                                                answers. Note that changing "
+"these will have no effect unless the Review is\n"
+"                                                marked as visible to the "
+"author using the <em>Author can access this review</em>\n"
 "                                                toggle above.\n"
 "                                            "
 msgstr ""
+"\n"
 "Переключатели ниже управляют видимостью формы индивидуального отзыва.\n"
-"                                                ответы. Обратите внимание, что их изменение не будет иметь никакого эффекта, если Обзор не будет\n"
-"                                                отмечен как видимый для автора с помощью <em>Автор может получить доступ к этому обзору</em>\n"
+"                                                ответы. Обратите внимание, "
+"что их изменение не будет иметь никакого эффекта, если Обзор не будет\n"
+"                                                отмечен как видимый для "
+"автора с помощью <em>Автор может получить доступ к этому обзору</em>\n"
 "                                                переключить выше."
 
 #: templates/admin/review/view_review.html:202
@@ -3587,8 +3685,10 @@ msgid ""
 "          <a href=\"%(author_list_url)s\">page listing all authors</a>.\n"
 "        "
 msgstr ""
+"\n"
 "Роли CRediT можно редактировать на\n"
-"          <a href=\"%(author_list_url)s\">страница со списком всех авторов</a>."
+"          <a href=\"%(author_list_url)s\">страница со списком всех авторов</"
+"a>."
 
 #: templates/admin/submission/edit/author.html:166
 #: themes/material/templates/preprints/editors.html:34
@@ -3605,20 +3705,25 @@ msgid ""
 "          <i>%(journal_title)s</i>, which can be edited at any time.\n"
 "        "
 msgstr ""
-"Подробности на этой странице представляют собой информацию об авторе, которая будет\n"
+"\n"
+"Подробности на этой странице представляют собой информацию об авторе, "
+"которая будет\n"
 "          привязан к «%(article_title)s» для публикации.\n"
 "          Они отделены от профиля пользователя автора с помощью\n"
-"          <i>%(journal_title)s</i>, который можно редактировать в любое время."
+"          <i>%(journal_title)s</i>, который можно редактировать в любое "
+"время."
 
 #: templates/admin/submission/edit/author.html:182
 #, python-format
 msgid ""
 "\n"
-"          This author has not registerd for a user account with <i>%(journal_title)s</i>.\n"
+"          This author has not registerd for a user account with <i>"
+"%(journal_title)s</i>.\n"
 "        "
 msgstr ""
-"Этот автор не зарегистрировал учетную запись пользователя в "
-"<i>%(journal_title)s</i>."
+"\n"
+"Этот автор не зарегистрировал учетную запись пользователя в <i>"
+"%(journal_title)s</i>."
 
 #: templates/admin/submission/edit/author_metadata.html:13
 msgid "Edit author metadata"
@@ -3638,32 +3743,41 @@ msgstr "Добавить еще авторов"
 #, python-format
 msgid ""
 "\n"
-"                Some authors may already be registered in <i>%(journal)s</i>,\n"
+"                Some authors may already be registered in <i>%(journal)s</"
+"i>,\n"
 "                %(press)s, or <a href=\"https://orcid.org/\"\n"
 "                target=\"_blank\">the ORCID registry<span\n"
 "                class=\"show-for-sr\">(opens in new tab)</span></a>.\n"
 "                You can check by searching for\n"
-"                their email or ORCID. If a match is found, they will be added to\n"
+"                their email or ORCID. If a match is found, they will be "
+"added to\n"
 "                the author list.\n"
 "              "
 msgstr ""
+"\n"
 "Некоторые авторы могут уже быть зарегистрированы в <i>%(journal)s</i>,\n"
 "                %(press)s или <a href=\"https://orcid.org/\"\n"
 "                target=\"_blank\">реестр ORCID<span\n"
-"                class=\"show-for-sr\">(откроется в новой вкладке)</span></a>.\n"
+"                class=\"show-for-sr\">(откроется в новой вкладке)</span></"
+"a>.\n"
 "                Вы можете проверить, выполнив поиск\n"
-"                их адрес электронной почты или ORCID. Если совпадение найдено, они будут добавлены в\n"
+"                их адрес электронной почты или ORCID. Если совпадение "
+"найдено, они будут добавлены в\n"
 "                список авторов."
 
 #: templates/admin/submission/edit/author_metadata.html:51
 #: templates/admin/submission/submit_authors.html:68
+#: themes/BTE/templates/core/base.html:1025
+#: themes/BTE/templates/core/base.html:1027
+#: themes/BTE/templates/core/base.html:1101
+#: themes/BTE/templates/core/base.html:1102
 #: themes/BTE/templates/core/homepage_elements/search_bar.html:3
 #: themes/BTE/templates/core/homepage_elements/search_bar.html:17
+#: themes/BTE/templates/elements/journal/search_form.html:20
 #: themes/BTE/templates/journal/full-text-search.html:8
 #: themes/BTE/templates/journal/full-text-search.html:10
 #: themes/BTE/templates/journal/full-text-search.html:39
 #: themes/BTE/templates/journal/full-text-search.html:88
-#: themes/BTE/templates/journal/index.html:31
 #: themes/BTE/templates/journal/search.html:8
 #: themes/BTE/templates/repository/list.html:101
 #: themes/OLH/templates/core/base.html:170
@@ -3714,6 +3828,7 @@ msgid ""
 "              you can add them manually.\n"
 "            "
 msgstr ""
+"\n"
 "Если вы не можете найти автора в поиске,\n"
 "              вы можете добавить их вручную."
 
@@ -3725,12 +3840,17 @@ msgstr "Добавить автора вручную"
 #: templates/admin/submission/edit/metadata.html:136
 msgid ""
 "\n"
-"                            You can search the <a href=\"https://www.crossref.org/services/funder-registry/\">\n"
-"                            Crossref Funder Registry</a> to add known funders.\n"
+"                            You can search the <a href=\"https://www."
+"crossref.org/services/funder-registry/\">\n"
+"                            Crossref Funder Registry</a> to add known "
+"funders.\n"
 "                        "
 msgstr ""
-"Вы можете выполнить поиск по <a href=\"https://www.crossref.org/services/funder-registry/\">\n"
-"                            Перекрестная ссылка на реестр спонсоров</a>, чтобы добавить известных спонсоров."
+"\n"
+"Вы можете выполнить поиск по <a href=\"https://www.crossref.org/services/"
+"funder-registry/\">\n"
+"                            Перекрестная ссылка на реестр спонсоров</a>, "
+"чтобы добавить известных спонсоров."
 
 #: templates/admin/submission/manager/delete_license.html:25
 msgid ""
@@ -3761,22 +3881,21 @@ msgstr ""
 
 #: templates/admin/submission/start.html:29
 msgid ""
-"All authors must agree to the below statements in order to submit an article"
-" to"
+"All authors must agree to the below statements in order to submit an article "
+"to"
 msgstr ""
 "Все авторы должны согласиться с приведенными ниже утверждениями, чтобы "
 "отправить статью на"
 
 #: templates/admin/submission/start.html:29
 msgid ""
-"If you do not agree with these terms you will be unable to proceed with your"
-" submission."
+"If you do not agree with these terms you will be unable to proceed with your "
+"submission."
 msgstr ""
 "Если вы не согласны с этими условиями, вы не сможете продолжить подачу "
 "заявки."
 
 #: templates/admin/submission/start.html:34
-#: themes/BTE/templates/admin/submission/start.html:54
 msgid "Publication Fees"
 msgstr "Плата за публикацию"
 
@@ -3785,7 +3904,6 @@ msgid "Author(s) agrees to the above statement"
 msgstr "Автор(ы) согласен с приведенным выше утверждением"
 
 #: templates/admin/submission/start.html:47
-#: themes/BTE/templates/admin/submission/start.html:65
 msgid "Submission Checklist"
 msgstr "Контрольный список подачи"
 
@@ -3796,18 +3914,16 @@ msgstr ""
 "требованиям."
 
 #: templates/admin/submission/start.html:59
-#: themes/BTE/templates/admin/submission/start.html:75
 msgid "Copyright Notice"
 msgstr "Уведомление об авторских правах"
 
 #: templates/admin/submission/start.html:71
-#: themes/BTE/templates/admin/submission/start.html:85
 #: themes/BTE/templates/journal/article.html:434
 #: themes/OLH/templates/journal/article.html:434
 #: themes/clean/templates/journal/article.html:243
 #: themes/material/templates/journal/article.html:404
 msgid "Competing Interests"
-msgstr "Конкурирующие интересы"
+msgstr "Конфликт интересов"
 
 #: templates/admin/submission/submit_author_order.html:15
 #, python-format
@@ -3815,7 +3931,9 @@ msgid ""
 "\n"
 "              Move %(author_name)s to top\n"
 "            "
-msgstr "Переместить %(author_name)s вверх"
+msgstr ""
+"\n"
+"Переместить %(author_name)s вверх"
 
 #: templates/admin/submission/submit_author_order.html:28
 #, python-format
@@ -3823,7 +3941,9 @@ msgid ""
 "\n"
 "              Move %(author_name)s up\n"
 "            "
-msgstr "Переместить %(author_name)s вверх"
+msgstr ""
+"\n"
+"Переместить %(author_name)s вверх"
 
 #: templates/admin/submission/submit_author_order.html:41
 #, python-format
@@ -3831,7 +3951,9 @@ msgid ""
 "\n"
 "              Move %(author_name)s down\n"
 "            "
-msgstr "Переместить %(author_name)s вниз"
+msgstr ""
+"\n"
+"Переместить %(author_name)s вниз"
 
 #: templates/admin/submission/submit_author_order.html:54
 #, python-format
@@ -3839,15 +3961,13 @@ msgid ""
 "\n"
 "              Move %(author_name)s to bottom\n"
 "            "
-msgstr "Переместить %(author_name)s вниз"
+msgstr ""
+"\n"
+"Переместить %(author_name)s вниз"
 
 #: templates/admin/submission/submit_authors.html:9
 #: templates/admin/submission/timeline.html:29
 #: templates/admin/submission/timeline.html:30
-#: themes/BTE/templates/admin/submission/submit_authors.html:6
-#: themes/BTE/templates/admin/submission/submit_authors.html:37
-#: themes/BTE/templates/admin/submission/timeline.html:29
-#: themes/BTE/templates/admin/submission/timeline.html:30
 msgid "Author Information"
 msgstr "Информация об авторе"
 
@@ -3864,7 +3984,9 @@ msgid ""
 "\n"
 "            Is the author information complete?\n"
 "          "
-msgstr "Полна ли информация об авторе?"
+msgstr ""
+"\n"
+"Полна ли информация об авторе?"
 
 #: templates/admin/submission/submit_authors.html:140
 msgid "Save and continue"
@@ -3894,7 +4016,9 @@ msgid ""
 "      for work on the article during the review and publication process.\n"
 "    "
 msgstr ""
-"Автором переписки может быть любой автор, имеющий учетную запись пользователя,\n"
+"\n"
+"Автором переписки может быть любой автор, имеющий учетную запись "
+"пользователя,\n"
 "      независимо от порядка. Они будут получать обновления и запросы\n"
 "      за работу над статьей в процессе рецензирования и публикации."
 
@@ -3908,7 +4032,9 @@ msgid ""
 "\n"
 "                    (%(email)s)\n"
 "                  "
-msgstr "(%(электронная почта)s)"
+msgstr ""
+"\n"
+"(%(email)s)"
 
 #: templates/admin/submission/submit_correspondence_author.html:69
 msgid "(no email address)"
@@ -3922,6 +4048,7 @@ msgid ""
 "          First invite a co-author to register for an account.\n"
 "        "
 msgstr ""
+"\n"
 "Автора переписки изменить нельзя,\n"
 "          потому что других авторов с учетными записями пользователей нет.\n"
 "          Сначала предложите соавтору зарегистрировать аккаунт."
@@ -3933,6 +4060,7 @@ msgid ""
 "            them to the author list via the search.\n"
 "          "
 msgstr ""
+"\n"
 "После того, как они создали свою учетную запись, удалите и снова добавьте\n"
 "            их в список авторов через поиск."
 
@@ -3943,6 +4071,7 @@ msgid ""
 "            them to the author list via the search.\n"
 "          "
 msgstr ""
+"\n"
 "После того, как они создали свою учетную запись, добавьте\n"
 "            их в список авторов через поиск."
 
@@ -3952,7 +4081,9 @@ msgid ""
 "\n"
 "                    Remove %(credit_role)s\n"
 "                  "
-msgstr "Удалить %(credit_role)s"
+msgstr ""
+"\n"
+"Удалить %(credit_role)s"
 
 #: templates/admin/submission/submit_credit_roles.html:37
 msgid "This author has no contributor roles."
@@ -3984,7 +4115,6 @@ msgstr "Загрузить файлы"
 #: templates/admin/submission/submit_files.html:44
 #: templates/admin/submission/submit_files.html:84
 #: templates/admin/submission/submit_review.html:111
-#: themes/BTE/templates/admin/submission/submit_files.html:61
 msgid "File Name"
 msgstr "Имя файла"
 
@@ -3996,9 +4126,6 @@ msgstr "Файлы не загружены"
 #: templates/admin/submission/submit_files.html:115
 #: templates/admin/submission/submit_funding.html:105
 #: templates/admin/submission/submit_info.html:89
-#: themes/BTE/templates/admin/submission/submit_authors.html:97
-#: themes/BTE/templates/admin/submission/submit_files.html:85
-#: themes/BTE/templates/admin/submission/submit_info.html:107
 msgid "Save and Continue"
 msgstr "Сохранить и продолжить"
 
@@ -4010,17 +4137,19 @@ msgstr "Информация о финансировании"
 #: templates/admin/submission/timeline.html:45
 #: templates/admin/submission/timeline.html:46
 #: templates/common/elements/funder_info_for_readers.html:3
-#: themes/BTE/templates/admin/submission/timeline.html:45
-#: themes/BTE/templates/admin/submission/timeline.html:46
 msgid "Funding"
 msgstr "Финансирование"
 
 #: templates/admin/submission/submit_funding.html:24
 msgid ""
 "\n"
-"                         Here you can search the FundRef database to add grant IDs to your article's metadata. If you can't find a specific funder, you can manually enter the details. You can also edit or delete entries as necessary.\n"
+"                         Here you can search the FundRef database to add "
+"grant IDs to your article's metadata. If you can't find a specific funder, "
+"you can manually enter the details. You can also edit or delete entries as "
+"necessary.\n"
 "                    "
 msgstr ""
+"\n"
 "Здесь вы можете выполнить поиск в базе данных FundRef и добавить "
 "идентификаторы грантов в метаданные вашей статьи. Если вы не можете найти "
 "конкретного спонсора, вы можете ввести данные вручную. При необходимости вы "
@@ -4052,7 +4181,6 @@ msgstr "Спонсоры не добавлены."
 
 #: templates/admin/submission/submit_info.html:6
 #: templates/admin/submission/submit_review.html:43
-#: themes/BTE/templates/admin/submission/submit_info.html:6
 msgid "Article Info"
 msgstr "Информация о статье"
 
@@ -4061,7 +4189,6 @@ msgid "This article is a preprint"
 msgstr "Эта статья является препринтом"
 
 #: templates/admin/submission/submit_info.html:27
-#: themes/BTE/templates/admin/submission/submit_info.html:31
 msgid "Basic Information"
 msgstr "Основная информация"
 
@@ -4070,7 +4197,6 @@ msgid "View license information"
 msgstr "Просмотр информации о лицензии"
 
 #: templates/admin/submission/submit_info.html:102
-#: themes/BTE/templates/admin/submission/submit_info.html:117
 msgid "License Information"
 msgstr "Информация о лицензии"
 
@@ -4079,10 +4205,6 @@ msgstr "Информация о лицензии"
 #: templates/admin/submission/timeline.html:53
 #: templates/admin/submission/timeline.html:60
 #: templates/admin/submission/timeline.html:61
-#: themes/BTE/templates/admin/submission/timeline.html:52
-#: themes/BTE/templates/admin/submission/timeline.html:53
-#: themes/BTE/templates/admin/submission/timeline.html:60
-#: themes/BTE/templates/admin/submission/timeline.html:61
 msgid "Review your submission"
 msgstr "Проверьте свою отправку"
 
@@ -4094,11 +4216,11 @@ msgid ""
 "this page to complete the submission process, you will then receive a "
 "receipt email. "
 msgstr ""
-"Пожалуйста, проверьте вашу заявку, используя информацию ниже. Если вам нужно"
-" внести изменения, воспользуйтесь ссылками выше, чтобы вернуться к шагам "
-"отправки. Вам необходимо нажать кнопку <strong>Завершить отправку</strong> в"
-" нижней части этой страницы, чтобы завершить процесс отправки. После этого "
-"вы получите электронное письмо с квитанцией."
+"Пожалуйста, проверьте вашу заявку, используя информацию ниже. Если вам нужно "
+"внести изменения, воспользуйтесь ссылками выше, чтобы вернуться к шагам "
+"отправки. Вам необходимо нажать кнопку <strong>Завершить отправку</strong> в "
+"нижней части этой страницы, чтобы завершить процесс отправки. После этого вы "
+"получите электронное письмо с квитанцией."
 
 #: templates/admin/submission/submit_review.html:25
 msgid "Agreements"
@@ -4129,7 +4251,7 @@ msgstr "Согласен с заявлением об авторских пра�
 #: themes/material/templates/preprints/article.html:49
 #: themes/material/templates/repository/preprint.html:165
 msgid "Abstract"
-msgstr "Абстрактный"
+msgstr "Аннотация"
 
 #: templates/admin/submission/submit_review.html:68
 msgid "Language"
@@ -4144,8 +4266,6 @@ msgstr "Лицензия"
 #: templates/admin/submission/submit_review.html:107
 #: templates/admin/submission/timeline.html:37
 #: templates/admin/submission/timeline.html:38
-#: themes/BTE/templates/admin/submission/timeline.html:37
-#: themes/BTE/templates/admin/submission/timeline.html:38
 msgid "Article Files"
 msgstr "Файлы статей"
 
@@ -4168,36 +4288,31 @@ msgstr "Комментарии в редакцию"
 #: templates/admin/submission/submit_review.html:139
 msgid ""
 "Before submitting you have the option to add additional comments for the "
-"editor using the field below. Only the editor will see anything you add "
-"here."
+"editor using the field below. Only the editor will see anything you add here."
 msgstr ""
 "Перед отправкой у вас есть возможность добавить дополнительные комментарии "
-"для редактора, используя поле ниже. Все, что вы сюда добавите, увидит только"
-" редактор."
+"для редактора, используя поле ниже. Все, что вы сюда добавите, увидит только "
+"редактор."
 
 #: templates/admin/submission/submit_review.html:145
 msgid "Complete"
 msgstr "Полный"
 
 #: templates/admin/submission/submit_review.html:145
-#: themes/OLH/templates/core/nav.html:90
+#: themes/BTE/templates/core/nav.html:90 themes/OLH/templates/core/nav.html:90
 #: themes/clean/templates/core/nav.html:48
 #: themes/material/templates/core/nav.html:48
 #: themes/material/templates/core/nav.html:121
 msgid "Submission"
-msgstr "Подчинение"
+msgstr "Материал"
 
 #: templates/admin/submission/timeline.html:6
-#: themes/BTE/templates/admin/submission/timeline.html:6
 msgid "Submission Started"
 msgstr "Отправка началась"
 
 #: templates/admin/submission/timeline.html:15
 #: templates/admin/submission/timeline.html:18
 #: templates/admin/submission/timeline.html:21
-#: themes/BTE/templates/admin/submission/timeline.html:15
-#: themes/BTE/templates/admin/submission/timeline.html:18
-#: themes/BTE/templates/admin/submission/timeline.html:21
 #: themes/BTE/templates/journal/article.html:313
 #: themes/OLH/templates/journal/article.html:313
 #: themes/clean/templates/journal/article.html:123
@@ -4208,10 +4323,10 @@ msgstr "Информация о статье"
 #: templates/common/accounts/register_privacy_policy.html:3
 #: templates/common/accounts/register_privacy_policy.html:7
 #: templates/common/accounts/register_privacy_policy.html:11
-#: themes/BTE/templates/elements/journal_footer.html:39
-#: themes/BTE/templates/elements/journal_footer.html:41
-#: themes/BTE/templates/press/elements/press_footer.html:11
-#: themes/BTE/templates/press/elements/press_footer.html:13
+#: themes/BTE/templates/elements/journal_footer.html:36
+#: themes/BTE/templates/elements/journal_footer.html:38
+#: themes/BTE/templates/press/elements/press_footer.html:23
+#: themes/BTE/templates/press/elements/press_footer.html:25
 #: themes/OLH/templates/elements/journal_footer.html:39
 #: themes/OLH/templates/elements/journal_footer.html:41
 #: themes/OLH/templates/press/elements/press_footer.html:11
@@ -4222,7 +4337,7 @@ msgstr "Информация о статье"
 #: themes/clean/templates/elements/press_footer.html:16
 #: themes/material/templates/elements/journal_footer.html:39
 msgid "Privacy Policy"
-msgstr "политика конфиденциальности"
+msgstr "Политика конфиденциальности"
 
 #: templates/common/elements/a11y/janeway.html:1
 msgid "Platform: Janeway"
@@ -4251,6 +4366,7 @@ msgid "ORCID profile."
 msgstr "Профиль ОРКИД."
 
 #: templates/common/elements/journal/article_issue_list.html:4
+#: themes/BTE/templates/core/nav.html:59
 #: themes/BTE/templates/journal/issues.html:5
 #: themes/BTE/templates/journal/issues.html:7
 #: themes/OLH/templates/core/nav.html:59
@@ -4262,7 +4378,7 @@ msgstr "Профиль ОРКИД."
 #: themes/material/templates/core/nav.html:115
 #: themes/material/templates/journal/issues.html:5
 msgid "Issues"
-msgstr "Проблемы"
+msgstr "Выпуски"
 
 #: templates/common/elements/journal/article_issue_list.html:4
 #: themes/BTE/templates/403.html:4 themes/BTE/templates/journal/issue.html:9
@@ -4272,7 +4388,7 @@ msgstr "Проблемы"
 #: themes/material/templates/elements/journal/issue_sidebar.html:11
 #: themes/material/templates/journal/issue.html:8
 msgid "Issue"
-msgstr "Проблема"
+msgstr "Выпуск"
 
 #: templates/common/elements/journal/article_issue_list.html:10
 msgid "Primary: "
@@ -4316,7 +4432,17 @@ msgid_plural ""
 "        Affiliations:\n"
 "      "
 msgstr[0] ""
+"\n"
+"Аффилиация:"
 msgstr[1] ""
+"\n"
+"Аффилиации:"
+msgstr[2] ""
+"\n"
+"Аффилиации:"
+msgstr[3] ""
+"\n"
+"Аффилиации:"
 
 #: templates/common/elements/skip_to_main_content.html:3
 msgid "Skip to main content"
@@ -4335,7 +4461,17 @@ msgid_plural ""
 "                    %(result_count)s results\n"
 "                "
 msgstr[0] ""
+"\n"
+"%(result_count)s результат"
 msgstr[1] ""
+"\n"
+"%(result_count)s результата"
+msgstr[2] ""
+"\n"
+"%(result_count)s результатов"
+msgstr[3] ""
+"\n"
+"%(result_count)s результата"
 
 #: templates/typesetting/typesetting_proofreading_assignment.html:116
 msgid "Mark Task as Complete"
@@ -4386,7 +4522,7 @@ msgstr "Произошла ошибка сервера"
 #: themes/material/templates/core/login.html:46
 #: themes/material/templates/repository/nav.html:68
 msgid "Login"
-msgstr "Авторизоваться"
+msgstr "Вход"
 
 #: themes/BTE/templates/admin/core/accounts/login.html:95
 #: themes/BTE/templates/core/login.html:88
@@ -4443,91 +4579,6 @@ msgstr ""
 "Выберите длинный, но легко запоминающийся пароль (например, «наша "
 "потрясающая лунная база потрясающая»)."
 
-#: themes/BTE/templates/admin/submission/start.html:27
-msgid "Submission Agreements"
-msgstr "Соглашения о подаче"
-
-#: themes/BTE/templates/admin/submission/start.html:39
-msgid "Problems processing the form:"
-msgstr "Проблемы с обработкой формы:"
-
-#: themes/BTE/templates/admin/submission/start.html:50
-msgid "All authors must agree to the below statements in order to proceed."
-msgstr ""
-"Чтобы продолжить, все авторы должны согласиться с приведенными ниже "
-"утверждениями."
-
-#: themes/BTE/templates/admin/submission/start.html:59
-msgid "I agree to the publication fees statement."
-msgstr "Я согласен с условиями оплаты за публикацию."
-
-#: themes/BTE/templates/admin/submission/start.html:69
-msgid "I confirm that this article adheres to the requirements."
-msgstr "Я подтверждаю, что данная статья соответствует требованиям."
-
-#: themes/BTE/templates/admin/submission/submit_authors.html:36
-msgid "Step 3 of 5"
-msgstr "Шаг 3 из 5"
-
-#: themes/BTE/templates/admin/submission/submit_authors.html:46
-msgid "Quick Add"
-msgstr "Быстрое добавление"
-
-#: themes/BTE/templates/admin/submission/submit_authors.html:60
-msgid "Search by Email or ORCID"
-msgstr "Поиск по электронной почте или ORCID"
-
-#: themes/BTE/templates/admin/submission/submit_authors.html:63
-msgid "Search and Add"
-msgstr "Найдите и добавьте"
-
-#: themes/BTE/templates/admin/submission/submit_authors.html:72
-msgid "Add Author Manually"
-msgstr "Добавить автора вручную"
-
-#: themes/BTE/templates/admin/submission/submit_authors.html:85
-msgid "Add Manual Author"
-msgstr "Добавить автора руководства"
-
-#: themes/BTE/templates/admin/submission/submit_files.html:5
-#: themes/BTE/templates/admin/submission/submit_files.html:34
-msgid "Upload Files"
-msgstr "Загрузить файлы"
-
-#: themes/BTE/templates/admin/submission/submit_files.html:37
-msgid "Manuscript Template"
-msgstr "Шаблон рукописи"
-
-#: themes/BTE/templates/admin/submission/submit_files.html:38
-msgid ""
-"We recommend using our official Google Docs template for your submission."
-msgstr ""
-"Мы рекомендуем использовать наш официальный шаблон Google Docs для отправки."
-
-#: themes/BTE/templates/admin/submission/submit_files.html:40
-msgid "Open Google Doc Template"
-msgstr "Открыть шаблон документа Google"
-
-#: themes/BTE/templates/admin/submission/submit_files.html:54
-msgid "Upload Data File"
-msgstr "Загрузить файл данных"
-
-#: themes/BTE/templates/admin/submission/submit_files.html:74
-msgid "No files uploaded yet."
-msgstr "Файлы еще не загружены."
-
-#: themes/BTE/templates/admin/submission/submit_info.html:30
-msgid "Step 2 of 5"
-msgstr "Шаг 2 из 5"
-
-#: themes/BTE/templates/admin/submission/submit_info.html:84
-msgid "View license info"
-msgstr "Посмотреть информацию о лицензии"
-
-#: themes/BTE/templates/admin/submission/submit_info.html:95
-msgid "Press enter or comma to add each keyword."
-msgstr "Нажмите Enter или запятую, чтобы добавить каждое ключевое слово."
-
 #: themes/BTE/templates/cms/page.html:23
 #: themes/BTE/templates/journal/article.html:454
 #: themes/OLH/templates/cms/page.html:23
@@ -4540,14 +4591,12 @@ msgstr "Нажмите Enter или запятую, чтобы добавить 
 msgid "Table of Contents"
 msgstr "Оглавление"
 
-#: themes/BTE/templates/core/a11y.html:3
-#: themes/BTE/templates/core/a11y.html:10
-#: themes/BTE/templates/elements/journal_footer.html:44
+#: themes/BTE/templates/core/a11y.html:3 themes/BTE/templates/core/a11y.html:10
+#: themes/BTE/templates/elements/journal_footer.html:41
 #: themes/BTE/templates/press/a11y.html:3
 #: themes/BTE/templates/press/a11y.html:10
-#: themes/BTE/templates/press/elements/press_footer.html:17
-#: themes/OLH/templates/core/a11y.html:3
-#: themes/OLH/templates/core/a11y.html:10
+#: themes/BTE/templates/press/elements/press_footer.html:29
+#: themes/OLH/templates/core/a11y.html:3 themes/OLH/templates/core/a11y.html:10
 #: themes/OLH/templates/elements/journal_footer.html:44
 #: themes/OLH/templates/press/a11y.html:3
 #: themes/OLH/templates/press/a11y.html:10
@@ -4595,7 +4644,7 @@ msgstr ""
 #: themes/clean/templates/core/accounts/activate_account.html:26
 #: themes/material/templates/core/accounts/activate_account.html:30
 msgid "login"
-msgstr "авторизоваться"
+msgstr "войти"
 
 #: themes/BTE/templates/core/accounts/get_reset_token.html:9
 #: themes/BTE/templates/elements/accounts/edit_profile_body_block.html:91
@@ -4628,8 +4677,8 @@ msgid ""
 "account to link your ORCiD for future use."
 msgstr ""
 "ORCiD, с которым вы вошли в систему, в настоящее время не связан с учетной "
-"записью в нашей системе. Вы можете зарегистрировать новую учетную запись или"
-" войти в систему под существующей учетной записью, чтобы связать свой ORCiD "
+"записью в нашей системе. Вы можете зарегистрировать новую учетную запись или "
+"войти в систему под существующей учетной записью, чтобы связать свой ORCiD "
 "для будущего использования."
 
 #: themes/BTE/templates/core/accounts/orcid_registration.html:40
@@ -4638,7 +4687,7 @@ msgstr ""
 #: themes/OLH/templates/press/core/login.html:40
 #: themes/clean/templates/core/accounts/orcid_registration.html:33
 msgid "Log In"
-msgstr "Авторизоваться"
+msgstr "Войти"
 
 #: themes/BTE/templates/core/accounts/orcid_registration.html:41
 #: themes/BTE/templates/press/core/login.html:41
@@ -4648,7 +4697,7 @@ msgid "Forgot your password?"
 msgstr "Забыли пароль?"
 
 #: themes/BTE/templates/core/accounts/public_profile.html:5
-#: themes/BTE/templates/core/nav.html:27
+#: themes/BTE/templates/core/nav.html:159
 #: themes/BTE/templates/elements/right_hand_menu.html:40
 #: themes/BTE/templates/press/elements/right_hand_menu.html:12
 #: themes/BTE/templates/press/nav.html:55
@@ -4699,8 +4748,8 @@ msgstr "Зарегистрируйте аккаунт с"
 #: themes/OLH/templates/core/accounts/register.html:35
 #: themes/OLH/templates/core/accounts/reset_password.html:36
 msgid ""
-"For more information read our <a href=\"#\" data-open=\"password-"
-"modal\">password guide</a>."
+"For more information read our <a href=\"#\" data-open=\"password-modal"
+"\">password guide</a>."
 msgstr ""
 "Для получения дополнительной информации прочтите наше <a href=\"#\" data-"
 "open=\"password-modal\">руководство по паролям</a>."
@@ -4764,15 +4813,16 @@ msgstr "Сбросить пароль"
 msgid "Enter your new password twice to complete the reset process"
 msgstr "Введите новый пароль дважды, чтобы завершить процесс сброса."
 
-#: themes/BTE/templates/core/base.html:238
-#: themes/BTE/templates/core/nav.html:10 themes/BTE/templates/press/nav.html:7
+#: themes/BTE/templates/core/base.html:982
+#: themes/BTE/templates/core/base.html:989
+#: themes/BTE/templates/core/nav.html:11 themes/BTE/templates/press/nav.html:7
 #: themes/BTE/templates/press/press_index.html:5
 #: themes/BTE/templates/repository/nav.html:4
 #: themes/OLH/templates/core/base.html:58
 #: themes/OLH/templates/core/base.html:65
 #: themes/OLH/templates/core/base.html:77
-#: themes/OLH/templates/core/base.html:83
-#: themes/OLH/templates/core/nav.html:11 themes/OLH/templates/press/nav.html:7
+#: themes/OLH/templates/core/base.html:83 themes/OLH/templates/core/nav.html:11
+#: themes/OLH/templates/press/nav.html:7
 #: themes/OLH/templates/press/press_index.html:5
 #: themes/OLH/templates/repository/nav.html:4
 #: themes/clean/templates/core/nav.html:17
@@ -4784,32 +4834,27 @@ msgstr "Введите новый пароль дважды, чтобы заве
 #: themes/material/templates/repository/nav.html:19
 #: themes/material/templates/repository/nav.html:51
 msgid "Home"
-msgstr "Дом"
+msgstr "Главная"
 
-#: themes/BTE/templates/core/base.html:252
-#: themes/BTE/templates/core/nav.html:28
-#: themes/BTE/templates/elements/right_hand_menu.html:41
-#: themes/BTE/templates/press/elements/right_hand_menu.html:13
-#: themes/BTE/templates/press/nav.html:56
-#: themes/BTE/templates/repository/elements/right_hand_menu.html:11
-#: themes/OLH/templates/core/nav.html:177
-#: themes/OLH/templates/elements/right_hand_menu.html:41
-#: themes/OLH/templates/press/elements/right_hand_menu.html:13
-#: themes/OLH/templates/press/nav.html:56
-#: themes/OLH/templates/repository/elements/right_hand_menu.html:11
-#: themes/clean/templates/core/nav.html:117
-#: themes/clean/templates/press/nav.html:73
-#: themes/material/templates/core/nav.html:198
-#: themes/material/templates/core/nav.html:235
-#: themes/material/templates/press/nav.html:154
-#: themes/material/templates/press/nav.html:165
-#: themes/material/templates/repository/nav.html:93
-#: themes/material/templates/repository/nav.html:106
-msgid "Logout"
-msgstr "Выход из системы"
+#: themes/BTE/templates/core/base.html:1000
+#: themes/OLH/templates/core/base.html:95
+msgid "Toggle main menu"
+msgstr "Переключить главное меню"
+
+#: themes/BTE/templates/core/base.html:1005
+#: themes/BTE/templates/core/base.html:1044
+#: themes/OLH/templates/core/base.html:100
+msgid "Toggle search"
+msgstr "Переключить поиск"
+
+#: themes/BTE/templates/core/base.html:1029
+#: themes/BTE/templates/core/base.html:1104
+msgid "Go"
+msgstr "Найти"
 
 #: themes/BTE/templates/core/dashboard.html:4
 #: themes/BTE/templates/core/dashboard.html:37
+#: themes/BTE/templates/core/nav.html:130
 #: themes/BTE/templates/elements/right_hand_menu.html:5
 #: themes/BTE/templates/repository/elements/right_hand_menu.html:5
 #: themes/OLH/templates/core/nav.html:130
@@ -4876,9 +4921,90 @@ msgstr "Автор"
 msgid "User"
 msgstr "Пользователь"
 
-#: themes/BTE/templates/core/nav.html:25
-msgid "Admin Dashboard"
-msgstr "Панель администратора"
+#: themes/BTE/templates/core/nav.html:114
+#: themes/BTE/templates/journal/become_reviewer.html:6
+#: themes/BTE/templates/journal/become_reviewer.html:11
+#: themes/BTE/templates/journal/become_reviewer.html:22
+#: themes/OLH/templates/core/nav.html:114
+#: themes/OLH/templates/journal/become_reviewer.html:6
+#: themes/OLH/templates/journal/become_reviewer.html:11
+#: themes/OLH/templates/journal/become_reviewer.html:22
+#: themes/clean/templates/core/nav.html:88
+#: themes/clean/templates/journal/become_reviewer.html:5
+#: themes/clean/templates/journal/become_reviewer.html:6
+#: themes/clean/templates/journal/become_reviewer.html:19
+#: themes/material/templates/core/nav.html:74
+#: themes/material/templates/journal/become_reviewer.html:5
+#: themes/material/templates/journal/become_reviewer.html:6
+#: themes/material/templates/journal/become_reviewer.html:11
+#: themes/material/templates/journal/become_reviewer.html:23
+msgid "Become a Reviewer"
+msgstr "Стать рецензентом"
+
+#: themes/BTE/templates/core/nav.html:125
+#: themes/BTE/templates/press/nav.html:44
+#: themes/OLH/templates/core/nav.html:125
+#: themes/OLH/templates/press/nav.html:44
+#: themes/clean/templates/press/nav.html:62
+#: themes/material/templates/core/nav.html:86
+#: themes/material/templates/core/nav.html:155
+#: themes/material/templates/press/nav.html:62
+#: themes/material/templates/press/nav.html:118
+#: themes/material/templates/repository/nav.html:63
+msgid "Account"
+msgstr "Аккаунт"
+
+#: themes/BTE/templates/core/nav.html:144
+#: themes/BTE/templates/elements/right_hand_menu.html:7
+#: themes/OLH/templates/core/nav.html:144
+#: themes/OLH/templates/elements/right_hand_menu.html:7
+#: themes/clean/templates/core/nav.html:101
+#: themes/material/templates/core/nav.html:182
+#: themes/material/templates/core/nav.html:204
+msgid "Kanban"
+msgstr "Канбан"
+
+#: themes/BTE/templates/core/nav.html:153
+#: themes/BTE/templates/elements/right_hand_menu.html:37
+#: themes/BTE/templates/press/elements/right_hand_menu.html:8
+#: themes/BTE/templates/press/nav.html:52
+#: themes/BTE/templates/repository/elements/right_hand_menu.html:9
+#: themes/OLH/templates/core/nav.html:168
+#: themes/OLH/templates/elements/right_hand_menu.html:37
+#: themes/OLH/templates/press/elements/right_hand_menu.html:8
+#: themes/OLH/templates/press/nav.html:52
+#: themes/OLH/templates/repository/elements/right_hand_menu.html:9
+#: themes/clean/templates/core/nav.html:114
+#: themes/clean/templates/press/nav.html:70
+#: themes/material/templates/core/nav.html:195
+#: themes/material/templates/core/nav.html:232
+#: themes/material/templates/press/nav.html:151
+#: themes/material/templates/press/nav.html:162
+#: themes/material/templates/repository/nav.html:91
+#: themes/material/templates/repository/nav.html:104
+msgid "Admin"
+msgstr "Админ"
+
+#: themes/BTE/templates/core/nav.html:162
+#: themes/BTE/templates/elements/right_hand_menu.html:41
+#: themes/BTE/templates/press/elements/right_hand_menu.html:13
+#: themes/BTE/templates/press/nav.html:56
+#: themes/BTE/templates/repository/elements/right_hand_menu.html:11
+#: themes/OLH/templates/core/nav.html:177
+#: themes/OLH/templates/elements/right_hand_menu.html:41
+#: themes/OLH/templates/press/elements/right_hand_menu.html:13
+#: themes/OLH/templates/press/nav.html:56
+#: themes/OLH/templates/repository/elements/right_hand_menu.html:11
+#: themes/clean/templates/core/nav.html:117
+#: themes/clean/templates/press/nav.html:73
+#: themes/material/templates/core/nav.html:198
+#: themes/material/templates/core/nav.html:235
+#: themes/material/templates/press/nav.html:154
+#: themes/material/templates/press/nav.html:165
+#: themes/material/templates/repository/nav.html:93
+#: themes/material/templates/repository/nav.html:106
+msgid "Logout"
+msgstr "Выход из системы"
 
 #: themes/BTE/templates/core/news/index.html:13
 #: themes/OLH/templates/core/news/index.html:13
@@ -4889,7 +5015,6 @@ msgstr "Фильтрующий тег"
 
 #: themes/BTE/templates/core/news/index.html:26
 #: themes/BTE/templates/elements/news_item_banner.html:12
-#: themes/BTE/templates/journal/homepage_elements/news.html:29
 #: themes/BTE/templates/press/core/news/index.html:24
 #: themes/OLH/templates/core/news/index.html:26
 #: themes/OLH/templates/elements/news_item_banner.html:12
@@ -4904,7 +5029,7 @@ msgid "on"
 msgstr "на"
 
 #: themes/BTE/templates/core/news/index.html:30
-#: themes/BTE/templates/journal/homepage_elements/news.html:34
+#: themes/BTE/templates/journal/homepage_elements/news.html:26
 #: themes/BTE/templates/press/core/news/index.html:29
 #: themes/OLH/templates/core/news/index.html:30
 #: themes/OLH/templates/journal/homepage_elements/news.html:34
@@ -4946,14 +5071,22 @@ msgstr "Список"
 #: themes/OLH/templates/elements/accounts/edit_profile_body_block.html:13
 msgid ""
 "\n"
-"                <p>If you want to change your email address you may do so below, however, you will be logged out and your\n"
-"                account will be marked as inactive until you follow the instructions in the verification email. <strong>Note: </strong>\n"
-"                Changing your email address will also change your username as these are one and the same.</p>\n"
+"                <p>If you want to change your email address you may do so "
+"below, however, you will be logged out and your\n"
+"                account will be marked as inactive until you follow the "
+"instructions in the verification email. <strong>Note: </strong>\n"
+"                Changing your email address will also change your username "
+"as these are one and the same.</p>\n"
 "                "
 msgstr ""
-"<p>Если вы хотите изменить свой адрес электронной почты, вы можете сделать это ниже, однако вы выйдете из системы, и ваш\n"
-"                учетная запись будет помечена как неактивная, пока вы не выполните инструкции в электронном письме с подтверждением. <strong>Примечание: </strong>\n"
-"                При изменении адреса электронной почты изменится и ваше имя пользователя, поскольку это одно и то же.</p>"
+"\n"
+"<p>Если вы хотите изменить свой адрес электронной почты, вы можете сделать "
+"это ниже, однако вы выйдете из системы, и ваш\n"
+"                учетная запись будет помечена как неактивная, пока вы не "
+"выполните инструкции в электронном письме с подтверждением. "
+"<strong>Примечание: </strong>\n"
+"                При изменении адреса электронной почты изменится и ваше имя "
+"пользователя, поскольку это одно и то же.</p>"
 
 #: themes/BTE/templates/elements/accounts/edit_profile_body_block.html:36
 #: themes/OLH/templates/elements/accounts/edit_profile_body_block.html:36
@@ -4962,7 +5095,8 @@ msgid ""
 "Use the button below to register to receive notifications of new articles\n"
 "                            published in this journal "
 msgstr ""
-"Используйте кнопку ниже, чтобы зарегистрироваться и получать уведомления о новых статьях.\n"
+"Используйте кнопку ниже, чтобы зарегистрироваться и получать уведомления о "
+"новых статьях.\n"
 "                            опубликовано в этом журнале"
 
 #: themes/BTE/templates/elements/accounts/edit_profile_body_block.html:58
@@ -5036,7 +5170,6 @@ msgstr "Дата"
 #: themes/BTE/templates/elements/journal/article_filter_form.html:26
 #: themes/BTE/templates/elements/journal/article_filter_form.html:35
 #: themes/BTE/templates/elements/journal/article_list_filters.html:7
-#: themes/BTE/templates/elements/journal/search_form.html:19
 #: themes/BTE/templates/press/press_journals.html:114
 #: themes/BTE/templates/press/press_journals.html:118
 #: themes/BTE/templates/press/press_journals.html:119
@@ -5216,12 +5349,14 @@ msgstr "В этом журнале пока нет опубликованных 
 #: themes/material/templates/elements/journal/issue_list_by_decade.html:3
 msgid ""
 "\n"
-"            Issues are grouped by decade. Select a decade to view the issues\n"
+"            Issues are grouped by decade. Select a decade to view the "
+"issues\n"
 "            published during that decade.\n"
 "        "
 msgstr ""
-"Проблемы сгруппированы по десятилетиям. Выберите десятилетие, чтобы просмотреть проблемы\n"
-"            опубликованные в течение этого десятилетия."
+"\n"
+"Выпуски сгруппированы по десятилетиям. Выберите десятилетие, чтобы "
+"просмотреть выпуски, опубликованные в этот период."
 
 #: themes/BTE/templates/elements/journal/issue_paginator.html:5
 #: themes/OLH/templates/elements/journal/issue_paginator.html:5
@@ -5244,7 +5379,7 @@ msgstr "Пагинация"
 #: themes/material/templates/repository/preprint.html:140
 #: themes/material/templates/repository/preprint.html:222
 msgid "Downloads"
-msgstr "Загрузки"
+msgstr "Скачивания"
 
 #: themes/BTE/templates/elements/journal/issue_sidebar.html:19
 #: themes/OLH/templates/elements/journal/issue_sidebar.html:19
@@ -5257,12 +5392,11 @@ msgstr "Архив выпусков"
 #: themes/OLH/templates/elements/journal/keywords_block.html:4
 #: themes/clean/templates/elements/journal/keywords_block.html:4
 msgid ""
-"Keywords used by articles in this journal are listed below. Select a keyword"
-" to view which articles use it."
+"Keywords used by articles in this journal are listed below. Select a keyword "
+"to view which articles use it."
 msgstr ""
 "Ключевые слова, используемые в статьях этого журнала, перечислены ниже. "
-"Выберите ключевое слово, чтобы просмотреть, в каких статьях оно "
-"используется."
+"Выберите ключевое слово, чтобы просмотреть, в каких статьях оно используется."
 
 #: themes/BTE/templates/elements/journal/keywords_block.html:10
 #: themes/OLH/templates/elements/journal/keywords_block.html:10
@@ -5270,20 +5404,20 @@ msgstr ""
 msgid "This journal has no keywords to display."
 msgstr "В этом журнале нет ключевых слов для отображения."
 
-#: themes/BTE/templates/elements/journal/search_form.html:6
+#: themes/BTE/templates/elements/journal/search_form.html:7
 #: themes/OLH/templates/elements/journal/search_form.html:6
 #: themes/clean/templates/journal/search.html:40
 #: themes/material/templates/journal/search.html:39
 msgid "Search titles, keywords, and authors"
 msgstr "Поиск названий, ключевых слов и авторов"
 
-#: themes/BTE/templates/elements/journal/search_form.html:9
+#: themes/BTE/templates/elements/journal/search_form.html:10
 #: themes/OLH/templates/elements/journal/search_form.html:9
 #: themes/clean/templates/journal/full-text-search.html:54
 msgid "You are currently browsing by keyword"
 msgstr "Вы сейчас просматриваете по ключевому слову"
 
-#: themes/BTE/templates/elements/journal/search_form.html:10
+#: themes/BTE/templates/elements/journal/search_form.html:11
 #: themes/BTE/templates/journal/full-text-search.html:82
 #: themes/OLH/templates/elements/journal/search_form.html:10
 #: themes/OLH/templates/journal/full-text-search.html:82
@@ -5293,7 +5427,7 @@ msgstr "Вы сейчас просматриваете по ключевому �
 msgid "Search for an article"
 msgstr "Искать статью"
 
-#: themes/BTE/templates/elements/journal/search_form.html:14
+#: themes/BTE/templates/elements/journal/search_form.html:15
 #: themes/OLH/templates/elements/journal/search_form.html:14
 #: themes/clean/templates/journal/search.html:60
 #: themes/material/templates/journal/new_search.html:40
@@ -5333,7 +5467,7 @@ msgstr "Резюме для неспециалистов"
 msgid "This article has no summary"
 msgstr "В этой статье нет резюме"
 
-#: themes/BTE/templates/elements/journal_footer.html:8
+#: themes/BTE/templates/elements/journal_footer.html:11
 #: themes/OLH/templates/elements/journal_footer.html:8
 #: themes/clean/templates/elements/journal_footer.html:11
 #: themes/material/templates/elements/journal_footer.html:7
@@ -5345,21 +5479,17 @@ msgstr "Опубликовано"
 #, python-format
 msgid ""
 "\n"
-"                    <p><b>Note:</b><br/>This review refers to round %(review.review_round.round_number)s of peer\n"
-"                        review and may pertain to an earlier version of the document.</p>\n"
+"                    <p><b>Note:</b><br/>This review refers to round "
+"%(review.review_round.round_number)s of peer\n"
+"                        review and may pertain to an earlier version of the "
+"document.</p>\n"
 "                    "
 msgstr ""
-"<p><b>Примечание.</b><br/>Этот обзор относится к раунду %(review.review_round.round_number)s аналогов.\n"
-"                        просмотреть и может относиться к более ранней версии документа.</p>"
-
-#: themes/BTE/templates/elements/right_hand_menu.html:7
-#: themes/OLH/templates/core/nav.html:144
-#: themes/OLH/templates/elements/right_hand_menu.html:7
-#: themes/clean/templates/core/nav.html:101
-#: themes/material/templates/core/nav.html:182
-#: themes/material/templates/core/nav.html:204
-msgid "Kanban"
-msgstr "Канбан"
+"\n"
+"<p><b>Примечание.</b><br/>Этот обзор относится к раунду "
+"%(review.review_round.round_number)s аналогов.\n"
+"                        просмотреть и может относиться к более ранней версии "
+"документа.</p>"
 
 #: themes/BTE/templates/elements/right_hand_menu.html:17
 #: themes/OLH/templates/elements/right_hand_menu.html:17
@@ -5404,7 +5534,7 @@ msgstr "Редактировать статью"
 #: themes/material/templates/core/nav.html:225
 #: themes/material/templates/elements/journal/issue_list.html:66
 msgid "Edit Issue"
-msgstr "Редактировать проблему"
+msgstr "Редактировать выпуск"
 
 #: themes/BTE/templates/elements/right_hand_menu.html:33
 #: themes/OLH/templates/core/nav.html:161
@@ -5414,26 +5544,6 @@ msgstr "Редактировать проблему"
 #: themes/material/templates/core/nav.html:228
 msgid "Edit News Item"
 msgstr "Редактировать новость"
-
-#: themes/BTE/templates/elements/right_hand_menu.html:37
-#: themes/BTE/templates/press/elements/right_hand_menu.html:8
-#: themes/BTE/templates/press/nav.html:52
-#: themes/BTE/templates/repository/elements/right_hand_menu.html:9
-#: themes/OLH/templates/core/nav.html:168
-#: themes/OLH/templates/elements/right_hand_menu.html:37
-#: themes/OLH/templates/press/elements/right_hand_menu.html:8
-#: themes/OLH/templates/press/nav.html:52
-#: themes/OLH/templates/repository/elements/right_hand_menu.html:9
-#: themes/clean/templates/core/nav.html:114
-#: themes/clean/templates/press/nav.html:70
-#: themes/material/templates/core/nav.html:195
-#: themes/material/templates/core/nav.html:232
-#: themes/material/templates/press/nav.html:151
-#: themes/material/templates/press/nav.html:162
-#: themes/material/templates/repository/nav.html:91
-#: themes/material/templates/repository/nav.html:104
-msgid "Admin"
-msgstr "Админ"
 
 #: themes/BTE/templates/elements/section_block.html:5
 #: themes/OLH/templates/elements/section_block.html:5
@@ -5485,8 +5595,8 @@ msgid ""
 "format. LaTeX may be accepted later in the process but a simple, readable "
 "file is required at this stage."
 msgstr ""
-"Пожалуйста, загрузите файл рукописи в формате PDF, RTF, ODT или DOC/X. LaTeX"
-" может быть принят позже, но на этом этапе требуется простой, читаемый файл."
+"Пожалуйста, загрузите файл рукописи в формате PDF, RTF, ODT или DOC/X. LaTeX "
+"может быть принят позже, но на этом этапе требуется простой, читаемый файл."
 
 #: themes/BTE/templates/elements/submit/file.html:13
 #: themes/OLH/templates/elements/submit/file.html:13
@@ -5515,8 +5625,7 @@ msgstr "Пожалуйста, загрузите файл рукописи, он
 msgid ""
 "Please upload your manuscript file, it should be in PDF, RTF, ODT or DOC/X "
 "format."
-msgstr ""
-"Пожалуйста, загрузите файл рукописи в формате PDF, RTF, ODT или DOC/X."
+msgstr "Пожалуйста, загрузите файл рукописи в формате PDF, RTF, ODT или DOC/X."
 
 #: themes/BTE/templates/journal/article.html:7
 #: themes/OLH/templates/journal/article.html:7
@@ -5541,7 +5650,17 @@ msgid_plural ""
 "                        Authors\n"
 "                      "
 msgstr[0] ""
+"\n"
+"Автор"
 msgstr[1] ""
+"\n"
+"Авторы"
+msgstr[2] ""
+"\n"
+"Авторы"
+msgstr[3] ""
+"\n"
+"Авторы"
 
 #: themes/BTE/templates/journal/article.html:49
 #: themes/OLH/templates/journal/article.html:49
@@ -5555,7 +5674,17 @@ msgid_plural ""
 "                      Authors\n"
 "                    "
 msgstr[0] ""
+"\n"
+"Автор"
 msgstr[1] ""
+"\n"
+"Авторы"
+msgstr[2] ""
+"\n"
+"Авторы"
+msgstr[3] ""
+"\n"
+"Авторы"
 
 #: themes/BTE/templates/journal/article.html:78
 #: themes/OLH/templates/journal/article.html:78
@@ -5616,7 +5745,17 @@ msgid_plural ""
 "                          Authors\n"
 "                        "
 msgstr[0] ""
+"\n"
+"Автор"
 msgstr[1] ""
+"\n"
+"Авторы"
+msgstr[2] ""
+"\n"
+"Авторы"
+msgstr[3] ""
+"\n"
+"Авторы"
 
 #: themes/BTE/templates/journal/article.html:179
 #: themes/OLH/templates/journal/article.html:179
@@ -5663,6 +5802,7 @@ msgid "Downloads are not available for this article."
 msgstr "Эта статья недоступна для скачивания."
 
 #: themes/BTE/templates/journal/article.html:237
+#: themes/BTE/templates/journal/index.html:168
 #: themes/BTE/templates/repository/preprint.html:200
 #: themes/OLH/templates/journal/article.html:237
 #: themes/OLH/templates/repository/preprint.html:200
@@ -5708,7 +5848,17 @@ msgid_plural ""
 "                                        Authors\n"
 "                                      "
 msgstr[0] ""
+"\n"
+"Автор"
 msgstr[1] ""
+"\n"
+"Авторы"
+msgstr[2] ""
+"\n"
+"Авторы"
+msgstr[3] ""
+"\n"
+"Авторы"
 
 #: themes/BTE/templates/journal/article.html:367
 #: themes/OLH/templates/journal/article.html:367
@@ -5814,21 +5964,13 @@ msgstr "Роли CRediT"
 msgid "Peer Review"
 msgstr "Экспертная оценка"
 
-#: themes/BTE/templates/journal/article.html:553
-#: themes/OLH/templates/journal/article.html:553
-#: themes/clean/templates/journal/article.html:389
-#: themes/material/templates/journal/article.html:528
-msgid "View Larger Table"
-msgstr "Посмотреть большую таблицу"
-
-#: themes/BTE/templates/journal/article_list.html:15
-#: themes/BTE/templates/journal/articles.html:22
+#: themes/BTE/templates/journal/article_list.html:16
 #: themes/OLH/templates/journal/article_list.html:15
 #: themes/OLH/templates/journal/articles.html:22
 msgid "Show Filter Options"
 msgstr "Показать параметры фильтра"
 
-#: themes/BTE/templates/journal/article_list.html:23
+#: themes/BTE/templates/journal/article_list.html:24
 #: themes/OLH/templates/journal/article_list.html:23
 #: themes/clean/templates/journal/article_list.html:15
 #: themes/material/templates/journal/article_list.html:17
@@ -5836,7 +5978,7 @@ msgstr "Показать параметры фильтра"
 msgid "Results"
 msgstr "Результаты"
 
-#: themes/BTE/templates/journal/article_list.html:28
+#: themes/BTE/templates/journal/article_list.html:29
 #: themes/OLH/templates/journal/article_list.html:28
 #: themes/clean/templates/journal/article_list.html:20
 #: themes/material/templates/journal/article_list.html:27
@@ -5845,16 +5987,6 @@ msgstr "Результаты"
 #: themes/material/templates/journal/search.html:26
 msgid "No articles to display."
 msgstr "Нет статей для отображения."
-
-#: themes/BTE/templates/journal/articles.html:30
-#: themes/OLH/templates/journal/articles.html:30
-msgid "Pinned Articles"
-msgstr "Закрепленные статьи"
-
-#: themes/BTE/templates/journal/articles.html:39
-#: themes/OLH/templates/journal/articles.html:39
-msgid "There are no articles published in this journal yet"
-msgstr "В этом журнале пока нет опубликованных статей"
 
 #: themes/BTE/templates/journal/authors.html:44
 #: themes/BTE/templates/journal/editorial_team.html:45
@@ -5866,25 +5998,6 @@ msgstr "В этом журнале пока нет опубликованных 
 #: themes/material/templates/journal/editorial_team.html:38
 msgid "View Profile"
 msgstr "Посмотреть профиль"
-
-#: themes/BTE/templates/journal/become_reviewer.html:6
-#: themes/BTE/templates/journal/become_reviewer.html:11
-#: themes/BTE/templates/journal/become_reviewer.html:22
-#: themes/OLH/templates/core/nav.html:114
-#: themes/OLH/templates/journal/become_reviewer.html:6
-#: themes/OLH/templates/journal/become_reviewer.html:11
-#: themes/OLH/templates/journal/become_reviewer.html:22
-#: themes/clean/templates/core/nav.html:88
-#: themes/clean/templates/journal/become_reviewer.html:5
-#: themes/clean/templates/journal/become_reviewer.html:6
-#: themes/clean/templates/journal/become_reviewer.html:19
-#: themes/material/templates/core/nav.html:74
-#: themes/material/templates/journal/become_reviewer.html:5
-#: themes/material/templates/journal/become_reviewer.html:6
-#: themes/material/templates/journal/become_reviewer.html:11
-#: themes/material/templates/journal/become_reviewer.html:23
-msgid "Become a Reviewer"
-msgstr "Стать рецензентом"
 
 #: themes/BTE/templates/journal/collections.html:34
 #: themes/BTE/templates/journal/issue.html:7
@@ -5941,7 +6054,17 @@ msgid_plural ""
 "                                    %(result_count)s results\n"
 "                                "
 msgstr[0] ""
+"\n"
+"%(result_count)s результат"
 msgstr[1] ""
+"\n"
+"%(result_count)s результата"
+msgstr[2] ""
+"\n"
+"%(result_count)s результатов"
+msgstr[3] ""
+"\n"
+"%(result_count)s результата"
 
 #: themes/BTE/templates/journal/homepage_elements/article_list_item.html:32
 msgid "Full Text"
@@ -5962,9 +6085,12 @@ msgstr "Опубликовано в:"
 #, python-format
 msgid ""
 "\n"
-"                                        Slide %(slide_number)s of %(total_slides)s\n"
+"                                        Slide %(slide_number)s of "
+"%(total_slides)s\n"
 "                                    "
-msgstr "Слайд %(slide_number)s из %(total_slides)s"
+msgstr ""
+"\n"
+"Слайд %(slide_number)s из %(total_slides)s"
 
 #: themes/BTE/templates/journal/homepage_elements/featured.html:8
 #: themes/OLH/templates/journal/homepage_elements/featured.html:8
@@ -5994,27 +6120,9 @@ msgstr "Рекомендуемые журналы"
 msgid "Unnamed Journal"
 msgstr "Безымянный журнал"
 
-#: themes/BTE/templates/journal/homepage_elements/news.html:11
-#: themes/BTE/templates/repository/home.html:79
-#: themes/OLH/templates/journal/homepage_elements/news.html:11
-#: themes/OLH/templates/repository/home.html:79
-#: themes/clean/templates/journal/homepage_elements/news.html:9
-#: themes/material/templates/journal/homepage_elements/news.html:13
-msgid "Latest"
-msgstr "Последний"
-
-#: themes/BTE/templates/journal/homepage_elements/news.html:11
-#: themes/OLH/templates/journal/homepage_elements/news.html:11
-#: themes/clean/templates/journal/homepage_elements/news.html:9
-#: themes/material/templates/journal/homepage_elements/news.html:13
-msgid "Posts"
-msgstr "Сообщения"
-
-#: themes/BTE/templates/journal/homepage_elements/news.html:41
-#: themes/OLH/templates/journal/homepage_elements/news.html:41
-#: themes/clean/templates/press/core/news/index.html:25
-msgid "This journal currently has no news items to display"
-msgstr "В этом журнале в настоящее время нет новостей для отображения."
+#: themes/BTE/templates/journal/homepage_elements/news.html:31
+msgid "No news items to display"
+msgstr "Нет новостей для отображения"
 
 #: themes/BTE/templates/journal/homepage_elements/popular.html:8
 #: themes/OLH/templates/journal/homepage_elements/popular.html:8
@@ -6029,17 +6137,24 @@ msgstr "Самые популярные статьи"
 msgid "Featured Preprints"
 msgstr "Избранные препринты"
 
-#: themes/BTE/templates/journal/index.html:21
+#: themes/BTE/templates/journal/index.html:104
+#: themes/OLH/templates/journal/index.html:11
+#: themes/clean/templates/journal/index.html:5
+#: themes/material/templates/journal/index.html:5
+msgid "Home Page"
+msgstr "Домашняя страница"
+
+#: themes/BTE/templates/journal/index.html:116
 msgid "No articles published yet."
 msgstr "Ни одна статья еще не опубликована."
 
-#: themes/BTE/templates/journal/index.html:28
-msgid "Journal Tools"
-msgstr "Инструменты журнала"
+#: themes/BTE/templates/journal/index.html:124
+msgid "Geography of our readers"
+msgstr "География наших читателей"
 
-#: themes/BTE/templates/journal/index.html:30
-msgid "Submit Article"
-msgstr "Отправить статью"
+#: themes/BTE/templates/journal/index.html:129
+msgid "Swipe to rotate the globe"
+msgstr "Проведите, чтобы повернуть глобус"
 
 #: themes/BTE/templates/journal/keyword.html:6
 #: themes/BTE/templates/journal/keyword.html:12
@@ -6083,7 +6198,17 @@ msgid_plural ""
 "      Authors\n"
 "    "
 msgstr[0] ""
+"\n"
+"Автор"
 msgstr[1] ""
+"\n"
+"Авторы"
+msgstr[2] ""
+"\n"
+"Авторы"
+msgstr[3] ""
+"\n"
+"Авторы"
 
 #: themes/BTE/templates/journal/search.html:21
 #: themes/OLH/templates/journal/search.html:21
@@ -6099,7 +6224,7 @@ msgid "All Articles"
 msgstr "Все статьи"
 
 #: themes/BTE/templates/journal/submissions.html:6
-#: themes/BTE/templates/journal/submissions.html:23
+#: themes/BTE/templates/journal/submissions.html:16
 #: themes/OLH/templates/journal/submissions.html:6
 #: themes/OLH/templates/journal/submissions.html:23
 #: themes/clean/templates/journal/submissions.html:6
@@ -6148,7 +6273,7 @@ msgstr "Автор:"
 msgid "This press currently has no news items to display."
 msgstr "В настоящее время в этой прессе нет новостей для отображения."
 
-#: themes/BTE/templates/press/elements/press_footer.html:15
+#: themes/BTE/templates/press/elements/press_footer.html:27
 #: themes/OLH/templates/press/elements/press_footer.html:15
 #: themes/clean/templates/elements/press_footer.html:18
 msgid "Sitemap"
@@ -6188,22 +6313,24 @@ msgstr "Репозитории"
 msgid "Editorial Team"
 msgstr "Редакция"
 
-#: themes/BTE/templates/press/nav.html:44
-#: themes/OLH/templates/core/nav.html:125
-#: themes/OLH/templates/press/nav.html:44
-#: themes/clean/templates/press/nav.html:62
-#: themes/material/templates/core/nav.html:86
-#: themes/material/templates/core/nav.html:155
-#: themes/material/templates/press/nav.html:62
-#: themes/material/templates/press/nav.html:118
-#: themes/material/templates/repository/nav.html:63
-msgid "Account"
-msgstr "Счет"
-
 #: themes/BTE/templates/press/press_journals.html:55
 #: themes/OLH/templates/press/press_journals.html:55
 msgid "Disciplines"
 msgstr "Дисциплины"
+
+#: themes/BTE/templates/press/press_journals.html:83
+#: themes/BTE/templates/press/press_journals.html:92
+#: themes/OLH/templates/press/press_journals.html:83
+#: themes/OLH/templates/press/press_journals.html:92
+#: themes/clean/templates/journal/article.html:74
+#: themes/clean/templates/journal/article.html:149
+#: themes/clean/templates/press/press_journals.html:36
+#: themes/clean/templates/press/press_journals.html:45
+#: themes/material/templates/journal/article.html:264
+#: themes/material/templates/press/press_journals.html:40
+#: themes/material/templates/press/press_journals.html:49
+msgid "View"
+msgstr "Просмотр"
 
 #: themes/BTE/templates/repository/about.html:15
 #: themes/BTE/templates/repository/nav.html:5
@@ -6216,7 +6343,7 @@ msgstr "Дисциплины"
 #: themes/material/templates/repository/nav.html:20
 #: themes/material/templates/repository/nav.html:52
 msgid "About"
-msgstr "О"
+msgstr "О журнале"
 
 #: themes/BTE/templates/repository/hierarchy.html:60
 #: themes/OLH/templates/repository/hierarchy.html:60
@@ -6249,6 +6376,14 @@ msgstr "Читать о"
 msgid "or view "
 msgstr "или просмотреть"
 
+#: themes/BTE/templates/repository/home.html:79
+#: themes/OLH/templates/journal/homepage_elements/news.html:11
+#: themes/OLH/templates/repository/home.html:79
+#: themes/clean/templates/journal/homepage_elements/news.html:9
+#: themes/material/templates/journal/homepage_elements/news.html:13
+msgid "Latest"
+msgstr "Последний"
+
 #: themes/BTE/templates/repository/home.html:89
 #: themes/OLH/templates/repository/home.html:89
 #, python-format
@@ -6256,12 +6391,14 @@ msgid ""
 "\n"
 "                        Select Sub-%(rou_name)s of %(selected_name)s\n"
 "                    "
-msgstr "Выберите Sub-%(rou_name)s из %(selected_name)s"
+msgstr ""
+"\n"
+"Выберите Sub-%(rou_name)s из %(selected_name)s"
 
 #: themes/BTE/templates/repository/home.html:93
 #: themes/OLH/templates/repository/home.html:93
 msgid "Select"
-msgstr "Выбирать"
+msgstr "Выбрать"
 
 #: themes/BTE/templates/repository/home.html:124
 #: themes/OLH/templates/repository/home.html:124
@@ -6287,7 +6424,7 @@ msgstr "Вы можете искать по"
 #: themes/OLH/templates/repository/list.html:123
 #: themes/material/templates/repository/list.html:73
 msgid "Author Affiliation"
-msgstr "Принадлежность автора"
+msgstr "Аффилиация автора"
 
 #: themes/BTE/templates/repository/nav.html:7
 #: themes/OLH/templates/repository/nav.html:7
@@ -6367,19 +6504,30 @@ msgstr "Метрики"
 msgid "All submissions"
 msgstr "Все материалы"
 
-#: themes/OLH/templates/core/base.html:95
-msgid "Toggle main menu"
-msgstr "Переключить главное меню"
+#: themes/OLH/templates/journal/article.html:553
+#: themes/clean/templates/journal/article.html:389
+#: themes/material/templates/journal/article.html:528
+msgid "View Larger Table"
+msgstr "Посмотреть большую таблицу"
 
-#: themes/OLH/templates/core/base.html:100
-msgid "Toggle search"
-msgstr "Переключить поиск"
+#: themes/OLH/templates/journal/articles.html:30
+msgid "Pinned Articles"
+msgstr "Закрепленные статьи"
 
-#: themes/OLH/templates/journal/index.html:11
-#: themes/clean/templates/journal/index.html:5
-#: themes/material/templates/journal/index.html:5
-msgid "Home Page"
-msgstr "Домашняя страница"
+#: themes/OLH/templates/journal/articles.html:39
+msgid "There are no articles published in this journal yet"
+msgstr "В этом журнале пока нет опубликованных статей"
+
+#: themes/OLH/templates/journal/homepage_elements/news.html:11
+#: themes/clean/templates/journal/homepage_elements/news.html:9
+#: themes/material/templates/journal/homepage_elements/news.html:13
+msgid "Posts"
+msgstr "Сообщения"
+
+#: themes/OLH/templates/journal/homepage_elements/news.html:41
+#: themes/clean/templates/press/core/news/index.html:25
+msgid "This journal currently has no news items to display"
+msgstr "В этом журнале в настоящее время нет новостей для отображения."
 
 #: themes/clean/templates/403.html:18
 msgid "You do not have permission to view this page"
@@ -6391,11 +6539,16 @@ msgstr "Произошла ошибка сервера."
 
 #: themes/clean/templates/core/accounts/orcid_registration.html:14
 msgid ""
-"The ORCiD you logged in with is not currently linked with an account in our system. You can either\n"
-"            register a new account, or login with an existing account to link your ORCiD for future use."
+"The ORCiD you logged in with is not currently linked with an account in our "
+"system. You can either\n"
+"            register a new account, or login with an existing account to "
+"link your ORCiD for future use."
 msgstr ""
-"ORCiD, с которым вы вошли в систему, в настоящее время не связан с учетной записью в нашей системе. Вы можете либо\n"
-"            зарегистрируйте новую учетную запись или войдите в систему с существующей учетной записью, чтобы связать свой ORCiD для будущего использования."
+"ORCiD, с которым вы вошли в систему, в настоящее время не связан с учетной "
+"записью в нашей системе. Вы можете либо\n"
+"            зарегистрируйте новую учетную запись или войдите в систему с "
+"существующей учетной записью, чтобы связать свой ORCiD для будущего "
+"использования."
 
 #: themes/clean/templates/core/accounts/orcid_registration.html:34
 msgid "Forgot your password"
@@ -6413,38 +6566,59 @@ msgstr ""
 #: themes/clean/templates/core/accounts/register.html:60
 msgid ""
 "\n"
-"                    <p class=\"lead\">When it comes to passwords, length is better than complexity.</p>\n"
-"                    <p>Its a common myth that a short and complex password (Jfjfy&65^87) is more secure than a long and\n"
-"                        uncomplicated password (our awesome moon base rocks).</p>\n"
-"                    <p>We recommend selecting a long, but easy to remember password such as <em>our awesome moon base\n"
-"                        rocks</em> which would take an estimated septillion years to crack as opposed to a complex one\n"
-"                        like <em>Jfjfy&65^87</em> which would take just over 600 years on a standard computer.</p>\n"
+"                    <p class=\"lead\">When it comes to passwords, length is "
+"better than complexity.</p>\n"
+"                    <p>Its a common myth that a short and complex password "
+"(Jfjfy&65^87) is more secure than a long and\n"
+"                        uncomplicated password (our awesome moon base rocks)."
+"</p>\n"
+"                    <p>We recommend selecting a long, but easy to remember "
+"password such as <em>our awesome moon base\n"
+"                        rocks</em> which would take an estimated septillion "
+"years to crack as opposed to a complex one\n"
+"                        like <em>Jfjfy&65^87</em> which would take just over "
+"600 years on a standard computer.</p>\n"
 "                    "
 msgstr ""
+"\n"
 "<p class=\"lead\">Для паролей длина важнее сложности.</p>\n"
-"                    <p>Распространен миф о том, что короткий и сложный пароль (Jfjfy&65^87) более безопасен, чем длинный и\n"
-"                        несложный пароль (наша замечательная лунная база просто великолепна).</p>\n"
-"                    <p>Мы рекомендуем выбрать длинный, но легко запоминающийся пароль, например <em>наша потрясающая лунная база.\n"
-"                        горные породы</em>, на растрескивание которых, по оценкам, уйдет примерно септиллион лет, в отличие от сложных пород.\n"
-"                        например <em>Jfjfy&65^87</em>, что на стандартном компьютере заняло бы чуть более 600 лет.</p>"
+"                    <p>Распространен миф о том, что короткий и сложный "
+"пароль (Jfjfy&65^87) более безопасен, чем длинный и\n"
+"                        несложный пароль (наша замечательная лунная база "
+"просто великолепна).</p>\n"
+"                    <p>Мы рекомендуем выбрать длинный, но легко "
+"запоминающийся пароль, например <em>наша потрясающая лунная база.\n"
+"                        горные породы</em>, на растрескивание которых, по "
+"оценкам, уйдет примерно септиллион лет, в отличие от сложных пород.\n"
+"                        например <em>Jfjfy&65^87</em>, что на стандартном "
+"компьютере заняло бы чуть более 600 лет.</p>"
 
 #: themes/clean/templates/core/accounts/reset_password.html:54
 msgid ""
-"Its a common myth that a short and complex password (Jfjfy&65^87) is more secure than a long and\n"
+"Its a common myth that a short and complex password (Jfjfy&65^87) is more "
+"secure than a long and\n"
 "                        uncomplicated password (our awesome moon base rocks)."
 msgstr ""
-"Распространен миф о том, что короткий и сложный пароль (Jfjfy&65^87) более безопасен, чем длинный и\n"
-"                        несложный пароль (наша потрясающая лунная база великолепна)."
+"Распространен миф о том, что короткий и сложный пароль (Jfjfy&65^87) более "
+"безопасен, чем длинный и\n"
+"                        несложный пароль (наша потрясающая лунная база "
+"великолепна)."
 
 #: themes/clean/templates/core/accounts/reset_password.html:56
 msgid ""
-"We recommend selecting a long, but easy to remember password such as <em>our awesome moon base\n"
-"                        rocks</em> which would take an estimated septillion years to crack as opposed to a complex one\n"
-"                        like <em>Jfjfy&65^87</em> which would take just over 600 years on a standard computer."
+"We recommend selecting a long, but easy to remember password such as <em>our "
+"awesome moon base\n"
+"                        rocks</em> which would take an estimated septillion "
+"years to crack as opposed to a complex one\n"
+"                        like <em>Jfjfy&65^87</em> which would take just over "
+"600 years on a standard computer."
 msgstr ""
-"Мы рекомендуем выбрать длинный, но легко запоминающийся пароль, например <em>наша потрясающая лунная база.\n"
-"                        горные породы</em>, на растрескивание которых, по оценкам, уйдет примерно септиллион лет, в отличие от сложных пород.\n"
-"                        например <em>Jfjfy&65^87</em>, что на стандартном компьютере заняло бы чуть более 600 лет."
+"Мы рекомендуем выбрать длинный, но легко запоминающийся пароль, например "
+"<em>наша потрясающая лунная база.\n"
+"                        горные породы</em>, на растрескивание которых, по "
+"оценкам, уйдет примерно септиллион лет, в отличие от сложных пород.\n"
+"                        например <em>Jfjfy&65^87</em>, что на стандартном "
+"компьютере заняло бы чуть более 600 лет."
 
 #: themes/clean/templates/core/base.html:83
 msgid "Close message"
@@ -6452,7 +6626,7 @@ msgstr "Закрыть сообщение"
 
 #: themes/clean/templates/core/nav.html:94
 msgid "Account "
-msgstr "Счет"
+msgstr "Аккаунт"
 
 #: themes/clean/templates/core/news/index.html:23
 msgid ""
@@ -6472,12 +6646,14 @@ msgstr "текущая страница"
 msgid ""
 "If you want to change your email address you may do so\n"
 "                    below, however, you will be logged out and\n"
-"                    your account will be marked as inactive until you follow the\n"
+"                    your account will be marked as inactive until you follow "
+"the\n"
 "                    instructions in the verfication email."
 msgstr ""
 "Если вы хотите изменить свой адрес электронной почты, вы можете это сделать\n"
 "                    ниже, однако вы выйдете из системы и\n"
-"                    ваша учетная запись будет помечена как неактивная, пока вы не выполните\n"
+"                    ваша учетная запись будет помечена как неактивная, пока "
+"вы не выполните\n"
 "                    инструкции в письме с подтверждением."
 
 #: themes/clean/templates/elements/accounts/edit_profile_body_block.html:17
@@ -6489,7 +6665,8 @@ msgid ""
 "Changing your email address will also change your username\n"
 "                    as these are one and the same."
 msgstr ""
-"Изменение адреса электронной почты также приведет к изменению вашего имени пользователя.\n"
+"Изменение адреса электронной почты также приведет к изменению вашего имени "
+"пользователя.\n"
 "                    поскольку это одно и то же."
 
 #: themes/clean/templates/elements/accounts/edit_profile_body_block.html:23
@@ -6522,8 +6699,9 @@ msgid ""
 "        published during that decade.\n"
 "    "
 msgstr ""
-"Проблемы сгруппированы по десятилетиям. Выберите десятилетие, чтобы просмотреть проблемы\n"
-"        опубликованные в течение этого десятилетия."
+"\n"
+"Выпуски сгруппированы по десятилетиям. Выберите десятилетие, чтобы "
+"просмотреть выпуски, опубликованные в этот период."
 
 #: themes/clean/templates/elements/journal/reading.html:2
 #: themes/material/templates/elements/journal/reading.html:2
@@ -6542,12 +6720,17 @@ msgstr "все"
 #, python-format
 msgid ""
 "\n"
-"                    <p><b>Note:<br/>This review refers to round %(review.review_round.round_number)s of peer\n"
-"                        review and may pertain to an earlier version of the document.</p>\n"
+"                    <p><b>Note:<br/>This review refers to round "
+"%(review.review_round.round_number)s of peer\n"
+"                        review and may pertain to an earlier version of the "
+"document.</p>\n"
 "                    "
 msgstr ""
-"<p><b>Примечание.<br/>Этот обзор относится к раунду %(review.review_round.round_number)s аналогов.\n"
-"                        просмотреть и может относиться к более ранней версии документа.</p>"
+"\n"
+"<p><b>Примечание.<br/>Этот обзор относится к раунду "
+"%(review.review_round.round_number)s аналогов.\n"
+"                        просмотреть и может относиться к более ранней версии "
+"документа.</p>"
 
 #: themes/clean/templates/elements/sections_block.html:4
 msgid "Sections submission information"
@@ -6630,7 +6813,7 @@ msgstr "Пауза"
 
 #: themes/clean/templates/journal/issues.html:14
 msgid "The current issue is"
-msgstr "Текущая проблема"
+msgstr "Текущий выпуск"
 
 #: themes/clean/templates/press/core/news/index.html:20
 msgid "Read More."
@@ -6648,8 +6831,7 @@ msgstr "Начните вводить фильтр."
 #: themes/material/templates/core/accounts/activate_account.html:29
 msgid ""
 "There was no inactive account with this activation code found. It is "
-"possible that your account is already active, you can check by attempting to"
-" "
+"possible that your account is already active, you can check by attempting to "
 msgstr ""
 "Неактивной учетной записи с данным кодом активации не обнаружено. Возможно, "
 "ваша учетная запись уже активна, вы можете проверить, попытавшись"
@@ -6666,13 +6848,19 @@ msgstr ""
 #: themes/material/templates/core/accounts/register.html:56
 #: themes/material/templates/core/accounts/reset_password.html:46
 msgid ""
-"We recommend selecting a long, but easy to remember password such as <i>our awesome moon base\n"
-"                rocks</i> which would take an estimated septillion years to crack as opposed to a complex one\n"
-"                like <i>Jfjfy&65^87</i> which would take just over 600 years on a standard computer."
+"We recommend selecting a long, but easy to remember password such as <i>our "
+"awesome moon base\n"
+"                rocks</i> which would take an estimated septillion years to "
+"crack as opposed to a complex one\n"
+"                like <i>Jfjfy&65^87</i> which would take just over 600 years "
+"on a standard computer."
 msgstr ""
-"Мы рекомендуем выбрать длинный, но легко запоминающийся пароль, например <i>наша замечательная лунная база.\n"
-"                горные породы</i>, на раскалывание которых потребуется около септиллиона лет, в отличие от сложных\n"
-"                например <i>Jfjfy&65^87</i>, что на стандартном компьютере заняло бы чуть более 600 лет."
+"Мы рекомендуем выбрать длинный, но легко запоминающийся пароль, например "
+"<i>наша замечательная лунная база.\n"
+"                горные породы</i>, на раскалывание которых потребуется около "
+"септиллиона лет, в отличие от сложных\n"
+"                например <i>Jfjfy&65^87</i>, что на стандартном компьютере "
+"заняло бы чуть более 600 лет."
 
 #: themes/material/templates/core/login.html:19
 msgid "Login with your account"
@@ -6708,8 +6896,8 @@ msgid ""
 "follow the instructions in the verification email."
 msgstr ""
 "Если вы хотите изменить свой адрес электронной почты, вы можете сделать это "
-"ниже, однако вы выйдете из системы, и ваша учетная запись будет помечена как"
-" неактивная, пока вы не выполните инструкции в электронном письме с "
+"ниже, однако вы выйдете из системы, и ваша учетная запись будет помечена как "
+"неактивная, пока вы не выполните инструкции в электронном письме с "
 "подтверждением."
 
 #: themes/material/templates/elements/accounts/edit_profile_body_block.html:14
@@ -6729,7 +6917,8 @@ msgid ""
 "Use the button below to register to receive notifications of new articles\n"
 "                                published in this journal "
 msgstr ""
-"Используйте кнопку ниже, чтобы зарегистрироваться и получать уведомления о новых статьях.\n"
+"Используйте кнопку ниже, чтобы зарегистрироваться и получать уведомления о "
+"новых статьях.\n"
 "                                опубликовано в этом журнале"
 
 #: themes/material/templates/elements/accounts/edit_profile_body_block.html:54
@@ -6752,7 +6941,7 @@ msgstr "Закрывать."
 
 #: themes/material/templates/elements/journal/issue_list.html:59
 msgid "View Issue"
-msgstr "Посмотреть проблему"
+msgstr "Посмотреть выпуск"
 
 #: themes/material/templates/elements/pagination.html:19
 msgid "Previous page."
@@ -6788,7 +6977,17 @@ msgid_plural ""
 "                                    Authors\n"
 "                                "
 msgstr[0] ""
+"\n"
+"Автор"
 msgstr[1] ""
+"\n"
+"Авторы"
+msgstr[2] ""
+"\n"
+"Авторы"
+msgstr[3] ""
+"\n"
+"Авторы"
 
 #: themes/material/templates/journal/article.html:307
 msgid "Article No."
@@ -6825,7 +7024,17 @@ msgid_plural ""
 "                                        %(result_count)s results\n"
 "                                    "
 msgstr[0] ""
+"\n"
+"%(result_count)s результат"
 msgstr[1] ""
+"\n"
+"%(result_count)s результата"
+msgstr[2] ""
+"\n"
+"%(result_count)s результатов"
+msgstr[3] ""
+"\n"
+"%(result_count)s результата"
 
 #: themes/material/templates/journal/new_search.html:18
 #: themes/material/templates/journal/search.html:20
