@@ -289,6 +289,11 @@
             transform: none !important;
             opacity: 1 !important;
         }
+        /* Dark band behind banner captions (article header, issue banner): backport of
+           upstream Janeway 582f7a482 (#5582, WCAG 1.4.3 contrast), not in v5 OLH app.css. */
+        .olh-banner-heading {
+            background: rgba(0, 0, 0, 0.6);
+        }
         #issue_top .olh-banner-heading {
             z-index: 2;
             position: absolute !important;
