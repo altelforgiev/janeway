@@ -957,6 +957,67 @@
             }
         }
 
+
+        /* BTE mobile article header/body (B2): readable title and 18px body,
+           light and dark theme. Scoped to max-width 39.9375em so desktop banner is unchanged. */
+        @media screen and (max-width: 39.9375em) {
+          #main-content section.meta.show-for-small-only h1.text-with-shadow {
+            color: #1a1a1a !important;
+            text-shadow: none !important;
+            font-size: clamp(1.35rem, 1.2rem + 1.5vw, 1.75rem) !important;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-top: 0.35rem;
+            margin-bottom: 0.6rem;
+          }
+        
+          body.dark-theme #main-content section.meta.show-for-small-only h1.text-with-shadow {
+            color: #f5f5f5 !important;
+          }
+        
+          #main-content:has(#main_article) {
+            padding-top: 1rem !important;
+          }
+        
+          #main-content section.meta.show-for-small-only {
+            padding: 0.15rem 0 0.6rem;
+          }
+        
+          #main-content section.meta.show-for-small-only small.uppercase {
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            color: #444;
+            font-weight: 600;
+          }
+        
+          body.dark-theme #main-content section.meta.show-for-small-only small.uppercase {
+            color: #c8c8c8;
+          }
+        
+          #main-content section.meta.show-for-small-only .list-no-bullet {
+            margin: 0.2rem 0 0;
+          }
+        
+          #main-content section.meta.show-for-small-only .list-no-bullet li {
+            margin-bottom: 0.1rem;
+          }
+        
+          #main-content #article,
+          #main-content #main_article {
+            font-size: 18px;
+            line-height: 1.6;
+            font-weight: 400;
+          }
+        
+          #main-content #article p,
+          #main-content #main_article p {
+            font-size: inherit;
+            line-height: 1.6;
+            font-weight: 400;
+            color: inherit;
+          }
+        }
+
     </style>
     {% block css %}{% endblock %}
 
