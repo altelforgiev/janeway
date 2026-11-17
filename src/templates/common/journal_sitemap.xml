@@ -73,8 +73,6 @@
       {% if journal.nav_review %}
         {% include "common/sitemap_url.xml" with obj=journal url_name='become_reviewer' label="Become a reviewer" %}
       {% endif %}
-      {% include "common/sitemap_url.xml" with obj=journal url_name='core_login' label="Log in" %}
-      {% include "common/sitemap_url.xml" with obj=journal url_name='core_register' label="Register" %}
       {% for news_item in journal.active_news_items %}
         <url>
           <loc>{{ news_item.url }}</loc>
