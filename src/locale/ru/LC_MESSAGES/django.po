@@ -9832,8 +9832,8 @@ msgid "Cookie notice"
 msgstr "Уведомление о cookie"
 
 #: themes/BTE/templates/elements/cookie_notice.html
-msgid "This site uses essential cookies and Google Analytics cookies to collect anonymous visit statistics."
-msgstr "Сайт использует необходимые cookie и cookie Google Analytics для сбора анонимной статистики посещений."
+msgid "This site uses only essential cookies. Anonymous visit statistics are collected with Google Analytics without cookies."
+msgstr "Сайт использует только необходимые cookie. Анонимная статистика посещений собирается с помощью Google Analytics без использования cookie."
 
 #: themes/BTE/templates/elements/cookie_notice.html
 msgid "Learn more in our Privacy Policy."

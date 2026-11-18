@@ -9738,8 +9738,8 @@ msgid "Cookie notice"
 msgstr "Cookie туралы хабарлама"
 
 #: themes/BTE/templates/elements/cookie_notice.html
-msgid "This site uses essential cookies and Google Analytics cookies to collect anonymous visit statistics."
-msgstr "Сайт қажетті cookie файлдарын және кірулердің жасырын статистикасын жинау үшін Google Analytics cookie файлдарын қолданады."
+msgid "This site uses only essential cookies. Anonymous visit statistics are collected with Google Analytics without cookies."
+msgstr "Сайт тек қажетті cookie файлдарын пайдаланады. Кірулердің жасырын статистикасы Google Analytics арқылы cookie файлдарынсыз жиналады."
 
 #: themes/BTE/templates/elements/cookie_notice.html
 msgid "Learn more in our Privacy Policy."
