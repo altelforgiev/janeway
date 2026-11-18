@@ -88,7 +88,7 @@
 </style>
 <div id="bte-cookie-notice" class="bte-cookie-notice" role="region" aria-label="{% trans 'Cookie notice' %}" hidden>
     <p>
-        {% trans 'This site uses essential cookies and Google Analytics cookies to collect anonymous visit statistics.' %}
+        {% trans 'This site uses only essential cookies. Anonymous visit statistics are collected with Google Analytics without cookies.' %}
         <a href="{% if journal_settings.general.privacy_policy_url %}{{ journal_settings.general.privacy_policy_url }}{% else %}{% url 'cms_page' 'privacy' %}{% endif %}">{% trans 'Learn more in our Privacy Policy.' %}</a>
     </p>
     <button type="button" class="bte-cookie-notice__btn" id="bte-cookie-notice-ok">{% trans 'Got it' %}</button>
