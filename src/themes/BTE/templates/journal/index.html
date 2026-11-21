@@ -93,6 +93,27 @@
     body.dark-theme .d3-graticule {
         stroke: #333333;
     }
+    {# Lakes and major rivers (Natural Earth), drawn above countries; never intercept pointer events #}
+    .d3-water {
+        pointer-events: none;
+    }
+    .d3-lake {
+        pointer-events: none;
+        fill: var(--map-ocean-fill);
+        stroke: none;
+    }
+    .d3-river {
+        pointer-events: none;
+        fill: none;
+        stroke: #93c5fd;
+        stroke-width: 0.6px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        vector-effect: non-scaling-stroke;
+    }
+    body.dark-theme .d3-river {
+        stroke: #5a8ab0;
+    }
     .d3-tooltip {
         position: absolute;
         font-family: "Montserrat", sans-serif;
@@ -495,6 +516,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const geoJsonUrl = isMobile
         ? "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
         : "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson";
+    const lakesUrl = isMobile ? "{% static 'BTE/data/lakes_110m.json' %}" : "{% static 'BTE/data/lakes_50m.json' %}";
+    const riversUrl = isMobile ? "{% static 'BTE/data/rivers_110m.json' %}" : "{% static 'BTE/data/rivers_50m.json' %}";
 
     const getCountryCode = d => {
         const p = d.properties;
@@ -607,6 +630,23 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("class", "d3-country")
             .attr("d", path)
             .attr("fill", "var(--map-empty-fill)");
+
+        {# Water layers sit above countries and below city glows; loaded separately so a failure never blocks the map #}
+        const waterGroup = mapGroup.append("g").attr("class", "d3-water");
+        const lakesGroup = waterGroup.append("g");
+        const riversGroup = waterGroup.append("g");
+        Promise.all([d3.json(lakesUrl), d3.json(riversUrl)]).then(([lakes, rivers]) => {
+            lakesGroup.selectAll("path")
+                .data((lakes && lakes.features) || [])
+                .enter().append("path")
+                .attr("class", "d3-lake")
+                .attr("d", path);
+            riversGroup.selectAll("path")
+                .data((rivers && rivers.features) || [])
+                .enter().append("path")
+                .attr("class", "d3-river")
+                .attr("d", path);
+        }).catch(err => console.warn("Water layers not loaded:", err));
 
         let heatSpots = mapGroup.selectAll(".heat-spot");
 
@@ -726,6 +766,7 @@ document.addEventListener("DOMContentLoaded", function() {
             countryPaths.classed("is-selected", d => !!code && getCountryCode(d) === code);
             if (code) {
                 countryPaths.filter(d => getCountryCode(d) === code).raise();
+                waterGroup.raise();   {# lakes and rivers stay above the selected country #}
                 mapGroup.selectAll(".heat-spot").raise();   {# keep city glows above the outline #}
             }
             const resetBtnEl = document.getElementById("map-reset-btn");
@@ -818,6 +859,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (spherePath) spherePath.attr("d", path);
                 graticulePath.attr("d", path);
                 countryPaths.attr("d", path);
+                waterGroup.selectAll("path").attr("d", path);
                 updateSpots();
                 renderFrame = null;
             };
@@ -846,6 +888,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     graticulePath.attr("d", path);
                     countryPaths.attr("d", path);
+                    waterGroup.selectAll("path").attr("d", path);
                     updateSpots();
 
                     inertiaFrame = requestAnimationFrame(step);
