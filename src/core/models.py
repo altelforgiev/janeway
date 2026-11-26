@@ -2212,7 +2212,8 @@ class HomepageElement(models.Model):
 
 class LoginAttempt(models.Model):
     ip_address = models.GenericIPAddressField()
-    user_agent = models.TextField()
+    username = models.CharField(max_length=254, blank=True, default="")
+    user_agent = models.TextField(blank=True, default="")
     timestamp = models.DateTimeField(default=timezone.now)
 
 

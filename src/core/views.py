@@ -83,12 +83,13 @@ def user_login(request):
     :return: HttpResponse
     """
     next_url = request.GET.get("next", "")
+    username = request.POST.get("user_name", "")
     if request.user.is_authenticated:
         messages.info(request, "You are already logged in.")
         return redirect(request.site_type.auth_success_url(next_url=next_url))
 
     else:
-        bad_logins = logic.check_for_bad_login_attempts(request)
+        bad_logins = logic.check_for_bad_login_attempts(request, username)
 
     if bad_logins >= 10:
         messages.info(
@@ -112,7 +113,7 @@ def user_login(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, "Login successful.")
-                logic.clear_bad_login_attempts(request)
+                logic.clear_bad_login_attempts(request, username)
 
                 orcid_token = request.POST.get("orcid_token", None)
                 if orcid_token:
@@ -161,7 +162,7 @@ def user_login(request):
                         actor=None,
                         request=request,
                     )
-                    logic.add_failed_login_attempt(request)
+                    logic.add_failed_login_attempt(request, username)
 
     context = {
         "form": form,
@@ -373,7 +374,7 @@ def reset_password(request, token):
             password = form.cleaned_data["password_2"]
             reset_token.account.set_password(password)
             reset_token.account.is_active = True
-            logic.clear_bad_login_attempts(request)
+            logic.clear_bad_login_attempts(request, reset_token.account.email)
             reset_token.account.save()
             reset_token.expired = True
             reset_token.save()

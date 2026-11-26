@@ -1082,34 +1082,34 @@ def password_policy_check(request):
     return problems
 
 
-def get_ua_and_ip(request):
-    user_agent = request.META.get("HTTP_USER_AGENT", None)
+def _login_attempt_key(request, username):
+    """Lockout key is (IP, login). User-Agent is not part of it, so changing it does not reset the counter."""
     ip_address = shared.get_ip_address(request)
+    return ip_address, (username or "").strip().lower()
 
-    return user_agent, ip_address
 
-
-def add_failed_login_attempt(request):
-    user_agent, ip_address = get_ua_and_ip(request)
+def add_failed_login_attempt(request, username):
+    ip_address, username = _login_attempt_key(request, username)
 
     if ip_address:
-        models.LoginAttempt.objects.create(user_agent=user_agent, ip_address=ip_address)
+        models.LoginAttempt.objects.create(username=username, ip_address=ip_address)
+        logger.warning(f"[FAILED_LOGIN][IP:{ip_address}][USER:{username}]")
 
 
-def clear_bad_login_attempts(request):
-    user_agent, ip_address = get_ua_and_ip(request)
+def clear_bad_login_attempts(request, username):
+    ip_address, username = _login_attempt_key(request, username)
 
     models.LoginAttempt.objects.filter(
-        user_agent=user_agent, ip_address=ip_address
+        username=username, ip_address=ip_address
     ).delete()
 
 
-def check_for_bad_login_attempts(request):
-    user_agent, ip_address = get_ua_and_ip(request)
+def check_for_bad_login_attempts(request, username):
+    ip_address, username = _login_attempt_key(request, username)
     time = timezone.now() - timedelta(minutes=10)
 
     attempts = models.LoginAttempt.objects.filter(
-        user_agent=user_agent, ip_address=ip_address, timestamp__gte=time
+        username=username, ip_address=ip_address, timestamp__gte=time
     )
     logger.debug(f"Bad login attempt {attempts.count() + 1} at {time}")
     return attempts.count()
