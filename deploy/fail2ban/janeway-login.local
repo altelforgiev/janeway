@@ -1,7 +1,8 @@
 # Ban IPs that repeatedly fail Janeway logins. Copy to /etc/fail2ban/jail.d/
-# Enable only after the v6 code is deployed AND the app sees the real client IP
-# behind nginx (check X-Forwarded-For / get_client_ip), otherwise the proxy IP gets banned.
-[janeway-login]
+# The app records the real client IP behind nginx (utils.shared.get_ip_address
+# trusts X-Real-IP only from a private proxy peer), so bans target the client.
+# Enabled on production 2026-11-26 after the v6 deploy was verified.
+# Note: IP 193.41.131.20 is not in ignoreip; 10 failures in 600s bans it for 1h.[janeway-login]
 enabled  = true
 filter   = janeway-login
 logpath  = /var/www/janeway/logs/janeway.log
