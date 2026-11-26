@@ -691,11 +691,6 @@ class LoginForm(CaptchaForm):
     def __init__(self, *args, **kwargs):
         bad_logins = kwargs.pop("bad_logins", 0)
         super(LoginForm, self).__init__(*args, **kwargs)
-        if bad_logins:
-            logger.warning(
-                "[FAILED_LOGIN:%s][FAILURES: %s]"
-                "" % (self.fields["user_name"], bad_logins),
-            )
         if bad_logins <= 3:
             self.fields["captcha"] = forms.CharField(
                 widget=forms.HiddenInput(), required=False

@@ -159,3 +159,27 @@ class TestClientIpTrust(TestCase):
     def test_private_peer_without_x_real_ip_falls_back_to_peer(self):
         request = self._post("192.168.64.1", HTTP_X_FORWARDED_FOR="8.8.8.8")
         self.assertEqual(shared.get_ip_address(request), "192.168.64.1")
+
+class TestLoginFailureLog(TestCase):
+    def test_login_form_does_not_log_field_repr(self):
+        from core.forms import LoginForm
+
+        with patch("core.forms.forms.logger") as logger_mock:
+            LoginForm(bad_logins=2)
+
+        logger_mock.warning.assert_not_called()
+
+    def test_failed_login_logs_ip_and_user(self):
+        from django.test import RequestFactory
+
+        request = RequestFactory().post(
+            "/login/",
+            REMOTE_ADDR="203.0.113.7",
+            HTTP_USER_AGENT="UA-log",
+        )
+        with patch("core.logic.logger") as logger_mock:
+            logic.add_failed_login_attempt(request, "user@example.org")
+
+        logger_mock.warning.assert_called_once_with(
+            "[FAILED_LOGIN][IP:203.0.113.7][USER:user@example.org]"
+        )
