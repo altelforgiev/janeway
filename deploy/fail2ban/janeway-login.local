@@ -1,0 +1,11 @@
+# Ban IPs that repeatedly fail Janeway logins. Copy to /etc/fail2ban/jail.d/
+# Enable only after the v6 code is deployed AND the app sees the real client IP
+# behind nginx (check X-Forwarded-For / get_client_ip), otherwise the proxy IP gets banned.
+[janeway-login]
+enabled  = false
+filter   = janeway-login
+logpath  = /var/www/janeway/logs/janeway.log
+port     = http,https
+maxretry = 10
+findtime = 600
+bantime  = 1h
