@@ -10,6 +10,7 @@ from django.shortcuts import reverse
 from django.test import TestCase, override_settings
 
 from core import logic
+from utils import shared
 from utils.testing import helpers
 
 
@@ -127,3 +128,34 @@ class TestLoginAttemptLockout(TestCase):
             logic.check_for_bad_login_attempts(self._request("UA-one"), "b@example.org"),
             1,
         )
+
+
+class TestClientIpTrust(TestCase):
+    def _post(self, remote_addr, **headers):
+        from django.test import RequestFactory
+
+        return RequestFactory().post("/login/", REMOTE_ADDR=remote_addr, **headers)
+
+    def test_proxy_peer_uses_x_real_ip(self):
+        request = self._post("192.168.64.1", HTTP_X_REAL_IP="193.41.131.20")
+        self.assertEqual(shared.get_ip_address(request), "193.41.131.20")
+
+    def test_proxy_peer_ignores_spoofed_x_forwarded_for(self):
+        request = self._post(
+            "192.168.64.1",
+            HTTP_X_FORWARDED_FOR="8.8.8.8",
+            HTTP_X_REAL_IP="193.41.131.20",
+        )
+        self.assertEqual(shared.get_ip_address(request), "193.41.131.20")
+
+    def test_public_peer_ignores_all_forwarded_headers(self):
+        request = self._post(
+            "93.184.216.34",
+            HTTP_X_FORWARDED_FOR="8.8.8.8",
+            HTTP_X_REAL_IP="8.8.4.4",
+        )
+        self.assertEqual(shared.get_ip_address(request), "93.184.216.34")
+
+    def test_private_peer_without_x_real_ip_falls_back_to_peer(self):
+        request = self._post("192.168.64.1", HTTP_X_FORWARDED_FOR="8.8.8.8")
+        self.assertEqual(shared.get_ip_address(request), "192.168.64.1")
