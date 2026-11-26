@@ -6,7 +6,7 @@ __maintainer__ = "Birkbeck Centre for Technology and Publishing"
 import random
 import mimetypes
 from datetime import datetime
-from ipware import get_client_ip
+import ipaddress
 from urllib.parse import urlencode, quote_plus
 
 from django.core.cache import cache
@@ -30,15 +30,30 @@ def generate_password(password_length=10):
 
 
 def get_ip_address(request):
+    """Client IP for logging and lockout.
+
+    Forwarded headers are trusted only when the direct peer is a private or
+    loopback address (our reverse proxy). Otherwise a client could spoof
+    X-Forwarded-For / X-Real-IP and evade IP-based lockout.
+    """
     if request is None:
         return None
 
-    client_ip, is_routable = get_client_ip(request)
-
-    if client_ip is None:
+    peer = request.META.get("REMOTE_ADDR", "").strip()
+    if not peer:
         return None
 
-    return client_ip
+    try:
+        peer_ip = ipaddress.ip_address(peer)
+    except ValueError:
+        return None
+
+    if peer_ip.is_private or peer_ip.is_loopback:
+        real_ip = request.META.get("HTTP_X_REAL_IP", "").strip()
+        if real_ip:
+            return real_ip
+
+    return peer
 
 
 def clear_cache():

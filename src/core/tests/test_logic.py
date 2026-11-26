@@ -10,6 +10,7 @@ from django.shortcuts import reverse
 from django.test import TestCase, override_settings
 
 from core import logic
+from utils import shared
 from utils.testing import helpers
 
 
@@ -81,3 +82,80 @@ class TestLogic(TestCase):
             f"/register/step/2/8bd3cdc9-1c3c-4ec9-99bc-9ea0b86a3c55/?next={self.next_url_encoded}",
             url,
         )
+
+
+class TestLoginAttemptLockout(TestCase):
+    def _request(self, user_agent):
+        from django.test import RequestFactory
+
+        return RequestFactory().post(
+            "/login/",
+            REMOTE_ADDR="203.0.113.7",
+            HTTP_USER_AGENT=user_agent,
+        )
+
+    def test_user_agent_change_does_not_reset_counter(self):
+        logic.add_failed_login_attempt(self._request("UA-one"), "User@Example.org")
+        logic.add_failed_login_attempt(self._request("UA-one"), "user@example.org")
+        logic.add_failed_login_attempt(self._request("UA-two"), "user@example.org")
+
+        self.assertEqual(
+            logic.check_for_bad_login_attempts(
+                self._request("UA-three"), "user@example.org"
+            ),
+            3,
+        )
+
+    def test_counter_is_per_login(self):
+        logic.add_failed_login_attempt(self._request("UA-one"), "a@example.org")
+
+        self.assertEqual(
+            logic.check_for_bad_login_attempts(self._request("UA-one"), "b@example.org"),
+            0,
+        )
+
+    def test_successful_login_clears_only_its_login(self):
+        logic.add_failed_login_attempt(self._request("UA-one"), "a@example.org")
+        logic.add_failed_login_attempt(self._request("UA-one"), "b@example.org")
+
+        logic.clear_bad_login_attempts(self._request("UA-two"), "a@example.org")
+
+        self.assertEqual(
+            logic.check_for_bad_login_attempts(self._request("UA-one"), "a@example.org"),
+            0,
+        )
+        self.assertEqual(
+            logic.check_for_bad_login_attempts(self._request("UA-one"), "b@example.org"),
+            1,
+        )
+
+
+class TestClientIpTrust(TestCase):
+    def _post(self, remote_addr, **headers):
+        from django.test import RequestFactory
+
+        return RequestFactory().post("/login/", REMOTE_ADDR=remote_addr, **headers)
+
+    def test_proxy_peer_uses_x_real_ip(self):
+        request = self._post("192.168.64.1", HTTP_X_REAL_IP="193.41.131.20")
+        self.assertEqual(shared.get_ip_address(request), "193.41.131.20")
+
+    def test_proxy_peer_ignores_spoofed_x_forwarded_for(self):
+        request = self._post(
+            "192.168.64.1",
+            HTTP_X_FORWARDED_FOR="8.8.8.8",
+            HTTP_X_REAL_IP="193.41.131.20",
+        )
+        self.assertEqual(shared.get_ip_address(request), "193.41.131.20")
+
+    def test_public_peer_ignores_all_forwarded_headers(self):
+        request = self._post(
+            "93.184.216.34",
+            HTTP_X_FORWARDED_FOR="8.8.8.8",
+            HTTP_X_REAL_IP="8.8.4.4",
+        )
+        self.assertEqual(shared.get_ip_address(request), "93.184.216.34")
+
+    def test_private_peer_without_x_real_ip_falls_back_to_peer(self):
+        request = self._post("192.168.64.1", HTTP_X_FORWARDED_FOR="8.8.8.8")
+        self.assertEqual(shared.get_ip_address(request), "192.168.64.1")

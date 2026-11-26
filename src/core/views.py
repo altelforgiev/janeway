@@ -69,7 +69,7 @@ from press import forms as press_forms
 from utils import models as util_models, setting_handler, orcid
 from utils.logger import get_logger
 from utils.decorators import GET_language_override
-from utils.shared import language_override_redirect, clear_cache
+from utils.shared import language_override_redirect, clear_cache, get_ip_address
 from repository import models as rm
 from events import logic as events_logic
 
@@ -83,12 +83,13 @@ def user_login(request):
     :return: HttpResponse
     """
     next_url = request.GET.get("next", "")
+    username = request.POST.get("user_name", "")
     if request.user.is_authenticated:
         messages.info(request, "You are already logged in.")
         return redirect(request.site_type.auth_success_url(next_url=next_url))
 
     else:
-        bad_logins = logic.check_for_bad_login_attempts(request)
+        bad_logins = logic.check_for_bad_login_attempts(request, username)
 
     if bad_logins >= 10:
         messages.info(
@@ -112,7 +113,7 @@ def user_login(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, "Login successful.")
-                logic.clear_bad_login_attempts(request)
+                logic.clear_bad_login_attempts(request, username)
 
                 orcid_token = request.POST.get("orcid_token", None)
                 if orcid_token:
@@ -161,7 +162,7 @@ def user_login(request):
                         actor=None,
                         request=request,
                     )
-                    logic.add_failed_login_attempt(request)
+                    logic.add_failed_login_attempt(request, username)
 
     context = {
         "form": form,
@@ -373,7 +374,7 @@ def reset_password(request, token):
             password = form.cleaned_data["password_2"]
             reset_token.account.set_password(password)
             reset_token.account.is_active = True
-            logic.clear_bad_login_attempts(request)
+            logic.clear_bad_login_attempts(request, reset_token.account.email)
             reset_token.account.save()
             reset_token.expired = True
             reset_token.save()
@@ -3432,17 +3433,6 @@ def get_geoip_dir():
     return geoip_dir
 
 
-def get_client_ip(request):
-    """Получает реальный IP пользователя за Nginx/Docker"""
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        return x_forwarded_for.split(',')[0].strip()
-    x_real_ip = request.META.get('HTTP_X_REAL_IP')
-    if x_real_ip:
-        return x_real_ip.strip()
-    return request.META.get('REMOTE_ADDR', '').strip()
-
-
 def _download_and_replace_files(geoip_dir, files_to_update):
     """Фоновое скачивание и атомарная замена устаревших баз"""
     if not _geoip_update_lock.acquire(blocking=False):
@@ -3770,7 +3760,7 @@ def record_geo_view(request):
     legacy_archive_file = os.path.join(metrics_dir, 'map_stats_archive.json')
     archive_file = os.path.join(metrics_dir, 'map_stats_archive.jsonl')
 
-    ip = get_client_ip(request)
+    ip = get_ip_address(request) or ''
     is_local = (
         not ip
         or ip.startswith('127.')
